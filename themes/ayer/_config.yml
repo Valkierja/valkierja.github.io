@@ -104,7 +104,7 @@ rss: /atom.xml
 darkmode: true
 
 # 动态背景效果: 0-关闭，1-动态线条(跟随鼠标)
-canvas_bg: 0
+canvas_bg: 1
 
 # 自定义鼠标样式，直接替换/images/mouse.cur文件
 mouse:
@@ -164,7 +164,7 @@ mermaid:
   theme: forest
 
 # 网站成立年份(默认为 2019，若填入年份小于当前年份，则显示为 2018-2019 类似的格式)
-since: 2015
+since: 2020
 
 # ICP备案信息尾部显示
 icp:
@@ -229,16 +229,16 @@ twikoo:
 # 首页广告配置
 # 可以根据需要自行增加ad_3，ad_4...，留空则不显示，建议图片和url不要带ad等关键词，否则可能会被adblock等插件屏蔽
 ads:
-  ad_1:
-    title: 云服务器限时秒杀
-    img: https://pic.imgdb.cn/item/62174b452ab3f51d912a5ccc.jpg
-    url: https://curl.qcloud.com/kvO7hb43
-    width: 300
-  ad_2:
-    title: vultr优惠vps
-    img: https://pic.imgdb.cn/item/62174b452ab3f51d912a5cd7.png
-    url: https://www.vultr.com/?ref=8630075
-    width: 300
+#   ad_1:
+#     title: 云服务器限时秒杀
+#     img: https://pic.imgdb.cn/item/62174b452ab3f51d912a5ccc.jpg
+#     url: https://curl.qcloud.com/kvO7hb43
+#     width: 300
+#   ad_2:
+#     title: vultr优惠vps
+#     img: https://pic.imgdb.cn/item/62174b452ab3f51d912a5cd7.png
+#     url: https://www.vultr.com/?ref=8630075
+#     width: 300
 
 # 网站开启加密访问，密码可设置任何字符
 lock:
