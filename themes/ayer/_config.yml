@@ -4,8 +4,8 @@ menu:
   归档: /archives
   分类: /categories
   标签: /tags
-  旅行: /tags/旅行/
-  摄影: http://shenyu-vip.lofter.com
+  # 旅行: /tags/旅行/
+  # 摄影: http://shenyu-vip.lofter.com
   友链: /friends
   关于我: /2019/about
 
@@ -19,7 +19,7 @@ subtitle:
   startDelay: 1 # 延迟时间
   typeSpeed: 200 # 打字速度
   loop: true # 是否循环
-  backSpeed: 150 # 回退速度
+  backSpeed: 100 # 回退速度
   showCursor: false # 是否显示光标
 
 # 网站图标和侧边栏logo
