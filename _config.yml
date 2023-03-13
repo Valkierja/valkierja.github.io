@@ -105,3 +105,6 @@ deploy:
   type: git
   repository: https://github.com/Valkierja/valkierja.github.io.git
   branch: gh-pages
+
+feed:
+    limit: 0
