@@ -3,18 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 祝獻の巴基力
 subtitle: ''
-description: ''
+description: 计算机软件网络安全信息安全UnityUnrealGameplay安全开发渗透测试
 keywords:
-author: John Doe
-language: en
-timezone: ''
+author: kier Val
+language: zh-cn
+timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://valkierja.github.io
-permalink: :year/:month/:day/:title/
+permalink: :my/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
