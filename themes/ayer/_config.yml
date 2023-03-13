@@ -131,7 +131,7 @@ music:
   # 播放器尺寸类型(1：小尺寸、2：大尺寸)
   type: 1
   id: 1394343240 # 网易云分享的音乐ID(更换音乐请更改此配置项)
-  autoPlay: true # 是否开启自动播放
+  autoPlay: false # 是否开启自动播放
 
 # 访问量统计(不蒜子)
 busuanzi:
@@ -167,16 +167,16 @@ mermaid:
 since: 2020
 
 # ICP备案信息尾部显示
-icp:
-  enable: false
-  url: "https://beian.miit.gov.cn/" # 备案链接
-  text: "浙ICP备88888888" # 备案信息
+# icp:
+#   enable: false
+#   url: "https://beian.miit.gov.cn/" # 备案链接
+#   text: "浙ICP备88888888" # 备案信息
 # 公安备案信息尾部显示
-gongan:
-  enable: false
-  img: /images/beian.png #公安备案图片
-  url: "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=01234567890123" #公安备案链接
-  text: "浙公网安备01234567890123号" #公安备案信息
+# gongan:
+#   enable: false
+#   img: /images/beian.png #公安备案图片
+#   url: "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=01234567890123" #公安备案链接
+#   text: "浙公网安备01234567890123号" #公安备案信息
 
 # 友情链接
 friends_link:
