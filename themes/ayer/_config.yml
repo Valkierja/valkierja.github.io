@@ -179,10 +179,8 @@ since: 2020
 
 # 友情链接
 friends_link:
-  Ayer主题: #网站名称
-  #   #网站地址
+  Ayer主题:
     url: https://github.com/Shen-Yu/hexo-theme-ayer
-  #   #网站图片(可忽略不写)
     img: /images/ayer.png
   # GitHub:
   #   url: https://github.com/Shen-Yu
