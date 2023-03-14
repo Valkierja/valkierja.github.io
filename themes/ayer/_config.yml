@@ -13,7 +13,7 @@ menu:
 # https://github.com/mattboldt/typed.js
 subtitle:
   enable: true # 是否开启动效
-  text: pb jsj dxwkhqwlfdwlrq phwkrg # 显示的文字
+  text: pbjsjdxwkhqwlfdwlrqphwkrg # 显示的文字
   text2: CDB25B41A49C148C7F41 # 滚动播放，如果不需要可以留空
   text3: C1CE448C7BB387115107 # 最多支持三段文字
   startDelay: 1 # 延迟时间
