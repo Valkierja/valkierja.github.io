@@ -238,6 +238,6 @@ twikoo:
 #     width: 300
 
 # 网站开启加密访问，密码可设置任何字符
-# lock:
-#   enable: false
-#   password: 123456
+lock:
+  enable: false
+  password: 123456
