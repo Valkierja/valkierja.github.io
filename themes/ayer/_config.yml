@@ -225,7 +225,7 @@ twikoo:
 
 # 首页广告配置
 # 可以根据需要自行增加ad_3，ad_4...，留空则不显示，建议图片和url不要带ad等关键词，否则可能会被adblock等插件屏蔽
-#ads:
+ads:
 #   ad_1:
 #     title: 云服务器限时秒杀
 #     img: https://pic.imgdb.cn/item/62174b452ab3f51d912a5ccc.jpg
