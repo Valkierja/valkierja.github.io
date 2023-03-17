@@ -2,14 +2,9 @@
 title: 家用路由器0day挖掘笔记（1）MIPS32平台逆向入门指南
 poc: true
 categories:
-  - - 0day
-  - - CTF
-  - - ctf
-    - 二进制
-  - - '%e4%ba%8c%e8%bf%9b%e5%88%b6'
-    - 固件
-  - - 硬件
-tags: []
+  - 信安
+  - CVE复现
+tags: [0day, 路由器, 二进制]
 id: '829'
 date: 2021-09-08 22:28:10
 ---

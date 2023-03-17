@@ -2,8 +2,7 @@
 title: linus的速删链表节点代码
 poc: true
 categories:
-  - - '笔记'
-    - 数据结构
+  - [笔记,课程,数据结构]
 tags: []
 id: '1171'
 date: 2021-09-29 14:50:33
