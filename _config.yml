@@ -104,8 +104,13 @@ deploy:
 feed:
     limit: 0
 
-search:
-  path: search.xml
-  field: post
-  content: true
-  format: all
+#TODO: test
+# search:
+#   path: search.xml
+#   field: post
+#   content: true
+#   format: all
+
+permalink_pinyin:
+  enable: true
+  separator: '-' # default: '-'
