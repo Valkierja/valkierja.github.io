@@ -102,9 +102,7 @@ theme: ayer
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: git
-  repository: https://github.com/Valkierja/valkierja.github.io.git
-  branch: gh-pages
+  type: ''
 
 feed:
     limit: 0
