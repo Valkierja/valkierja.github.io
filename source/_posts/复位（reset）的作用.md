@@ -2,8 +2,7 @@
 title: 复位（reset）的作用
 poc: true
 categories:
-  - - '笔记'
-    - 计组
+  - [笔记,课程,计组]
 tags: []
 id: '1150'
 date: 2021-09-17 17:41:45

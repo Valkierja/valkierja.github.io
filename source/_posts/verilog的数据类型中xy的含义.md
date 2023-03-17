@@ -2,8 +2,7 @@
 title: Verilog的数据类型中x,y的含义
 poc: true
 categories:
-  - - '笔记'
-    - 计组
+  - [笔记,课程,计组]
 tags: []
 id: '1064'
 date: 2021-09-14 22:39:02
