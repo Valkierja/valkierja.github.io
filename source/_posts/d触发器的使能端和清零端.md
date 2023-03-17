@@ -2,7 +2,7 @@
 title: D触发器的使能端和清零端
 poc: true
 categories:
-  - - '%e8%af%be%e7%a8%8b%e7%ac%94%e8%ae%b0'
+  - - '笔记'
     - 计组
 tags: []
 id: '1101'

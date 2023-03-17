@@ -2,7 +2,7 @@
 title: Verilog的数据类型中x,y的含义
 poc: true
 categories:
-  - - '%e8%af%be%e7%a8%8b%e7%ac%94%e8%ae%b0'
+  - - '笔记'
     - 计组
 tags: []
 id: '1064'

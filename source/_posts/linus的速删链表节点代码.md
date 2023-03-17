@@ -2,7 +2,7 @@
 title: linus的速删链表节点代码
 poc: true
 categories:
-  - - '%e8%af%be%e7%a8%8b%e7%ac%94%e8%ae%b0'
+  - - '笔记'
     - 数据结构
 tags: []
 id: '1171'

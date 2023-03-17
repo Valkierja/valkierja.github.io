@@ -2,7 +2,7 @@
 title: (A+B)(A+C)=A+BC如何逆推
 poc: true
 categories:
-  - - '%e8%af%be%e7%a8%8b%e7%ac%94%e8%ae%b0'
+  - - '笔记'
     - 离散
     - 计组
 tags: []

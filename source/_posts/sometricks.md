@@ -3,7 +3,7 @@ title: 大佬教的几个小技巧
 poc: true
 categories:
   - - CTF
-  - - '%e8%af%be%e7%a8%8b%e7%ac%94%e8%ae%b0'
+  - - '笔记'
     - 数据结构
 tags: []
 id: '162'
