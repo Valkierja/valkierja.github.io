@@ -94,15 +94,23 @@ include:
 exclude:
 ignore:
 
-# Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
+
 theme: ayer
 
-# Deployment
-## Docs: https://hexo.io/docs/one-command-deployment
+
 deploy:
   type: ''
 
 feed:
     limit: 0
+
+#TODO: test
+# search:
+#   path: search.xml
+#   field: post
+#   content: true
+#   format: all
+
+permalink_pinyin:
+  enable: true
+  separator: '-' # default: '-'
