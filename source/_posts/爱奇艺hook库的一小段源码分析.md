@@ -2,7 +2,8 @@
 title: 爱奇艺Hook库的一小段源码分析
 poc: true
 categories:
-    - [信息安全, 二进制]
+    - [开发, Windows]
+    - [笔记, 存档]
 tags: []
 id: '1080'
 date: 2021-09-15 16:50:18
