@@ -118,15 +118,15 @@ music:
 busuanzi:
   enable: true
 
-# 友盟cnzz统计(url填js代码src链接)
+
 cnzz:
   enable: false
-  url: https://s9.cnzz.com/z_stat.php?id=1278069914&web_id=1278069914
+  url: ''
 
-# Google Analytics
+
 google_analytics: "G-VJ6HK8QB76"
-# 百度统计
-baidu_analytics: "94622a10d7ffdf84adb7bcb8c29b1c8c"
+
+baidu_analytics: ""
 
 # Mathjax数学公式
 mathjax: false
@@ -153,18 +153,7 @@ friends_link:
   Ayer主题:
     url: https://github.com/Shen-Yu/hexo-theme-ayer
     img: /images/ayer.png
-  # GitHub:
-  #   url: https://github.com/Shen-Yu
-  #   img: /images/github.png
-  # 码云:
-  #   url: https://gitee.com/shen-yu
-  #   img: /images/gitee.png
-  # Hexo官网:
-  #   url: https://hexo.io
-  #   img: /images/hexo.png
-  # Hexo图表插件:
-  #   url: https://github.com/Shen-Yu/hexo-tag-chart
-  #   img: /images/hexo-tag-chart.png
+
 
 # 评论：1、Valine(推荐)；2、Gitalk；3、Twikoo;
 
@@ -194,21 +183,11 @@ twikoo:
   enable: true
   envId: #
 
-# 首页广告配置
-# 可以根据需要自行增加ad_3，ad_4...，留空则不显示，建议图片和url不要带ad等关键词，否则可能会被adblock等插件屏蔽
-ads:
-#   ad_1:
-#     title: 云服务器限时秒杀
-#     img: https://pic.imgdb.cn/item/62174b452ab3f51d912a5ccc.jpg
-#     url: https://curl.qcloud.com/kvO7hb43
-#     width: 300
-#   ad_2:
-#     title: vultr优惠vps
-#     img: https://pic.imgdb.cn/item/62174b452ab3f51d912a5cd7.png
-#     url: https://www.vultr.com/?ref=8630075
-#     width: 300
 
-# 网站开启加密访问，密码可设置任何字符
+ads:
+
+
+
 lock:
   enable: false
   password: 123456
