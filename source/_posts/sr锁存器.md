@@ -30,15 +30,15 @@ R,S极如果输入互斥或信号，则为设置储存内容
 
 如果输入1,1两极信号，则UB
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-66.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053486.png)
 
 ## D锁存器
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-42.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053592.png)
 
 SR锁存器前面加两个与门，E是enable端，D是data
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-43-1024x185.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053654.png)
 
 当E为1，D（输入）和Q（输出）之间就好似透明的
 
@@ -46,26 +46,26 @@ SR锁存器前面加两个与门，E是enable端，D是data
 
 CP信号(Clock Pulse)跳变瞬间变化，C1为时钟端（数字1），是clock的cl的异写
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-44-1024x350.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053562.png)
 
 术语称为，有效沿触发
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-45.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053428.png)
 
 有效沿到来前称为现态，之后称为次态
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-46-1024x619.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053466.png)
 
 两个D锁存器并联后与CLK串联
 
 ## 锁存器和触发器的区别
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-47-1024x570.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053420.png)
 
 ## 三态门
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-52.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053872.png)
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-53.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053386.png)
 
 可以在一条总线上放多个元件而不会信号互扰

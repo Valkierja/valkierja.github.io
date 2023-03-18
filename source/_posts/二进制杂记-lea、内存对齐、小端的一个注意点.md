@@ -55,11 +55,11 @@ return;
 }
 ```
 
-![](https://www.ksroido.art/wp-content/uploads/2021/08/image-9.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056110.png)
 
 也就是说，相邻数组下越界发生的时不是读取到了下一个数组的第一个元素，而是下一个数组的最后一个元素
 
-![](https://www.ksroido.art/wp-content/uploads/2021/08/image-11.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181055415.png)
 
 另外IDA这个小端数据显示方式是
 

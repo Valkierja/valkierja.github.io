@@ -22,7 +22,7 @@ date: 2021-12-09 22:29:22
 
 manjaro默认Vim有插件,双击就可以进去，如果你没有插件那就找找自行路径
 
-![](https://www.ksroido.art/wp-content/uploads/2021/12/image-20.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181101309.png)
 
 进去后是这样的
 

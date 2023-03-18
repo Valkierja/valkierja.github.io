@@ -14,11 +14,11 @@ date: 2021-09-06 17:59:19
 
 查了一圈各种离奇回答都有,看来在需要的时候不太容易找到标准答案,这次一并找到,补个笔记
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-17.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181101133.png)
 
 错误文案示例
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-18-1024x77.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181101079.png)
 
 描述不清,容易理解错误
 

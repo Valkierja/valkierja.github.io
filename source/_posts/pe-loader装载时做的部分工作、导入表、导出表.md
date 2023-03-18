@@ -20,7 +20,7 @@ date: 2021-08-26 10:54:49
 
 对于RVA需要注意的的一点：他是基于装载后内存空间的，而非基于静态文件的，比如
 
-![](https://www.ksroido.art/wp-content/uploads/2021/08/image-31.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056171.png)
 
 从这张图可以看到，.text的RVA为1000h,换句话来说就是AA 401000h ,但是实际上相对于头的静态文件偏移是RAW偏移
 
@@ -38,11 +38,11 @@ date: 2021-08-26 10:54:49
 
 发现静态文件当中\[.radata+8h\]处的数据为20 5Ch
 
-![](https://www.ksroido.art/wp-content/uploads/2021/08/image-32.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056433.png)
 
 这里需要再查RVA 20 5Ch,仍然属于2000h范围,查5Ch偏移
 
-![](https://www.ksroido.art/wp-content/uploads/2021/08/image-33.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056442.png)
 
 正是函数名:MessageBox字符串
 

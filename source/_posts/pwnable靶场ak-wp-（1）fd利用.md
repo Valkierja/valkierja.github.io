@@ -14,7 +14,7 @@ date: 2021-08-30 22:36:05
 
 分析二进制文件fd
 
-![](https://www.ksroido.art/wp-content/uploads/2021/08/image-36.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050197.png)
 
 可以看出需要使用fd0
 
@@ -30,6 +30,6 @@ date: 2021-08-30 22:36:05
 
 翻了一下文档就明白了
 
-![](https://www.ksroido.art/wp-content/uploads/2021/08/image-37.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050137.png)
 
 “from fd”

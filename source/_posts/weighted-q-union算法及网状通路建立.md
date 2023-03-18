@@ -33,4 +33,4 @@ date: 2021-10-14 09:23:41
 
 如果同步增正N+a，那么lg（N+a），递推公式可证，引入权重的树的归并是lg（N）的时间复杂度
 
-![](https://www.ksroido.art/wp-content/uploads/2021/10/image-2-1024x747.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053606.png)

@@ -124,7 +124,7 @@ int main() {
 
 这个函数我的最初实现方式,需要开辟两份空间，总觉得很傻，经过高人指点改成了现在的样子，现在放上一份我最初的代码，以及当时这么写的理由
 
-![](https://www.ksroido.art/wp-content/uploads/2021/04/image-7-1024x249.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056791.png)
 
 假设当前targetNode指向了node(2),接下来的操作是（不分先后）:
 

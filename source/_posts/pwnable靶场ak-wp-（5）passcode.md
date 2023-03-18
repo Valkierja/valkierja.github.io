@@ -22,7 +22,7 @@ date: 2021-09-02 01:07:41
 
 然后会去在scanf下手，但是仔细看会发现（可能不太好看出来；IDA标红了，提示未初始化的局部变量）这里的scanf其实是错误用法，我们实际上不能向这两个int变量输入目标值
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-2.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049489.png)
 
 然后笔者就没辙了2333
 
@@ -62,7 +62,7 @@ r00tk1t师傅的笔记非常让人拓宽眼界
 
 首先，在welcome中，用name覆盖掉passwd1的内容，这个内容覆盖为fflush的GOT地址，由于ebp相同且局部变量堆栈不清空，这种覆盖很好实现
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-3-1024x561.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049231.png)
 
 第二部，scanf做出敏感操作：向fflush写入内容，具体写入的内容是system函数前面的传参指令的地址
 

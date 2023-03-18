@@ -16,7 +16,7 @@ date: 2021-11-23 13:36:39
 
 面试过程记录如下，希望能帮助到打算来面试的小伙伴们
 
-（原载于本人博客：https://www.ksroido.art/nepnep%e4%ba%8c%e8%bf%9b%e5%88%b6%e7%bb%84%e9%9d%a2%e8%af%95%e5%88%86%e4%ba%ab/）
+（原载于本人博客：https://valkierja.github.io/）
 
 ## 正文
 
@@ -100,7 +100,7 @@ WEB中间件为`goahead`
 
 交叉编译环境与qemu-mipsel环境搭建依据笔者之前发表的博客，不赘述
 
-https://www.ksroido.art/%e5%ae%b6%e7%94%a8%e8%b7%af%e7%94%b1%e5%99%a80day%e6%8c%96%e6%8e%98%e7%ac%94%e8%ae%b02/
+
 
 从官网下载固件,然后`binwalk -e`直接提取
 

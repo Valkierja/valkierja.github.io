@@ -99,7 +99,7 @@ now you might notice that we keep axisZ==0.0(float),there are few points need to
 2.  type of arg of AddForce is vector3 ,not vector2;we need to new one vector3
 3.  FixedUpdate() will be called every time game need calculate physic system behavior ,noting that physic system calculation is not related to frame Rendering
 
-![](https://www.ksroido.art/wp-content/uploads/2021/07/image-1.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056118.png)
 
 ok,save your script back to unity
 

@@ -28,29 +28,29 @@ date: 2021-09-04 00:48:41
 
 启动时传参文件路径
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-6.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049313.png)
 
 或者在启动后用file传参
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-7.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049998.png)
 
 `b`下断点，加\*的数字表示地址，不加\*的数字表示函数名（但是实际上C类语言并不允许纯数字的函数名）
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-8.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049878.png)
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-9.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049686.png)
 
 `disassemble`用来反汇编
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-10.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049512.png)
 
 `delete`或者`d`用来删除断点
 
 缺省删除所有断点，可以加参数，删除特定断点
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-11.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049845.png)
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-12.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049696.png)
 
 `info b`查看当前所有断点
 
@@ -58,7 +58,7 @@ date: 2021-09-04 00:48:41
 
 `reg`查看寄存器
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-13-1024x752.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049535.png)
 
 可以看到EAX(RAX)的值是0x6b8b4567
 
@@ -95,13 +95,13 @@ g表示八字节
 
 比如
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-15.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049014.png)
 
   
 
 另外VScode远程调试是真的舒服
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-14-1024x576.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050301.png)
 
 需要改一下最大保存行数
 

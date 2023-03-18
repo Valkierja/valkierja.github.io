@@ -22,7 +22,7 @@ date: 2021-09-01 17:42:32
 
 然后一直下一步就好了
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-1024x576.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053542.png)
 
 ## 补充
 

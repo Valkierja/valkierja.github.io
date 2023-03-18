@@ -43,7 +43,7 @@ date: 2021-08-25 04:34:48
 
 然后笔者这里做了函数名的一些小改动
 
-![](https://www.ksroido.art/wp-content/uploads/2021/08/image-34.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053483.png)
 
 Socket改为fSocket，避免和当代Linux系统函数撞名（webbench是上世纪的项目）
 

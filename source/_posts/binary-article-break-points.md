@@ -30,7 +30,7 @@ CPU在每个指令周期的第一个工作(除例行初始化外)是查看中断
 
 假设现在已经进入了下一周期,则需要进行中断队列判优,大概是这样
 
-![](https://www.ksroido.art/wp-content/uploads/2021/08/image.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181101511.png)
 
 判优算法笔者不清楚,这里oop一下就好,假设使用的函数是foo()就行,
 

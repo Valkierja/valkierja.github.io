@@ -16,7 +16,7 @@ date: 2021-08-24 02:14:20
 
 ![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172057596.png)
 
-![](https://www.ksroido.art/wp-content/uploads/2021/08/image-23.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056031.png)
 
 即使不相同也相近，基本不影响整体效率
 

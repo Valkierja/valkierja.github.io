@@ -22,17 +22,17 @@ date: 2021-08-31 14:21:01
 
 关键参数重命名后如下
 
-![](https://www.ksroido.art/wp-content/uploads/2021/08/image-39.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181055772.png)
 
 注意橙色箭头的ADD，正是这个操作导致IDA误报了数据类型为int，这让我在第一次做这个的时候非常麻烦，其实这里是直接对地址操作，滑套理念，把所有东西都看作是纯粹的DW数据，只是一个纯粹的数字罢了，这样思考就方便理解多了
 
 同时注意红色箭头的后续跟进操作
 
-![](https://www.ksroido.art/wp-content/uploads/2021/08/image-40.png)
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056535.png"  />
 
 xref找到hashcode
 
-![](https://www.ksroido.art/wp-content/uploads/2021/08/image-41.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056185.png)
 
 这里是简单的sum碰撞
 

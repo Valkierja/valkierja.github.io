@@ -22,7 +22,7 @@ Unity开发角色死亡后过一段时间复活,但是有如下问题
 
 先附上一段Unity文档,这个文档解决了我的许多疑问[https://docs.unity3d.com/Manual/Coroutines.html](https://docs.unity3d.com/Manual/Coroutines.html)
 
-![](https://www.ksroido.art/wp-content/uploads/2021/07/image-4-458x1024.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049147.png)
 
 简单来说,枚举迭代被用于多线程通信
 

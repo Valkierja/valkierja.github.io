@@ -26,7 +26,7 @@ date: 2021-08-20 01:33:41
 
 其实这里最重要的一点就是简单CUI程序和Windows窗体程序之间的一个不同点：
 
-![](https://www.ksroido.art/wp-content/uploads/2021/08/image-13.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181052750.png)
 
 回到计算器的例子，用户点击任何按钮都是顺序，次数不定的，这就导致了我前期写函数逻辑，写封装很爽，一写一个爽，但是后期却需要一堆if嵌套判断调用逻辑顺序，同时如果需要加入异常输入检测的话，if数量，层数直接爆炸，完全没法继续写，最终导致重写整个逻辑
 

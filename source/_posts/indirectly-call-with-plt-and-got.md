@@ -17,9 +17,9 @@ FOA,English is not my first language and this is just a note for myself,if you t
 
 ## Main
 
-​​
+​
 
-![](https://www.ksroido.art/wp-content/uploads/2021/10/image-20211028173306045-1024x278.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181057254.png)
 
 Full procedure picture is uploaded
 

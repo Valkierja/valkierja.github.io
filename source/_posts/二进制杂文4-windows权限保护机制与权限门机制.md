@@ -26,7 +26,7 @@ date: 2021-08-09 18:40:55
 
 中断向量表当中的每一个内存单元储存唯一固定的指针,指向唯一固定的dll
 
-![](https://www.ksroido.art/wp-content/uploads/2021/08/image-5.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049935.png)
 
 一旦程序需要调用高权限程序,只能通过这唯一固定的门
 

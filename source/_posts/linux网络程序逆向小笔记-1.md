@@ -10,13 +10,13 @@ id: '813'
 date: 2021-09-08 22:09:48
 ---
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-20.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181100968.png)
 
 socket函数建立连接时，会通过地址族和传输方式自动推算出使用协议，因此第三个参数一般直接写NULL即可
 
 然后是修改纯数字参数
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-21.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181100173.png)
 
 类似这种
 
@@ -26,9 +26,9 @@ socket函数建立连接时，会通过地址族和传输方式自动推算出�
 
 顺便列一下为什么使用枚举
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-22.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181100580.png)
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-23.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181101669.png)
 
 另外，考虑到大部分宏定义的前缀相同，实际上可以写一个插件来确定这些枚举（IDA已经有这样的接口了）
 

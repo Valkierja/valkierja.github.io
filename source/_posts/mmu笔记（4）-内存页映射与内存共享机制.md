@@ -20,7 +20,7 @@ date: 2021-08-24 07:51:55
 
 ![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116497.png)
 
-![](https://www.ksroido.art/wp-content/uploads/2021/08/image-30.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050453.png)
 
 其实是应该这样理解：
 

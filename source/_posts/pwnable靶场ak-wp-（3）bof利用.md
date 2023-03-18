@@ -33,4 +33,4 @@ AAAA....AAAACAFEBABE
 
 字符串低位CAFEBABE储存在栈的高位（ebp栈底之外）
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-1.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053924.png)

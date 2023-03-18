@@ -16,7 +16,7 @@ date: 2021-09-17 16:08:26
 
 异步则是一旦有行为信号输入,则立刻产生对应行为,不等待下一次CLK
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-70.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050367.png)
 
 ## 使能端
 
@@ -24,7 +24,7 @@ date: 2021-09-17 16:08:26
 
 与门可以理解为放行或者封锁
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-67.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050268.png)
 
 上述是好理解，但是错误的做法（尽量不要在CP信号线上增加任何逻辑运算元器件）
 
@@ -34,4 +34,4 @@ date: 2021-09-17 16:08:26
 
 但只需要简单画为En引脚就行
 
-![](https://www.ksroido.art/wp-content/uploads/2021/09/image-69.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050237.png)

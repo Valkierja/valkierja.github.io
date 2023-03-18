@@ -30,7 +30,7 @@ date: 2021-04-19 21:21:35
 
 然后在命令窗口里面输入`bp <APIname>`
 
-![](https://www.ksroido.art/wp-content/uploads/2021/04/image-6-1024x576.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049876.png)
 
 命令窗口如图所示
 

@@ -57,35 +57,35 @@ ret ;然后返回a
 
 下载链接：
 
-https://www.ksroido.art/helloworld/
+（2023年3月18日更新：链接已丢失）
 
 首先来到EP
 
-![](https://www.ksroido.art/wp-content/uploads/2021/05/image-1024x576.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050265.png)
 
 接下来的内容，我们默认两个原则：1. 除非x64dbg标出注释表明当前函数内部包含了大量系统API，或是通过其他迹象表明我们还在\_start函数内部，否则我们会跟进所有call和jmp 2. 如果当前函数不是main,则运行至步出(不然对每个函数的分析都要写这一句话233)
 
 首先遇到`call 0x0040270C`,步入,发现几个辨识度极高的\_start函数会包含的API
 
-![](https://www.ksroido.art/wp-content/uploads/2021/05/image-1.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050686.png)
 
 遇到`call 0x00402524`,步入,发现做了一些看不懂的操作,然后函数就退出了(没有看见调用字符串)
 
 遇到`call 0x004024F4`,发现一个辨识度极高的API`HeapCreate`,继续
 
-![](https://www.ksroido.art/wp-content/uploads/2021/05/image-2.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050884.png)
 
 遇到`call 0x00402367`,发现辨识度极高的API,继续
 
-![](https://www.ksroido.art/wp-content/uploads/2021/05/image-3.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050402.png)
 
 遇到`call 0x00401F0B`,发现`call eax`但实际上并未执行该分支
 
-![](https://www.ksroido.art/wp-content/uploads/2021/05/image-4.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050965.png)
 
 遇到`call 0x00401CB7`,发现一个辨识度极高的API,继续
 
-![](https://www.ksroido.art/wp-content/uploads/2021/05/image-5.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050546.png)
 
 诸如此类,来到call 401000;立即警觉这一辨识度极高的地址
 

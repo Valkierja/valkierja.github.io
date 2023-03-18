@@ -41,13 +41,13 @@ is\_checker被放在bss段，恒0
 
 ![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172115435.png)
 
-![](https://www.ksroido.art/wp-content/uploads/2021/12/image-3-1024x576.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054507.png)
 
-![](https://www.ksroido.art/wp-content/uploads/2021/12/image-4-1024x576.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054586.png)
 
-![](https://www.ksroido.art/wp-content/uploads/2021/12/image-5-1024x576.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054202.png)
 
-![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116672.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054141.png)
 
 所以这里是最简单的ret2，不过！且慢！
 
@@ -81,7 +81,7 @@ b'A'* 40 + p64(0x4017C0)
 
 ## 第二题touch2
 
-![](https://www.ksroido.art/wp-content/uploads/2021/12/image-9.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054785.png)
 
 这里也比较基础
 
@@ -101,9 +101,9 @@ b'A'* 40 + p64(0x4017C0)
 
 这里的cookie是定值
 
-![](https://www.ksroido.art/wp-content/uploads/2021/12/image-12.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181100246.png)
 
-![](https://www.ksroido.art/wp-content/uploads/2021/12/image-13.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054541.png)
 
 ![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116597.png)
 
@@ -125,7 +125,7 @@ payload1 = b'A'* 40 + p64(val_pop_rdi) + p64(0x59b997fa) + p64(0x4017EC)
 
 ![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116905.png)
 
-![](https://www.ksroido.art/wp-content/uploads/2021/12/image-17.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054022.png)
 
 ![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116512.png)
 

@@ -23,11 +23,11 @@ IDA分析错了+一些暂时悬而未决的疑点,故作记录
 
 一个是,貌似文件里面的所有STL函数的第一个参数都是这个
 
-![](https://www.ksroido.art/wp-content/uploads/2022/01/4_BYKE2GQ1KOWLE4V.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050064.png)
 
 然后进去函数后函数会自动覆盖掉arg\[0\],再把所有参数下移4个偏移
 
-![](https://www.ksroido.art/wp-content/uploads/2022/01/PAQT36G3T4UT5KY5T-1024x411.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050278.png)
 
 再退出函数时,会把arg\[0\]再次设为这个值
 
