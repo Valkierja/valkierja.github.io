@@ -2,7 +2,7 @@
 title: Third-person view developing
 poc: true
 categories:
-  - - GamePlay
+  - [开发, GamePlay]
 tags: []
 id: '190'
 date: 2021-07-05 22:19:02

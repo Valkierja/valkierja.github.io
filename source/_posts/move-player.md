@@ -2,7 +2,7 @@
 title: Move Player
 poc: true
 categories:
-  - - GamePlay
+  - [开发, GamePlay]
 tags: []
 id: '177'
 date: 2021-07-03 16:28:09
