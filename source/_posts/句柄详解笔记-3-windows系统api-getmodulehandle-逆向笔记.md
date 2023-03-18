@@ -1,5 +1,5 @@
 ---
-title: 句柄详解笔记 (3) Windows系统API GetModuleHandle 逆向笔记
+title: Windows API (3) GetModuleHandle 逆向
 poc: true
 categories:
   - [信息安全, 二进制]
