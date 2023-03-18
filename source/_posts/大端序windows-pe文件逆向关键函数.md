@@ -2,7 +2,7 @@
 title: 大端序Windows PE文件逆向关键函数
 poc: true
 categories:
-- [信息安全, 二进制]
+  - 黑历史与垃圾
 tags: []
 id: '615'
 date: 2021-08-30 22:54:38
