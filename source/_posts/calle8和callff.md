@@ -2,7 +2,7 @@
 title: 指令集模仿设计笔记 (1) Call(E8)和Call(FF)
 poc: true
 categories:
-  - - 硬件
+  - 硬件
 tags: []
 id: '537'
 date: 2021-08-26 06:46:01

@@ -2,8 +2,7 @@
 title: 开发一个简单blog（无CSS实现；包含撰文，评论等多种功能）
 poc: true
 categories:
-  - [开发, Web]
-  - [黑历史与垃圾]
+  - 黑历史与垃圾
 tags: []
 id: '131'
 date: 2021-07-03 13:04:14
