@@ -3,7 +3,7 @@ title: 关于priority encoder芯片的简单小分析
 poc: true
 categories:
   - - 硬件
-  - - '%e7%a1%ac%e4%bb%b6'
+  - - '硬件'
     - 芯片
 tags: []
 id: '1394'

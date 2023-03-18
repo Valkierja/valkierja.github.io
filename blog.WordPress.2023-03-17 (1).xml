@@ -99,14 +99,14 @@
 	</wp:category>
 		<wp:category>
 		<wp:term_id>8</wp:term_id>
-		<wp:category_nicename><![CDATA[%e7%a1%ac%e4%bb%b6]]></wp:category_nicename>
+		<wp:category_nicename><![CDATA[硬件]]></wp:category_nicename>
 		<wp:category_parent><![CDATA[]]></wp:category_parent>
 		<wp:cat_name><![CDATA[硬件]]></wp:cat_name>
 	</wp:category>
 		<wp:category>
 		<wp:term_id>21</wp:term_id>
 		<wp:category_nicename><![CDATA[%e8%8a%af%e7%89%87]]></wp:category_nicename>
-		<wp:category_parent><![CDATA[%e7%a1%ac%e4%bb%b6]]></wp:category_parent>
+		<wp:category_parent><![CDATA[硬件]]></wp:category_parent>
 		<wp:cat_name><![CDATA[芯片]]></wp:cat_name>
 	</wp:category>
 		<wp:category>
@@ -244,7 +244,7 @@
 		<wp:term>
 		<wp:term_id>8</wp:term_id>
 		<wp:term_taxonomy><![CDATA[category]]></wp:term_taxonomy>
-		<wp:term_slug><![CDATA[%e7%a1%ac%e4%bb%b6]]></wp:term_slug>
+		<wp:term_slug><![CDATA[硬件]]></wp:term_slug>
 		<wp:term_parent><![CDATA[]]></wp:term_parent>
 		<wp:term_name><![CDATA[硬件]]></wp:term_name>
 	</wp:term>
@@ -252,7 +252,7 @@
 		<wp:term_id>21</wp:term_id>
 		<wp:term_taxonomy><![CDATA[category]]></wp:term_taxonomy>
 		<wp:term_slug><![CDATA[%e8%8a%af%e7%89%87]]></wp:term_slug>
-		<wp:term_parent><![CDATA[%e7%a1%ac%e4%bb%b6]]></wp:term_parent>
+		<wp:term_parent><![CDATA[硬件]]></wp:term_parent>
 		<wp:term_name><![CDATA[芯片]]></wp:term_name>
 	</wp:term>
 		<wp:term>
@@ -6742,7 +6742,7 @@
 							</item>
 					<item>
 		<title><![CDATA[image-80]]></title>
-		<link>https://www.ksroido.art/%e7%a7%bb%e4%bd%8d%e7%9a%84%e5%ba%95%e5%b1%82%e7%a1%ac%e4%bb%b6/image-80/</link>
+		<link>https://www.ksroido.art/%e7%a7%bb%e4%bd%8d%e7%9a%84%e5%ba%95%e5%b1%82硬件/image-80/</link>
 		<pubDate>Fri, 17 Sep 2021 09:24:12 +0000</pubDate>
 		<dc:creator><![CDATA[KSroido]]></dc:creator>
 		<guid isPermaLink="false">https://www.ksroido.art/wp-content/uploads/2021/09/image-80.png</guid>
@@ -6779,7 +6779,7 @@
 							</item>
 					<item>
 		<title><![CDATA[image-81]]></title>
-		<link>https://www.ksroido.art/%e7%a7%bb%e4%bd%8d%e7%9a%84%e5%ba%95%e5%b1%82%e7%a1%ac%e4%bb%b6/image-81/</link>
+		<link>https://www.ksroido.art/%e7%a7%bb%e4%bd%8d%e7%9a%84%e5%ba%95%e5%b1%82硬件/image-81/</link>
 		<pubDate>Fri, 17 Sep 2021 09:28:55 +0000</pubDate>
 		<dc:creator><![CDATA[KSroido]]></dc:creator>
 		<guid isPermaLink="false">https://www.ksroido.art/wp-content/uploads/2021/09/image-81.png</guid>
@@ -6816,7 +6816,7 @@
 							</item>
 					<item>
 		<title><![CDATA[image-82]]></title>
-		<link>https://www.ksroido.art/%e7%a7%bb%e4%bd%8d%e7%9a%84%e5%ba%95%e5%b1%82%e7%a1%ac%e4%bb%b6/image-82/</link>
+		<link>https://www.ksroido.art/%e7%a7%bb%e4%bd%8d%e7%9a%84%e5%ba%95%e5%b1%82硬件/image-82/</link>
 		<pubDate>Fri, 17 Sep 2021 09:30:02 +0000</pubDate>
 		<dc:creator><![CDATA[KSroido]]></dc:creator>
 		<guid isPermaLink="false">https://www.ksroido.art/wp-content/uploads/2021/09/image-82.png</guid>
@@ -6853,7 +6853,7 @@
 							</item>
 					<item>
 		<title><![CDATA[image-83]]></title>
-		<link>https://www.ksroido.art/%e7%a7%bb%e4%bd%8d%e7%9a%84%e5%ba%95%e5%b1%82%e7%a1%ac%e4%bb%b6/image-83/</link>
+		<link>https://www.ksroido.art/%e7%a7%bb%e4%bd%8d%e7%9a%84%e5%ba%95%e5%b1%82硬件/image-83/</link>
 		<pubDate>Fri, 17 Sep 2021 09:30:47 +0000</pubDate>
 		<dc:creator><![CDATA[KSroido]]></dc:creator>
 		<guid isPermaLink="false">https://www.ksroido.art/wp-content/uploads/2021/09/image-83.png</guid>
@@ -21167,7 +21167,7 @@ mov eax,eax;</code></pre>
 		<wp:post_type><![CDATA[post]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-										<category domain="category" nicename="%e7%a1%ac%e4%bb%b6"><![CDATA[硬件]]></category>
+										<category domain="category" nicename="硬件"><![CDATA[硬件]]></category>
 						<wp:postmeta>
 		<wp:meta_key><![CDATA[views]]></wp:meta_key>
 		<wp:meta_value><![CDATA[260]]></wp:meta_value>
@@ -23420,7 +23420,7 @@ https://stackoverflow.com/questions/8331456/mixing-pic-and-non-pic-objects-in-a-
 		<wp:post_type><![CDATA[post]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-										<category domain="category" nicename="%e7%a1%ac%e4%bb%b6"><![CDATA[硬件]]></category>
+										<category domain="category" nicename="硬件"><![CDATA[硬件]]></category>
 						<wp:postmeta>
 		<wp:meta_key><![CDATA[views]]></wp:meta_key>
 		<wp:meta_value><![CDATA[271]]></wp:meta_value>
@@ -23937,7 +23937,7 @@ ln -fs  ~/input input
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 										<category domain="category" nicename="uncategorized"><![CDATA[未分类]]></category>
-		<category domain="category" nicename="%e7%a1%ac%e4%bb%b6"><![CDATA[硬件]]></category>
+		<category domain="category" nicename="硬件"><![CDATA[硬件]]></category>
 						<wp:postmeta>
 		<wp:meta_key><![CDATA[views]]></wp:meta_key>
 		<wp:meta_value><![CDATA[289]]></wp:meta_value>
@@ -23996,7 +23996,7 @@ ln -fs  ~/input input
 		<category domain="category" nicename="gameplay"><![CDATA[GamePlay]]></category>
 		<category domain="category" nicename="二进制"><![CDATA[二进制]]></category>
 		<category domain="category" nicename="uncategorized"><![CDATA[未分类]]></category>
-		<category domain="category" nicename="%e7%a1%ac%e4%bb%b6"><![CDATA[硬件]]></category>
+		<category domain="category" nicename="硬件"><![CDATA[硬件]]></category>
 						<wp:postmeta>
 		<wp:meta_key><![CDATA[views]]></wp:meta_key>
 		<wp:meta_value><![CDATA[380]]></wp:meta_value>
@@ -24083,7 +24083,7 @@ ln -fs  ~/input input
 		<wp:post_type><![CDATA[post]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-										<category domain="category" nicename="%e7%a1%ac%e4%bb%b6"><![CDATA[硬件]]></category>
+										<category domain="category" nicename="硬件"><![CDATA[硬件]]></category>
 						<wp:postmeta>
 		<wp:meta_key><![CDATA[views]]></wp:meta_key>
 		<wp:meta_value><![CDATA[324]]></wp:meta_value>
@@ -24463,7 +24463,7 @@ ln -fs  ~/input input
 		<category domain="category" nicename="ctf"><![CDATA[CTF]]></category>
 		<category domain="category" nicename="二进制"><![CDATA[二进制]]></category>
 		<category domain="category" nicename="%e5%9b%ba%e4%bb%b6"><![CDATA[固件]]></category>
-		<category domain="category" nicename="%e7%a1%ac%e4%bb%b6"><![CDATA[硬件]]></category>
+		<category domain="category" nicename="硬件"><![CDATA[硬件]]></category>
 						<wp:postmeta>
 		<wp:meta_key><![CDATA[views]]></wp:meta_key>
 		<wp:meta_value><![CDATA[428]]></wp:meta_value>
@@ -27700,7 +27700,7 @@ https://stackoverflow.com/questions/20131986/why-mips-assembler-has-more-that-on
 		<wp:post_type><![CDATA[post]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-										<category domain="category" nicename="%e7%a1%ac%e4%bb%b6"><![CDATA[硬件]]></category>
+										<category domain="category" nicename="硬件"><![CDATA[硬件]]></category>
 		<category domain="category" nicename="%e8%ae%a1%e7%bb%84"><![CDATA[计组]]></category>
 						<wp:postmeta>
 		<wp:meta_key><![CDATA[views]]></wp:meta_key>
@@ -28598,7 +28598,7 @@ int main()
 							</item>
 					<item>
 		<title><![CDATA[移位的底层硬件]]></title>
-		<link>https://www.ksroido.art/%e7%a7%bb%e4%bd%8d%e7%9a%84%e5%ba%95%e5%b1%82%e7%a1%ac%e4%bb%b6/</link>
+		<link>https://www.ksroido.art/%e7%a7%bb%e4%bd%8d%e7%9a%84%e5%ba%95%e5%b1%82硬件/</link>
 		<pubDate>Fri, 17 Sep 2021 09:31:16 +0000</pubDate>
 		<dc:creator><![CDATA[KSroido]]></dc:creator>
 		<guid isPermaLink="false">https://www.ksroido.art/?p=1134</guid>
@@ -28650,7 +28650,7 @@ int main()
 		<wp:post_modified_gmt><![CDATA[2021-09-17 09:31:16]]></wp:post_modified_gmt>
 		<wp:comment_status><![CDATA[open]]></wp:comment_status>
 		<wp:ping_status><![CDATA[open]]></wp:ping_status>
-		<wp:post_name><![CDATA[%e7%a7%bb%e4%bd%8d%e7%9a%84%e5%ba%95%e5%b1%82%e7%a1%ac%e4%bb%b6]]></wp:post_name>
+		<wp:post_name><![CDATA[%e7%a7%bb%e4%bd%8d%e7%9a%84%e5%ba%95%e5%b1%82硬件]]></wp:post_name>
 		<wp:status><![CDATA[publish]]></wp:status>
 		<wp:post_parent>0</wp:post_parent>
 		<wp:menu_order>0</wp:menu_order>
@@ -31483,7 +31483,7 @@ io.interactive()</code></pre>
 		<wp:is_sticky>0</wp:is_sticky>
 										<category domain="category" nicename="%e5%9b%ba%e4%bb%b6"><![CDATA[固件]]></category>
 		<category domain="category" nicename="%e6%9d%82%e8%b0%88"><![CDATA[杂谈]]></category>
-		<category domain="category" nicename="%e7%a1%ac%e4%bb%b6"><![CDATA[硬件]]></category>
+		<category domain="category" nicename="硬件"><![CDATA[硬件]]></category>
 						<wp:postmeta>
 		<wp:meta_key><![CDATA[_edit_last]]></wp:meta_key>
 		<wp:meta_value><![CDATA[1]]></wp:meta_value>
@@ -33660,7 +33660,7 @@ https://xiaomirom.com/rom/redmi-9-lancelot-global-fastboot-recovery-rom/
 										<category domain="category" nicename="%e5%9b%ba%e4%bb%b6"><![CDATA[固件]]></category>
 		<category domain="category" nicename="uncategorized"><![CDATA[未分类]]></category>
 		<category domain="category" nicename="%e6%9d%82%e8%b0%88"><![CDATA[杂谈]]></category>
-		<category domain="category" nicename="%e7%a1%ac%e4%bb%b6"><![CDATA[硬件]]></category>
+		<category domain="category" nicename="硬件"><![CDATA[硬件]]></category>
 						<wp:postmeta>
 		<wp:meta_key><![CDATA[_oembed_2533d026a26bb6a6eaaf0ef509e4c1f0]]></wp:meta_key>
 		<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
@@ -33975,7 +33975,7 @@ https://xiaomirom.com/rom/redmi-9-lancelot-global-fastboot-recovery-rom/
 		<wp:post_type><![CDATA[post]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-										<category domain="category" nicename="%e7%a1%ac%e4%bb%b6"><![CDATA[硬件]]></category>
+										<category domain="category" nicename="硬件"><![CDATA[硬件]]></category>
 		<category domain="category" nicename="%e8%8a%af%e7%89%87"><![CDATA[芯片]]></category>
 						<wp:postmeta>
 		<wp:meta_key><![CDATA[views]]></wp:meta_key>
