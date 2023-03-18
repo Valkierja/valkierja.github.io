@@ -2,10 +2,8 @@
 title: indirectly CALL with PLT and GOT
 poc: true
 categories:
-  - - '二进制'
-    - RE
-  - - CTF
-    - [信息安全, 二进制]
+  - [信息安全, 二进制]
+
 tags: []
 id: '1256'
 date: 2021-10-28 18:20:57

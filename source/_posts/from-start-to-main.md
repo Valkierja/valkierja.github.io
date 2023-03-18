@@ -2,9 +2,7 @@
 title: 如何从_start函数跟到main函数
 poc: true
 categories:
-  - - CTF
-  - - '二进制'
-    - RE
+  - [信息安全, 二进制, 逆向]
 tags: []
 id: '98'
 date: 2021-05-21 08:09:29

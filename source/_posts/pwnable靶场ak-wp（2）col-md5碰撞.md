@@ -2,7 +2,8 @@
 title: pwnable靶场ak-WP（2）col MD5碰撞
 poc: true
 categories:
-  - - CTF
+  - [信息安全, 二进制]
+  - [笔记,存档]
 tags: []
 id: '620'
 date: 2021-08-31 14:21:01

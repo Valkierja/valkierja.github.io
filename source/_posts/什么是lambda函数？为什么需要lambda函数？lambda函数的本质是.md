@@ -2,7 +2,8 @@
 title: 什么是lambda函数？为什么需要lambda函数？lambda函数的本质是什么？如何正确应用lambda函数？
 poc: true
 categories:
-  - - CTF
+  - [开发]
+  - [杂谈]
 tags: []
 id: '393'
 date: 2021-08-20 04:14:47

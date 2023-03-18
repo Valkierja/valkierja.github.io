@@ -2,9 +2,8 @@
 title: pwnable靶场ak-WP （4）壳逆向 flag
 poc: true
 categories:
-  - - CTF
-  - - CTF
-    - [信息安全, 二进制]
+  - [信息安全, 二进制]
+  - [笔记,存档]
 tags: []
 id: '656'
 date: 2021-09-01 22:30:02

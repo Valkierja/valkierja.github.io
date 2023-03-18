@@ -2,8 +2,10 @@
 title: HP Chromebook 13 G1 安装配置 KALI 2021 双系统
 poc: true
 categories:
-  - - CTF
-tags: []
+  - [信息安全, 二进制]
+  - [开发]
+  - [杂谈]
+tags: [环境配置]
 id: '117'
 date: 2021-05-16 19:43:47
 ---

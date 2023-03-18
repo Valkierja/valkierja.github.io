@@ -2,10 +2,10 @@
 title: 按值传递与引用传递（Function pass by value vs. pass by reference译文）
 poc: true
 categories:
-  - - CTF
-  - - '二进制'
-    - RE
-tags: []
+  - [信息安全, 二进制]
+  - [开发]
+  - [杂谈]
+tags: [cpp]
 id: '15'
 date: 2021-03-24 20:56:10
 ---

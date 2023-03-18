@@ -2,11 +2,9 @@
 title: 重写(override)和重载(overload),extern和virtual
 poc: true
 categories:
-  - - CTF
-  - - GamePlay
-  - - '二进制'
-    - RE
-tags: []
+  - [开发]
+  - [笔记,短笔记]
+tags: [cpp]
 id: '217'
 date: 2021-07-19 00:05:12
 ---

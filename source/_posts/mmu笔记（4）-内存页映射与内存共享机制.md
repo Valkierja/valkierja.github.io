@@ -2,7 +2,8 @@
 title: MMU笔记（4） 内存页映射与内存共享机制
 poc: true
 categories:
-  - - CTF
+  - [开发]
+  - [笔记,短笔记]
 tags: []
 id: '499'
 date: 2021-08-24 07:51:55

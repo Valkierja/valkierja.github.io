@@ -2,7 +2,8 @@
 title: 以消息为导向的有限状态机理念Windows程序设计（汇编） (1) 一些基本知识点、向操作系统注册一个窗口
 poc: true
 categories:
-  - - CTF
+  - [信息安全, 二进制]
+  - [开发, Windows]
 tags: []
 id: '374'
 date: 2021-08-20 01:33:41

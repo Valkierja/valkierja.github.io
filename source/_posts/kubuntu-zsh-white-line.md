@@ -2,10 +2,9 @@
 title: Kubuntu zsh下刷新异常  出现白线
 poc: true
 categories:
-  - - CTF
-  - - GamePlay
-  - - 杂谈
-tags: []
+  - [笔记, 短笔记]
+  - [杂谈]
+tags: [环境配置]
 id: '195'
 date: 2021-07-09 21:40:42
 ---

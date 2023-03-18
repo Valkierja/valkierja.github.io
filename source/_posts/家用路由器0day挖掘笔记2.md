@@ -2,14 +2,9 @@
 title: 家用路由器0day挖掘笔记（2）HTTP协议POST报文与环境配置
 poc: true
 categories:
-  - - 0day
-  - - CTF
-  - - CTF
-    - [信息安全, 二进制]
-  - - '二进制'
-    - 固件
-tags:
-  - 0day
+  - [信息安全, 0day]
+  - [信息安全, 二进制, 固件]
+tags: [0day, 固件, 路由器, 网络, 流量分析]
 id: '883'
 date: 2021-09-10 02:06:12
 ---

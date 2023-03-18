@@ -2,10 +2,9 @@
 title: ld-linux-x86-64 Linux矿机病毒
 poc: true
 categories:
-  - - CTF
-  - - '二进制'
-    - PWN
-tags: []
+  - [信息安全, 二进制]
+  - [杂谈]
+tags: [服务器, 病毒, 挖矿]
 id: '6'
 date: 2021-03-27 17:53:57
 ---

@@ -2,9 +2,8 @@
 title: main和_main节区
 poc: true
 categories:
-  - - CTF
-  - - CTF
-    - [信息安全, 二进制]
+  - [信息安全, 二进制]
+  - [笔记,短笔记]
 tags: []
 id: '679'
 date: 2021-09-02 15:52:02

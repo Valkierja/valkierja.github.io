@@ -2,8 +2,7 @@
 title: readelf的一些用法
 poc: true
 categories:
-  - - '二进制'
-    - PWN
+- [黑历史与垃圾]
 tags: []
 id: '1229'
 date: 2021-10-17 20:31:17

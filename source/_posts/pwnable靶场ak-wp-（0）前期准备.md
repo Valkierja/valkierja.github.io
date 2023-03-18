@@ -2,7 +2,8 @@
 title: pwnable靶场ak-WP （0）前期准备
 poc: true
 categories:
-  - - CTF
+  - [信息安全, 二进制]
+  - [笔记,存档]
 tags: []
 id: '601'
 date: 2021-08-30 18:24:18

@@ -2,10 +2,7 @@
 title: 二进制杂记 lea、内存对齐、小端的一些注意点
 poc: true
 categories:
-  - - CTF
-  - - '二进制'
-    - PWN
-    - RE
+  - [信息安全, 二进制]
 tags: []
 id: '302'
 date: 2021-08-12 02:06:54

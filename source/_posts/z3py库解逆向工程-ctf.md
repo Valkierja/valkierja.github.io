@@ -1,11 +1,10 @@
 ---
-title: Z3py库解逆向工程 CTF
+title: Z3py库解逆向工程题目
 poc: true
 categories:
-  - - CTF
-  - - '二进制'
-    - RE
-tags: []
+  - [信息安全, 二进制, 逆向]
+
+tags: [Z3py]
 id: '331'
 date: 2021-08-17 02:03:51
 ---

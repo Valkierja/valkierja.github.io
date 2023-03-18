@@ -2,8 +2,10 @@
 title: webbench源码分析与程序改进及SOCKS网络协议笔记 （2）什么是socks，Linux平台面向socks编程笔记
 poc: true
 categories:
-  - - CTF
-tags: []
+  - [信息安全, 二进制]
+  - [开发, 网络]
+  - [笔记, 存档]
+tags: [网络, 开源项目]
 id: '578'
 date: 2021-08-29 18:44:50
 ---

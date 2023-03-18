@@ -2,7 +2,8 @@
 title: 以消息为导向的有限状态机理念Windows程序设计笔记（汇编） (2) 内存的内存断点和硬件断点的区别
 poc: true
 categories:
-  - - CTF
+  - [信息安全, 二进制]
+  - [开发, Windows]
 tags: []
 id: '469'
 date: 2021-08-24 03:08:20

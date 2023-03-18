@@ -2,7 +2,8 @@
 title: PE loader如何判断PE文件确实是一个PE文件？
 poc: true
 categories:
-  - - CTF
+  - [开发, Windows]
+  - [笔记,短笔记]
 tags: []
 id: '424'
 date: 2021-08-20 07:36:30

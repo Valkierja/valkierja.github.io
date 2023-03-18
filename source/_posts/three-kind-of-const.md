@@ -1,11 +1,10 @@
 ---
-title: 三个代表与白雪公主
+title: 三种const
 poc: true
 categories:
-  - - CTF
-  - - '二进制'
-    - RE
-tags: []
+  - [开发]
+  - [笔记,短笔记]
+tags: [悬而未决, 需要修改,cpp]
 id: '153'
 date: 2021-07-03 13:02:48
 ---

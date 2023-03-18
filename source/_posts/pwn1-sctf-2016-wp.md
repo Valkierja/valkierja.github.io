@@ -2,9 +2,9 @@
 title: pwn1_sctf_2016 WP
 poc: true
 categories:
-  - - '二进制'
-    - PWN
-tags: []
+  - [信息安全, 二进制]
+  - [笔记,存档]
+tags: [WP]
 id: '1370'
 date: 2022-01-11 15:43:59
 ---

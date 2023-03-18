@@ -2,10 +2,9 @@
 title: X64dbg API断点设置方法以及其他几个小技巧
 poc: true
 categories:
-  - - CTF
-  - - '二进制'
-    - RE
-tags: []
+  - [信息安全, 二进制]
+  - [笔记,短笔记]
+tags: [调试]
 id: '58'
 date: 2021-04-19 21:21:35
 ---

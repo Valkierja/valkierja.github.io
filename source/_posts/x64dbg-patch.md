@@ -2,9 +2,8 @@
 title: x64dbg 保存更改到可执行文件
 poc: true
 categories:
-  - - CTF
-  - - '二进制'
-    - RE
+  - [信息安全, 二进制]
+  - [笔记,短笔记]
 tags: []
 id: '64'
 date: 2021-04-21 20:45:55

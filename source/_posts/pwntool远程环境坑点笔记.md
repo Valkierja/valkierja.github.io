@@ -2,10 +2,9 @@
 title: pwntool远程环境坑点笔记
 poc: true
 categories:
-  - - CTF
-  - - CTF
-    - [信息安全, 二进制]
-tags: []
+  - [信息安全, 二进制]
+  - [笔记,短笔记]
+tags: [环境配置]
 id: '701'
 date: 2021-09-03 22:26:03
 ---

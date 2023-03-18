@@ -2,7 +2,8 @@
 title: 句柄详解笔记 (3) Windows系统API GetModuleHandle 逆向笔记
 poc: true
 categories:
-  - - CTF
+  - [信息安全, 二进制]
+  - [开发, Windows]
 tags: []
 id: '446'
 date: 2021-08-24 01:28:26

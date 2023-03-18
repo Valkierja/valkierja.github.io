@@ -2,9 +2,7 @@
 title: 关于“sp-analysis failed为什么只需要检查、修改出口retn与假出口retn的sp，而无需过分检查中间流程的sp”一问的自问自答
 poc: true
 categories:
-  - - CTF
-  - - '二进制'
-    - RE
+  - [信息安全, 二进制]
 tags: []
 id: '308'
 date: 2021-08-12 02:47:47

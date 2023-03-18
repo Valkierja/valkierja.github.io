@@ -2,8 +2,9 @@
 title: python-exe逆向流程
 poc: true
 categories:
-  - - CTF
-tags: []
+  - [信息安全, 二进制,逆向]
+  - [笔记,短笔记]
+tags: [python,python字节码]
 id: '613'
 date: 2021-08-30 22:50:48
 ---

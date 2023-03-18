@@ -2,7 +2,8 @@
 title: pwnable靶场ak-WP （1）FD利用
 poc: true
 categories:
-  - - CTF
+  - [信息安全, 二进制]
+  - [笔记,存档]
 tags: []
 id: '604'
 date: 2021-08-30 22:36:05

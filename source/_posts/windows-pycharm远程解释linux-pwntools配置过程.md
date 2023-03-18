@@ -2,8 +2,10 @@
 title: Windows PyCharm远程解释Linux PWNtools配置过程
 poc: true
 categories:
-  - - CTF
-tags: []
+  - [开发]
+  - [笔记,短笔记]
+  - [杂谈]
+tags: [环境配置]
 id: '635'
 date: 2021-09-01 17:42:32
 ---

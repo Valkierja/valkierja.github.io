@@ -2,7 +2,8 @@
 title: 以消息为导向的有限状态机理念Windows程序设计笔记（汇编） (3) 窗体程序逆向入手思路
 poc: true
 categories:
-  - - CTF
+  - [信息安全, 二进制]
+  - [开发, Windows]
 tags: []
 id: '471'
 date: 2021-08-24 03:20:24

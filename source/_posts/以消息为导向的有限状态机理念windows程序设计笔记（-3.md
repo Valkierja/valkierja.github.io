@@ -2,7 +2,8 @@
 title: 以消息为导向的有限状态机理念Windows程序设计笔记（汇编） (4) 高效检测状态机某一状态的方法
 poc: true
 categories:
-  - - CTF
+  - [信息安全, 二进制]
+  - [开发, Windows]
 tags: []
 id: '532'
 date: 2021-08-25 11:24:29

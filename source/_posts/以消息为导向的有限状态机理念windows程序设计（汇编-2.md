@@ -2,7 +2,8 @@
 title: 以消息为导向的有限状态机理念Windows程序设计（汇编） (2)三种常见消息处理机制概念及设计
 poc: true
 categories:
-  - - CTF
+  - [信息安全, 二进制]
+  - [开发, Windows]
 tags: []
 id: '416'
 date: 2021-08-20 07:12:27

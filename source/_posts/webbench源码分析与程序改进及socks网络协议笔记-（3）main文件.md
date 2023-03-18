@@ -2,8 +2,10 @@
 title: webbench源码分析与程序改进及SOCKS网络协议笔记 （3）main文件解析
 poc: true
 categories:
-  - - CTF
-tags: []
+  - [信息安全, 二进制]
+  - [开发, 网络]
+  - [笔记, 存档]
+tags: [网络, 开源项目]
 id: '599'
 date: 2021-08-30 18:21:29
 ---

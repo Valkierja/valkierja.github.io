@@ -2,12 +2,15 @@
 title: Windows的一个疑似Bug
 poc: true
 categories:
-  - - CTF
-  - - 杂谈
-tags: []
+  - [杂谈]
+  - [开发, Windows]
+  - [笔记,短笔记]
+tags: [环境配置]
 id: '583'
 date: 2021-08-29 18:33:07
 ---
+
+2023年3月18日更新 解决方法 安装revios 而非标准Windows
 
 可重复性高,坑死我了,个人主观感受是很确定为bug
 

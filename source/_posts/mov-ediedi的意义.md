@@ -2,8 +2,10 @@
 title: mov edi,edi的意义
 poc: true
 categories:
-  - - CTF
-tags: []
+  - [信息安全, 二进制, 逆向]
+  - [开发,Windows]
+  - [笔记, 存档]
+tags: [Windows API]
 id: '456'
 date: 2021-08-24 02:14:20
 ---

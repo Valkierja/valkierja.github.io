@@ -2,10 +2,10 @@
 title: Arch Manjaro KDE 无法创建输入输出后端。未知的协议“tg”
 poc: true
 categories:
-  - - CTF
-    - [信息安全, 二进制]
-  - - 杂谈
-tags: []
+  - [开发, Linux]
+  - [杂谈]
+  - [笔记, 短笔记]
+tags: [环境配置]
 id: '1330'
 date: 2021-12-09 22:29:22
 ---

@@ -2,9 +2,7 @@
 title: 二进制杂文(4) Windows权限保护机制与权限门机制
 poc: true
 categories:
-  - - CTF
-  - - '二进制'
-    - RE
+  - [信息安全, 二进制]
 tags: []
 id: '256'
 date: 2021-08-09 18:40:55

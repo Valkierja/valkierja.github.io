@@ -2,7 +2,8 @@
 title: MMU笔记（3） 对堆I/O过程的多线程优化思路
 poc: true
 categories:
-  - - CTF
+  - [开发]
+  - [笔记,短笔记]
 tags: []
 id: '494'
 date: 2021-08-24 07:02:56

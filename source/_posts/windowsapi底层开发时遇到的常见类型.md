@@ -2,10 +2,9 @@
 title: WindowsAPI底层开发时遇到的常见类型
 poc: true
 categories:
-  - - CTF
-  - - '二进制'
-    - RE
-tags: []
+  - [开发, Windows]
+  - [笔记,短笔记]
+tags: [Windows API]
 id: '278'
 date: 2021-08-10 02:15:55
 ---

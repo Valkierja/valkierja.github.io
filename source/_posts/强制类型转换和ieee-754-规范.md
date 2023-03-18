@@ -2,9 +2,8 @@
 title: 强制类型转换的缺省细节和IEEE 754 规范
 poc: true
 categories:
-  - - CTF
-  - - '二进制'
-    - RE
+  - [信息安全, 二进制]
+  - [开发]
 tags: []
 id: '325'
 date: 2021-08-14 21:58:03
