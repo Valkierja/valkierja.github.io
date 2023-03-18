@@ -2,8 +2,7 @@
 title: 参考文献3 MIPS白皮书 vol.2 chapter.3
 poc: true
 categories:
-  - [信息安全]
-  - [开发]
+
   - [笔记, 存档]
 tags: []
 id: '872'

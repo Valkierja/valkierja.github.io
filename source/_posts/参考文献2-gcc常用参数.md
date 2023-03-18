@@ -2,8 +2,7 @@
 title: 参考文献2 GCC常用参数 GDB常用指令
 poc: true
 categories:
-  - [信息安全]
-  - [开发]
+
   - [笔记, 存档]
 tags: []
 id: '865'
