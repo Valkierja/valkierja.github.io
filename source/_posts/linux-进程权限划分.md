@@ -3,8 +3,8 @@ title: Linux 进程权限划分
 poc: true
 categories:
   - - CTF
-  - - ctf
-    - 二进制
+  - - CTF
+    - [信息安全, 二进制]
 tags: []
 id: '774'
 date: 2021-09-06 17:59:19

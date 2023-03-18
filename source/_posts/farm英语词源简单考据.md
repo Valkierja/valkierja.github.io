@@ -5,8 +5,8 @@ categories:
   - - ACG
   - - '二进制'
     - PWN
-  - - ctf
-    - 二进制
+  - - CTF
+    - [信息安全, 二进制]
   - - 杂谈
 tags: []
 id: '1317'

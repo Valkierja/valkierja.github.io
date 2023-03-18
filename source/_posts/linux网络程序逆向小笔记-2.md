@@ -3,8 +3,8 @@ title: Linux网络程序逆向小笔记 (2)
 poc: true
 categories:
   - - CTF
-  - - ctf
-    - 二进制
+  - - CTF
+    - [信息安全, 二进制]
 tags: []
 id: '821'
 date: 2021-09-08 22:26:28

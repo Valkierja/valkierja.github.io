@@ -3,8 +3,8 @@ title: 转爱奇艺的Hook教程
 poc: true
 categories:
   - - CTF
-  - - ctf
-    - 二进制
+  - - CTF
+    - [信息安全, 二进制]
 tags: []
 id: '1071'
 date: 2021-09-15 16:13:40

@@ -4,8 +4,8 @@ poc: true
 categories:
   - - 0day
   - - CTF
-  - - ctf
-    - 二进制
+  - - CTF
+    - [信息安全, 二进制]
   - - '二进制'
     - 固件
 tags:

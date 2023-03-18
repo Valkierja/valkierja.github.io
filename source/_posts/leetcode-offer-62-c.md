@@ -2,7 +2,7 @@
 title: C++ 循环链表解决约瑟夫环 leetcode 剑指Offer 62
 poc: true
 categories:
-  - [笔记,课程,数据结构]
+  - [笔记,校内,数据结构]
 tags: []
 id: '76'
 date: 2021-04-22 13:54:48

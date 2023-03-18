@@ -2,7 +2,7 @@
 title: weighted q-Union算法及网状通路建立
 poc: true
 categories:
-  - [笔记,课程,数据结构]
+  - [笔记,校内,数据结构]
 
 tags: []
 id: '1217'

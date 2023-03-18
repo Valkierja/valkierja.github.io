@@ -4,8 +4,8 @@ poc: true
 categories:
   - - '二进制'
     - RE
-  - - ctf
-    - 二进制
+  - - CTF
+    - [信息安全, 二进制]
 tags: []
 id: '1256'
 date: 2021-10-28 18:20:57

@@ -2,7 +2,7 @@
 title: 2018 HCTF Warmup
 poc: true
 categories:
-  - - CTF
+  - [信息安全, Web]
 tags: []
 id: '121'
 date: 2021-05-21 20:47:32

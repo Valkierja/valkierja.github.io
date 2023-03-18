@@ -3,8 +3,8 @@ title: pwndbg的笔记汇总(更新中)
 poc: true
 categories:
   - - CTF
-  - - ctf
-    - 二进制
+  - - CTF
+    - [信息安全, 二进制]
 tags: []
 id: '1180'
 date: 2021-10-05 16:58:04

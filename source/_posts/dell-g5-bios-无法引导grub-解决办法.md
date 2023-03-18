@@ -3,8 +3,8 @@ title: DELL G5 BIOS 无法引导grub 解决办法
 poc: true
 categories:
   - - CTF
-  - - ctf
-    - 二进制
+  - - CTF
+    - [信息安全, 二进制]
   - - '二进制'
     - 固件
 tags: []

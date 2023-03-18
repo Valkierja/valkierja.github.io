@@ -3,7 +3,7 @@ title: 开发一个简单blog（无CSS实现；包含撰文，评论等多种功
 poc: true
 categories:
   - - CTF
-  - - ctf
+  - - CTF
     - WEB
 tags: []
 id: '131'

@@ -3,8 +3,8 @@ title: pwnable靶场ak-WP （5）passcode 篡改GOT
 poc: true
 categories:
   - - CTF
-  - - ctf
-    - 二进制
+  - - CTF
+    - [信息安全, 二进制]
 tags: []
 id: '659'
 date: 2021-09-02 01:07:41

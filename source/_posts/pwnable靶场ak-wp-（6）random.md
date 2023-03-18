@@ -3,8 +3,8 @@ title: pwnable靶场ak-WP （6）random
 poc: true
 categories:
   - - CTF
-  - - ctf
-    - 二进制
+  - - CTF
+    - [信息安全, 二进制]
 tags: []
 id: '703'
 date: 2021-09-04 00:48:41
