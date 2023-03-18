@@ -2,7 +2,7 @@
 title: Redmi 9 国行版线刷MIUI12.5欧版
 poc: true
 categories:
-  - - '%e4%ba%8c%e8%bf%9b%e5%88%b6'
+  - - '二进制'
     - 固件
   - - 杂谈
   - - 硬件

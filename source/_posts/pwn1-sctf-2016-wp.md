@@ -2,7 +2,7 @@
 title: pwn1_sctf_2016 WP
 poc: true
 categories:
-  - - '%e4%ba%8c%e8%bf%9b%e5%88%b6'
+  - - '二进制'
     - PWN
 tags: []
 id: '1370'

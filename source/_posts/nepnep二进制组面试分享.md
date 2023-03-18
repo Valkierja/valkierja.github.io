@@ -3,7 +3,7 @@ title: Nepnep二进制组面试分享
 poc: true
 categories:
   - - 0day
-  - - '%e4%ba%8c%e8%bf%9b%e5%88%b6'
+  - - '二进制'
     - 固件
 tags: []
 id: '1275'

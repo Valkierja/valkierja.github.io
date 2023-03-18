@@ -2,7 +2,7 @@
 title: why ebp is empty while gcc compiled with -ggdb  arg(without optimization)
 poc: true
 categories:
-  - - '%e4%ba%8c%e8%bf%9b%e5%88%b6'
+  - - '二进制'
     - PWN
     - RE
 tags: []

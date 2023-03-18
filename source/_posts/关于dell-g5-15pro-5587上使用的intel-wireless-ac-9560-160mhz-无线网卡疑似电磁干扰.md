@@ -2,7 +2,7 @@
 title: 关于DELL G5 15pro 5587上使用的Intel Wireless-AC 9560 160MHz 无线网卡疑似电磁干扰提示
 poc: true
 categories:
-  - - '%e4%ba%8c%e8%bf%9b%e5%88%b6'
+  - - '二进制'
     - 固件
   - - 杂谈
   - - 硬件

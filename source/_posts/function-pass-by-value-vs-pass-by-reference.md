@@ -3,7 +3,7 @@ title: 按值传递与引用传递（Function pass by value vs. pass by referenc
 poc: true
 categories:
   - - CTF
-  - - '%e4%ba%8c%e8%bf%9b%e5%88%b6'
+  - - '二进制'
     - RE
 tags: []
 id: '15'

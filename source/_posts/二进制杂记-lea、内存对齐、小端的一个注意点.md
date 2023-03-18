@@ -3,7 +3,7 @@ title: 二进制杂记 lea、内存对齐、小端的一些注意点
 poc: true
 categories:
   - - CTF
-  - - '%e4%ba%8c%e8%bf%9b%e5%88%b6'
+  - - '二进制'
     - PWN
     - RE
 tags: []

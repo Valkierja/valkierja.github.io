@@ -3,7 +3,7 @@ title: x64dbg 保存更改到可执行文件
 poc: true
 categories:
   - - CTF
-  - - '%e4%ba%8c%e8%bf%9b%e5%88%b6'
+  - - '二进制'
     - RE
 tags: []
 id: '64'

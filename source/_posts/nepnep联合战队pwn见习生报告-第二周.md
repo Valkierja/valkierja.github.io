@@ -2,7 +2,7 @@
 title: Nepnep联合战队PWN见习生报告-第二周
 poc: true
 categories:
-  - - '%e4%ba%8c%e8%bf%9b%e5%88%b6'
+  - - '二进制'
     - PWN
 tags: []
 id: '1291'

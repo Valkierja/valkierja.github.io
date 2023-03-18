@@ -2,7 +2,7 @@
 title: 由引用传参与指针传参调试引出的关于lea,add,inc在流水线,分支预测上的优越性比较
 poc: true
 categories:
-  - - '%e4%ba%8c%e8%bf%9b%e5%88%b6'
+  - - '二进制'
     - RE
 tags: []
 id: '1268'

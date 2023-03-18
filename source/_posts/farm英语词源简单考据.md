@@ -3,7 +3,7 @@ title: Farm(英语)词源简单考据
 poc: true
 categories:
   - - ACG
-  - - '%e4%ba%8c%e8%bf%9b%e5%88%b6'
+  - - '二进制'
     - PWN
   - - ctf
     - 二进制
