@@ -125,7 +125,7 @@ cnzz:
   url: https://s9.cnzz.com/z_stat.php?id=1278069914&web_id=1278069914
 
 # Google Analytics
-google_analytics: ""
+google_analytics: "G-VJ6HK8QB76"
 # 百度统计
 baidu_analytics: ""
 
@@ -148,17 +148,6 @@ mermaid:
 # 网站成立年份(默认为 2019，若填入年份小于当前年份，则显示为 2018-2019 类似的格式)
 since: 2020
 
-# ICP备案信息尾部显示
-# icp:
-#   enable: false
-#   url: "https://beian.miit.gov.cn/" # 备案链接
-#   text: "浙ICP备88888888" # 备案信息
-# 公安备案信息尾部显示
-# gongan:
-#   enable: false
-#   img: /images/beian.png #公安备案图片
-#   url: "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=01234567890123" #公安备案链接
-#   text: "浙公网安备01234567890123号" #公安备案信息
 
 # 友情链接
 friends_link:
