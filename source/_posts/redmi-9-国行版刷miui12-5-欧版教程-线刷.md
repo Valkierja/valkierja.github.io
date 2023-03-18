@@ -23,7 +23,7 @@ date: 2022-01-10 21:29:46
 
 先来张效果图
 
-[![7VRxUO.jpg](https://s4.ax1x.com/2022/01/10/7VRxUO.jpg)](https://imgtu.com/i/7VRxUO)   [![7VRXb6.jpg](https://s4.ax1x.com/2022/01/10/7VRXb6.jpg)](https://imgtu.com/i/7VRXb6)  
+[![7VRxUO.jpg](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181105421.jpeg)](https://imgtu.com/i/7VRxUO)   [![7VRXb6.jpg](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181105483.jpeg)](https://imgtu.com/i/7VRXb6)  
 
 ## 正文
 
@@ -43,7 +43,7 @@ https://c.mi.com/oc/miuidownload/detail?guide=2
 
 下载下来的不一定是最新版,请自行在软件里面检查更新
 
-[![7Vfs6s.png](https://s4.ax1x.com/2022/01/10/7Vfs6s.png)](https://imgtu.com/i/7Vfs6s)  
+[![7Vfs6s.png](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181105545.png)](https://imgtu.com/i/7Vfs6s)  
 
 然后在这里安装驱动, 如果提示安装成功,并不一定意味着真的成功了,检测是否成功的办法后文会说,这里默认已经成功了
 
@@ -60,7 +60,7 @@ https://c.mi.com/oc/miuidownload/detail?guide=2
 
 请务必按上述步骤执行
 
-![](https://s4.ax1x.com/2022/01/10/7VfWkT.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181105159.png)
 
 做完之后再用上面的软件安装一次驱动
 
@@ -142,19 +142,19 @@ https://xiaomirom.com/rom/redmi-9-lancelot-global-fastboot-recovery-rom/
 
 一般选择欧版线刷包最新版即可，如果有其他需求自行选择
 
-![](https://s4.ax1x.com/2022/01/10/7VTgB9.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181105830.png)
 
 下载下来的是TGZ压缩包，自行准备地球人用的解压工具解压即可
 
 解压好的文件夹文件路径会非常长，这会导致官方的刷机软件发生栈溢出报错，请自行修改文件路径，短一些就行，顶级文件夹的名称任意，保证英文路径，无数字无中文无空白符无特殊符号即可
 
-![](https://s4.ax1x.com/2022/01/10/7V7PBj.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181105560.png)
 
 打开前面下载的刷机软件（就是用来安装驱动的那个）
 
 手机关机状态下进入fastboot模式（长按关机和音量减）然后再连接数据线到电脑
 
-[![7V784x.md.png](https://s4.ax1x.com/2022/01/10/7V784x.md.png)](https://imgtu.com/i/7V784x)
+[![7V784x.md.png](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181108046.png)](https://imgtu.com/i/7V784x)
 
 点击加载设备
 

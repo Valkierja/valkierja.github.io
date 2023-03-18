@@ -108,9 +108,9 @@ WEB中间件为`goahead`
 
 首先是chroot之后个人倾向于使用bash而非busybox,所以复制bash的程序本体与动态链接库到对应的相对路径文件夹内,如图
 
-![image-20211120020536342](https://z3.ax1x.com/2021/11/23/opMlPs.png)
+![image-20211120020536342](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181106711.png)
 
-![image-20211120020547985](https://z3.ax1x.com/2021/11/23/opMM5j.png)
+![image-20211120020547985](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181108810.png)
 
 同理,用ldd命令查qemu-mipsel所需要的动态链接库
 
@@ -118,7 +118,7 @@ WEB中间件为`goahead`
 
 总共的内容为这些
 
-![image-20211120020649936](https://z3.ax1x.com/2021/11/23/opM1Gn.png)
+![image-20211120020649936](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181108466.png)
 
 然后再把交叉编译环境output文件夹当中的lib库全部复制到dir816/lib内
 
@@ -135,11 +135,11 @@ ioctl: Function not implemented
 \[goahead\]:E\_LOG   :goahead.c: cannot open pid file  
 goahead.c: cannot open pid file
 
-![image-20211120102926954](https://z3.ax1x.com/2021/11/23/opM32q.png)
+![image-20211120102926954](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181108608.png)
 
 注意到，
 
-![](https://z3.ax1x.com/2021/11/23/opM8x0.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181108565.png)
 
 故创建该文件
 
@@ -149,9 +149,9 @@ goahead.c: cannot open pid file
 
 同理,根据报错log创建几个文件
 
-![image-20211120102950628](https://z3.ax1x.com/2021/11/23/opMtqU.png)
+![image-20211120102950628](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181108944.png)
 
-![image-20211120110536447](https://z3.ax1x.com/2021/11/23/opMdIJ.png)
+![image-20211120110536447](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181108413.png)
 
 然后再次运行,程序跑的就比较久了,输出log中含有大量`Unsupported ioctl: cmd=0x0002`和`Unsupported ioctl: cmd=0x0001`
 
@@ -165,17 +165,17 @@ main函数部分有四五个有return -1的判断语句分支
 
 经过多次动调尝试,具体来说就是这分支会导致退出,其他分支在默认情况下不会导致程序主体退出
 
-![image-20211120103809102](https://z3.ax1x.com/2021/11/23/opMUZF.png)
+![image-20211120103809102](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181108806.png)
 
 可以选择写一个so文件然后LD\_PRELOAD加载,HOOK掉nvram\_bufget函数,但是这里先估且采用动调改寄存器的方式
 
-![image-20211120115153728](https://z3.ax1x.com/2021/11/23/opMExP.png)
+![image-20211120115153728](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181108101.png)
 
-![image-20211120115239266](https://z3.ax1x.com/2021/11/23/opMZKf.png)
+![image-20211120115239266](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181107720.png)
 
 改完这段流程后,网站后台就正常跑起来了
 
-![](https://z3.ax1x.com/2021/11/23/opMaa4.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181107797.png)
 
 ### 进一步信息收集
 
@@ -187,23 +187,23 @@ main函数部分有四五个有return -1的判断语句分支
 
 ### 逆向分析相关模块
 
-![image-20211120110722697](https://z3.ax1x.com/2021/11/23/opM0i9.png)
+![image-20211120110722697](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181107891.png)
 
 通过之前创建文件时的log的字符串`/etc/RAMConfig/tokenid`
 
 搜索后关注到这个回调函数,进去
 
-![image-20211120110802019](https://z3.ax1x.com/2021/11/23/opMBGR.png)
+![image-20211120110802019](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181107349.png)
 
 然后找到这里
 
-![image-20211120110935292](https://z3.ax1x.com/2021/11/23/opMDR1.png)
+![image-20211120110935292](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181107738.png)
 
 通过不带种子的rand生成一个随机数作为token,这点可能有额外价值
 
 关注到`login`全局变量的xref
 
-![image-20211120111123659](https://z3.ax1x.com/2021/11/23/opMrxx.png)
+![image-20211120111123659](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181107291.png)
 
 xref找到这里
 
@@ -215,7 +215,7 @@ xref找到这里
 
 发现这段逻辑
 
-![image-20211120112205930](https://z3.ax1x.com/2021/11/23/opMyM6.png)
+![image-20211120112205930](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181107934.png)
 
 参数赋值流为
 
@@ -223,7 +223,7 @@ HOST\_NAME->v9->v21->v15
 
 HTTP\_HOST->v14->v15
 
-![image-20211120112405776](https://z3.ax1x.com/2021/11/23/opM6sK.png)
+![image-20211120112405776](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181107288.png)
 
 对上述参数的长度没有任何检查
 
@@ -231,9 +231,9 @@ HTTP\_HOST->v14->v15
 
 构造过长的任意字符串会导致这段while循环+if语句错误转到到这一段分支
 
-![image-20211120112601308](https://z3.ax1x.com/2021/11/23/opMcqO.png)
+![image-20211120112601308](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181107405.png)
 
-![image-20211120112653289](https://z3.ax1x.com/2021/11/23/opM2ZD.png)
+![image-20211120112653289](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181107076.png)
 
 而v2是我们在数据包中GET请求可以随意控制的
 
@@ -252,7 +252,7 @@ curl -i -X POST http://192.168.0.1/d_wizard_step1_start.asp -d tokenid=NUM -d 's
 
 此时就进去后台了
 
-![](https://z3.ax1x.com/2021/11/23/opMuVg.png)
+![](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181107029.png)
 
 然后操作一下,就可以把路由器设置覆盖掉
 
@@ -260,7 +260,7 @@ curl -i -X POST http://192.168.0.1/d_wizard_step1_start.asp -d tokenid=NUM -d 's
 
 因此我们在设置覆盖后可以登录路由器后台设置时间日期的模块
 
-![image-20211120113814682](https://z3.ax1x.com/2021/11/23/opMA2t.png)
+![image-20211120113814682](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181107290.png)
 
 这里的a3是可以任意操作的
 

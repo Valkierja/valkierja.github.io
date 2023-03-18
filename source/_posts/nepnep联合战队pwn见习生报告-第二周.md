@@ -69,7 +69,7 @@ is\_checker被放在bss段，恒0
 
 如果需要则会生成
 
-https://z3.ax1x.com/2021/12/03/oaz6qx.png
+![img](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181106463.png)
 
 当然也可以选择强制开启all-canary
 

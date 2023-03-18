@@ -41,6 +41,6 @@ date: 2021-12-04 16:14:09
 
 farm用作集群的含义
 
-[![owTkJ1.png](https://s4.ax1x.com/2021/12/04/owTkJ1.png)](https://imgtu.com/i/owTkJ1)
+[![owTkJ1.png](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181106185.png)](https://imgtu.com/i/owTkJ1)
 
 这里的farm也是集群的含义
