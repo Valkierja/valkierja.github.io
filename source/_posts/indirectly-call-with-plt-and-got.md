@@ -2,8 +2,7 @@
 title: indirectly CALL with PLT and GOT
 poc: true
 categories:
-  - [信息安全, 二进制]
-
+  - 黑历史与垃圾
 tags: []
 id: '1256'
 date: 2021-10-28 18:20:57
