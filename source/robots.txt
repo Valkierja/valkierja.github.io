@@ -7,9 +7,7 @@ Allow: /tags/
 
 Disallow: /assets/
 Disallow: /img/
-Disallow: /js/
-Disallow: /css/
-Disallow: /links/
+
 
 Sitemap: https://valkierja.github.io/sitemap.xml
 Sitemap: https://valkierja.github.io/sitemap.txt

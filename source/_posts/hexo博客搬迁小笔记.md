@@ -6,6 +6,10 @@ categories:
 tags: [悬而未决]
 ---
 
+
+整体没有遇到太多问题, 记录几个不好搜索到的小技巧
+https://i007it.com/2022/05/12/Hexo%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BF%87%E6%B8%B2%E6%9F%93/
+
 ## tag
 
 ```
