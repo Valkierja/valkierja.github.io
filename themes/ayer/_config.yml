@@ -1,4 +1,4 @@
-# 侧边栏菜单
+
 menu:
   主页: /
   归档: /archives
@@ -6,10 +6,7 @@ menu:
   标签: /tags
   友链: /friends
   关于: /about
-  # 旅行: 
-  # 摄影: 
-# 站点次标题和打字动效
-# https://github.com/mattboldt/typed.js
+
 subtitle:
   enable: true # 是否开启动效
   text: pbjsjdxwkhqwlfdwlrqphwkrg # 显示的文字
@@ -32,85 +29,71 @@ cover:
   path: /images/cover1.jpg # /source/images目录下附送多张美图，可更换
   logo: false #/images/ayer.svg，如果不要直接设置成false
 
-# 页面顶部进度条
 progressBar: true
 
-# 告示板模块
 broadcast:
-  enable: true # true开启，false关闭
+  enable: false # true开启，false关闭
   type: 1 # 1：自定义输入，2：一言api(https://hitokoto.cn/)
   text: 抄的别人的博客, 还未完工, 请不要点击任何外链和打赏, 因为这些可能是原作者留下的 # type为1时有效
 
-# 文章配置
-# 文章太长，截断按钮文字(在需要截断的行增加此标记：<!--more-->)
-excerpt_link: 阅读更多...
-# 如果你嫌每篇文章手动加more标记比较麻烦，又不想在首页全文显示，可以把excerpt_all设置成true，这样首页只会显示文章归档
-excerpt_all: false
 
-# 是否开启代码复制按钮
+excerpt_link: 阅读更多...
+
+excerpt_all: true
+
+
 copy_btn: true
-# 是否开启文章分享按钮
+
 share_enable: true
-# 国内的社交平台(If you are not in China, maybe you prefer to set:false)
-share_china: true
-# 文章分享文字
+
+share_china: false
+
 share_text: 分享
 
-# 分页文字
 nav_text:
   page_prev: 上一页
   page_next: 下一页
   post_prev: 上一篇
   post_next: 下一篇
 
-# 文章页是否显示目录
 toc: true
 
-# 文章中的图片是否支持点击放大
 image_viewer: true
 
-# https://github.com/willin/hexo-wordcount
-# 是否开启字数统计(关闭请设置enable为false)
-# 也可以单独在md文件里Front-matter设置`no_word_count: true`属性，来自定义关闭字数统计
+
 word_count:
   enable: true
-  # 只在文章详情显示(不在首页显示)
   only_article_visit: true
 
-# 打赏
-# 打赏type设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏
+
 reward_type: 0
-# 打赏wording
+
 reward_wording: ''
-# 支付宝二维码图片地址，跟你设置logo的方式一样。比如：/images/alipay.jpg
+
 alipay: ''
-# 微信二维码图片地址
+
 weixin: ''
 
-# 版权声明
-# 版权声明type设定：0-关闭版权声明； 1-文章对应的md文件里有copyright: true属性，才有版权声明； 2-所有文章均有版权声明
+
 copyright_type: 2
 
-# 是否启用搜索
-# 需要安装hexo-generator-searchdb(https://github.com/theme-next/hexo-generator-searchdb)
+
 search: true
 
-# RSS订阅(先安装hexo-generator-feed插件，再去博客根目录config进行配置)
-# 不想显示可以直接留空
+
 rss: /atom.xml
 
-# 是否启用黑夜模式开关
+
 darkmode: true
 
-# 动态背景效果: 0-关闭，1-动态线条(跟随鼠标)
+
 canvas_bg: 1
 
-# 自定义鼠标样式，直接替换/images/mouse.cur文件
 mouse:
   enable: false
   path: /images/mouse.cur
 
-# 鼠标点击效果：0-关闭，1-爱心，2-爆炸烟花，3-粒子烟花
+
 click_effect: 0
 
 # 页面宽度自定义（不建议修改，可能造成布局混乱），article_width文章宽度，sidebar_width侧边栏宽度
