@@ -114,3 +114,8 @@ feed:
 permalink_pinyin:
   enable: true
   separator: '-' # default: '-'
+
+sitemap: 
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
