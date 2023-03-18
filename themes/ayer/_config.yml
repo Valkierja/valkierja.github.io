@@ -96,26 +96,25 @@ mouse:
 
 click_effect: 0
 
-# 页面宽度自定义（不建议修改，可能造成布局混乱），article_width文章宽度，sidebar_width侧边栏宽度
+
 layout:
   article_width: 80rem
   sidebar_width: 8rem
 
-# GitHub Ribbons-封面右上角的forkme，换样式直接在source/images目录下替换forkme图片
+
 github:
-  # (关闭请设置为false)
+
   enable: false
   url: https://github.com/Shen-Yu/hexo-theme-ayer
 
-# 网易云音乐插件
+
 music:
   enable: true
-  # 播放器尺寸类型(1：小尺寸、2：大尺寸)
   type: 1
   id: 1394343240 # 网易云分享的音乐ID(更换音乐请更改此配置项)
   autoPlay: false # 是否开启自动播放
 
-# 访问量统计(不蒜子)
+
 busuanzi:
   enable: true
 
