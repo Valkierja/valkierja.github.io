@@ -1,9 +1,9 @@
 ---
-title: hexo的tag和categories
+title: hexo博客搬迁小笔记
 poc: true
 date: 2023-03-17 22:17:27
 categories:
-tags:
+tags: [悬而未决]
 ---
 
 ## tag
