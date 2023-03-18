@@ -2,9 +2,8 @@
 title: 为什么hyper-V和VM conflict
 poc: true
 categories:
-  - - '二进制'
-    - PWN
-tags: []
+  - [笔记, 存档]
+tags: [虚拟化, 环境配置]
 id: '1401'
 date: 2022-03-30 19:08:25
 ---

@@ -2,9 +2,9 @@
 title: pwntools中symbols，plt，got这三个数组的区别
 poc: true
 categories:
-  - - '二进制'
-    - PWN
-tags: []
+  - [信息安全, 二进制]
+  - [笔记, 存档]
+tags: [技巧, pwntools]
 id: '1227'
 date: 2021-10-17 19:59:07
 ---

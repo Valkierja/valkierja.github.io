@@ -2,8 +2,7 @@
 title: and esp, 0FFFFFFF0h的作用
 poc: true
 categories:
-  - - '二进制'
-    - RE
+  - [笔记, 短笔记]
 tags: []
 id: '1198'
 date: 2021-10-08 11:40:13

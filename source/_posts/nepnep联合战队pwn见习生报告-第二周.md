@@ -2,9 +2,9 @@
 title: Nepnep联合战队PWN见习生报告-第二周
 poc: true
 categories:
-  - - '二进制'
-    - PWN
-tags: []
+  - [信息安全, 二进制, PWN]
+  - [笔记, 存档]
+tags: [NepNep]
 id: '1291'
 date: 2021-12-03 21:39:22
 ---

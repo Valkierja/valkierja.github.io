@@ -2,9 +2,10 @@
 title: manjaro KDE 配置pwn环境遇到的问题
 poc: true
 categories:
-  - - '二进制'
-    - PWN
-tags: []
+  - [信息安全, 二进制, PWN]
+  - [开发, Linux]
+  - [笔记, 存档]
+tags: [环境配置]
 id: '1192'
 date: 2021-10-07 13:29:31
 ---
