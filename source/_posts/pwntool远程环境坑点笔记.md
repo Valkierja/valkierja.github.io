@@ -2,8 +2,7 @@
 title: pwntool远程环境坑点笔记
 poc: true
 categories:
-  - [信息安全, 二进制]
-  - [笔记,短笔记]
+  - [笔记, 存档]
 tags: [环境配置]
 id: '701'
 date: 2021-09-03 22:26:03

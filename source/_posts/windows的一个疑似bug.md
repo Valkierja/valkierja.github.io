@@ -2,9 +2,7 @@
 title: Windows的一个疑似Bug
 poc: true
 categories:
-  - [杂谈]
-  - [开发, Windows]
-  - [笔记,短笔记]
+  - [笔记, 存档]
 tags: [环境配置]
 id: '583'
 date: 2021-08-29 18:33:07

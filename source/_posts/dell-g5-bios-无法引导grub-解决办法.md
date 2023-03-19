@@ -2,9 +2,7 @@
 title: DELL G5 BIOS 无法引导grub 解决办法
 poc: true
 categories:
-  - [开发, Linux]
-  - [杂谈]
-  - [笔记, 短笔记]
+  - [笔记, 存档]
 tags: [环境配置]
 id: '1178'
 date: 2021-10-04 20:26:15

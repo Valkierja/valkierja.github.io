@@ -2,7 +2,7 @@
 title: 二十五小时创造一门自然语言(用于魔幻类游戏)
 poc: true
 categories:
-  - - ACG
+  - [杂谈,语言学]
 tags: []
 id: '29'
 date: 2021-04-01 21:58:49

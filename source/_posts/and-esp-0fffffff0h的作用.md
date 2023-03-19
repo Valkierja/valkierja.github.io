@@ -2,7 +2,7 @@
 title: and esp, 0FFFFFFF0h的作用
 poc: true
 categories:
-  - [笔记, 短笔记]
+  - [笔记, 存档]
 tags: []
 id: '1198'
 date: 2021-10-08 11:40:13

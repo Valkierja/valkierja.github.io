@@ -2,8 +2,7 @@
 title: PE loader装载时做的部分工作、导入表、导出表
 poc: true
 categories:
-  - [开发, Windows]
-  - [笔记,短笔记]
+  - [笔记, 存档]
 tags: [PE]
 id: '546'
 date: 2021-08-26 10:54:49

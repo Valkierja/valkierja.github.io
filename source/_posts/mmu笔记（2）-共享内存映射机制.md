@@ -2,8 +2,7 @@
 title: MMU笔记（2） 虚拟内存
 poc: true
 categories:
-  - [开发]
-  - [笔记,短笔记]
+  - [笔记, 存档]
 tags: []
 id: '475'
 date: 2021-08-24 03:25:14

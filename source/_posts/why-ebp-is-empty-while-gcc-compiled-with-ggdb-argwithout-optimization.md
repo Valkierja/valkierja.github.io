@@ -2,9 +2,6 @@
 title: why ebp is empty while gcc compiled with -ggdb  arg(without optimization)
 poc: true
 categories:
-  - [信息安全, 二进制]
-  - [开发, C++]
-  - [笔记, 短笔记]
   - [笔记, 存档]
 tags: [调用约定]
 id: '1195'
