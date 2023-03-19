@@ -2,7 +2,7 @@
 title: 三种const
 poc: true
 categories:
-  - [开发]
+  - [开发,C++]
   - [笔记,短笔记]
 tags: [悬而未决, 需要修改,cpp]
 id: '153'

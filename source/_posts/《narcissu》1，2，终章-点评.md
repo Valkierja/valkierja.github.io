@@ -2,7 +2,8 @@
 title: 《narcissu》1，2，终章 点评
 poc: true
 categories:
-  - - 杂谈
+  - [杂谈, 点评]
+  - [ACG]
 tags: []
 id: '597'
 date: 2021-08-30 17:43:35

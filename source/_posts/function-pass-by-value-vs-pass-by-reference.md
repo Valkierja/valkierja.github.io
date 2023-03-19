@@ -3,7 +3,7 @@ title: 按值传递与引用传递（Function pass by value vs. pass by referenc
 poc: true
 categories:
   - [信息安全, 二进制]
-  - [开发]
+  - [开发,C++]
   - [杂谈]
 tags: [cpp]
 id: '15'
