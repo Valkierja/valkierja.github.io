@@ -160,5 +160,6 @@ $$
 
 ## 投影变换
 
+分为两种投影变换 正交投影(orthographic)和透视投影(perspective)
 
-
+![image-20230410082203555](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304100822603.png)

@@ -99,7 +99,9 @@ theme: ayer
 
 
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/Valkierja/valkierja.github.io.git
+  branch: gh-pages
 
 feed:
     limit: 0
