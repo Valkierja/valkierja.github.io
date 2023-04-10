@@ -124,101 +124,55 @@
 <p>https://github.com/iqiyi/xHook</p>
 <p>编者感觉很多部分的内容写的很好，直接复制了一部分又补充了一部分，充当笔记</p>
 <h2 id="原文摘选">原文摘选</h2>
-<p>静态ELF使用section 组织各个部分，而SHT就是记录各个section的表，主要包括：section
-的类型、在文件中的偏移量、大小、加载到内存后的虚拟内存相对地址、内存中字节的对齐方式等。</p>
+<p>静态ELF使用section 组织各个部分，而SHT就是记录各个section的表，主要包括：section 的类型、在文件中的偏移量、大小、加载到内存后的虚拟内存相对地址、内存中字节的对齐方式等。</p>
 <p>SHT中，与Hook相关的几个节区是</p>
 <ul>
 <li><code>.dynstr</code>：保存了所有的字符串常量信息。</li>
 <li><code>.dynsym</code>：保存了符号（symbol）的信息（符号的类型、起始地址、大小、符号名称在 <code>.dynstr</code> 中的索引编号等）。函数也是一种符号。</li>
 <li><code>.text</code>：程序代码经过编译后生成的机器指令。</li>
-<li><code>.dynamic</code>：供动态链接器使用的各项信息，记录了当前 ELF
-的外部依赖，以及其他各个重要 section 的起始位置等信息。</li>
-<li><code>.got</code>：Global Offset
-Table。用于记录外部调用的入口地址。动态链接器（linker）执行重定位（relocate）操作时，这里会被填入真实的外部调用的绝对地址。</li>
-<li><code>.plt</code>：Procedure Linkage
-Table。外部调用的跳板，主要用于支持 lazy binding
-方式的外部调用重定位。（Android 目前只有 MIPS 架构支持 lazy
-binding）</li>
+<li><code>.dynamic</code>：供动态链接器使用的各项信息，记录了当前 ELF 的外部依赖，以及其他各个重要 section 的起始位置等信息。</li>
+<li><code>.got</code>：Global Offset Table。用于记录外部调用的入口地址。动态链接器（linker）执行重定位（relocate）操作时，这里会被填入真实的外部调用的绝对地址。</li>
+<li><code>.plt</code>：Procedure Linkage Table。外部调用的跳板，主要用于支持 lazy binding 方式的外部调用重定位。（Android 目前只有 MIPS 架构支持 lazy binding）</li>
 <li><code>.rel.plt</code>：对外部函数直接调用的重定位信息。</li>
 <li><code>.rel.dyn</code>：除 <code>.rel.plt</code> 以外的重定位信息。（比如通过全局函数指针来调用外部函数）</li>
 </ul>
-<p><img
-src="https://raw.githubusercontent.com/iqiyi/xHook/master/docs/overview/res/elfpltgot.png" /></p>
-<p>在ELF加载到内存时，各个部分使用segment 组织，一个 segment
-包含了单/复数个 section。ELF 使用 PHT 来记录所有 segment
-的基本信息。主要包括：segment
-的类型、在文件中的偏移量、大小、加载到内存后的虚拟内存相对地址、内存中字节的对齐方式等。</p>
-<p>所有类型为 <code>PT_LOAD</code> 的 segment
-都会被动态链接器（linker）映射（mmap）到内存中。</p>
+<p><img src="https://raw.githubusercontent.com/iqiyi/xHook/master/docs/overview/res/elfpltgot.png" /></p>
+<p>在ELF加载到内存时，各个部分使用segment 组织，一个 segment 包含了单/复数个 section。ELF 使用 PHT 来记录所有 segment 的基本信息。主要包括：segment 的类型、在文件中的偏移量、大小、加载到内存后的虚拟内存相对地址、内存中字节的对齐方式等。</p>
+<p>所有类型为 <code>PT_LOAD</code> 的 segment 都会被动态链接器（linker）映射（mmap）到内存中。</p>
 <p>例：libtest.so 的 PHT：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">caikelun@debian:~$ arm-linux-androideabi-readelf -l ./libtest.so </span><br><span class="line"></span><br><span class="line">Elf file type is DYN (Shared object file)</span><br><span class="line">Entry point 0x0</span><br><span class="line">There are 8 program headers, starting at offset 52</span><br><span class="line"></span><br><span class="line">Program Headers:</span><br><span class="line">  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align</span><br><span class="line">  PHDR           0x000034 0x00000034 0x00000034 0x00100 0x00100 R   0x4</span><br><span class="line">  LOAD           0x000000 0x00000000 0x00000000 0x02604 0x02604 R E 0x1000</span><br><span class="line">  LOAD           0x002e3c 0x00003e3c 0x00003e3c 0x001c8 0x001c8 RW  0x1000</span><br><span class="line">  DYNAMIC        0x002e48 0x00003e48 0x00003e48 0x00118 0x00118 RW  0x4</span><br><span class="line">  NOTE           0x000134 0x00000134 0x00000134 0x000bc 0x000bc R   0x4</span><br><span class="line">  GNU_STACK      0x000000 0x00000000 0x00000000 0x00000 0x00000 RW  0x10</span><br><span class="line">  EXIDX          0x002504 0x00002504 0x00002504 0x00100 0x00100 R   0x4</span><br><span class="line">  GNU_RELRO      0x002e3c 0x00003e3c 0x00003e3c 0x001c4 0x001c4 RW  0x4</span><br><span class="line"></span><br><span class="line"> Section to Segment mapping:</span><br><span class="line">  Segment Sections...</span><br><span class="line">   00     </span><br><span class="line">   01     .note.android.ident .note.gnu.build-id .dynsym .dynstr .hash .gnu.version .gnu.version_d .gnu.version_r .rel.dyn .rel.plt .plt .text .ARM.extab .ARM.exidx </span><br><span class="line">   02     .fini_array .init_array .dynamic .got .data </span><br><span class="line">   03     .dynamic </span><br><span class="line">   04     .note.android.ident .note.gnu.build-id </span><br><span class="line">   05     </span><br><span class="line">   06     .ARM.exidx </span><br><span class="line">   07     .fini_array .init_array .dynamic .got</span><br></pre></td></tr></table></figure>
-<h2 id="连接视图linking-view和执行视图execution-view">连接视图（Linking
-View）和执行视图（Execution View）</h2>
+<h2 id="连接视图linking-view和执行视图execution-view">连接视图（Linking View）和执行视图（Execution View）</h2>
 <ul>
-<li>连接视图：ELF 未被加载到内存执行前，以 section
-为单位的数据组织形式。</li>
+<li>连接视图：ELF 未被加载到内存执行前，以 section 为单位的数据组织形式。</li>
 <li>执行视图：ELF 被加载到内存后，以 segment 为单位的数据组织形式。</li>
 </ul>
-<p>我们关心的 hook
-操作，属于动态形式的内存操作，因此主要关心的是执行视图，即 ELF
-被加载到内存后，ELF 中的数据是如何组织和存放的。</p>
-<p><img
-src="https://raw.githubusercontent.com/iqiyi/xHook/master/docs/overview/res/elfview.png" /></p>
+<p>我们关心的 hook 操作，属于动态形式的内存操作，因此主要关心的是执行视图，即 ELF 被加载到内存后，ELF 中的数据是如何组织和存放的。</p>
+<p><img src="https://raw.githubusercontent.com/iqiyi/xHook/master/docs/overview/res/elfview.png" /></p>
 <h2 id="dynamic-section">.dynamic section</h2>
-<p>这是一个十分重要和特殊的 section，其中包含了 ELF 中其他各个 section
-的内存位置等信息。在执行视图中，总是会存在一个类型为 <code>PT_DYNAMIC</code> 的
-segment，这个 segment 就包含了 .dynamic section 的内容。</p>
-<p>无论是执行 hook
-操作时，还是动态链接器执行动态链接时，都需要通过 <code>PT_DYNAMIC</code> segment
-来找到 .dynamic section 的内存位置，再进一步读取其他各项 section
-的信息。</p>
+<p>这是一个十分重要和特殊的 section，其中包含了 ELF 中其他各个 section 的内存位置等信息。在执行视图中，总是会存在一个类型为 <code>PT_DYNAMIC</code> 的 segment，这个 segment 就包含了 .dynamic section 的内容。</p>
+<p>无论是执行 hook 操作时，还是动态链接器执行动态链接时，都需要通过 <code>PT_DYNAMIC</code> segment 来找到 .dynamic section 的内存位置，再进一步读取其他各项 section 的信息。</p>
 <p>libtest.so 的 .dynamic section：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">caikelun@debian:~$ arm-linux-androideabi-readelf -d ./libtest.so </span><br><span class="line"></span><br><span class="line">Dynamic section at offset 0x2e48 contains 30 entries:</span><br><span class="line">  Tag        Type                         Name/Value</span><br><span class="line"> 0x00000003 (PLTGOT)                     0x3f7c</span><br><span class="line"> 0x00000002 (PLTRELSZ)                   240 (bytes)</span><br><span class="line"> 0x00000017 (JMPREL)                     0xcb8</span><br><span class="line"> 0x00000014 (PLTREL)                     REL</span><br><span class="line"> 0x00000011 (REL)                        0xc78</span><br><span class="line"> 0x00000012 (RELSZ)                      64 (bytes)</span><br><span class="line"> 0x00000013 (RELENT)                     8 (bytes)</span><br><span class="line"> 0x6ffffffa (RELCOUNT)                   3</span><br><span class="line"> 0x00000006 (SYMTAB)                     0x1f0</span><br><span class="line"> 0x0000000b (SYMENT)                     16 (bytes)</span><br><span class="line"> 0x00000005 (STRTAB)                     0x590</span><br><span class="line"> 0x0000000a (STRSZ)                      1201 (bytes)</span><br><span class="line"> 0x00000004 (HASH)                       0xa44</span><br><span class="line"> 0x00000001 (NEEDED)                     Shared library: [libc.so]</span><br><span class="line"> 0x00000001 (NEEDED)                     Shared library: [libm.so]</span><br><span class="line"> 0x00000001 (NEEDED)                     Shared library: [libstdc++.so]</span><br><span class="line"> 0x00000001 (NEEDED)                     Shared library: [libdl.so]</span><br><span class="line"> 0x0000000e (SONAME)                     Library soname: [libtest.so]</span><br><span class="line"> 0x0000001a (FINI_ARRAY)                 0x3e3c</span><br><span class="line"> 0x0000001c (FINI_ARRAYSZ)               8 (bytes)</span><br><span class="line"> 0x00000019 (INIT_ARRAY)                 0x3e44</span><br><span class="line"> 0x0000001b (INIT_ARRAYSZ)               4 (bytes)</span><br><span class="line"> 0x0000001e (FLAGS)                      BIND_NOW</span><br><span class="line"> 0x6ffffffb (FLAGS_1)                    Flags: NOW</span><br><span class="line"> 0x6ffffff0 (VERSYM)                     0xbc8</span><br><span class="line"> 0x6ffffffc (VERDEF)                     0xc3c</span><br><span class="line"> 0x6ffffffd (VERDEFNUM)                  1</span><br><span class="line"> 0x6ffffffe (VERNEED)                    0xc58</span><br><span class="line"> 0x6fffffff (VERNEEDNUM)                 1</span><br><span class="line"> 0x00000000 (NULL)                       0x0</span><br></pre></td></tr></table></figure>
-<h2 id="动态链接器linker"><a
-target="_blank" rel="noopener" href="https://github.com/iqiyi/xHook/blob/master/docs/overview/android_plt_hook_overview.zh-CN.md#%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%99%A8linker"></a>动态链接器（linker）</h2>
+<h2 id="动态链接器linker"><a target="_blank" rel="noopener" href="https://github.com/iqiyi/xHook/blob/master/docs/overview/android_plt_hook_overview.zh-CN.md#%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%99%A8linker"></a>动态链接器（linker）</h2>
 <p>动态链接（比如执行 dlopen）的大致步骤是：</p>
 <ol type="1">
-<li>检查已加载的 ELF 列表。（如果 libtest.so
-已经加载，就不再重复加载了，仅把 libtest.so
-的引用计数加一，然后直接返回。）</li>
-<li>从 libtest.so 的 .dynamic section 中读取 libtest.so 的外部依赖的 ELF
-列表，从此列表中剔除已加载的 ELF，最后得到本次需要加载的 ELF
-完整列表（包括 libtest.so 自身）。</li>
+<li>检查已加载的 ELF 列表。（如果 libtest.so 已经加载，就不再重复加载了，仅把 libtest.so 的引用计数加一，然后直接返回。）</li>
+<li>从 libtest.so 的 .dynamic section 中读取 libtest.so 的外部依赖的 ELF 列表，从此列表中剔除已加载的 ELF，最后得到本次需要加载的 ELF 完整列表（包括 libtest.so 自身）。</li>
 <li>逐个加载列表中的 ELF。加载步骤：
 <ul>
-<li>用 <code>mmap</code> 预留一块足够大的内存，用于后续映射
-ELF。（<code>MAP_PRIVATE</code> 方式）</li>
-<li>读 ELF 的
-PHT，用 <code>mmap</code> 把所有类型为 <code>PT_LOAD</code> 的 segment
-依次映射到内存中。</li>
-<li>从 .dynamic segment 中读取各信息项，主要是各个 section
-的虚拟内存相对地址，然后计算并保存各个 section 的虚拟内存绝对地址。</li>
-<li>执行重定位操作（relocate），这是最关键的一步。重定位信息可能存在于下面的一个或多个
-secion
-中：<code>.rel.plt</code>, <code>.rela.plt</code>, <code>.rel.dyn</code>, <code>.rela.dyn</code>, <code>.rel.android</code>, <code>.rela.android</code>。动态链接器需要逐个处理这些 <code>.relxxx</code> section
-中的重定位诉求。根据已加载的 ELF
-的信息，动态链接器查找所需符号的地址（比如 libtest.so
-的符号 <code>malloc</code>），找到后，将地址值填入 <code>.relxxx</code> 中指明的<strong>目标地址</strong>中，这些“<strong>目标地址</strong>”一般存在于<code>.got</code> 或 <code>.data</code> 中。</li>
+<li>用 <code>mmap</code> 预留一块足够大的内存，用于后续映射 ELF。（<code>MAP_PRIVATE</code> 方式）</li>
+<li>读 ELF 的 PHT，用 <code>mmap</code> 把所有类型为 <code>PT_LOAD</code> 的 segment 依次映射到内存中。</li>
+<li>从 .dynamic segment 中读取各信息项，主要是各个 section 的虚拟内存相对地址，然后计算并保存各个 section 的虚拟内存绝对地址。</li>
+<li>执行重定位操作（relocate），这是最关键的一步。重定位信息可能存在于下面的一个或多个 secion 中：<code>.rel.plt</code>, <code>.rela.plt</code>, <code>.rel.dyn</code>, <code>.rela.dyn</code>, <code>.rel.android</code>, <code>.rela.android</code>。动态链接器需要逐个处理这些 <code>.relxxx</code> section 中的重定位诉求。根据已加载的 ELF 的信息，动态链接器查找所需符号的地址（比如 libtest.so 的符号 <code>malloc</code>），找到后，将地址值填入 <code>.relxxx</code> 中指明的<strong>目标地址</strong>中，这些“<strong>目标地址</strong>”一般存在于<code>.got</code> 或 <code>.data</code> 中。</li>
 <li>ELF 的引用计数加一。</li>
 </ul></li>
-<li>逐个调用列表中 ELF
-的构造函数（constructor），这些构造函数的地址是之前从 .dynamic segment
-中读取到的（类型为 <code>DT_INIT</code> 和 <code>DT_INIT_ARRAY</code>）。各
-ELF 的构造函数是按照依赖关系逐层调用的，先调用被依赖 ELF
-的构造函数，最后调用 libtest.so 自己的构造函数。（ELF
-也可以定义自己的析构函数（destructor），在 ELF 被 unload
-的时候会被自动调用）</li>
+<li>逐个调用列表中 ELF 的构造函数（constructor），这些构造函数的地址是之前从 .dynamic segment 中读取到的（类型为 <code>DT_INIT</code> 和 <code>DT_INIT_ARRAY</code>）。各 ELF 的构造函数是按照依赖关系逐层调用的，先调用被依赖 ELF 的构造函数，最后调用 libtest.so 自己的构造函数。（ELF 也可以定义自己的析构函数（destructor），在 ELF 被 unload 的时候会被自动调用）</li>
 </ol>
 <h2 id="例子">例子</h2>
-<p>#include &lt;inttypes.h&gt; #include &lt;unistd.h&gt; #include
-&lt;stdlib.h&gt; #include &lt;stdio.h&gt; #include &lt;sys/mman.h&gt;
-#include &lt;test.h&gt;</p>
-<p>#define PAGE_START(addr) ((addr) &amp; PAGE_MASK) #define
-PAGE_END(addr) (PAGE_START(addr) + PAGE_SIZE)</p>
-<p>void *my_malloc(size_t size) { printf("%zu bytes memory are allocated
-by libtest.so\n", size); return malloc(size); }</p>
-<p>void hook() { char line[512]; FILE *fp; uintptr_t base_addr = 0;
-uintptr_t addr;</p>
+<p>#include &lt;inttypes.h&gt; #include &lt;unistd.h&gt; #include &lt;stdlib.h&gt; #include &lt;stdio.h&gt; #include &lt;sys/mman.h&gt; #include &lt;test.h&gt;</p>
+<p>#define PAGE_START(addr) ((addr) &amp; PAGE_MASK) #define PAGE_END(addr) (PAGE_START(addr) + PAGE_SIZE)</p>
+<p>void *my_malloc(size_t size) { printf("%zu bytes memory are allocated by libtest.so\n", size); return malloc(size); }</p>
+<p>void hook() { char line[512]; FILE *fp; uintptr_t base_addr = 0; uintptr_t addr;</p>
 <pre><code>//find base address of libtest.so
 if(NULL == (fp = fopen(&quot;/proc/self/maps&quot;, &quot;r&quot;))) return;
 while(fgets(line, sizeof(line), fp))

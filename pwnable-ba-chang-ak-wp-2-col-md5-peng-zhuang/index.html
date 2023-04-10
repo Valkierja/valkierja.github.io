@@ -127,14 +127,12 @@
 <p>连接，ls查看，发现关键文件col，下载回来本地，IDA分析</p>
 <p>关键函数.text:08048494 Check()</p>
 <p>关键参数重命名后如下</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181055772.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181055772.png" /></p>
 <p>注意橙色箭头的ADD，正是这个操作导致IDA误报了数据类型为int，这让我在第一次做这个的时候非常麻烦，其实这里是直接对地址操作，滑套理念，把所有东西都看作是纯粹的DW数据，只是一个纯粹的数字罢了，这样思考就方便理解多了</p>
 <p>同时注意红色箭头的后续跟进操作</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056535.png"  /></p>
 <p>xref找到hashcode</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056185.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056185.png" /></p>
 <p>这里是简单的sum碰撞</p>
 <p>几个容易混的要点，一个地址代表一个字节，一个地址是一个最小单位，一个字节是有操作意义的最小单位，32位总线每次传输一个双字（DWord，四字节），一个双字指针指向一个字节，但代表了四个字节全体</p>
 <p>另外一个很重要的是，大小端的字节序和栈增长方向这两个东西，前者是相对于元素内部的字节顺序，后者相对于元素本身的顺序，后者把元素看作了质点，前者研究系统内部，不能看作是质点</p>

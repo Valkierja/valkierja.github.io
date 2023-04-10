@@ -125,8 +125,7 @@
 <p>PS：在main函数之前的函数可以具体细分为多种类型的函数，本文一律统称为_start函数</p>
 <h2 id="正文">正文</h2>
 <p>首先要明确start函数当中都包含什么内容，然后我们才能意识到当前函数体到底是start还是main</p>
-<p>根据笔者的经验，对于start函数的内容，我们可以首先思考一下，直接使用汇编写成的程序（只含有程序主逻辑）
-，可以运行吗？当然可以；比如：</p>
+<p>根据笔者的经验，对于start函数的内容，我们可以首先思考一下，直接使用汇编写成的程序（只含有程序主逻辑） ，可以运行吗？当然可以；比如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov eax,3</span><br><span class="line">mov ebx,4</span><br><span class="line">add eax,ebx  ;a=a+b</span><br><span class="line">ret ;然后返回a</span><br></pre></td></tr></table></figure>
 <p>那么我们再思考一下，既然主程序可以运行，那么_start函数的作用是什么</p>
 <p>根据笔者自身理解，他们的作用是为程序主逻辑创造一个更好的氛围</p>
@@ -134,44 +133,29 @@
 <p>又或者是拉起一个GUI窗口以便后续资源（比如按钮类，菜单栏类）的加载</p>
 <p>亦或者是经由操作系统内核向MMU通信，告知其“有一个新的程序需要申请堆栈”</p>
 <p>如果是debug版程序，还可能会导入导出与调试相关的文件信息</p>
-<p>诸如此类：1.获取当前运行环境的信息（比如运行平台等）
-2.了解程序需要哪些资源（比如GUI环境等），并向操作系统申请、加载
-3.获取当前程序可能不需要，但有许多程序需要的信息（比如系统时间等），以便不时之需
-4.导入导出调试相关信息，或者是一些检测、处理exception的函数</p>
+<p>诸如此类：1.获取当前运行环境的信息（比如运行平台等） 2.了解程序需要哪些资源（比如GUI环境等），并向操作系统申请、加载 3.获取当前程序可能不需要，但有许多程序需要的信息（比如系统时间等），以便不时之需 4.导入导出调试相关信息，或者是一些检测、处理exception的函数</p>
 <p>主要是以上四大类</p>
 <p>其次我们还需要明确main函数里面有什么</p>
 <p>或者说是，CTF逆向题当中的main函数有什么</p>
-<p>大概率来讲，会有一个输入提示“welcome to XXX CTF”或者是“please input
-your
-flag”等，然后是gets或者cin等函数的调用，然后是一个加密函数（大概率包含xor等位运算），最后是一个cmp，然后结束</p>
-<p>所以一旦看到目标字符串（“welcome to XXX CTF”或者是“please input your
-flag”等）被调用（Xref）就基本可以判断当前call就是main call</p>
+<p>大概率来讲，会有一个输入提示“welcome to XXX CTF”或者是“please input your flag”等，然后是gets或者cin等函数的调用，然后是一个加密函数（大概率包含xor等位运算），最后是一个cmp，然后结束</p>
+<p>所以一旦看到目标字符串（“welcome to XXX CTF”或者是“please input your flag”等）被调用（Xref）就基本可以判断当前call就是main call</p>
 <h3 id="例子">例子</h3>
 <p>下载链接：</p>
 <p>（2023年3月18日更新：链接已丢失）</p>
 <p>首先来到EP</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050265.png" /></p>
-<p>接下来的内容，我们默认两个原则：1.
-除非x64dbg标出注释表明当前函数内部包含了大量系统API，或是通过其他迹象表明我们还在_start函数内部，否则我们会跟进所有call和jmp
-2.
-如果当前函数不是main,则运行至步出(不然对每个函数的分析都要写这一句话233)</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050265.png" /></p>
+<p>接下来的内容，我们默认两个原则：1. 除非x64dbg标出注释表明当前函数内部包含了大量系统API，或是通过其他迹象表明我们还在_start函数内部，否则我们会跟进所有call和jmp 2. 如果当前函数不是main,则运行至步出(不然对每个函数的分析都要写这一句话233)</p>
 <p>首先遇到<code>call 0x0040270C</code>,步入,发现几个辨识度极高的_start函数会包含的API</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050686.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050686.png" /></p>
 <p>遇到<code>call 0x00402524</code>,步入,发现做了一些看不懂的操作,然后函数就退出了(没有看见调用字符串)</p>
 <p>遇到<code>call 0x004024F4</code>,发现一个辨识度极高的API<code>HeapCreate</code>,继续</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050884.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050884.png" /></p>
 <p>遇到<code>call 0x00402367</code>,发现辨识度极高的API,继续</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050402.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050402.png" /></p>
 <p>遇到<code>call 0x00401F0B</code>,发现<code>call eax</code>但实际上并未执行该分支</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050965.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050965.png" /></p>
 <p>遇到<code>call 0x00401CB7</code>,发现一个辨识度极高的API,继续</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050546.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050546.png" /></p>
 <p>诸如此类,来到call 401000;立即警觉这一辨识度极高的地址</p>
 <p>进入后发现messageBoxW,从而找到入口点</p>
  

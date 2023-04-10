@@ -126,46 +126,33 @@
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092156821.png" alt="image-20230409215625787" style="zoom:50%;" /></p>
 <p>也就是相机的变换</p>
 <p>考虑现实生活中的拍照片</p>
-<p>首先需要让被拍摄对象摆好位置(进行model transformation)
-然后让摄影师找个好位置(view transformation)然后拍照(投影 projection)
-合起来简称 MVP变换</p>
+<p>首先需要让被拍摄对象摆好位置(进行model transformation) 然后让摄影师找个好位置(view transformation)然后拍照(投影 projection) 合起来简称 MVP变换</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304091953234.png" alt="image-20230409195313168" style="zoom:50%;" /></p>
 <h3 id="相机定义">相机定义</h3>
 <p>相机的定义如下</p>
 <figure>
-<img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304091955730.png"
-alt="image-20230409195532703" />
-<figcaption aria-hidden="true">image-20230409195532703</figcaption>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304091955730.png" alt="" /><figcaption>image-20230409195532703</figcaption>
 </figure>
 <p>位置, 视方向, 向上方向(因为相机可以绕自身中轴线旋转)</p>
 <h3 id="相对运动">相对运动</h3>
 <p>当相机和其他东西一起以相同方式运动时, 得到的图片不会变化</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092000326.png" alt="image-20230409200004274" style="zoom:67%;" /></p>
-<p>也就是说, 坐标系是一个可以相对的概念, 因此为了讨论方便,
-在讨论视点变换时, 我们认为:</p>
-<p><strong>相机永远处于原点, 相机永远向-z轴看,
-相机永远以y为向上方向</strong></p>
+<p>也就是说, 坐标系是一个可以相对的概念, 因此为了讨论方便, 在讨论视点变换时, 我们认为:</p>
+<p><strong>相机永远处于原点, 相机永远向-z轴看, 相机永远以y为向上方向</strong></p>
 <p>原因是: 相机所在的地方我们视为一个平面, 由x和y轴确立</p>
 <p>相机看向的位置视作纵深位置也就是z轴</p>
 <p>但是为了满足右手坐标系, 纵深位置视作-z轴</p>
-<p>这样就可以让z方向的矩阵的数值为正数, -z轴上的 1
-单位长度向量相当于z轴上的 -1 单位长度向量</p>
+<p>这样就可以让z方向的矩阵的数值为正数, -z轴上的 1 单位长度向量相当于z轴上的 -1 单位长度向量</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092004987.png" alt="image-20230409200405956" style="zoom:50%;" /></p>
 <p>如何把相机设置为上述状态? 方法如下</p>
 <figure>
-<img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092006514.png"
-alt="image-20230409200618485" />
-<figcaption aria-hidden="true">image-20230409200618485</figcaption>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092006514.png" alt="" /><figcaption>image-20230409200618485</figcaption>
 </figure>
 <p>首先位置变换到原点, 然后旋转g和t到-Z和Y</p>
 <p>这样就对齐了具体操作请看下一小节</p>
 <h3 id="相机归位操作">相机归位操作</h3>
-<p>设最终归位所需矩阵为 <span class="math display">\[M = RT\]</span>
-也就说先做平移变换 然后旋转</p>
-<p>其中旋转矩阵 <span class="math display">\[ R = R_g \times
-R_t\]</span></p>
+<p>设最终归位所需矩阵为 <span class="math display">\[M = RT\]</span> 也就说先做平移变换 然后旋转</p>
+<p>其中旋转矩阵 <span class="math display">\[ R = R_g \times R_t\]</span></p>
 <p>首先是平移变换</p>
 <p><span class="math display">\[
 \left[
@@ -178,50 +165,37 @@ R_t\]</span></p>
 \right]
 \]</span></p>
 <p>可以把相机放在原点</p>
-<p>旋转矩阵并不好直接求, 因为我们前面学的公式都是从轴到目标地点的旋转,
-但是我们现在需要的是任意位置旋转到轴</p>
+<p>旋转矩阵并不好直接求, 因为我们前面学的公式都是从轴到目标地点的旋转, 但是我们现在需要的是任意位置旋转到轴</p>
 <p>因此我们可以先求逆矩阵</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092100421.png" alt="image-20230409210031389" style="zoom:50%;" /></p>
 <p>在此之前插入小插曲</p>
 <h4 id="正交矩阵与旋转矩阵">正交矩阵与旋转矩阵</h4>
 <p>正交矩阵判定方法:</p>
-<p>每一列向量的长度等于单位长度, 且各个列向量之间正交(互相垂直),
-由此易得, <strong>旋转矩阵都是正交矩阵</strong></p>
+<p>每一列向量的长度等于单位长度, 且各个列向量之间正交(互相垂直), 由此易得, <strong>旋转矩阵都是正交矩阵</strong></p>
 <p>因为旋转之前的坐标系三个轴之间是正交的, 旋转之后也必然正交</p>
-<p>另外正交矩阵有一个性质,
-<strong>正交矩阵的逆矩阵等于正交矩阵的转置矩阵</strong></p>
-<p>因此, 求顺时针旋转, 或者是求旋转的逆旋转操作,
-都只需要求得原始旋转的逆矩阵, 也就是转置矩阵</p>
+<p>另外正交矩阵有一个性质, <strong>正交矩阵的逆矩阵等于正交矩阵的转置矩阵</strong></p>
+<p>因此, 求顺时针旋转, 或者是求旋转的逆旋转操作, 都只需要求得原始旋转的逆矩阵, 也就是转置矩阵</p>
 <h4 id="另一种旋转公式">另一种旋转公式</h4>
-<p>为了确定一个物体的当前旋转状态, 我们需要三个量,
-这样还可以构建一个该物体的本地坐标系</p>
+<p>为了确定一个物体的当前旋转状态, 我们需要三个量, 这样还可以构建一个该物体的本地坐标系</p>
 <p>因此我们可以得出另一种旋转公式</p>
 <p>该公式起始位置为世界坐标, 结束位置为目标位置</p>
-<p>在此期间, 该物体最初的本地坐标与世界坐标重合, 最终状态下,
-本地坐标不再与世界坐标系重合</p>
+<p>在此期间, 该物体最初的本地坐标与世界坐标重合, 最终状态下, 本地坐标不再与世界坐标系重合</p>
 <p><img src="C:/Users/valkie/AppData/Roaming/Typora/typora-user-images/image-20230409212953343.png" alt="image-20230409212953343" style="zoom:50%;" /></p>
 <p>我们只需要写出目标位置的本地坐标系的三个轴</p>
 <p>前面的笔记说过, 为了新建一个坐标系我们可以用叉乘</p>
 <p>所以得出上图的坐标系</p>
 <p>利用上面的公式可以不需要任何<strong>角度</strong>量的介入而完成旋转</p>
 <p>回到最初的相机归位操作</p>
-<p>我们只需要找到当前相机的本地坐标系,
-就可以轻松找到让他旋转回到世界坐标系的旋转矩阵(求逆,
-也就是求转置即可)</p>
-<p><strong>这样旋转矩阵R和平移矩阵T都有了,
-乘起来就可以得到单一的变换矩阵M 方便后续计算</strong></p>
+<p>我们只需要找到当前相机的本地坐标系, 就可以轻松找到让他旋转回到世界坐标系的旋转矩阵(求逆, 也就是求转置即可)</p>
+<p><strong>这样旋转矩阵R和平移矩阵T都有了, 乘起来就可以得到单一的变换矩阵M 方便后续计算</strong></p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092140226.png" alt="image-20230409214029206" style="zoom:67%;" /></p>
-<p>得到矩阵M 之后, 世界中所有物件都需要做变换M, 这样就可以进行相对运动,
-类似于相对静止</p>
+<p>得到矩阵M 之后, 世界中所有物件都需要做变换M, 这样就可以进行相对运动, 类似于相对静止</p>
 <p>也就是说优先保证相机移到世界坐标系, 然后让其他物件绑定到相机上面</p>
 <p>对所有世界物体做出M变换后就可以开始准备下一阶段了</p>
 <h2 id="投影变换">投影变换</h2>
 <p>分为两种投影变换 正交投影(orthographic)和透视投影(perspective)</p>
 <figure>
-<img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304100822603.png"
-alt="image-20230410082203555" />
-<figcaption aria-hidden="true">image-20230410082203555</figcaption>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304100822603.png" alt="" /><figcaption>image-20230410082203555</figcaption>
 </figure>
  
       <!-- reward -->

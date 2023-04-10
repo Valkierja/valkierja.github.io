@@ -123,26 +123,19 @@
   <h3 id="旋转的逆变换补充笔记">旋转的逆变换补充笔记</h3>
 <p>补充上节课</p>
 <figure>
-<img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304081529156.png"
-alt="image-20230408152934118" />
-<figcaption aria-hidden="true">image-20230408152934118</figcaption>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304081529156.png" alt="" /><figcaption>image-20230408152934118</figcaption>
 </figure>
 <p>旋转变换R的转置矩阵等价于R的逆矩阵R^-1</p>
 <p><strong>也就是说 旋转矩阵求逆只需要转置, 比较简单</strong></p>
 <p>另外: 转置矩阵和逆矩阵相等的话, 称为<strong>正交矩阵</strong></p>
 <h2 id="三维变换">三维变换</h2>
-<p>当一次性应用一个复杂矩阵(而不是连续应用多个简单矩阵)时,
-<strong>先做左上角部分的变化, 再做平移变化</strong>, 也就是说,
-仿射变化的加常数的操作是最后进行的</p>
+<p>当一次性应用一个复杂矩阵(而不是连续应用多个简单矩阵)时, <strong>先做左上角部分的变化, 再做平移变化</strong>, 也就是说, 仿射变化的加常数的操作是最后进行的</p>
 <p>这点类似于高中几何题里面求解解析式时的先后顺序</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304081544365.png" alt="image-20230408154448338" style="zoom:50%;" /></p>
 <h3 id="旋转">旋转</h3>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304081544276.png" alt="image-20230408154400596" style="zoom:50%;" /></p>
 <p>绕谁旋转, 说明他是不变量, 所以绕x旋转x变换因子为1, 其余的同理</p>
-<p>至于为什么y轴的变换是反着的,
-主要原因是xyz这三个方向如果无限写下去(类似于循环移位)是
-xyzxyzxyzxyzxyzxyzxyz, 去掉头尾, 看中间:</p>
+<p>至于为什么y轴的变换是反着的, 主要原因是xyz这三个方向如果无限写下去(类似于循环移位)是 xyzxyzxyzxyzxyzxyzxyz, 去掉头尾, 看中间:</p>
 <p>x叉乘y = z(按照字母表顺序)</p>
 <p>y叉乘z =x(按照字母表顺序)</p>
 <p>但是</p>
@@ -150,23 +143,16 @@ xyzxyzxyzxyzxyzxyzxyz, 去掉头尾, 看中间:</p>
 <p>也就是说, x叉乘z=-y</p>
 <p>这个现象是y旋转与其他两个不相同的本质原因</p>
 <p>弹幕里面说的很好:</p>
-<p>第一种理解方式
-<strong>因为Y轴是Z叉乘X，但计算的时候是先算(矩阵最左上角的)X坐标再算Z坐标，与叉乘顺序相反，所以Y旋转是逆的</strong></p>
-<p>第二种理解方式 <strong>由于旋转默认是逆时针的,
-其他的轴叉乘都是通过逆时针得到第三轴, 只有x和z是顺时针叉乘得到y 和
-叉乘输入值的字母顺序相反</strong></p>
+<p>第一种理解方式 <strong>因为Y轴是Z叉乘X，但计算的时候是先算(矩阵最左上角的)X坐标再算Z坐标，与叉乘顺序相反，所以Y旋转是逆的</strong></p>
+<p>第二种理解方式 <strong>由于旋转默认是逆时针的, 其他的轴叉乘都是通过逆时针得到第三轴, 只有x和z是顺时针叉乘得到y 和 叉乘输入值的字母顺序相反</strong></p>
 <h3 id="绕任意点旋转而非绕原点旋转">绕任意点旋转而非绕原点旋转</h3>
 <p>首先平移到原点, 旋转后,再平移回去</p>
 <p>(把本地坐标系转换成全局坐标系然后执行旋转)</p>
-<h3
-id="罗德里格斯旋转公式还需要额外补充">罗德里格斯旋转公式(还需要额外补充)</h3>
+<h3 id="罗德里格斯旋转公式还需要额外补充">罗德里格斯旋转公式(还需要额外补充)</h3>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304081557869.png" alt="image-20230408155759807" style="zoom:67%;" /></p>
 <p>证明思路</p>
 <figure>
-<img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304082147472.png"
-alt="image-20230408214749359" />
-<figcaption aria-hidden="true">image-20230408214749359</figcaption>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304082147472.png" alt="" /><figcaption>image-20230408214749359</figcaption>
 </figure>
  
       <!-- reward -->

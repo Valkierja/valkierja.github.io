@@ -130,8 +130,7 @@
 <p>来看下面这个声明</p>
 <p><code>Student const&amp; Choose(Student const&amp; a1,Student const&amp; a2 ) const;</code></p>
 <ol type="1">
-<li><code>Student const&amp; Choose</code> 中
-const含义为返回值不可被变更,且返回值只能被赋值给同样被const修饰的指针</li>
+<li><code>Student const&amp; Choose</code> 中 const含义为返回值不可被变更,且返回值只能被赋值给同样被const修饰的指针</li>
 <li>参数当中的const代表这个按引用传递的参数的值在整个函数体当中不可被更改</li>
 <li>函数声明最末尾的const表明这整个函数是只读函数(read-only),这个标记符会帮助编译器检查函数体当中有没有修改任何成员变量的操作,如果有则会报错,同时这个标记符还会帮助其他程序员理解这个函数的功能</li>
 </ol>

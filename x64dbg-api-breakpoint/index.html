@@ -122,8 +122,7 @@
        
   <h1 id="背景">背景</h1>
 <p>在看逆向工程核心原理的时候,文章的示例使用的是OD,但是OD的界面实在是看着不舒服2333,于是自行换用了几乎等价的工具X64dbg进行实验,但是网上x64dbg的资源和教程的数量和质量相比于OD来说实在是太少了</p>
-<p>谷歌搜索<code>X64dbg API断点</code>
-前五篇文章都没能以较便捷的方式解决问题</p>
+<p>谷歌搜索<code>X64dbg API断点</code> 前五篇文章都没能以较便捷的方式解决问题</p>
 <p>于是去翻了一下官方的文档,同时意外的发现官方文档里面总结了许多小技巧,因此一并总结在本文当中</p>
 <h1 id="阅读本文前置知识">阅读本文前置知识</h1>
 <ul>
@@ -133,8 +132,7 @@
 <p>先直接说解决方法,然后在谈一下期间踩得一些坑和走的一些弯路</p>
 <p>首先确定你想要找的API的<strong>正式全名</strong>,例如MessageBoxW</p>
 <p>然后在命令窗口里面输入<code>bp &lt;APIname&gt;</code></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049876.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049876.png" /></p>
 <p>命令窗口如图所示</p>
 <p>这里要注意的是不要用模糊名</p>
 <p>比如<code>MessageBox</code>,<code>messagebox</code>等,(需要严格区分大小写)</p>
@@ -150,8 +148,7 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049876
 <h2 id="其他小技巧">其他小技巧</h2>
 <ul>
 <li><p>在反汇编视图中，按下鼠标中键可将选定的地址复制到剪贴板中。</p></li>
-<li><p>你可以通过重命名"x64dbg.exe"或"x32dbg.exe"为另一个名称，来重命名
-x64dbg 的窗口。这样可以绕过一些反调试检测</p></li>
+<li><p>你可以通过重命名"x64dbg.exe"或"x32dbg.exe"为另一个名称，来重命名 x64dbg 的窗口。这样可以绕过一些反调试检测</p></li>
 <li><p>按 Ctrl+H 可以高亮某个寄存器。</p></li>
 <li><p>双击某个地址，就会进入以该地址为基址的相对寻址模式</p></li>
 </ul>

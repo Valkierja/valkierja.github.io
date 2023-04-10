@@ -118,25 +118,18 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>有的时候，一些相似的网络数据包结构体类型IDA会分析错误，在本例中，sockaddr_in被错误分析为
-sockaddr ，看得很不方便</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053803.png" /></p>
+  <p>有的时候，一些相似的网络数据包结构体类型IDA会分析错误，在本例中，sockaddr_in被错误分析为 sockaddr ，看得很不方便</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053803.png" /></p>
 <p>修改方法还挺简单的（但是有点难以想象是如何保证的，毕竟是字符串匹配）</p>
 <p>在最上面的声明，找到对应的变量</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053629.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053629.png" /></p>
 <p>然后按Y</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053729.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053729.png" /></p>
 <p>直接改名字</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054704.png" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054897.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054704.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054897.png" /></p>
 <p>然后就分析正确了</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054779.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054779.png" /></p>
  
       <!-- reward -->
       

@@ -127,11 +127,9 @@
 <p>这里我不赘述了,毕竟是老题,而且是简单题,wp思路可以看看其他师傅</p>
 <p>这里主要是讲两点</p>
 <p>一个是,貌似文件里面的所有STL函数的第一个参数都是这个</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050064.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050064.png" /></p>
 <p>然后进去函数后函数会自动覆盖掉arg[0],再把所有参数下移4个偏移</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050278.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050278.png" /></p>
 <p>再退出函数时,会把arg[0]再次设为这个值</p>
 <p>这里这两点让我很在意</p>
 <p>但是没有找到合适的说法,编译原理学的比较菜</p>

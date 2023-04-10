@@ -118,124 +118,60 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>关于多态, C++其实是饱受诟病的, JAVA在这点上做的比C++ 好多了,
-因为JAVA有 <span class="citation" data-cites="Override">@Override</span>
-标识符, 这样就不会产生一些隐性的问题</p>
-<p>首先我们先来看第一个问题,
-非纯的虚函数<strong>不应当被使用</strong></p>
+  <p>关于多态, C++其实是饱受诟病的, JAVA在这点上做的比C++ 好多了, 因为JAVA有 <span class="citation" data-cites="Override">@Override</span> 标识符, 这样就不会产生一些隐性的问题</p>
+<p>首先我们先来看第一个问题, 非纯的虚函数<strong>不应当被使用</strong></p>
 <p>看下列例子</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">shape</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">draw</span><span class="params">()</span></span>=<span class="number">0</span>;<span class="comment">//提供接口, 不提供任何实现, 继承时只会继承接口, 不会继承任何底层实现</span></span><br><span class="line">&#125;;<span class="comment">//绘制函数无法对不同的形状给出合理的缺省函数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">plane</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">flyControl</span><span class="params">()</span></span>&#123;<span class="comment">//提供接口, 且提供实现, 继承时会继承接口, 还会继承一个实现</span></span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;<span class="comment">//缺省飞行函数</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">planeA</span>: <span class="keyword">public</span> plane&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="comment">//...继承了飞行函数接口, 和默认实现</span></span><br><span class="line">    <span class="comment">//但是默认实现不适用与A型号的飞机, 程序员可能会忘记重新覆写虚函数接口上的默认实现</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//更好的办法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">plane</span>&#123;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">defaultFly</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">flyControl</span><span class="params">()</span></span>=<span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">planeA</span>: <span class="keyword">public</span> plane&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="comment">//..</span></span><br><span class="line">    <span class="comment">// A型号飞机可以选择通过虚接口调用默认飞行函数(这个是非虚函数, 不会继承接口, 只会继承实现), 也可以选择自己继承接口后,自己实现</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>也就是说, 要么继承接口, 要么继承实现,
-如果你需要为虚函数接口提供默认实现, 请把他们分开,
-分成一个protected非虚函数, 和一个纯虚的接口,
-不要混合成一个单一的非纯虚函数。</p>
-<p>第二个我们需要讨论的问题是public继承， 我们说：
-public继承就必然意味着 is-a关系， 这样的关系意味着，
-在继承树上的移动有一定的必然性： 比如 一个函数接收base对象，
-那么这个函数就必须也能保持一致性的同时正确接受derived对象，
-因为derived虽然和base有一定的不同之处， 但是所有base含有的性质，
-他都应当满足， 因此 反过来说， 需要一个derived对象的函数，
-不一定能够成功接受base对象，
-因为这个函数可能是进行derived特有的操作，也可能是进行base对象共有的操作，
-也就是说， 向上移动的类型变换是安全的</p>
-<p>这里额外插一嘴， 继承树的样子和我们平常数据结构的树不太一样，
-唯一区别就是指针方向， 数据结构里面的树， 指针方向是从根节点到叶子节点，
-继承树则是从叶子节点一层层往上， 指向根节点也就是基类</p>
+<p>也就是说, 要么继承接口, 要么继承实现, 如果你需要为虚函数接口提供默认实现, 请把他们分开, 分成一个protected非虚函数, 和一个纯虚的接口, 不要混合成一个单一的非纯虚函数。</p>
+<p>第二个我们需要讨论的问题是public继承， 我们说： public继承就必然意味着 is-a关系， 这样的关系意味着， 在继承树上的移动有一定的必然性： 比如 一个函数接收base对象， 那么这个函数就必须也能保持一致性的同时正确接受derived对象， 因为derived虽然和base有一定的不同之处， 但是所有base含有的性质， 他都应当满足， 因此 反过来说， 需要一个derived对象的函数， 不一定能够成功接受base对象， 因为这个函数可能是进行derived特有的操作，也可能是进行base对象共有的操作， 也就是说， 向上移动的类型变换是安全的</p>
+<p>这里额外插一嘴， 继承树的样子和我们平常数据结构的树不太一样， 唯一区别就是指针方向， 数据结构里面的树， 指针方向是从根节点到叶子节点， 继承树则是从叶子节点一层层往上， 指向根节点也就是基类</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071532976.png" alt="image-20230320155558413" style="zoom:50%;" /></p>
-<p>如果有这样的继承关系 A&lt;-B&lt;-C 现在有一个B指针 指向C类型的实体,
-那么无论把这个指针转换成A类型, 是可以用static_cast的, 这是安全的</p>
-<p>这里的B是静态类型, 也就是声明类型, C是动态类型,
-但是这里要变成多态还需要一个前提, 那就是虚函数, 虚函数相当于接口,
-一个没有实现的接口(有实现的接口我们已经讨论过了, 那是一个不良实现)</p>
+<p>如果有这样的继承关系 A&lt;-B&lt;-C 现在有一个B指针 指向C类型的实体, 那么无论把这个指针转换成A类型, 是可以用static_cast的, 这是安全的</p>
+<p>这里的B是静态类型, 也就是声明类型, C是动态类型, 但是这里要变成多态还需要一个前提, 那就是虚函数, 虚函数相当于接口, 一个没有实现的接口(有实现的接口我们已经讨论过了, 那是一个不良实现)</p>
 <p>查看以下例子 请手动添加virtual 作为例二</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">     <span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;<span class="comment">//手动添加virtual 作为例二, 下同</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;A&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B1</span>: <span class="keyword">public</span> A&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">     <span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;B1&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B2</span> : <span class="keyword">public</span> A &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">     <span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;B2&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> : <span class="keyword">public</span> B1,<span class="keyword">public</span> B2 &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">     <span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;C&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    B1* b1ptr = <span class="keyword">new</span> <span class="built_in">C</span>(); <span class="comment">//b1ptr预期接受一个B1(base)对象, 所以它应当也接受C对象(derived)</span></span><br><span class="line">    <span class="comment">//C* cptr = new B1();//cptr预期接受一个C(derived)对象, 所以它不应当也接受B对象(base) 编译错误</span></span><br><span class="line">    b1ptr-&gt;<span class="built_in">foo</span>();</span><br><span class="line">    A* aptr = <span class="built_in">static_cast</span>&lt;A*&gt;(b1ptr);<span class="comment">//例二中修改为dynamic_cast</span></span><br><span class="line">    aptr-&gt;<span class="built_in">foo</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>在没有virtual的时候 程序输出与静态类型 也就是声明类型唯一相关</p>
-<p>这叫做<strong>早绑定</strong>, 使用的函数在编译时就已经确定了,
-程序输出如下</p>
+<p>这叫做<strong>早绑定</strong>, 使用的函数在编译时就已经确定了, 程序输出如下</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">B1</span><br><span class="line">A</span><br></pre></td></tr></table></figure>
 <p>如果使用例二, 输出为</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C</span><br><span class="line">C</span><br></pre></td></tr></table></figure>
-<p>也就是说, 输出结果与静态类型毫无关系, 只与实际类型有关最开头的部分,
-我们实例化了C类型的对象, 我们在后面调用的函数就会去C的虚表中查找,
-这种查找发生在运行是, 也叫做<strong>动态绑定</strong></p>
+<p>也就是说, 输出结果与静态类型毫无关系, 只与实际类型有关最开头的部分, 我们实例化了C类型的对象, 我们在后面调用的函数就会去C的虚表中查找, 这种查找发生在运行是, 也叫做<strong>动态绑定</strong></p>
 <p>接下来就讲到了最重要的地方了, 各种类型转换</p>
-<p>与其讲解各种类型转换的表现形式, 我更想要根据上面所讲的内容,
-来告诉读者各种类型转换使用时的内在逻辑</p>
+<p>与其讲解各种类型转换的表现形式, 我更想要根据上面所讲的内容, 来告诉读者各种类型转换使用时的内在逻辑</p>
 <p>继承树类似下图:</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303201727745.png" alt="image-20230320172711723" style="zoom:80%;" /></p>
-<p>我主要想说明的是, 问题的关键是最下面的derived class到最上面的base
-class之间有多条路径的情况</p>
+<p>我主要想说明的是, 问题的关键是最下面的derived class到最上面的base class之间有多条路径的情况</p>
 <p>我们可以想象这样一种情形</p>
 <figure>
-<img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303201729237.png"
-alt="image-20230320172936207" />
-<figcaption aria-hidden="true">image-20230320172936207</figcaption>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303201729237.png" alt="" /><figcaption>image-20230320172936207</figcaption>
 </figure>
-<p>在B1和C中间有一种类型,暂时称之为X,
-我们这里已经生成了一个动态类型为C的对象, 根据前文所说,
-接受base实体的函数foo应当接受derived实体</p>
+<p>在B1和C中间有一种类型,暂时称之为X, 我们这里已经生成了一个动态类型为C的对象, 根据前文所说, 接受base实体的函数foo应当接受derived实体</p>
 <p>但是实际情况呢?</p>
-<p>实际上我们直接把这个静态类型为B1的指针丢给上述函数是不安全的,
-因为我们虽然已经知道了他的动态类型为C, 但是有一种可能,
-这个B1指针实际上指向的类型也可以是Y, Y类型是B1和X之间的一个类型,
-也就是说, Y是B1的继承类, 而且是X的基类, foo函数接受X和他的继承类,
-但是不应当接受X的基类, 因为X的基类可能完成不了X的工作</p>
-<p>因此我们就需要对指针B1进行转换, 将它转换为类型X(或者是X的继承类)
-然后再把"新的"这个指针交给foo函数</p>
-<p>这里其实有很多知识点, 第一点是这个所谓的 "新的"
-实际上这个指针的值没有改变, 指向的对象内容也没有改变,
-他只是变换了自己的静态类型 和解释方式, 也就是说,
-原本的指针被允许解释为B1类型, 或者是B1的继承类,
-但是需求的指针是B1的继承类X和X的继承类, 也就是说这个区间是不太相同的,
-即使实际指向的实体确实是C, 我们也需要把静态类型改变一下,
-这样才符合C语言的内在规则</p>
-<p>第二点是, 为什么非要用dynamic_cast来转换, 在
-讲述这点之前我们先来看看这样的情况</p>
+<p>实际上我们直接把这个静态类型为B1的指针丢给上述函数是不安全的, 因为我们虽然已经知道了他的动态类型为C, 但是有一种可能, 这个B1指针实际上指向的类型也可以是Y, Y类型是B1和X之间的一个类型, 也就是说, Y是B1的继承类, 而且是X的基类, foo函数接受X和他的继承类, 但是不应当接受X的基类, 因为X的基类可能完成不了X的工作</p>
+<p>因此我们就需要对指针B1进行转换, 将它转换为类型X(或者是X的继承类) 然后再把"新的"这个指针交给foo函数</p>
+<p>这里其实有很多知识点, 第一点是这个所谓的 "新的" 实际上这个指针的值没有改变, 指向的对象内容也没有改变, 他只是变换了自己的静态类型 和解释方式, 也就是说, 原本的指针被允许解释为B1类型, 或者是B1的继承类, 但是需求的指针是B1的继承类X和X的继承类, 也就是说这个区间是不太相同的, 即使实际指向的实体确实是C, 我们也需要把静态类型改变一下, 这样才符合C语言的内在规则</p>
+<p>第二点是, 为什么非要用dynamic_cast来转换, 在 讲述这点之前我们先来看看这样的情况</p>
 <figure>
-<img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303201747935.png"
-alt="image-20230320174707905" />
-<figcaption aria-hidden="true">image-20230320174707905</figcaption>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303201747935.png" alt="" /><figcaption>image-20230320174707905</figcaption>
 </figure>
-<p>如果B1伸出了两个继承分支如图所示,
-那么我们不能善意的假定B1目前指向的类型一定是X方向,
-也就是图中右分支方向上的一个类型, 因为B1指向左分支也是合理的,
-但是左分支上的任何一个类都与右分支毫无关联, 二者不能画上约等号,
-也就是说, 向下的侧向类型转换是不合法的</p>
+<p>如果B1伸出了两个继承分支如图所示, 那么我们不能善意的假定B1目前指向的类型一定是X方向, 也就是图中右分支方向上的一个类型, 因为B1指向左分支也是合理的, 但是左分支上的任何一个类都与右分支毫无关联, 二者不能画上约等号, 也就是说, 向下的侧向类型转换是不合法的</p>
 <p>另外多说一嘴 我们平常说的sidecast是指向上的侧向类型转换</p>
-<p>还是用上图, 如果一个指针B2指向C 转换成B1指针, 则合法,
-因为这是上面的侧向转换(而且还得有继承关系,如果没有继承关系也是不能转换的)</p>
-<p>智力游戏做到这里可能有读者发现了, 静态类型, 动态类型,
-以及二者的相对关系都是我们需要考虑的点</p>
+<p>还是用上图, 如果一个指针B2指向C 转换成B1指针, 则合法, 因为这是上面的侧向转换(而且还得有继承关系,如果没有继承关系也是不能转换的)</p>
+<p>智力游戏做到这里可能有读者发现了, 静态类型, 动态类型, 以及二者的相对关系都是我们需要考虑的点</p>
 <p>好, 我们回到正题,</p>
-<p>实际上并不是非要用dynamic_cast转换的, 如果你想要用static_cast
-转换也是可以的, 但是需要在程序的 主体逻辑上做出改变, 比如, 已知
-X类型一定是B1类型和B1指针当前实际指向对象类型中间的类型,
-<strong>也就是说fakeC类型剪枝了</strong>
-我们也不需要dynamic_cast检查了</p>
-<p>通俗版本讲完之后, 我们直接来看实际版本, 用严谨语言再描述一边,
-这里只涉及最主要用法, 也就是downcast和sidecast,
-不考虑upcast和void指针等情况</p>
-<p>对于<code>dynamic_cast&lt; new-type &gt;( expression )</code>
-找到expression 指向的对象的实际类型 (这个是通过编译器实现的查找)</p>
-<p>找到这个实际类型 之后, 称之为object, 检查: <em>expression</em> 是
-object的公开基类(public 继承的基类) 则说明B1, X,
-C处于继承树上的同一侧分支(说明C不是fakeC)</p>
+<p>实际上并不是非要用dynamic_cast转换的, 如果你想要用static_cast 转换也是可以的, 但是需要在程序的 主体逻辑上做出改变, 比如, 已知 X类型一定是B1类型和B1指针当前实际指向对象类型中间的类型, <strong>也就是说fakeC类型剪枝了</strong> 我们也不需要dynamic_cast检查了</p>
+<p>通俗版本讲完之后, 我们直接来看实际版本, 用严谨语言再描述一边, 这里只涉及最主要用法, 也就是downcast和sidecast, 不考虑upcast和void指针等情况</p>
+<p>对于<code>dynamic_cast&lt; new-type &gt;( expression )</code> 找到expression 指向的对象的实际类型 (这个是通过编译器实现的查找)</p>
+<p>找到这个实际类型 之后, 称之为object, 检查: <em>expression</em> 是 object的公开基类(public 继承的基类) 则说明B1, X, C处于继承树上的同一侧分支(说明C不是fakeC)</p>
 <p>然后检查是否是sidecast(后面会说) , 如果不是</p>
 <p>那就直接变成newtype, donwcast成功</p>
-<p>sidecast 检查: expression 是object的公开基类,
-同时new-type也是object的另一条分支上的公开基类 那么就sidecast
-直接变成newtype, sidecast 成功</p>
+<p>sidecast 检查: expression 是object的公开基类, 同时new-type也是object的另一条分支上的公开基类 那么就sidecast 直接变成newtype, sidecast 成功</p>
 <p>给出对照翻译原文如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">If expression is a pointer or reference to a polymorphic type Base(如果expression指针的静态类型是多态基类), and new-type is a pointer or reference to the type Derived(new-type是上述基类到动态类型继承路线上的可能继承类) a runtime check is performed(则检查这一可能性是否为真):</span><br><span class="line">a) The most derived object pointed/identified by expression is examined(寻找到expression所指向对象的动态类型). If, in that object(如果对于该动态类型实体), expression points/refers to a public base of Derived(expression指针指向new-type的公开基类), and if only one object of Derived type is derived from the subobject(指针之下的对象) pointed/identified by expression(被expression指针所指的那个对象, 如果是经由唯一的继承路线,继承自new-type), then the result of the cast points/refers to that Derived object(则转换成功). (This is known as a &quot;downcast&quot;.)</span><br><span class="line">b) Otherwise(否则), if expression points/refers to a public base of the most derived object( 如果有另一条路线), and, simultaneously, the most derived object has an unambiguous public base class of type Derived( new-type也是指针之下的那个实体(subobject)的公开基类), the result of the cast points/refers to that Derived (则也可以转换成功)(This is known as a &quot;sidecast&quot;.)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>其中, 向上转换有一个坑点, 这里不展开,
-感兴趣的请查阅https://stackoverflow.com/questions/52550064/why-is-dynamic-cast-to-a-non-unique-base-class-type-allowed/52552990#52552990</p>
+<p>其中, 向上转换有一个坑点, 这里不展开, 感兴趣的请查阅https://stackoverflow.com/questions/52550064/why-is-dynamic-cast-to-a-non-unique-base-class-type-allowed/52552990#52552990</p>
 <p>最后一个知识点我们需要探讨的是, 继承而来非虚函数的重写相关问题</p>
-<p>我们永远不应该重写继承而来的非虚函数, 如果确实需要重写,
-则将他在基类定义为虚函数</p>
-<p>因为非虚函数提供了一种暗含意义, 他暗示这个函数是一种类的不变性,
-基类以及继承类对此都不会有特化行为</p>
+<p>我们永远不应该重写继承而来的非虚函数, 如果确实需要重写, 则将他在基类定义为虚函数</p>
+<p>因为非虚函数提供了一种暗含意义, 他暗示这个函数是一种类的不变性, 基类以及继承类对此都不会有特化行为</p>
 <p>也就是说所有特化行为都应该被定义为虚函数</p>
  
       <!-- reward -->

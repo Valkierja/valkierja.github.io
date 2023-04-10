@@ -121,8 +121,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p>《琢石成器》里面的"每个模块都有一个惟一的模块句柄来标识。"有一定的迷惑性，我一直以为句柄是全局可继承的，但是实际上不是</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101812.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101812.png" /></p>
 <p>根据微软文档第一句话，GetMoudleHandle获取的句柄是基于当前程序的4GB虚拟空间的，并非全局可继承</p>
 <p>但是这就引出了另一个奇怪问题，笔者最先误以为句柄是全局，主要原因是进程间通信并不是一个特别难实现的功能（但笔者并未亲自实现过），如果句柄并非全局这样就涉及了一个重要问题：如何继承句柄？</p>
 <p>句柄类似于指针，指向文件，模块等内容，方便程序调用，如果需要进程间传递文件指针（文件名操作不一定方便），则需要维护并继承文件句柄，其他模块同理</p>

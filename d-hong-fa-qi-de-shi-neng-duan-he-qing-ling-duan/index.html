@@ -124,20 +124,16 @@
 <p>这里的同步异步是相对于CLK而言的</p>
 <p>同步的"同"是与CLK相同有效边沿信号频率</p>
 <p>异步则是一旦有行为信号输入,则立刻产生对应行为,不等待下一次CLK</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050367.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050367.png" /></p>
 <h2 id="使能端">使能端</h2>
 <p>对于触发器而言，使能信号在整体逻辑上，相当于和CLK相与；但是实际上不会直接用与门处理，因为这样会减速，CLK信号可能会异步</p>
 <p>与门可以理解为放行或者封锁</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050268.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050268.png" /></p>
 <p>上述是好理解，但是错误的做法（尽量不要在CP信号线上增加任何逻辑运算元器件）</p>
 <p>下述是正确做法，利用<strong>选择器</strong>，筛选信号，并把一路作为回馈信号</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172057722.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172057722.png" /></p>
 <p>但只需要简单画为En引脚就行</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050237.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050237.png" /></p>
  
       <!-- reward -->
       

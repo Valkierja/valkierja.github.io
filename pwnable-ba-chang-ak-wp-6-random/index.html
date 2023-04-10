@@ -129,30 +129,22 @@
 <h2 id="补充2">补充2</h2>
 <p>补一个pwndbg笔记，内容有限，仅放一些基础</p>
 <p>启动时传参文件路径</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049313.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049313.png" /></p>
 <p>或者在启动后用file传参</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049998.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049998.png" /></p>
 <p><code>b</code>下断点，加*的数字表示地址，不加*的数字表示函数名（但是实际上C类语言并不允许纯数字的函数名）</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049878.png" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049686.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049878.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049686.png" /></p>
 <p><code>disassemble</code>用来反汇编</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049512.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049512.png" /></p>
 <p><code>delete</code>或者<code>d</code>用来删除断点</p>
 <p>缺省删除所有断点，可以加参数，删除特定断点</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049845.png" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049696.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049845.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049696.png" /></p>
 <p><code>info b</code>查看当前所有断点</p>
 <p><code>r</code>运行程序</p>
 <p><code>reg</code>查看寄存器</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049535.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049535.png" /></p>
 <p>可以看到EAX(RAX)的值是0x6b8b4567</p>
 <p>这就是rand的固定第一个值</p>
 <p>另外查看堆栈：</p>
@@ -177,11 +169,9 @@ g表示八字节</p>
 <p>另外还可以用stack来查看堆栈</p>
 <p>然后是各种参数中含有寄存器时，寄存器都需要$符号</p>
 <p>比如</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049014.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049014.png" /></p>
 <p>另外VScode远程调试是真的舒服</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050301.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050301.png" /></p>
 <p>需要改一下最大保存行数</p>
 <p>笔者这里直接改成十万行，这下子就够用了233</p>
  

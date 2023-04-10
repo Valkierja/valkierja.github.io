@@ -126,8 +126,7 @@
 <p>拿到题目第一反应一般都是welcom和login函数处于相同ebp上面，而且name变量有一个大得可疑的缓冲区，于是想要去溢出</p>
 <p>但是计算过后会发现虽然缓冲区很大，但是正好差4，无法溢出</p>
 <p>然后会去在scanf下手，但是仔细看会发现（可能不太好看出来；IDA标红了，提示未初始化的局部变量）这里的scanf其实是错误用法，我们实际上不能向这两个int变量输入目标值</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049489.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049489.png" /></p>
 <p>然后笔者就没辙了2333</p>
 <h2 id="预期解">预期解</h2>
 <p>记录一下别的师傅的预期解</p>
@@ -144,15 +143,12 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049489
 <p>这在实际生产中基本等同于任意代码执行漏洞，具体到本题中，我们也确实拉起了system进程</p>
 <p>那么接下来怎么办？</p>
 <p>首先找system函数的地址，然后找到前面一句传参的地址，记下后者的地址</p>
-<p>我们在找到fflush的地址——这个函数可以理解为出题人特意为我们留下的90
-90空闲区</p>
+<p>我们在找到fflush的地址——这个函数可以理解为出题人特意为我们留下的90 90空闲区</p>
 <p>我们现在要做的是：</p>
 <p>首先，在welcome中，用name覆盖掉passwd1的内容，这个内容覆盖为fflush的GOT地址，由于ebp相同且局部变量堆栈不清空，这种覆盖很好实现</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049231.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049231.png" /></p>
 <p>第二部，scanf做出敏感操作：向fflush写入内容，具体写入的内容是system函数前面的传参指令的地址</p>
-<p>这样，我们就会<strong>向 fflush 处写入 system
-地址</strong>——<strong>scanf不一定只操作一个地址</strong></p>
+<p>这样，我们就会<strong>向 fflush 处写入 system 地址</strong>——<strong>scanf不一定只操作一个地址</strong></p>
 <h2 id="小细节">小细节</h2>
 <p>我们向程序输入的任何内容都是默认视作字符的，至于数字或者0x，\x这类东西，能够被解释为特殊意义，完全是程序内部操作</p>
 <p>如果仅仅是程序获取输入内容的话，它获取到的仅仅是字符而已</p>

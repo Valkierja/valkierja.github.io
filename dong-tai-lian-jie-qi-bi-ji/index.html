@@ -130,13 +130,11 @@
 <p>在</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Program                PLT                                 printf</span><br><span class="line">+---------------+      +------------------+                +-----+</span><br><span class="line"> ...                  push [0x603008]  &lt;---+       +--&gt; ... </span><br><span class="line"> call j_printf --+    jmp [0x603010]   ----+--...--+   +-----+</span><br><span class="line"> ...                 ...                  </span><br><span class="line">+---------------+  +--&gt; jmp [printf@GOT] -+  </span><br><span class="line">                        push 0xf         &lt;+  </span><br><span class="line">                        jmp 0x400da0     ----+</span><br><span class="line">                        ...              </span><br></pre></td></tr></table></figure>
 <p>其中，<code>...</code>代表各种间接与PLT联系的机制，包括GOT</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181052925.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181052925.png" /></p>
 <p>现在有一个问题：为什么出现了PLT表，而不是单纯一个GOT表——这在技术上来说似乎是可以轻易实现的</p>
 <p>为什么产生了这样的冗余——大可以类似于保护代码段的方法保护GOT表：就算这样不保险，为什么排除安全问题的情况下，也出现了PLT——为什么所有主流编译器允许开启危险编译选项却不允许放弃PLT</p>
 <p>然后再补一个笔者纸上谈兵的，仅有GOT的实现</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181052122.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181052122.png" /></p>
 <p>GOT里面存着变量</p>
 <p>这种做法，不考虑安全的话实际上完全可以实现，但是问题此时不在于动态链接器，而是编译器</p>
 <p>因为编译到目标文件的时候，编译器并不知道某个函数是动态链接库里面的函数还是在目标文件中</p>

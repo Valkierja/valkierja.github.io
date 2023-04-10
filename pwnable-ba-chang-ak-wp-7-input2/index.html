@@ -130,36 +130,20 @@
 <p>如果有一个很长的list,其中大部分元素的值为垃圾填充,只有小部分为有用值,那么错误做法是append,太傻了</p>
 <p>正确做法是生成一个全为填充值的list,然后抓几个特殊的地方出来</p>
 <h2 id="wp">WP</h2>
-<p>the very vital point that I didn't notice that need be metioned at
-first</p>
-<p>If you excu an ELF then you will carry identify of the ELF's
-owner</p>
-<p>the main_check func need a file named"\x0a",so we need create such
-file,while we don't have permission in the.floder</p>
-<p>so we need goto tmp floder and use utility <code>ln</code> to create
-soft-link,which only need link dest-floder writing permission</p>
+<p>the very vital point that I didn't notice that need be metioned at first</p>
+<p>If you excu an ELF then you will carry identify of the ELF's owner</p>
+<p>the main_check func need a file named"\x0a",so we need create such file,while we don't have permission in the.floder</p>
+<p>so we need goto tmp floder and use utility <code>ln</code> to create soft-link,which only need link dest-floder writing permission</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -fs  ~/flag flag</span><br><span class="line">ln -fs  ~/input input</span><br></pre></td></tr></table></figure>
 <p>for now on,every step operates on tmp-link ver file</p>
-<p>and hold on a min ,le't talk about permission of create a hard-link
-and soft-link file</p>
-<p>if we'd like to create a hard-link ,the sufficient condition is,we
-have read+write permission on target file,if
-<code>fs.protected_hardlinks == true</code> and have write &amp;
-<strong>execu</strong> permission of
-destdir.if`<code>fs.protected_hardlinks == 0</code> no permission needed
-on target file,even 000 is okay.</p>
-<p>what surprise me is execu permission,its purpose is preventing a
-situation that's similar to this quzz--if hack have access to tmp
-floder,which normally is gloabally permitted,the hack can execu or open
-wrong file,due to relative path</p>
-<p>for soft-link the requires is lower,only need source-dir have execu
-and dest-dir have write+execu</p>
+<p>and hold on a min ,le't talk about permission of create a hard-link and soft-link file</p>
+<p>if we'd like to create a hard-link ,the sufficient condition is,we have read+write permission on target file,if <code>fs.protected_hardlinks == true</code> and have write &amp; <strong>execu</strong> permission of destdir.if`<code>fs.protected_hardlinks == 0</code> no permission needed on target file,even 000 is okay.</p>
+<p>what surprise me is execu permission,its purpose is preventing a situation that's similar to this quzz--if hack have access to tmp floder,which normally is gloabally permitted,the hack can execu or open wrong file,due to relative path</p>
+<p>for soft-link the requires is lower,only need source-dir have execu and dest-dir have write+execu</p>
 <p>for target file ,its permission is no need to care</p>
 <p>come back to main topic</p>
-<p>after create link we need notice that relative path have a relative
-vulnerability ,make soft-link to cheat execu with wrong file</p>
-<p>secondly,there is a sock programming needed ,considering webbench
-project ,this time we try use C to pwn rather than pwntool</p>
+<p>after create link we need notice that relative path have a relative vulnerability ,make soft-link to cheat execu with wrong file</p>
+<p>secondly,there is a sock programming needed ,considering webbench project ,this time we try use C to pwn rather than pwntool</p>
 <h2 id="poc">poc</h2>
 <p>（under construction..）</p>
  

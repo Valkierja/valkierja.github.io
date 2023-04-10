@@ -124,25 +124,18 @@
 <p>while true循环GetMessage期间检查WM_QUIT，并分派、处理消息</p>
 <p>讲讲其他两种以及三种的区别（主要是性能上的）</p>
 <h2 id="正文">正文</h2>
-<p>首先是，为什么需要GetMessage？我们既然已经引入了委托回调机制，那么完全可以让操作系统直接把消息发送给回调函数（假定回调函数已经注册了，这个不是技术难点），当回调函数发现窗口关闭时执行break，而剩下的整个主程序都是while
-true循环，如下所示</p>
+<p>首先是，为什么需要GetMessage？我们既然已经引入了委托回调机制，那么完全可以让操作系统直接把消息发送给回调函数（假定回调函数已经注册了，这个不是技术难点），当回调函数发现窗口关闭时执行break，而剩下的整个主程序都是while true循环，如下所示</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">invoke CreateWindow,…</span><br><span class="line">invoke ShowWindow,…</span><br><span class="line">invoke UpdateWindow,…</span><br><span class="line">.while dwQuitFlag == 0 ;要退出时在窗口过程中设置dwQuitFlag</span><br><span class="line">.endw</span><br><span class="line">invoke ExitProcess,…</span><br></pre></td></tr></table></figure>
-<p>这个问题的答案是，GetMessage是系统函数，可以让程序心甘情愿地在空闲时间将时间片移交给操作系统，将这个等待循环（while
-true）移交给操作系统内部，而操作系统内部的while
-true会更有利于整机性能，这也变相解释了为什么在空闲的时候系统中断这个进程倾向于占用接近100%的CPU</p>
+<p>这个问题的答案是，GetMessage是系统函数，可以让程序心甘情愿地在空闲时间将时间片移交给操作系统，将这个等待循环（while true）移交给操作系统内部，而操作系统内部的while true会更有利于整机性能，这也变相解释了为什么在空闲的时候系统中断这个进程倾向于占用接近100%的CPU</p>
 <p>简单来说就是空闲资源要尽可能停留在操作系统层面，而非用户程序层面</p>
 <p>所以这个形式的消息处理模块是负优化</p>
-<p>另一种形式则是正优化（某种意义上），使用peekMessage函数，该函数与GetMessage的区别在于，GetMessage会在消息队列空闲时内陷于操作系统内核，而在相同情况下
-peekMessage
-会立刻返回一个NULL表示消息队列空闲，这种情况下如果采用上一篇文章的常规做法，当前时间片就会完全陷入在不处理任何工作的等待循环（在GetMessage内部），虽说
-空闲资源要尽可能停留在操作系统层面，而非用户程序层面</p>
+<p>另一种形式则是正优化（某种意义上），使用peekMessage函数，该函数与GetMessage的区别在于，GetMessage会在消息队列空闲时内陷于操作系统内核，而在相同情况下 peekMessage 会立刻返回一个NULL表示消息队列空闲，这种情况下如果采用上一篇文章的常规做法，当前时间片就会完全陷入在不处理任何工作的等待循环（在GetMessage内部），虽说 空闲资源要尽可能停留在操作系统层面，而非用户程序层面</p>
 <p>但若空闲资源能够由用户程序利用，而非单纯停留在操作系统内部，有时候会更好，至于为什么是有时候后面会讲</p>
 <p>如果监测到消息队列空闲，我们可以做一些诸如检查程序更新，发送错误报告之类的事情</p>
 <p>但是不能做太大的工作，设函数foo是一个极为庞大的单线程非异步函数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.while TRUE</span><br><span class="line">    invoke PeekMessage,addr @stMsg,NULL,0,0,PM_REMOVE</span><br><span class="line">    .if eax</span><br><span class="line">        .break .if @stMsg.message == WM_QUIT</span><br><span class="line">        invoke TranslateMessage,addr @stMsg</span><br><span class="line">        invoke DispatchMessage,addr @stMsg</span><br><span class="line">        .else</span><br><span class="line">        call foo  ;foo函数</span><br><span class="line">        .endif</span><br></pre></td></tr></table></figure>
 <p>假想一种情况：</p>
-<p>某一瞬间检测到消息队列空闲,
-进入else空闲任务列表,执行非异步函数foo,由于该函数过于庞大,未等执行完操作系统便结束了当前时间片，更甚在foo执行过程中出现了新消息，而foo非异步，用户程序控制权内陷于其中，直到该函数返回，导致期间返回前窗口迟滞</p>
+<p>某一瞬间检测到消息队列空闲, 进入else空闲任务列表,执行非异步函数foo,由于该函数过于庞大,未等执行完操作系统便结束了当前时间片，更甚在foo执行过程中出现了新消息，而foo非异步，用户程序控制权内陷于其中，直到该函数返回，导致期间返回前窗口迟滞</p>
 <p>所以这种消息队列处理逻辑设计只能说是 ”有时候会更好“</p>
  
       <!-- reward -->

@@ -121,8 +121,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p>在单端多进程，IP池有限等因素的加持下，出现了socks协议，本质上来说，假如目标IP为192.168.1.2，端口为88，则指针“192.168.1.2:88”所指向的目标，就是一个socks对象实例</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172115498.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172115498.png" /></p>
 <p>socks的本义其实是网络数据线末端的那个卡扣</p>
 <p>另外补一个数据边界的笔记</p>
 <p>SOCK_STREAM是无边界的，SOCK_DGRAM是有边界的</p>
@@ -134,8 +133,7 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172115498
 <p>sockaddr_in结构体</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">struct sockaddr_in &#123;</span><br><span class="line">               sa_family_t    sin_family; /* address family: AF_INET */ 指明协议（实际上这个结构体是专门用于IPv4的）</span><br><span class="line">               in_port_t      sin_port;   /* port in network byte order */指明端口</span><br><span class="line">               struct in_addr sin_addr;   /* internet address */指明地址</span><br><span class="line"></span><br><span class="line">               //某些版本的源码中,此处另有八个字节的零位对齐</span><br><span class="line">           &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">           struct in_addr &#123;</span><br><span class="line">               uint32_t       s_addr;     /* address in network byte order */只能IPv4</span><br><span class="line">           &#125;;</span><br></pre></td></tr></table></figure>
 <p>文档如下</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172115948.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172115948.png" /></p>
 <p>hostent结构体</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">struct hostent &#123;</span><br><span class="line">char *h_name; //域名字符串</span><br><span class="line">char **h_aliases;  //别名字符串</span><br><span class="line">int h_addrtype;//IPv4</span><br><span class="line">int h_length;</span><br><span class="line">char **h_addr_list;</span><br><span class="line">// 网络字节序的IP地址</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>写完注释的fSocks函数如下</p>

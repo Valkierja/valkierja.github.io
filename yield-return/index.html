@@ -124,13 +124,10 @@
 <p>Unity开发角色死亡后过一段时间复活,但是有如下问题</p>
 <p>角色死亡后<code>setActive(false)</code>后,角色所属组件(包括PlayerController.cs)都将不再执行,此时无法通过脚本拉起角色复活函数;解决方法有两个</p>
 <p>第一个比较傻,但也简单:设置一个透明空类在地图的犄角旮旯里面,持续监听player状态,在角色死亡后,复活CD结束时拉起角色复活函数</p>
-<p>第二个是业界常规做法,使用枚举器+yield
-return新建一个独立于Update函数的线程,监听已死亡的角色状态</p>
+<p>第二个是业界常规做法,使用枚举器+yield return新建一个独立于Update函数的线程,监听已死亡的角色状态</p>
 <h2 id="正文">正文</h2>
-<p>先附上一段Unity文档,这个文档解决了我的许多疑问<a
-target="_blank" rel="noopener" href="https://docs.unity3d.com/Manual/Coroutines.html">https://docs.unity3d.com/Manual/Coroutines.html</a></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049147.png" /></p>
+<p>先附上一段Unity文档,这个文档解决了我的许多疑问<a target="_blank" rel="noopener" href="https://docs.unity3d.com/Manual/Coroutines.html">https://docs.unity3d.com/Manual/Coroutines.html</a></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049147.png" /></p>
 <p>简单来说,枚举迭代被用于多线程通信</p>
 <p>对于一般的C#脚本来说,主要的线程用于持续调用Update函数</p>
 <p>我们需要使用yield return配合函数声明为IEnumerator返回值</p>

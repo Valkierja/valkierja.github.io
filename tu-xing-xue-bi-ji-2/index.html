@@ -128,71 +128,51 @@
 <h3 id="向量点乘">向量点乘</h3>
 <p>点乘的结果是数 而不是向量</p>
 <p>向量点乘采用cos 余弦作为变换模量</p>
-<p>此时弹幕说可以用来检测AI视觉范围, 这里留疑问,
-具体是不是这样做的等待以后解决</p>
+<p>此时弹幕说可以用来检测AI视觉范围, 这里留疑问, 具体是不是这样做的等待以后解决</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071559388.png" alt="image-20230407155758550" style="zoom:50%;" /></p>
-<h3
-id="笛卡尔坐标系下的点乘的矩阵表达形式">笛卡尔坐标系下的点乘的矩阵表达形式</h3>
+<h3 id="笛卡尔坐标系下的点乘的矩阵表达形式">笛卡尔坐标系下的点乘的矩阵表达形式</h3>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071600950.png" alt="image-20230407160059910" style="zoom:50%;" /></p>
 <h3 id="点乘可以用来找投影">点乘可以用来找投影</h3>
 <figure>
-<img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071605000.png"
-alt="image-20230407160525965" />
-<figcaption aria-hidden="true">image-20230407160525965</figcaption>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071605000.png" alt="" /><figcaption>image-20230407160525965</figcaption>
 </figure>
-<p>如果我们要计算b在a上的投影向量, 本质上是计算一个向量,
-既然要计算一个向量就需要确定他的长度和方向, 方向已经确定了是a同方向的,
-因为投影是在a上的, 那么长度定义为k</p>
+<p>如果我们要计算b在a上的投影向量, 本质上是计算一个向量, 既然要计算一个向量就需要确定他的长度和方向, 方向已经确定了是a同方向的, 因为投影是在a上的, 那么长度定义为k</p>
 <p>k等与b投影的绝对值, 也就等与b的绝对值乘以cosθ</p>
-<p>这里的a向量是单位向量, 也就是目标"墙体"的方向上的单位向量 ,
-所以点乘的a模带换成了1, 所以k的式子其实是a和b点乘, 其中a 是单位向量</p>
+<p>这里的a向量是单位向量, 也就是目标"墙体"的方向上的单位向量 , 所以点乘的a模带换成了1, 所以k的式子其实是a和b点乘, 其中a 是单位向量</p>
 <h3 id="点乘可以用来求相对方向">点乘可以用来求相对方向</h3>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071611272.png" alt="image-20230407161125235" style="zoom:50%;" /></p>
 <p>点乘为负数说明相对方向相反</p>
 <h3 id="点乘可以描述两个向量有多接近">点乘可以描述两个向量有多接近</h3>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071616002.png" alt="image-20230407161614966" style="zoom:50%;" /></p>
 <p>如果a是单位向量, 当结果k接近1的时候, a和b就是一对接近的向量</p>
-<p>应用: 当摄像机的向量接近入射光线向量的时候, 亮度最大, 当角度偏转,
-接近程度逐渐变小的时候, 亮度逐渐变小, 直到某个阈值, 完全看不见入射光</p>
+<p>应用: 当摄像机的向量接近入射光线向量的时候, 亮度最大, 当角度偏转, 接近程度逐渐变小的时候, 亮度逐渐变小, 直到某个阈值, 完全看不见入射光</p>
 <h3 id="叉乘和叉乘的矩阵表达形式">叉乘和叉乘的矩阵表达形式</h3>
 <figure>
-<img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071623418.png"
-alt="image-20230407162308384" />
-<figcaption aria-hidden="true">image-20230407162308384</figcaption>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071623418.png" alt="" /><figcaption>image-20230407162308384</figcaption>
 </figure>
-<p>本质上是输入的两个向量确定一个平面,
-这个平面的法线方向的一个特定长度的向量</p>
-<p>由于向量起始点可以随意确定, 所以两个输入向量共享起始点,
-三点确定一个平面</p>
+<p>本质上是输入的两个向量确定一个平面, 这个平面的法线方向的一个特定长度的向量</p>
+<p>由于向量起始点可以随意确定, 所以两个输入向量共享起始点, 三点确定一个平面</p>
 <p>用右手, 从输入向量1往输入向量2的方向旋转, 确定结果向量的方向</p>
 <p>结果向量的长度需要乘以sinθ作为变换模</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071652765.png" alt="image-20230407165223732" style="zoom:50%;" /></p>
-<p>左边的矩阵，来自于a向量的坐标：分别是x y z变成0
-然后其他的元素分别向下循环位移， 被优先向下移动的那一项 添加负号</p>
+<p>左边的矩阵，来自于a向量的坐标：分别是x y z变成0 然后其他的元素分别向下循环位移， 被优先向下移动的那一项 添加负号</p>
 <p>右边的矩阵：b向量的坐标</p>
 <p>矩阵求向量叉乘</p>
 <h3 id="叉乘应用">叉乘应用</h3>
 <ol type="1">
 <li>在给定坐标系中确定左和右的相对位置</li>
 </ol>
-<p>​ 由于坐标系已经确定, 所以可以通过叉乘确定两个向量的左右关系,
-因为叉乘的正负结果是与输入顺序有关的 所以因此叉乘没有交换律</p>
+<p>​ 由于坐标系已经确定, 所以可以通过叉乘确定两个向量的左右关系, 因为叉乘的正负结果是与输入顺序有关的 所以因此叉乘没有交换律</p>
 <ol start="2" type="1">
 <li>新建一个坐标系</li>
 </ol>
-<p>​ 先给出一个面(通过两个向量确定一个面)
-然后叉乘求出来纵深方向的坐标轴</p>
+<p>​ 先给出一个面(通过两个向量确定一个面) 然后叉乘求出来纵深方向的坐标轴</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071650740.png" alt="image-20230407165021707" style="zoom:50%;" /></p>
 <ol start="3" type="1">
 <li>确定某一点是否在三角形内部</li>
 </ol>
-<p>​
-<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071650394.png" alt="image-20230407165055358" style="zoom:50%;" /></p>
-<p>分别叉乘AB AP、BC BP、CP CA，如果符号都相同，
-说明在内部，如果符号有一个不相同， 那么p点离那条边最近，
-且P点在三角形外部</p>
+<p>​ <img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071650394.png" alt="image-20230407165055358" style="zoom:50%;" /></p>
+<p>分别叉乘AB AP、BC BP、CP CA，如果符号都相同， 说明在内部，如果符号有一个不相同， 那么p点离那条边最近， 且P点在三角形外部</p>
 <h3 id="点乘和叉乘的应用">点乘和叉乘的应用</h3>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071658410.png" alt="image-20230407165849374" style="zoom:50%;" /></p>
 <p>首先两个向量伽桑一个叉乘（或者三个向量）新建一个坐标系</p>
@@ -203,13 +183,10 @@ alt="image-20230407162308384" />
 <h3 id="矩阵乘法">矩阵乘法</h3>
 <p>比较基础不讲了</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071703511.png" alt="image-20230407170316477" style="zoom:50%;" /></p>
-<p>应用：
-只有当需要计算结果的第几行第几列才会去输入矩阵中找对应输入元素，
-也就是说延迟求值</p>
+<p>应用： 只有当需要计算结果的第几行第几列才会去输入矩阵中找对应输入元素， 也就是说延迟求值</p>
 <p>矩阵乘法的每一个结果元素， 有点类似点乘， 也是乘起来然后加在一起</p>
 <p>比如我们要求结果的row2，Column4</p>
-<p>这样需要在左边矩阵找所有的row2元素， 单拿出来 做一个转置，
-变成竖向</p>
+<p>这样需要在左边矩阵找所有的row2元素， 单拿出来 做一个转置， 变成竖向</p>
 <p>右边的矩阵找所有的Column4元素， 拿出来， 也是竖的</p>
 <p>二者点乘， 得到结果</p>
 <h3 id="矩阵乘法没有交换律">矩阵乘法没有交换律</h3>

@@ -121,22 +121,18 @@
   <p>示例代码如下(C++),有一些无效的内容,比如string什么的,无视即可</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;windows.h&gt;</span><br><span class="line">#include&lt;winternl.h&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;libloaderapi.h&gt;</span><br><span class="line">#include&lt;winuser.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">HANDLE a = GetModuleHandleA(NULL);</span><br><span class="line">cout &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里需要关闭随机基址</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101111.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101111.png" /></p>
 <p>编译出来之后x86dbg打开,用API断点插件(https://www.52pojie.cn/thread-1384349-1-1.html)直接断在GetModuleHandle</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101122.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101122.png" /></p>
 <p>跟跳</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101521.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101521.png" /></p>
 <p>第一句是mov edi,edi，查了一下知识点比较多，之后单独开一篇</p>
 <p>push保存现场</p>
 <p>获取参数1(参数1是module名,这里是NULL表示exe程序自身)</p>
 <p>sub扩展局部空间</p>
 <p>test重置flag</p>
 <p>je跟跳</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101252.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101252.png" /></p>
 <p>出乎笔者意料之外，核心内容只有两行</p>
 <p>查fs表30偏移</p>
 <p>ring0下偏移30存放的指向是PEB的指针</p>

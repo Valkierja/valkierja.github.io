@@ -120,19 +120,14 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>Normally,binding camera with Player into Third-person view equals to
-let camera be Player's child ,but in our case the Player moving way is
-rolling ,so the camera will roll with player ,which is not expected</p>
-<h2
-id="write-a-script-to-get-and-set-camera-offset-relative-to-player">write
-a script to get and set camera offset relative to Player</h2>
+  <p>Normally,binding camera with Player into Third-person view equals to let camera be Player's child ,but in our case the Player moving way is rolling ,so the camera will roll with player ,which is not expected</p>
+<h2 id="write-a-script-to-get-and-set-camera-offset-relative-to-player">write a script to get and set camera offset relative to Player</h2>
 <p>declare GameObject instance to bind Player<br />
 then declare a vector3 var to store offset</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public GameObject player;</span><br><span class="line">private Vector3 m_Offset;</span><br></pre></td></tr></table></figure>
 <p>at start function,store initial offset</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void Start()</span><br><span class="line">&#123;</span><br><span class="line">    m_Offset = transform.position - player.transform.position;</span><br><span class="line">    // m_Offset = this.transform.position - player.transform.position;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>then after Player moved,calculate frame(relative to physical
-system)</p>
+<p>then after Player moved,calculate frame(relative to physical system)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void FixedUpdate()</span><br><span class="line">  &#123;</span><br><span class="line">      transform.position = player.transform.position + m_Offset;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
  
       <!-- reward -->

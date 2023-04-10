@@ -118,14 +118,11 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>很奇怪pwnable的题目为什么可以用system cat flag
-但是flag文件明明没有权限</p>
+  <p>很奇怪pwnable的题目为什么可以用system cat flag 但是flag文件明明没有权限</p>
 <p>查了一圈各种离奇回答都有,看来在需要的时候不太容易找到标准答案,这次一并找到,补个笔记</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181101133.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181101133.png" /></p>
 <p>错误文案示例</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181101079.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181101079.png" /></p>
 <p>描述不清,容易理解错误</p>
 <p>其实是real ID和effective ID的关系</p>
 <p>如果是执行一个权限为X的可执行文件,一般情况下会把进程权限视作可执行文件所有者,而非执行可执行文件的用户</p>

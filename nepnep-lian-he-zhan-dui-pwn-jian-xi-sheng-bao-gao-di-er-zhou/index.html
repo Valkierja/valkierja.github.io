@@ -121,90 +121,65 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="正文">正文</h1>
-<p><strong>（<a
-href="https://link.zhihu.com/?target=http%3A//csapp.cs.cmu.edu/im/labs/attacklab.tar">Attack
-Lab</a>[Updated 1/11/16]）</strong></p>
+<p><strong>（<a href="https://link.zhihu.com/?target=http%3A//csapp.cs.cmu.edu/im/labs/attacklab.tar">Attack Lab</a>[Updated 1/11/16]）</strong></p>
 <p>看题目描述我这可来劲了啊!</p>
 <p>写ROP什么的最畅快了(大雾)</p>
-<p>先下载题目文件<a
-target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E5%BA%B7%E5%BA%B7&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22article%22%2C%22sourceId%22%3A438535451%7D">康康</a></p>
+<p>先下载题目文件<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E5%BA%B7%E5%BA%B7&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22article%22%2C%22sourceId%22%3A438535451%7D">康康</a></p>
 <p>有两个主体文件,总共包含五道题目</p>
 <p>直接IDA</p>
 <h1 id="第一个文件ctarget">第一个文件ctarget</h1>
 <h2 id="第一题touch1">第一题touch1</h2>
 <p>先是学到了一个好东西（优秀的开发实现）</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172115050.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172115050.png" /></p>
 <p>is_checker被放在bss段，恒0</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172115282.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172115282.png" /></p>
 <p>不过也不是重点，同时我很难想象啥情况下这个值为true</p>
 <p>然后main首先来到这里</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172115435.png" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054507.png" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054586.png" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054202.png" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054141.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172115435.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054507.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054586.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054202.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054141.png" /></p>
 <p>所以这里是最简单的ret2，不过！且慢！</p>
 <p>先来checksec检查一下</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116124.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116124.png" /></p>
 <p>这里有canary</p>
 <p>但是蹊跷的事情发生了！！</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116662.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116662.png" /></p>
 <p>利用点这里并没有canary</p>
 <p>稍微翻了一下GCC的文档大概理解了</p>
 <p>简单来说，GCC会用一种启发式的算法判断一个函数需不需要canary保护</p>
 <p>如果需要则会生成</p>
 <figure>
-<img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181106463.png"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181106463.png" alt="" /><figcaption>img</figcaption>
 </figure>
 <p>当然也可以选择强制开启all-canary</p>
 <p>最终payload很简单，因为这一层题目基本可以认为是没保护的</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b&#x27;A&#x27;* 40 + p64(0x4017C0)</span><br></pre></td></tr></table></figure>
 <h2 id="第二题touch2">第二题touch2</h2>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054785.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054785.png" /></p>
 <p>这里也比较基础</p>
 <p>只需要pop edi;retn就行</p>
 <p>先ROP找一下</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116687.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116687.png" /></p>
 <p>令0x000000000040141b为变量<code>val_pop_rdi</code></p>
 <p>同时因为没开PIE,所以用常数0x4017EC作为函数目标就可以了</p>
 <p>画个图看看堆栈的样子</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116280.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116280.png" /></p>
 <p>这里的cookie是定值</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181100246.png" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054541.png" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116597.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181100246.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054541.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116597.png" /></p>
 <p>在笔者的机器上，值为0x59b997fa</p>
 <p>因此payload是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload1 = b&#x27;A&#x27;* 40 + p64(val_pop_rdi) + p64(0x59b997fa) + p64(0x4017EC)</span><br></pre></td></tr></table></figure>
 <h2 id="第三题touch3">第三题touch3</h2>
 <p>这里太麻烦了(其实也没多麻烦,就是要搞个random,得再试验一下本机的random%100,而且考虑到前面已经操作过两三次random的样子,更麻烦了2333)</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116362.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116362.png" /></p>
 <p>于是我打算直接劫持validate函数</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116905.png" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054022.png" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116512.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116905.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054022.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116512.png" /></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload1 = b&#x27;A&#x27;* 40 + p64(val_pop_rbx) + p64(0x3) + p64(0x401D41)</span><br></pre></td></tr></table></figure>
 <p>总的来说还是比较简单的,因为没啥实质性保护</p>
 <h1 id="第二个文件rtarget">第二个文件rtarget</h1>

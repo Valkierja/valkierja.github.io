@@ -118,24 +118,18 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>指针和引用有许多相似之处, 说白了, 引用就是一种尝试,
-尝试让指针包装起来, 对外表现就像一个value</p>
-<p>首先需要指出的是, C语言是没有引用的, 因为C语言不是面向对象的语言,
-引用本质上是面向对象的角度看待指针, 是指针的包装</p>
+  <p>指针和引用有许多相似之处, 说白了, 引用就是一种尝试, 尝试让指针包装起来, 对外表现就像一个value</p>
+<p>首先需要指出的是, C语言是没有引用的, 因为C语言不是面向对象的语言, 引用本质上是面向对象的角度看待指针, 是指针的包装</p>
 <p>另外, 考虑如下代码</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A* ptr_a;</span><br><span class="line">A* ptr_a2 = <span class="literal">nullptr</span>;</span><br></pre></td></tr></table></figure>
 <p>二者都是合法的</p>
 <p>但是引用并没有所谓的空引用, 也不能在声明时不进行初始化:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span>* pc = <span class="literal">nullptr</span>;</span><br><span class="line"><span class="type">char</span>&amp; pc = *pc;<span class="comment">//编译通过, 但是UB</span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span>&amp; pc = <span class="literal">nullptr</span>;<span class="comment">//编译不通过</span></span><br><span class="line"><span class="type">char</span>&amp; pc;<span class="comment">//编译不通过</span></span><br></pre></td></tr></table></figure>
-<p>也就是说, 如果你采用了引用, 那么就不需要考虑空指针的可能性,
-也不需要进行类似的assert测试</p>
+<p>也就是说, 如果你采用了引用, 那么就不需要考虑空指针的可能性, 也不需要进行类似的assert测试</p>
 <p>最后一个要点是, 引用类型只能绑定一次, 不能二次绑定</p>
-<p>也就是说, 首先需要声明引用类型 并且声明时就必须初始化,
-初始化意味着要把引用绑定到一个变量上面, 一旦绑定完成, 任何对引用的操作,
-都不会修改绑定, 而是修改subobject 也就是引用之下的那个实体</p>
+<p>也就是说, 首先需要声明引用类型 并且声明时就必须初始化, 初始化意味着要把引用绑定到一个变量上面, 一旦绑定完成, 任何对引用的操作, 都不会修改绑定, 而是修改subobject 也就是引用之下的那个实体</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">string <span class="title">s1</span><span class="params">(<span class="string">&quot;A&quot;</span>)</span></span>;</span><br><span class="line">	<span class="function">string <span class="title">s2</span><span class="params">(<span class="string">&quot;b&quot;</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">	string&amp; S = s1;</span><br><span class="line"></span><br><span class="line">	S = s2;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; s1 &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; s2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">///输出:</span></span><br><span class="line"><span class="comment">//b b</span></span><br></pre></td></tr></table></figure>
-<p>也就是说, 一旦声明完成, 引用包装就会构造完毕, 其本身不再可达,
-其符号变成了完美的subobject 之alias</p>
+<p>也就是说, 一旦声明完成, 引用包装就会构造完毕, 其本身不再可达, 其符号变成了完美的subobject 之alias</p>
  
       <!-- reward -->
       

@@ -120,8 +120,7 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2
-id="konsole无法唤起pwndbg唤起新窗口后无法正确识别shebang">Konsole无法唤起pwndbg/唤起新窗口后无法正确识别shebang</h2>
+  <h2 id="konsole无法唤起pwndbg唤起新窗口后无法正确识别shebang">Konsole无法唤起pwndbg/唤起新窗口后无法正确识别shebang</h2>
 <p>折腾半天，最终看了一些Konsole的源码，解决方法很简单，不用装任何额外软件</p>
 <p>只需要在python脚本中</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">context.terminal=[&#x27;konsole&#x27;,&#x27;--separate&#x27;,&#x27;-e&#x27;,&#x27;python&#x27;]</span><br></pre></td></tr></table></figure>

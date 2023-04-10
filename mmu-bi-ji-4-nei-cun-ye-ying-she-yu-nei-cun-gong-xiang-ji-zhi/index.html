@@ -124,12 +124,9 @@
 <p>这部分内容主要看的是《琢石成器》一书，这部分写的非常不好（之前的内容一直看的很舒服），有很多关键内容说的太含糊，措辞不严谨，查了一些东西，整理如下</p>
 <h2 id="正文">正文</h2>
 <p>有问题的文段很多，单独拎出来几个，然后再附上作者实际上想表述的意思</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172117030.png" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116497.png" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050453.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172117030.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116497.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050453.png" /></p>
 <p>其实是应该这样理解：</p>
 <p>首先我们不应该把磁盘中的内容认为是内存页的一部分，也就是说磁盘分页虽然是存在的，但是两种页是不同的东西</p>
 <p>而当我们说“提交页面”的时候，默认语境其实是“把虚拟地址空间当中的内存页提交给MMU，再由MMU映射到物理内存的页框当中”，而文中混淆了这一默认语境与“将仍处于磁盘当中的数据分页成内存形式，然后提交给虚拟内存地址空间（虚拟内存后续会再经由MMU提交给物理内存）”</p>
@@ -138,15 +135,13 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050453
 <p>首先PE文件申请其独占的虚拟内存空间，然后加载它自身的代码段，数据段还有外部dll等等，同时实时映射到物理内存</p>
 <p>当代码运行到某处需要使用磁盘文件时，磁盘文件会提交到虚拟内存地址空间，然后实时映射到物理内存</p>
 <h2 id="补充">补充</h2>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172117489.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172117489.png" /></p>
 <p>这句甚至是完全错误的，作者自己都搞混了，物理储存器这个词就不应该在内存管理这一章节出现</p>
 <p>这句话翻译一下就是，<strong>可以从物理内存读入内存</strong></p>
 <p>写前半句的时候想的是物理储存器是磁盘空间，写后半句的时候想的是物理储存器是物理内存</p>
 <h2 id="补充2">补充2</h2>
 <p>有一段话可以写的更好一些</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172117208.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172117208.png" /></p>
 <p>这句话有点像我之前提到的：不应该把虚拟内存看作物理内存的延申空间，而应该把虚拟内存看作磁盘空间</p>
 <p>我们只是在磁盘空间上面划分页框和权限而已</p>
 <h2 id="补充3">补充3</h2>

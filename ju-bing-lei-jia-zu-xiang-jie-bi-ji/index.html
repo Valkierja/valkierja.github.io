@@ -120,18 +120,14 @@
        
   <p>首先是补一些历史课</p>
 <p>在Windows还是一个16位操作系统的年代，句柄和API的思想已经比较成熟了</p>
-<p>那时候的内存区块还不是flat
-mod，所以需要区分指向同一份dll模块的不同指针拷贝，为了这样的需求，微软首次发明了实例的概念，每个拷贝是一个实例，所以句柄实例的类型是hInstance类</p>
-<p>后来win32内存变为flat
-mod，同时保护模式的CPU和一些Windows的安全机制，于是区分拷贝实例也不再必要了，这一时期的句柄相关API使用的是hMoudle类，另外窗体使用的是hWND类，然后又有了通用的HANDLE类</p>
+<p>那时候的内存区块还不是flat mod，所以需要区分指向同一份dll模块的不同指针拷贝，为了这样的需求，微软首次发明了实例的概念，每个拷贝是一个实例，所以句柄实例的类型是hInstance类</p>
+<p>后来win32内存变为flat mod，同时保护模式的CPU和一些Windows的安全机制，于是区分拷贝实例也不再必要了，这一时期的句柄相关API使用的是hMoudle类，另外窗体使用的是hWND类，然后又有了通用的HANDLE类</p>
 <p>但其实后来微软统一了一下，现在在头文件里面他们是一个东西23333</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typedef PVOID HANDLE;</span><br><span class="line">typedef HANDLE HWND;</span><br><span class="line">typedef HANDLE HINSTANCE;</span><br><span class="line">typedef HINSTANCE HMODULE;</span><br></pre></td></tr></table></figure>
 <p>顺便有点好奇空指针的实际意义，顺着找到了某大神的解答</p>
-<p>pVOID，aka "Pointer to something, but it's up to you to figure it
-out"</p>
+<p>pVOID，aka "Pointer to something, but it's up to you to figure it out"</p>
 <p>简直完美，另外有一段解答</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172113311.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172113311.png" /></p>
 <p>但是因此感觉空指针会危险很多，而且出了bug不好修，自己写些小东西的话还是少用吧</p>
 <p>历史课结束</p>
 <p>句柄涵盖的范围很广，包括常见的模块，窗体，线程等，也包括静态资源（也很常见，但和其他动态资源比起来，这位有点异端）的临时（程序关闭就结束）全局索引</p>

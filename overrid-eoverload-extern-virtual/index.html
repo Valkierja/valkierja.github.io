@@ -120,15 +120,12 @@
        
   <p>看书(unity3D脚本编程,黄皮书)看到一句话有点在意</p>
 <blockquote>
-<p>Mono Runtime
-总是知道各个对象的类型是什么,例如调用gettype方法便可获得对象的具体类型。而且由于gettype是一个实例方法，因而一个类型不可能伪装成另一个类型……Alin类不能通过重写gettype方法来返回一个Singer类</p>
+<p>Mono Runtime 总是知道各个对象的类型是什么,例如调用gettype方法便可获得对象的具体类型。而且由于gettype是一个实例方法，因而一个类型不可能伪装成另一个类型……Alin类不能通过重写gettype方法来返回一个Singer类</p>
 </blockquote>
 <p>笔者高度怀疑这本书的作者，要是让她现在看这段话，他自己也看不懂这段话的意思</p>
-<p>逻辑关系混乱，到底是<strong>不能</strong>还是<strong>可以但没用</strong>,或者换句话来说，Mono
-Runtime识别一个实例的类型的方法是什么，是调用gettype吗，还是其他专用方法？</p>
+<p>逻辑关系混乱，到底是<strong>不能</strong>还是<strong>可以但没用</strong>,或者换句话来说，Mono Runtime识别一个实例的类型的方法是什么，是调用gettype吗，还是其他专用方法？</p>
 <p>经过笔者亲自反汇编相关库，发现如下内容</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053625.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053625.png" /></p>
 <p>此外在StackOverflow上面查到了一句话</p>
 <blockquote>
 <p>C# 重写函数的前提是这个函数是一个虚函数</p>

@@ -124,18 +124,15 @@
 <p>因为在现代IDE下，.c后缀的头文件会被双重编译，而且就算是命令行编译可以通过，我也认为头文件不应该用.c后缀的文件</p>
 <p>然后笔者这里是用VS在Windows上搭建CentOS8.2远程编译环境，需要手动下载gdb和g++</p>
 <p>期间没遇到什么问题，略过</p>
-<p>然后由于VS对搜索头文件深度的问题，include
-&lt;signal.h&gt;文件内定义的数据结构无法正确语法高亮</p>
+<p>然后由于VS对搜索头文件深度的问题，include &lt;signal.h&gt;文件内定义的数据结构无法正确语法高亮</p>
 <p>需要在原项目的基础上直接手动添加</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/sigaction.h&gt;</span><br><span class="line">#defineh_addrh_addr_list[0]</span><br></pre></td></tr></table></figure>
 <p>第二行的#define h_addr h_addr_list[0] 需要特别说明一下，原定义是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#ifdef __USE_MISC</span><br><span class="line">#defineh_addrh_addr_list[0] /* Address, for backward compatibility.*/</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
 <p>但是这个if加上去之后会影响VS的识别，这里是为了防止定义失败的一种保障的</p>
-<p>__USE_MISC
-宏对于主流Linux操作系统而言，如笔者的CentOS是无需考虑的，直接删除if即可</p>
+<p>__USE_MISC 宏对于主流Linux操作系统而言，如笔者的CentOS是无需考虑的，直接删除if即可</p>
 <p>然后笔者这里做了函数名的一些小改动</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053483.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053483.png" /></p>
 <p>Socket改为fSocket，避免和当代Linux系统函数撞名（webbench是上世纪的项目）</p>
 <p>至此，前期操作都已完成，接下来就是添加一些现代化的功能，并改进代码行文</p>
  

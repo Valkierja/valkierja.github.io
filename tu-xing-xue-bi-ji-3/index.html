@@ -121,8 +121,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h3 id="变换矩阵">变换矩阵</h3>
-<p>之前很奇怪, 为什么按比例缩放不直接乘一个系数, 而是乘一个矩阵,
-这样不是计算起来更慢吗, 其实这里面的原因是为了和其他操作统一起来</p>
+<p>之前很奇怪, 为什么按比例缩放不直接乘一个系数, 而是乘一个矩阵, 这样不是计算起来更慢吗, 其实这里面的原因是为了和其他操作统一起来</p>
 <p>在二维的情况下</p>
 <p>transform matrix样式为:</p>
 <p><span class="math display">\[
@@ -141,23 +140,16 @@ c &amp; d
 <p>x+ y= + = $$ 普通的理解方式(直接):</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304072159420.png" alt="image-20230407215903397" style="zoom:50%;" /></p>
 <p><strong>也就是说, 有两种理解方式</strong></p>
-<p><strong>第一种理解方式, 直接按照矩阵乘法方式去理解, 第一步
-用a和b算出来x' 第二步用 c和d算出来y'</strong></p>
-<p><strong>第二种理解方式 用矩阵右乘的线性组合去理解,
-第一步用a和c算出来半个x'和y' 第二步用b和d算出来另外半个x'和y'
-然后加在一起</strong></p>
+<p><strong>第一种理解方式, 直接按照矩阵乘法方式去理解, 第一步 用a和b算出来x' 第二步用 c和d算出来y'</strong></p>
+<p><strong>第二种理解方式 用矩阵右乘的线性组合去理解, 第一步用a和c算出来半个x'和y' 第二步用b和d算出来另外半个x'和y' 然后加在一起</strong></p>
 <p>下面是一些例子</p>
 <h3 id="等比例缩放">等比例缩放</h3>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092052319.png" alt="image-20230407210926847" style="zoom:50%;" /></p>
-<p>首先是最常用的,
-主对角线上的缩放因子分别是对图片的x和y方向进行缩放</p>
+<p>首先是最常用的, 主对角线上的缩放因子分别是对图片的x和y方向进行缩放</p>
 <h3 id="不等比例缩放">不等比例缩放</h3>
 <p>下面的例子是两个缩放因子不相等的情况(不按照原图比例的缩放Non-uniform):</p>
 <figure>
-<img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304072113898.png"
-alt="image-20230407211312877" />
-<figcaption aria-hidden="true">image-20230407211312877</figcaption>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304072113898.png" alt="" /><figcaption>image-20230407211312877</figcaption>
 </figure>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304072111445.png" alt="image-20230407211128412" style="zoom:50%;" /></p>
 <h3 id="轴对称变换">轴对称变换</h3>
@@ -168,21 +160,14 @@ alt="image-20230407211312877" />
 <p>那就是带有<strong>线性拉伸</strong>的"切变"(shear)变换:</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304072121811.png" alt="image-20230407212103771" style="zoom:50%;" /></p>
 <p>分析流程: 首先y都没变化 所以第二行可以确定是0和1</p>
-<p>然后观察到拉伸程度是线性变换的, 也就是说, 拉伸相同角度的话,
-距离原点越远, 拉伸的长度会越长,
-因此x的变换是一个基于拉伸长度/拉伸角度的表达式</p>
-<p>为了方便, 我们用最终拉伸长度来表达每个点的拉伸长度,
-因为他们(矩形的左边那条边)是在一条直线上的, 所以拉伸是等比例的</p>
+<p>然后观察到拉伸程度是线性变换的, 也就是说, 拉伸相同角度的话, 距离原点越远, 拉伸的长度会越长, 因此x的变换是一个基于拉伸长度/拉伸角度的表达式</p>
+<p>为了方便, 我们用最终拉伸长度来表达每个点的拉伸长度, 因为他们(矩形的左边那条边)是在一条直线上的, 所以拉伸是等比例的</p>
 <p>所以最终变换矩阵如图所示</p>
 <h3 id="上述研究过程中的思考方法">上述研究过程中的思考方法</h3>
-<p>学习到的思考方法: 为了写出一个变换,
-我们需要观察四组原图和变换后图的点的关系,
-变换后的点的位置既可能与变换前的x有关也可能与y有关,
-也可能同时与x和y有关</p>
+<p>学习到的思考方法: 为了写出一个变换, 我们需要观察四组原图和变换后图的点的关系, 变换后的点的位置既可能与变换前的x有关也可能与y有关, 也可能同时与x和y有关</p>
 <h3 id="旋转变换">旋转变换</h3>
 <p>如果不给出旋转中心点和方向, 默认中心点是原点, 方向是逆时针</p>
-<p><strong>这里是根据角度旋转, 还有一种旋转方式是,
-从坐标轴旋转到目标向量位置, 参见笔记4下</strong></p>
+<p><strong>这里是根据角度旋转, 还有一种旋转方式是, 从坐标轴旋转到目标向量位置, 参见笔记4下</strong></p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304072130733.png" alt="image-20230407213055695" style="zoom:50%;" /></p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304072132317.png" alt="image-20230407213206276" style="zoom:50%;" /></p>
 <p><span class="math display">\[
@@ -202,19 +187,14 @@ alt="image-20230407211312877" />
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304081349374.png" alt="image-20230408134927352" style="zoom:50%;" /></p>
 <p>下图是一个形象描述（https://www.zhihu.com/question/59595799）</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304081350046.png" alt="image-20230408135007009" style="zoom:75%;" /></p>
-<p>这样就可以统一平移变化，
-不需要加一个常数矩阵，只需要像旋转变换那样乘以一个齐次坐标下的矩阵就可以了：<strong>（仿射变换转换成矩阵乘法）</strong></p>
+<p>这样就可以统一平移变化， 不需要加一个常数矩阵，只需要像旋转变换那样乘以一个齐次坐标下的矩阵就可以了：<strong>（仿射变换转换成矩阵乘法）</strong></p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304081351596.png" alt="image-20230408135129560" style="zoom: 80%;" /></p>
-<p>需要注意的一点是， 在齐次坐标系中， 点的坐标的w值都为1，
-因为w相当于分母，w等于1的话，相当于除1，等于其本身</p>
+<p>需要注意的一点是， 在齐次坐标系中， 点的坐标的w值都为1， 因为w相当于分母，w等于1的话，相当于除1，等于其本身</p>
 <p>但是为什么向量的w值都为0？</p>
 <p>首先需要知道：齐次坐标不是我们中学和大一阶段学习的<strong>欧几里得几何</strong>，他属于<strong>非欧几何</strong>，首先需要证明非欧几何<strong>引理1：平行线交于一点，求该点坐标</strong></p>
 <p>证明过程：http://www.songho.ca/math/homogeneous/homogeneous.html</p>
 <figure>
-<img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304081356949.png"
-alt="image-20230408135636923" />
-<figcaption aria-hidden="true">image-20230408135636923</figcaption>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304081356949.png" alt="" /><figcaption>image-20230408135636923</figcaption>
 </figure>
 <p>另外再折腾一句</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304081401346.png" alt="image-20230408140117325" style="zoom: 80%;" /></p>
@@ -224,8 +204,7 @@ alt="image-20230408135636923" />
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304081359585.png" alt="image-20230408135951557" style="zoom:50%;" /></p>
 <p>还需要指出的是，点加上点，在齐次坐标中相当于求得两点之间的中点，因为w值变成2了</p>
 <p>所以在其次坐标中，求中点时避免了直接运算除法</p>
-<h3 id="阶段性总结齐次坐标下的-缩放旋转平移">阶段性总结：齐次坐标下的
-缩放、旋转、平移</h3>
+<h3 id="阶段性总结齐次坐标下的-缩放旋转平移">阶段性总结：齐次坐标下的 缩放、旋转、平移</h3>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304081409388.png" alt="image-20230408140920342" style="zoom:67%;" /></p>
 <h3 id="变换的合成">变换的合成</h3>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304081420069.png" alt="image-20230408142050039" style="zoom:50%;" /></p>
@@ -234,10 +213,7 @@ alt="image-20230408135636923" />
 <p><code>所以TRA转换成T（RA）</code>离坐标矩阵近的先被计算</p>
 <p>当然，也可以事先把所有需要的矩阵乘起来，变成单一的变换矩阵</p>
 <figure>
-<img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304081428292.png"
-alt="image-20230408142814258" />
-<figcaption aria-hidden="true">image-20230408142814258</figcaption>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304081428292.png" alt="" /><figcaption>image-20230408142814258</figcaption>
 </figure>
 <h3 id="逆变换和逆矩阵">逆变换和逆矩阵</h3>
 <p>（待添加）</p>
