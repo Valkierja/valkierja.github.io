@@ -49,3 +49,11 @@ categories:
 hexo博客支持latex需要修改渲染器设置, 跟随该文章修改 https://zhuanlan.zhihu.com/p/381508379
 
 但是不知道为什么, 有一篇空文章被新渲染器报错了, 我博客里面空文章不少的, 唯独那篇报错了, 观察了以下没发现特别之处, 唯一特别的是他是草稿文章, 另外他的标题是中文
+
+记得添加apt install到GitHub action 示例如下
+
+```
+    steps:
+      - name: Install pandoc
+        run: sudo apt-get update && sudo apt-get install -y pandoc
+```
