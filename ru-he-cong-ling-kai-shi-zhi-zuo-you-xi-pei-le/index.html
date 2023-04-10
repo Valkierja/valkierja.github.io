@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-cn">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta name="description" content="计算机软件二进制安全网络安全固件安全信息安全开发渗透测试护网C++cppIoTUnityUnrealGameplay" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>如何从零开始制作游戏配乐 |  祝獻の巴基力</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ6HK8QB76"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VJ6HK8QB76');
+</script>
+
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="祝獻の巴基力" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-如何从零开始制作游戏配乐"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  如何从零开始制作游戏配乐
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/ru-he-cong-ling-kai-shi-zhi-zuo-you-xi-pei-le/" class="article-date">
+  <time datetime="2021-10-05T09:04:10.000Z" itemprop="datePublished">2021-10-05</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%BB%91%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%9E%83%E5%9C%BE/">黑历史与垃圾</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.8k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">6 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <ol type="1">
+<li>本文涉及到的资源和教程没有出于任何广告和推广的目的，都是我亲自使用过的教程和资源，原作者没有给我宣传费；侵删</li>
+</ol>
+<p>未经授权，本文禁止转载！</p>
+<hr />
+<h2 id="导论">导论</h2>
+<p>如果是编曲专业或者是数字作曲专业的学生，那么肯定是</p>
+<p><strong>先学乐理，再学软件，最后实操</strong></p>
+<p>但是我们野路子出身的不必这样，我们是为产品服务的</p>
+<p>而上述流程是为成绩服务的</p>
+<p>我建议是只需要知道大部分乐理术语，以及基础原理就行了</p>
+<p>不必搞得像古典乐专业的学生那样，学了厚厚一本乐理</p>
+<p>我觉得这样更合理：</p>
+<p><strong>先学软件，然后简单实操，实操过程中补齐乐理</strong></p>
+<p>那么问题来了，什么是乐理，如何学乐理？</p>
+<p>什么样的软件是行业标准？</p>
+<hr />
+<h2 id="乐理">乐理</h2>
+<p>如何学习乐理？</p>
+<p>问专业出身的人给出的答复肯定是，买一本乐理入门书</p>
+<p>推荐的书目大同小异</p>
+<p>我承认那些书都很好，但是如果是零基础的话，看书实际上是非常难学进去的，摸不着头脑</p>
+<p>我经经历那种痛苦</p>
+<p>我更推荐去看<strong>音乐大师</strong>的<strong>视频</strong>课程</p>
+<p>比如宋大叔：av51310803</p>
+<p>这套乐理教程后面还附带了作曲教程</p>
+<p>然后就是各位会看到大部分教程底下，经常有人强调<strong>乐感</strong>这个东西</p>
+<p>我认为，我们这些野路子出来做音乐的</p>
+<p>没必要有多大的乐感，因为培养这个要好几年的时间，可能做小体量游戏一年就能完成主体部分的开发了</p>
+<p>如果你确实有乐感天赋，那更好，但是如果真的是零基础就别强求了</p>
+<p>没有乐感造成的影响我后面再说</p>
+<hr />
+<h2 id="设备">设备</h2>
+<p>设备方面的推荐：声卡、键盘、监听设备（耳机或者音箱）</p>
+<p>声卡：声卡是必须的，不然就会像用集显玩COD一样，会卡顿（电流声）</p>
+<p>500元-1000元上下的价位的声卡就基本足够了</p>
+<p>（如果你本来就有9900K，那么实在不想买声卡也是可以的）（逃</p>
+<p>键盘：如果你会弹钢琴，那么MIDI键盘可以极大提高你的作曲效率</p>
+<p>如果你原先不会弹钢琴，那么在学习乐理的时候，你会发现各类乐理教程都其实教了基础弹钢琴的方法，介于作曲不是实时演奏、可以犯错误这一点，实际上只需要有乐理课上的那些基础钢琴知识，再在实际生产中稍加练习几天，拥有用来编曲的钢琴技术技术真的是绰绰有余了，可以极大提高你的效率，十分推荐</p>
+<p>MIDI键盘需要1000-1500元左右就能买到中等产品了，推荐61键的。88键的大概率房间里面放不下，搬运也困难（可能会有租房搬家的问题），而且那么大的音域作曲一般用不上</p>
+<p>监听设备：其实如果预算不足的话，监听设备我建议就100元以内的普通耳机就行了，当然如果你已经买了一款还不错的游戏耳机，也可以使用，因为我们野路子出来的作曲，其实和99.99%普通玩家一样，听不出来很多细节的，所以说如果预算限制的话，买个和普通玩家一样的普通耳机，听到他们能听到的东西就足够了</p>
+<hr />
+<h2 id="宿主软件">宿主软件</h2>
+<p>你必须一开始确定你的游戏需要什么类型的音乐比较多</p>
+<p>是古典？轻电子？还是插电？</p>
+<p>这对于选择软件十分重要</p>
+<p>我目前用的是FL studio（偏向电子风格）</p>
+<p>但是讲道理来说库乐队的功能更强大一些（古典、古风、电子都很适合，尤其是古风）（这两款是主流产品，其他的软件用的人比较少，教程也少）</p>
+<p>（这里插一句，古典特指西方古典乐，古风特指中国的“古典乐”，之前有好多人和我交流的时候对这个分不清楚，造成了很多误会）</p>
+<p>但是库乐队对新手不友好，优质教程数量远远少于FL</p>
+<p>这里我推荐FL（又称为水果、萝卜、芒果）</p>
+<p><img
+src="https://pic2.zhimg.com/80/v2-6c5ef12669efe8fa545dbc2fe99faaf9_720w.jpg" /></p>
+<p>FL主界面</p>
+<p>FL教程我推荐官网的教程：av50431643</p>
+<p>然后是软件下载，这款软件实在是太贵了，有能力支持正版，实在不行以后补票</p>
+<p>但是实际上这个软件的盗版也很不好找，被国内某家公司封杀了，实在需要找盗版建议去新加坡谷歌上找，或者是看看淘宝</p>
+<hr />
+<h2 id="音源">音源</h2>
+<p>音源我推荐kontakt家族</p>
+<p><img
+src="https://pic1.zhimg.com/80/v2-34941c1f7448db00e39c1c662f1ddccc_720w.jpg" /></p>
+<p>Kontakt主界面</p>
+<p>这个是行业标准</p>
+<p>软件本体依旧很贵</p>
+<p>实在不行就淘宝买个山寨，以后补票</p>
+<p>然后就是kontakt下面的各大音源</p>
+<p>比如柏林管弦、大珍珠钢琴、象牙钢琴这些都是行业标准</p>
+<p>如何调配这些音源我推荐看这个视频：av82662692</p>
+<p>视频里面推荐的音源都是行业标准</p>
+<hr />
+<h2 id="简单总结">简单总结</h2>
+<p>我建议先学软件，而不是正规路子的先学乐理，因为在软件教程里面都会多多少少渗透一些乐理，学了软件之后马上就能简单实操</p>
+<p>我建议先<strong>复现</strong>教程里面的旋律，想想为什么这个旋律有跳动感/恐怖感/欢快感……</p>
+<p>然后进行改进，完善为demo曲，强化这首曲子给你的感觉</p>
+<p>学完基础乐理之后进一步扩展为合格的曲子</p>
+<hr />
+<h2 id="adobe-au">Adobe AU</h2>
+<p>宿主说完了说下Adobe AU</p>
+<p>AU教程更多了</p>
+<p>B站上随便选一个都很高质，这部分不详述</p>
+<p>但是这东西一定要会用</p>
+<p>不过学这个并不着急</p>
+<p>等你能做出合格的曲子再学就行了</p>
+<p>至于为什么，到时候你就知道了</p>
+<hr />
+<h2 id="自动生产工具重点">自动生产工具（重点）</h2>
+<p><strong><em>重点来了！！！</em></strong></p>
+<p>强力推荐 OrbComposerS</p>
+<p>AI作曲，一次付费，终身使用</p>
+<p>而且价格非常合理，这个软件目前没有盗版，买个正版吧</p>
+<p>这个软件的效果：av50266684</p>
+<p>效果真的是太好了</p>
+<p>在此基础之上你可以改编，变奏</p>
+<p>视频里面还推荐了其他软件，但是都性价比和效率太低</p>
+<p>而且作品质量不高</p>
+<p><img
+src="https://pic4.zhimg.com/80/v2-bd0fd695d780f022fb3d6e075d4711d3_720w.jpg" /></p>
+<p>OrbComposerS主界面</p>
+<hr />
+<h2 id="乐感">乐感</h2>
+<p>最后讲一下乐感到底影响了什么</p>
+<p>影响<strong>扒谱</strong>和创作之初的<strong>灵感</strong></p>
+<p>请自行百度扒谱是什么，你会发现原创曲用不上这项技能</p>
+<p>然后是创作灵感，OrbComposerS已经为我们解决了</p>
+<p>所以说我认为可以不用培养乐感，性价比太低</p>
+<p>OrbComposerS这个软件在视频里面也说到了</p>
+<p>一般也就是用来激发作曲灵感的</p>
+<p>真的是非常好用</p>
+<hr />
+<h2 id="网站推荐">网站推荐</h2>
+<p>https://www.exound.com/</p>
+<p>https://www.midivst.com/</p>
+<p>还有B站（优质教程特别多）</p>
+<hr />
+<h2 id="结束语">结束语</h2>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://valkierja.github.io/ru-he-cong-ling-kai-shi-zhi-zuo-you-xi-pei-le/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/manjaro-kde-pei-zhi-pwn-huan-jing-yu-dao-de-wen-ti/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            manjaro KDE 配置pwn环境遇到的问题
+          
+        </div>
+      </a>
+    
+    
+      <a href="/pwndbg-de-bi-ji-hui-zong-geng-xin-zhong/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">pwndbg的笔记汇总(更新中)</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2023
+        <i class="ri-heart-fill heart_icon"></i> kier Val
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="祝獻の巴基力"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=1394343240&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>

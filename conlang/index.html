@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-cn">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta name="description" content="计算机软件二进制安全网络安全固件安全信息安全开发渗透测试护网C++cppIoTUnityUnrealGameplay" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>二十五小时创造一门自然语言(用于魔幻类游戏) |  祝獻の巴基力</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ6HK8QB76"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VJ6HK8QB76');
+</script>
+
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="祝獻の巴基力" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-conlang"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  二十五小时创造一门自然语言(用于魔幻类游戏)
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/conlang/" class="article-date">
+  <time datetime="2021-04-01T13:58:49.000Z" itemprop="datePublished">2021-04-01</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a> / <a class="article-category-link" href="/categories/%E6%9D%82%E8%B0%88/%E8%AF%AD%E8%A8%80%E5%AD%A6/">语言学</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">4.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">13 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>转自本人奶牛关博客</p>
+<p>未经允许,禁止任何转载和二创</p>
+</blockquote>
+<h2 id="导论"><strong>导论</strong></h2>
+<p>人造语言，英文：Constructed
+Language，中文简称造语，英文简称：Conlang；</p>
+<p>相信本文读者当中不乏喜欢魔幻类游戏的玩家，对于上古卷轴系列肯定并不陌生</p>
+<p>在上古卷轴系列当中，出现了龙语这一语种</p>
+<p>也许很多玩家认为龙语的字符就是鬼画符，仅仅是美工的艺术设计</p>
+<p>实际上不然，这些龙语的字符都是有明确含义的</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181051711.jpeg" /></p>
+<p>龙语字母表</p>
+<p>本文不讲述龙语学习</p>
+<p>有兴趣的朋友可以在https://www.thuum.org/获得全套龙语学习资料</p>
+<p>学习一门造语可以极大地帮助你创造一门造语，但是并不强求（也不必学的多深）</p>
+<p>这里我还推荐大名鼎鼎的其他几门造语：塔语、魔兽世界精灵语、魔戒精灵语、星语、克林贡语、多斯拉克语、阿凡达Na’vi语</p>
+<p>此外再推荐一个著名的造语论坛：conlang.org</p>
+<h2 id="语言学导论"><strong>语言学导论</strong></h2>
+<p>先来补补大学的公共选修课，语言学导论</p>
+<p>如果你大学学过的话，跳过本部分，或者稍微复习一下就行了</p>
+<p>没学过的话，我会尽快简述一下核心思想</p>
+<p>遇到不懂的名词请善用百度谷歌，限于篇幅，不会一一解释所有专有名词</p>
+<p><strong>同时，本文当中有些概念我会故意讲得很不严谨</strong>，这是为了方便各位理解。概念的不清晰会影响考试，但是不影响我们实操<strong>（不严谨的地方一律会标出）</strong></p>
+<p><strong>人类的语音系统由元音、辅音、音调组成</strong>，下面我们来解释一下核心部分</p>
+<h3 id="元音">元音</h3>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181051475.png" /></p>
+<p>IPA元音表</p>
+<p>暂时看不懂这个表也没关系，现在只需要有个印象就行，后面会解释。当然，能看懂更好</p>
+<p>OK，我们继续往下讲</p>
+<p><strong>元音，即气流通过口腔，不受舌、牙、唇的阻碍而发出的音</strong></p>
+<p>通俗来说就是：啊，污，衣  等发音（请各位自行念一下，感受气流和舌头、牙齿的关系）</p>
+<p>这里要注意一下，不受阻碍和受到调节是不一样的</p>
+<p>受到阻碍的例子有：噗  受到了唇的阻碍</p>
+<p>但是 污 是受到唇的调节，而非阻碍<strong>（不严谨）</strong></p>
+<p>要注意的一点是，有些语言当中的某些读音<strong>完全符合元音定义</strong>，但是在这种语言的语法教学当中可能不被视作元音，而是有其他名字，对于这种情况，这里我们姑且统一称之为元音，即<strong>真元音</strong></p>
+<p>介于本文的绝大多数读者对汉语、英语的发音习惯更加熟悉，因此，为了便于后续工程进行，我们的造语可以只选用以下元音（至于这些元音是如何选出的，限于本文篇幅不予展开，请各位读者自行了解IPA，这里我们只需要知道，选择了这些元音即可）</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181051540.png" /></p>
+<p>被选出的元音</p>
+<p>当然你也可以挑选其他不同的元音，创造出完全不一样的语言</p>
+<h3 id="辅音"><strong>辅音</strong></h3>
+<p>对于辅音的定义，我们可以这样理解：<strong>不是元音的音都被称之为辅音</strong></p>
+<p>我们来看看IPA辅音表</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181051316.png" /></p>
+<p>灰色部分意思是解剖学角度人类不可能发出的音</p>
+<p>空白部分意思是解剖学角度人类可以发出的音，但是目前世界上没有任何自然语言使用这个发音</p>
+<p>（这些发音也可以考虑使用，富有神秘气息）</p>
+<p>介于汉语、英语的发音习惯，我们可以只选用以下辅音（便于后续工程进行）</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181051015.png" /></p>
+<p>（至于这些辅音是如何选出的，限于本文篇幅不予展开，本文只是一个引子，真要想创造一门造语的话，还得学很多东西）</p>
+<p>现在我们选择出了41个音素</p>
+<p>为了便于输入（音标不易输入）我们总结一下，列一个字母表（alphabet）</p>
+<p>（暂时先使用拉丁字母，我们之后还要造字）</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181051388.png" /></p>
+<h4 id="小结ⅰ">小结Ⅰ</h4>
+<p>到这里，大部分语言学零基础/不扎实的同学要开始懵逼了</p>
+<p>如何选择这些元音、辅音呢？</p>
+<p>选择标准如何确定呢？</p>
+<p>选择不同的音素会给语言风格造成什么影响呢？</p>
+<p>我们来一一解读一下</p>
+<p>首先我们必须学习/复习一下<strong>元音和谐律</strong></p>
+<hr />
+<p>本文yuan载 https://valkierja.github.io/ 谨防爬虫</p>
+<hr />
+<h3 id="元音和谐律">元音和谐律</h3>
+<p>什么是元音和谐律？通俗的来讲就是<strong>男女有别</strong></p>
+<p>语言学家出于一些我们不必深究的目的（简单来说就是可以让语言听起来更加和谐），将元音分为公的、母的、无性别的（标准说法也就是：阳性、阴性、中性）</p>
+<p>在同一个单词当中，要是出现了公的元音，就不能再出现母的元音，但是还可以出现无性别的元音</p>
+<p>反之亦然</p>
+<p>比如：ulus（民族、国家）（土耳其语）</p>
+<p>至于在造语这里</p>
+<p>我们可以这样划分：ü[y]、ö[ø]、ä
+[æ]为阳性元音；u、o[o]、a[a]为阴性元音；i、e[e]、ê[ə]为中性元音。</p>
+<p>当然你也可以用其他方式进行划分，只需要让划分出来的阳性元音都有某种共同特点，阴性元音都有另一种特点即可：</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181051447.png" /></p>
+<p>看图可能会更直观一些</p>
+<p>再次强调一下，<strong>划分方式不是唯一的，只需要让划分出来的阳性元音都有某种共同特点，阴性元音都有另一种特点即可</strong></p>
+<p>划分的不同仅仅影响后续构词法的规则，仅仅是一种<strong>人为定义</strong></p>
+<p>若不划分，造出来的词汇往往<strong>难以发音，不自然</strong>，简单来说就是<strong>很假</strong></p>
+<p>划分之后，造语的发音就会很像是真实存在的自然语言</p>
+<h2 id="语言风格"><strong>语言风格</strong></h2>
+<p>不知道有多少读者曾经听说过以下观点：</p>
+<p><strong>元音丰富的语言更加悦耳</strong></p>
+<p>对于这一说法，在学术界中还有一些主观性争议，但可以确定的一点是，在大方向上，是基本正确的，虽然“悦耳”是比较主观的，但就悦耳这点而言，批判标准具有普世性</p>
+<p>此外，以下观点与上述观点类似，基本正确，但还有一些主观因素，可以视作历代造语前辈们的结论</p>
+<p>（遇到不明白的专有名词，请谷歌，或者是看一些语言学入门级书籍：《语言学入门指南：带你玩转语言密码》陈润
+；《语言学教程》胡壮麟 ；
+《统计自然语言处理基础》克里斯托弗·D·曼宁）</p>
+<p>富含<strong>圆唇音</strong>和<strong>鼻化元音</strong>会带来<strong>和平、乡土气息</strong>的感觉</p>
+<p><strong>复辅音较少</strong>，韵律感更强，更适合用来<strong>写诗、写歌、写短句</strong>（<strong>反之，则会给人带来宗教感，或是适合用来写魔法吟唱）</strong></p>
+<p><strong>富含擦音/硬腭化音</strong>的语言，给人一种<strong>军国主义的野心感</strong>，也有可能让人联想到<strong>野蛮、未开化、异邦、奇异</strong></p>
+<p><strong>卷舌音</strong>丰富给人一种<strong>部落文明、低等文明</strong>的感觉，也有可能让人联想到<strong>萨满文化</strong></p>
+<p><strong>以上论调，反之亦然</strong></p>
+<p>这些是笔者总结了几种比较常见的结论（笔者只知道这几种...）</p>
+<p><strong>欢迎评论区语言学大佬补充</strong></p>
+<p><strong>欢迎评论区语言学大佬补充</strong></p>
+<p><strong>欢迎评论区语言学大佬补充</strong></p>
+<p>如果您有其他语言风格的需求，不妨在造语的相关论坛多逛逛（文章开头说的那几种造语还有印象吗？）</p>
+<h2 id="造词">造词</h2>
+<p>很明显地，有的词汇在所有语言当中都会出现</p>
+<p>比如“我”、“吃”等等</p>
+<p><strong>根据词频造词</strong>可以极大优化地我们的工作</p>
+<p>这里我推荐用<strong>斯瓦迪士核心词汇表</strong>辅助我们的工作，你可以在维基百科找到它</p>
+<p>在造词之前，我们需要明确几个概念：语言一般而言主要有以下四种形态</p>
+<p><strong>孤立语</strong></p>
+<p>不通过词的内部变化来表达词的语法作用，而是通过虚词以及语序来显示词的语法作用</p>
+<p>例子：中文</p>
+<p><strong>黏着语</strong></p>
+<p>词内部<strong>拥有形态变化</strong>，语法关系通过词的形态变化来表示。黏着语的词的每个形态只表示一种语法意义，每种语法意义总是用同一个形态来表达。（一对一）</p>
+<p>例子：日语</p>
+<p><strong>屈折语</strong></p>
+<p>词内部拥有形态变化，每个形态可以同时表示几个语法意义，每个语法意义又可以用几个形态来表示。（多对多）</p>
+<p>例子：法语、德语</p>
+<p><strong>复综语</strong></p>
+<p>定义我就不说了，可以简单理解为词与词之间没有空格的英语：用一个特别长的、含有一堆词根的单词直接作为一个句子（一个句子只需要一个单词）</p>
+<p>例子：西格陵兰语、上古卷轴龙语</p>
+<h3 id="小结ⅱ">小结Ⅱ</h3>
+<p>知道以上四大类语言之后，各位就可以考虑考虑，到底要创造什么样的语言了，并朝着这个方向造词（先暂时使用拉丁字母代替音素，之后我们会造字的）</p>
+<h3 id="开始动手">开始动手</h3>
+<p>各位可能看过类似于以下的说法：</p>
+<p><strong>xx造语是以法语为基础演变而来</strong></p>
+<p>实际上，许多造语都是这样的操作的，当然你也可以完全白手起家，不以任何语言为基础</p>
+<p>我们以英语为例来演示一下</p>
+<p>比如，“想”的英文是think，我们可以以此为基础造出dinq这一单词</p>
+<p>以某语言为基础演变出造语的要点是：</p>
+<p><strong>1.演变方法基本相同</strong>（不能完全相同，不然依旧很假，因为世界上所有语言的构词法都有或多或少的例外）：比如尾音k--&gt;q，那么fuck这个单词最好演变成一个q结尾的单词；同时我们还可以规定，词中k，词首k的演化规律与词尾k完全不同</p>
+<p><strong>2.符合前文的元音和谐律</strong></p>
+<p><strong>3.变化一定要足够大</strong>，<strong>不能让人看出原单词</strong>：比如think可以转化成dinq，但是转化成thinque就不太合适了</p>
+<p><strong>4.你本人必须能标准地发出这些词汇的音，同时这个发音不会让你有任何违和感；或者虽然有违和感，但是这种违和感符合你的需求</strong></p>
+<p><strong>5.符合常识</strong>：比如拟声词、紧急情况的警告词等等必须要符合常识，比如：音素的数量不能太多等等</p>
+<p><strong>6."灵机一动型"词汇占比20%左右</strong>（防止玩家看出你的造语是基于什么语言，"灵机一动型"词汇算是一种干扰手段）："灵机一动型"词汇就是你不基于任何已有语言词汇而造出来的词汇；比如我灵机一动，想用lum表示“火炮”，那就用呗，毕竟是自己说的算，但是要注意<strong>"灵机一动型"词汇</strong>需要与其他词汇之间没有违和感</p>
+<h3 id="进一步地">进一步地</h3>
+<p>现在我们有了常用200词，我们可以进一步地进行造词：</p>
+<p>比如：游戏当中的常见武器、生物、食物、药物、技能、魔法吟文所需词汇；等等。</p>
+<p>然后是派生词：比如“棍”派生出木棍、铁棍、栅栏、篱笆、监狱；等等。</p>
+<p>感叹词、抽象词等等</p>
+<p>这里就不一一举例了</p>
+<p>秉持原则：用啥造啥，多余的不要造，以免出现违和感</p>
+<h3 id="词典"><strong>词典</strong></h3>
+<p>我建议使用Excel作为词典的记录软件，Excel的使用教程请自行搜索</p>
+<p>当然，也可以使用Babylon等专业词典编辑软件</p>
+<p>但是，实际上Excel就够用了</p>
+<h3 id="创造语法规则">创造语法规则</h3>
+<p>现在我们已经有了大多数需要的词汇，于是我们可以开始写剧情了</p>
+<p>但是在写剧情之前有一个很重要的问题：把单词连成句子的前提是，有一套基本的语法规则</p>
+<h3
+id="了解英语的句式结构确定造语的语序">了解英语的句式结构、确定造语的语序</h3>
+<p>我们先来看看英语五大句式：</p>
+<ol type="1">
+<li>主语+谓语</li>
+<li>主语+谓语+宾语</li>
+<li>主语+谓语+宾语+宾补</li>
+<li>主语+系动词+表语</li>
+<li>主语+谓语+宾语+间宾</li>
+</ol>
+<p>这就规定了英语的一个句子必然是主语打头，谓语中间，宾语（如果有的话）在后面</p>
+<p>我们再来看看日语：</p>
+<p>主语+宾语+谓语</p>
+<p>与英语的句子相比，就有很大的不同</p>
+<p>我们可以采用这两种在世界范围内比较常见的句式结构之一，也可以使用其他比较骚的句式结构，比如：</p>
+<p>谓语+主语+宾语</p>
+<p>谓语+宾语+主语</p>
+<p>情感词（感叹词）+主语+谓语+宾语（塔语的句式结构）</p>
+<p>等等</p>
+<h3 id="构筑语法大厦">构筑语法大厦</h3>
+<p>首先要对你的造语确定几个方面的语法问题：</p>
+<ol type="1">
+<li>有没有人称、数、性、格的变化？</li>
+<li>如果有任意一项，是通过什么来实现的？你的语言是黏着语还是屈折语？抑或是复综语？</li>
+<li>如果都没有，你这个语言在表达这些变化时，如何避免歧义？引入什么语法规则适合你这个语言？（举两个例子：比如汉语当中的“们”这个字，就是用于表达数的变化；英语的you虽然可以表达“你”也可以表达“你们”但是并不会造成歧义，因为99.99%的英语名词都有严格的数的变化，几个特例不会影响语义）</li>
+</ol>
+<p>这里可以举一个比较完整、凝练的语法结构例子：</p>
+<p>•        词汇不区分<strong>语法性别</strong>；</p>
+<p>•        名词、代词区别<strong>单数、双数、复数</strong>；</p>
+<p>•        格的概念通过格标志和介词等表示；</p>
+<p>•        正常语序为<strong>宾语+谓语+主语</strong>；</p>
+<p>•        疑问语序为<strong>宾语+谓语+主语+疑问词</strong>；</p>
+<p>•        限定成分置于被限定成分的后面；</p>
+<p>•        词的变化（派生等等）通过<strong>词缀</strong>实现；</p>
+<p>•        从句依赖提示词来提示，提示词后接正常语序的完整句子；</p>
+<p>•    
+   阅读方向为<strong>从左到右</strong>，<strong>横向书写</strong>；</p>
+<p>•    
+   感叹句不依赖感叹词提示，而是通过将正常语序变更：被感叹部分提前，其余部分保持正常语序；</p>
+<p>•        强调句依赖强调词提示，强调词置于句子最开头；</p>
+<p>各位把黑体部分置换即可；然后捏造一些语法特例（最好别弄太多）（可以演变自其他语言的语法特例），再规定一下文体（书信、法律文书；等等）的格式，语法这部分就没有框架性问题了</p>
+<h3 id="计数系统">计数系统</h3>
+<p>计数系统可以讲很多，这里略微提一下，各位谷歌参考一下阿拉伯数字的发展史，然后把一些关键性东西修改一下就行了</p>
+<p>比如：阿拉伯数字最右侧一位是个位，我们可以最左侧是个位</p>
+<p>再比如西方每三位数字打一个逗号，中国每四位数字空一格空格，我们可以每两位数字/五位数字加以标记；等等</p>
+<p>至于十进制和其他进制，也可修改</p>
+<h3 id="造字">造字</h3>
+<p>我们来解决一下之前的问题：字母表只是使用了41个拉丁字母代替，而没有造出新的字母</p>
+<p>软件准备</p>
+<p><a target="_blank" rel="noopener" href="https://www.fontlab.com/">https://www.fontlab.com/</a></p>
+<p>这款字体开发软件在网络上有很多教程，这里不再赘述</p>
+<p>可以借鉴一下龙语、世界语等其他多种造语，设计出自己文字书写风格</p>
+<p>这部分教程不太好写</p>
+<p>主要是自己的想象力</p>
+<h3 id="结语">结语</h3>
+<p>本文初载于https://valkierja.github.io/未经授权，禁止转载</p>
+<p>预祝各位游戏开发成功！</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://valkierja.github.io/conlang/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/x64dbg-api-breakpoint/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            X64dbg API断点设置方法以及其他几个小技巧
+          
+        </div>
+      </a>
+    
+    
+      <a href="/ld-linux-x86-64-linux-virus/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">ld-linux-x86-64 Linux矿机病毒</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2023
+        <i class="ri-heart-fill heart_icon"></i> kier Val
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="祝獻の巴基力"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=1394343240&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>

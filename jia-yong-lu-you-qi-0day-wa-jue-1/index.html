@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-cn">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta name="description" content="计算机软件二进制安全网络安全固件安全信息安全开发渗透测试护网C++cppIoTUnityUnrealGameplay" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>家用路由器0day挖掘笔记（1）MIPS32平台逆向入门指南 |  祝獻の巴基力</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ6HK8QB76"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VJ6HK8QB76');
+</script>
+
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="祝獻の巴基力" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-《家用路由器0day挖掘》（1）"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  家用路由器0day挖掘笔记（1）MIPS32平台逆向入门指南
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/jia-yong-lu-you-qi-0day-wa-jue-1/" class="article-date">
+  <time datetime="2021-09-08T14:28:10.000Z" itemprop="datePublished">2021-09-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">信息安全</a> / <a class="article-category-link" href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/0day/">0day</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.7k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">5 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="前言">前言</h2>
+<p>本系列受众为对Linux端开发，尤其是socket程序开发（包括码代码和设计理念）有一定了解，对X86平台逆向有一定了解，但对MIPS平台逆向基础薄弱的读者。本系列记录笔者遇到的问题和整体操作思路</p>
+<p>本系列目标为复现并完全理解CVE-2005-2799，并在一定程度上拥有敏锐发现二进制敏感操作，以及思考他们可能造成什么样问题的能力</p>
+<p>exp预期使用python编写</p>
+<p><strong>禁止转载</strong> <strong>禁止转载</strong>
+<strong>禁止转载</strong> <strong>欢迎借鉴 欢迎借鉴
+欢迎借鉴</strong></p>
+<h2 id="正文">正文</h2>
+<p>Linksys
+WRT54G是一款SOHO无线路由器，千禧年初，该型号在极客间颇为有名，主要原因有：支持刷第三方固件，双天线相控阵信号通信等，功能十分强大！而这也正是
+CVE-2005-2799 受影响的设备。</p>
+<p>该漏洞存在于路由器内HTTPD程序的apply.cgi文件下，其对POST请求的验证不够完善，经一番不算太难的操作后便可溢出缓冲区，直接提权至root，该漏洞系远程任意代码执行漏洞，属于高危漏洞</p>
+<p>本文将带大家从x86-PC平台逆向，进入嵌入式逆向的世界</p>
+<h3 id="mips32指令集汇编">MIPS32指令集，汇编</h3>
+<p>本小节只是一个基础，并非为了让大家精通MIPS32，笔者这里只会讲我们需要的内容</p>
+<p>MIPS是RISC，所以相比于操作内存而言，大部分时候我们操作的都是寄存器</p>
+<p>MIPS32架构有32个通用寄存器，基本都会用到，但是总共只有12种，很好记忆(下面原本是有个表格的,
+但是复制过来的时候不好复制, 后来找不到原始图了(因此也没法截图),
+所以就这样的raw格式了, 反正也没什么人看, 如果你看到了的话,
+请以此为线索再去互联网上搜一搜)</p>
+<p>ID</p>
+<p>名称</p>
+<p>备注</p>
+<p>0</p>
+<p>$0，zero</p>
+<p>始终为零，作为常量寄存器</p>
+<p>1</p>
+<p>$at</p>
+<p>保留，向上兼容</p>
+<p>2-3</p>
+<p><span class="math inline">\(v0~\)</span>v1</p>
+<p>函数返回值寄存器</p>
+<p>4-7</p>
+<p><span class="math inline">\(a0~\)</span>a3</p>
+<p>函数前四个参数</p>
+<p>8-15</p>
+<p><span class="math inline">\(t0~\)</span>t7</p>
+<p>临时变量寄存器</p>
+<p>16-23</p>
+<p><span class="math inline">\(s0~\)</span>s7</p>
+<p>帧变量寄存器，函数返回时必恢复</p>
+<p>24-25</p>
+<p><span class="math inline">\(t8~\)</span>t9</p>
+<p>临时变量寄存器</p>
+<p>26-27</p>
+<p>$k0 $k1</p>
+<p>中断寄存器</p>
+<p>28</p>
+<p>$gp</p>
+<p>全局指针寄存器，静态变量指针寄存器</p>
+<p>29</p>
+<p>$sp</p>
+<p>栈顶指针寄存器</p>
+<p>30</p>
+<p>$fp</p>
+<p>栈帧寄存器</p>
+<p>31</p>
+<p>$ra</p>
+<p>返回地址寄存器</p>
+<p>几个点强调一下</p>
+<p>首先是 RISC
+会尽可能操作寄存器，其次是立即数，<strong>内存是最万不得已的选择</strong></p>
+<p>因此对于0这个常见的常量，MIPS特意分了一个寄存器，此外一些指令会利用这个寄存器进行一些优化</p>
+<p>比如MOVE <span
+class="math inline">\(t0,\)</span>t1，这一指令在底层会被优化为ADD
+$t0,<span
+class="math inline">\(0,\)</span>t1——与0相加；由于某些底层设计的原因，后者速度更快，然而前者更符合大多数程序员的直觉，因此有了这种自动优化</p>
+<p>“ 尽可能操作寄存器
+”也能很好解释为什么这么多临时变量寄存器，如果在PC上面的话，x86更多是栈储存临时变量</p>
+<p>让人颇为在意的是两个返回值寄存器</p>
+<p>大部分情况下我们用不到v1返回值寄存器，只会使用v0，但对于某些高级语言的元组语法糖，或在tuple结构中，或是手写汇编函数结构的情况下，都有可能会用到第二个返回值寄存器</p>
+<p>在一般情况下，第二个返回值寄存器用于储存32位架构下的乘除结果（这一结果有可能是64位，至于为什么请查阅《加密与解密》）</p>
+<p>MIPS64保留了双返回值寄存器这一设计以向下，向上兼容，预期目的是存储128位结果，不过笔者有生之年应该看不到233</p>
+<p>t系列寄存器按照约定，不需要保存，也不需要清理，随时都可以使用，省去了PUSHAD的开销</p>
+<p>s系列寄存器则需要保存，需要恢复现场</p>
+<p>至于fp寄存器，由于MIPS平台体力弱小，因此栈帧寄存器常常会被寄存器“优化掉”，当作普通的临时变量寄存器</p>
+<p>gp寄存器：由于最上面提到的原因，即“尽可能直接操作寄存器”，所以MIPS专门为了静态成员变量，设计了一个寄存器，也就是gp寄存器</p>
+<p>ra寄存器，在X86下面，call之后的返回地址直接入栈，但是MIPS平台要尽可能少操作内存，因此JAL（相当于CALL）之后，返回地址会被存入寄存器当中（也就是ra寄存器）</p>
+<p>另外是三个特殊寄存器：计数器PC，高位寄存器HI，低位寄存器LO，用于乘法时保存高低位，用于除法时LO存商，HI存余数</p>
+<p>此外MIPS还有一些不得不注意的特点</p>
+<p>MIPS没有flag寄存器任何临时寄存器都可以拿去当作flag寄存器</p>
+<p>MIPS指令集的指令固定4字节长度，而且必须以4字节对齐，因为MIPS-CPU为了高效，没有设计在非对齐下的行为</p>
+<p>跳转指令上下寻址空间256MB</p>
+<p>条件分支指令上下寻址空间256KB</p>
+<p>MIPS为了效率，采用高度流水线，有较大的分支延迟，当跳转指令的目标地址刚发送给CPU后端，而跳转指令本身还没执行时，跳转分支语句的下一条指令（地址相邻的下一条，而非跳转的目的地）就已经在装载并即将执行，<strong>这点非常重要，这会影响整个跳转流程分析</strong></p>
+<p>汇编部分我们只列出部分打头的字母代表的意思，详细内容查白皮书就行，这里就不复制粘贴了</p>
+<p>L/S LOAD/STORE：存到寄存器/存到内存</p>
+<p>MOVE：寄存器之间移动值</p>
+<p>S SET（比较）：比如SLT SET LESS THAN 小于比较</p>
+<p>B BRANCH：分支</p>
+<p>J JUMP：跳转</p>
+<h3 id="大小端">大小端</h3>
+<p>MIPS平台一般是大端字节序，这与普通的X86-Linux平台正好相反，稍微注意下即可</p>
+<h2 id="结束语和预告">结束语和预告</h2>
+<p>现在已经基本掌握MIPS平台汇编的几个重要知识点，我们后续会在实战中巩固，敬请期待</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://valkierja.github.io/jia-yong-lu-you-qi-0day-wa-jue-1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/0day/" rel="tag">0day</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" rel="tag">二进制</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" rel="tag">路由器</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/wei-shi-me-ke-zhi-xing-wen-jian-yao-fen-duan/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            为什么可执行文件要分段
+          
+        </div>
+      </a>
+    
+    
+      <a href="/linux-wang-luo-cheng-xu-ni-xiang-xiao-bi-ji-2/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Linux网络程序逆向小笔记 (2)</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2023
+        <i class="ri-heart-fill heart_icon"></i> kier Val
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="祝獻の巴基力"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=1394343240&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /about/
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/
+
+Disallow: /assets/
+Disallow: /img/
+
+
+Sitemap: https://valkierja.github.io/sitemap.xml
+Sitemap: https://valkierja.github.io/sitemap.txt
+Sitemap: https://valkierja.github.io//baidusitemap.xml

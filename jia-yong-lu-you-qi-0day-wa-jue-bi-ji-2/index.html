@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-cn">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta name="description" content="计算机软件二进制安全网络安全固件安全信息安全开发渗透测试护网C++cppIoTUnityUnrealGameplay" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>家用路由器0day挖掘笔记（2）HTTP协议POST报文与环境配置 |  祝獻の巴基力</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ6HK8QB76"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VJ6HK8QB76');
+</script>
+
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="祝獻の巴基力" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-家用路由器0day挖掘笔记2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  家用路由器0day挖掘笔记（2）HTTP协议POST报文与环境配置
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/jia-yong-lu-you-qi-0day-wa-jue-bi-ji-2/" class="article-date">
+  <time datetime="2021-09-09T18:06:12.000Z" itemprop="datePublished">2021-09-10</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">信息安全</a> / <a class="article-category-link" href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/0day/">0day</a> / <a class="article-category-link" href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/">二进制</a> / <a class="article-category-link" href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/%E5%9B%BA%E4%BB%B6/">固件</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.9k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">8 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="衔接">衔接</h2>
+<p>由于最终攻击目标的payload是基于POST报文的，所以我们需要对HTTP的某些部分（主要是POST）了如指掌，顺便笔者也补补课，之前学web时只是泛泛了解HTTP协议而已，希望这次的梳理能帮到大家</p>
+<h2 id="配置环境">配置环境</h2>
+<p>请自行搜索并安装如下环境：</p>
+<p>VM虚拟机，Ubuntu12.04 （配置buildroot交叉编译MIPS环境）
+，Ubuntu16.04（配置buildroot交叉编译MIPS环境），IDA(及MIPS插件)，binwalk（安装图像模块，capstone模块，Ihasa模块，sasquatch模块，squashFS模块），以及QEMU-MIPS</p>
+<p>着重说一下QEMU，这个程序是我们用来虚拟化路由器环境的虚拟机</p>
+<p>尽可能安装高版本的QEMU（最好是latest），否则会有一些配置上的麻烦，具体情况本文不展开，可以确定的是，latest已经修复了相关bug，但是早期版本有一些小bug</p>
+<h3 id="qemu安装">QEMU安装</h3>
+<p>这里是kali/Debian/Ubuntu下的安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y bc zlib1g-dev  libglib2.0-0 libglib2.0-dev libtool libsdl1.2-dev libpixman-1-dev autoconf qemu qemu-user qemu-user-static qemu-system</span><br></pre></td></tr></table></figure>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172113244.png" /></p>
+<p>在干净的kali2021.2环境下,运行上述安装代码后，笔者没有遇到任何坑点</p>
+<h3 id="交叉编译环境">交叉编译环境</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget http://buildroot.uclibc.org/downloads/snapshots/buildroot-snapshot.tar.bz2</span><br><span class="line">tar -jxvf buildroot-snapshot.tar.bz2</span><br><span class="line">cd buildroot</span><br><span class="line">sudo apt-get install libncurses-dev patch bc</span><br><span class="line">make clean</span><br><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
+<p>选择<code>Target Option</code>-&gt;<code>Target Architecture</code>-&gt;<code>MIPS</code></p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172113460.png" /></p>
+<p>这里需要选择大小端</p>
+<p>虽然MIPS默认大端，但是我们的这个漏洞的平台采用的是小端</p>
+<p>然后貌似就会自动修改<code>Target Architecture Variant</code>如果没有自动修改，则手动修改为Generic
+MIPS（通用MIPS）</p>
+<p>然后修改<code>tool chain</code>当中的Linux内核版本，修改为本机内核版本</p>
+<p>查看内核可以使用</p>
+<p><code>uname -r</code></p>
+<p>设置成功后退出并保存</p>
+<p>然后</p>
+<p><code>sudo apt install -y texinfo bison flex</code></p>
+<p>然后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make</span><br></pre></td></tr></table></figure>
+<p>等待编译结束</p>
+<p>在干净的kali2021.2下,上述代码执行后没有遇到任何问题</p>
+<p>此时我们cd到~/buildroot/output/host/usr/bin</p>
+<p>可以找到mipsel-linux-gcc(把他搞个别名软连接放到系统环境里面,或者添加一个系统环境变量)</p>
+<p>这里的el是little-endian的反写</p>
+<p>这里我们测试一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    printf(&quot;hello world&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mipsel-linux-gcc -o hello ./main.c -static</span><br></pre></td></tr></table></figure>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172112750.png" /></p>
+<p>顺便测试一下刚刚安装的qemu</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172112765.png" /></p>
+<p>行为正常</p>
+<p>这里需要注意的一点是</p>
+<p>qemu-mips用于运行程序,qemu-system-mips用于运行整个mips架构的操作系统</p>
+<h3 id="chroot">chroot</h3>
+<p>这里需要注意一点，我们上面使用了<code>-static</code>选项，那么，如果我们要使用动态链接库该怎么做？</p>
+<p>其实很简单</p>
+<p>首先复制一份qemu的副本到某个地方</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172112714.png" /></p>
+<p>这样是为了环境干净和安全</p>
+<p>然后用chroot更改目录，然后报错了(cannot find /bin/bash)</p>
+<p>搜索了一番，加上一些笔者摸索的方法</p>
+<p>首先我们需要把当前的shell复制到目录下，同时利用ldd工具，得到当前shell调用的lib库，吧lib库也复制过来</p>
+<p>然后再把~/buildroot/output/host/mipsel-buildroot-linux-uclibc/sysroot下面的lib文件夹里面的东西递归-R复制过来，这就可以了</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172112282.png" /></p>
+<p>这里其实最终原理很简单，但是笔者第一次做的时候没有转过弯来：</p>
+<p>qemu只是虚拟机，就好比VMware，他不包含任何操作系统的系统文件，而交叉编译环境包括了所有目标环境的动态库文件所以我们复制过来就行</p>
+<p>此时作者也发现了一些很重要的问题，zsh有点不兼容问题，需要改配置文件，建议还是用Ubuntu
+不要用kali</p>
+<h3 id="配置网络环境">配置网络环境</h3>
+<p>这里借鉴了一下MrK师傅的网络配置教程，笔者之前从来也没有从0纯命令行配置TUN/TAP协议虚拟端口转发NAT连接的经验，之后会发一篇专门的教程，本系列的第三篇会稍微鸽一下</p>
+<p>下面的代码直接复制并执行即可，在干净的Ubuntu12 Ubuntu16
+，Ubuntu21下均无问题</p>
+<p>如果遇到了IP冲突，请手动修改，但是应该本地没有那么多监听吧</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install bridge-utils uml-utilities</span><br><span class="line">sudo brctl addbr virbr0</span><br><span class="line">sudo ifconfig virbr0 192.168.122.1/24 up</span><br><span class="line">sudo tunctl -t tap0</span><br><span class="line">sudo ifconfig tap0 192.168.122.11/24 up</span><br><span class="line">sudo brctl addif virbr0 tap0</span><br><span class="line">sudo dnsmasq --strict-order --except-interface=lo --interface=virbr0 --listen-address=192.168.122.1 --bind-interfaces --dhcp-range=192.168.122.2,192.168.122.254 --conf-file=&quot;&quot; --pid-file=/var/run/qemu-dhcp-virbr0.pid --dhcp-leasefile=/var/run/qemu-dhcp-virbr0.leases --dhcp-no-override</span><br><span class="line">sudo sysctl -w net.ipv4.ip_forward=1</span><br><span class="line">sudo sysctl -p /etc/sysctl.conf</span><br><span class="line">sudo iptables -t nat -A POSTROUTING -s &quot;192.168.122.0/255.255.255.0&quot; ! -d &quot;192.168.122.0/255.255.255.0&quot; -j MASQUERADE</span><br><span class="line">sudo iptables -N vm-service</span><br><span class="line">sudo iptables -A vm-service -j ACCEPT</span><br><span class="line">sudo iptables -A FORWARD -s 192.168.122.0/24 -j   vm-service</span><br></pre></td></tr></table></figure>
+<p>第一行是安装必要环境</p>
+<p>第二行创建虚拟端口</p>
+<p>第三行为端口指定IP</p>
+<p>第四行创建虚拟tap</p>
+<p>第五行为tap指定IP</p>
+<p>第六行连接tap和虚拟端口</p>
+<p>第七行是配置DHCP</p>
+<p>第八行第九行，端口转发</p>
+<p>第十行到最后，配置NAT和防火墙</p>
+<p>然后就可以用qemu-system-mipsel测试</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo qemu-system-mipsel -M malta -kernel &lt;kernelPATH&gt; -hda &lt;imgPATH&gt; -append &quot;root=/dev/sda1 console=tty0&quot; -netdev tap,id=tapnet,ifname=tap0,script=no -device rtl8139,netdev=tapnet -nographic</span><br></pre></td></tr></table></figure>
+<p>测试log如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">root@ks:~# sudo qemu-system-mipsel -M malta -kernel vmlinux-3.2.0-4-4kc-malta -hda debian_wheezy_mipsel_standard.qcow2 -append &quot;root=/dev/sda1 console=tty0&quot; -netdev tap,id=tapnet,ifname=tap0,script=no -device rtl8139,netdev=tapnet -nographic</span><br><span class="line">[    0.000000] Initializing cgroup subsys cpuset</span><br><span class="line">[    0.000000] Initializing cgroup subsys cpu</span><br><span class="line">[    0.000000] Linux version 3.2.0-4-4kc-malta (debian-kernel@lists.debian.org) (gcc version 4.6.3 (Debian 4.6.3-14) ) #1 Debian 3.2.51-1</span><br><span class="line">[    0.000000] bootconsole [early0] enabled</span><br><span class="line">[    0.000000] CPU revision is: 00019300 (MIPS 24Kc)</span><br><span class="line">[    0.000000] FPU revision is: 00739300</span><br><span class="line">[    0.000000] Determined physical RAM map:</span><br><span class="line">[    0.000000]  memory: 00001000 @ 00000000 (reserved)</span><br><span class="line">[    0.000000]  memory: 000ef000 @ 00001000 (ROM data)</span><br><span class="line">[    0.000000]  memory: 00675000 @ 000f0000 (reserved)</span><br><span class="line">[    0.000000]  memory: 0789b000 @ 00765000 (usable)</span><br><span class="line">[    0.000000] Wasting 60576 bytes for tracking 1893 unused pages</span><br><span class="line">[    0.000000] Initrd not found or empty - disabling initrd</span><br><span class="line">[    0.000000] Zone PFN ranges:</span><br><span class="line">[    0.000000]   DMA      0x00000000 -&gt; 0x00001000</span><br><span class="line">[    0.000000]   Normal   0x00001000 -&gt; 0x00008000</span><br><span class="line">[    0.000000] Movable zone start PFN for each node</span><br><span class="line">[    0.000000] early_node_map[1] active PFN ranges</span><br><span class="line">[    0.000000]     0: 0x00000000 -&gt; 0x00008000</span><br><span class="line">[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 32512</span><br><span class="line">[    0.000000] Kernel command line: root=/dev/sda1 console=tty0</span><br><span class="line">[    0.000000] PID hash table entries: 512 (order: -1, 2048 bytes)</span><br><span class="line">[    0.000000] Dentry cache hash table entries: 16384 (order: 4, 65536 bytes)</span><br><span class="line">[    0.000000] Inode-cache hash table entries: 8192 (order: 3, 32768 bytes)</span><br><span class="line">[    0.000000] Primary instruction cache 2kB, VIPT, 2-way, linesize 16 bytes.</span><br><span class="line">[    0.000000] Primary data cache 2kB, 2-way, VIPT, no aliases, linesize 16 bytes</span><br><span class="line">[    0.000000] Writing ErrCtl register=00000000</span><br><span class="line">[    0.000000] Readback ErrCtl register=00000000</span><br><span class="line">[    0.000000] Memory: 122332k/123500k available (4596k kernel code, 1168k reserved, 1278k data, 220k init, 0k highmem)</span><br><span class="line">[    0.000000] NR_IRQS:256</span><br><span class="line">[    0.000000] CPU frequency 200.00 MHz</span><br><span class="line">[    0.000000] Console: colour dummy device 80x25</span><br><span class="line">[    0.000000] console [tty0] enabled, bootconsole disabled</span><br><span class="line"></span><br><span class="line">Debian GNU/Linux 7 debian-mipsel ttyS0</span><br><span class="line"></span><br><span class="line">debian-mipsel login: root</span><br><span class="line">Password: </span><br><span class="line">Linux debian-mipsel 3.2.0-4-4kc-malta #1 Debian 3.2.51-1 mips</span><br><span class="line"></span><br><span class="line">The programs included with the Debian GNU/Linux system are free software;</span><br><span class="line">the exact distribution terms for each program are described in the</span><br><span class="line">individual files in /usr/share/doc/*/copyright.</span><br><span class="line"></span><br><span class="line">Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent</span><br><span class="line">permitted by applicable law.</span><br><span class="line">root@debian-mipsel:~# ping www.baidu.com</span><br><span class="line">PING www.a.shifen.com (39.156.66.18) 56(84) bytes of data.</span><br><span class="line">64 bytes from 39.156.66.18: icmp_req=66 ttl=51 time=15.9 ms</span><br><span class="line">64 bytes from 39.156.66.18: icmp_req=67 ttl=51 time=18.6 ms</span><br><span class="line">64 bytes from 39.156.66.18: icmp_req=68 ttl=51 time=15.7 ms</span><br><span class="line">64 bytes from 39.156.66.18: icmp_req=69 ttl=51 time=16.2 ms</span><br><span class="line">64 bytes from 39.156.66.18: icmp_req=70 ttl=51 time=16.0 ms</span><br></pre></td></tr></table></figure>
+<p>成功</p>
+<h2 id="修复环境">修复环境</h2>
+<p>这里是本文的难点。
+QEMU只能模拟MIPS-CPU环境，但是无法模拟路由器当中的<strong>其他硬件</strong>，这可能会导致固件导入虚拟机后无法运行，因此我们需要<strong>重写并Hook部分so动态库</strong></p>
+<h3 id="hook-nvram板载颗粒主控驱动-devnvram">Hook nvRAM板载颗粒主控驱动
+(/dev/nvram)</h3>
+<p>(施工中)</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://valkierja.github.io/jia-yong-lu-you-qi-0day-wa-jue-bi-ji-2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/0day/" rel="tag">0day</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BA%E4%BB%B6/" rel="tag">固件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" rel="tag">流量分析</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" rel="tag">路由器</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/can-kao-wen-xian-4-duo-fan-hui-zhi-de-han-shu/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            参考文献4 MIPS平台下，是否存在多返回值的函数
+          
+        </div>
+      </a>
+    
+    
+      <a href="/can-kao-wen-xian-3-mips-bai-pi-shu-vol2/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">参考文献3 MIPS白皮书 vol.2 chapter.3</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2023
+        <i class="ri-heart-fill heart_icon"></i> kier Val
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="祝獻の巴基力"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=1394343240&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>
