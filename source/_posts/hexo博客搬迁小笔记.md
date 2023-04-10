@@ -46,3 +46,4 @@ categories:
    - [123, 789]
 ```
 
+博客支持latex需要修改渲染器设置, 跟随该文章修改 https://zhuanlan.zhihu.com/p/381508379
