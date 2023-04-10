@@ -117,3 +117,10 @@ permalink_pinyin:
 
 sitemap: 
   path: sitemap.xml
+
+math:
+  engine: 'mathjax' # or 'katex'
+  mathjax:
+    # src: custom_mathjax_source
+    config:
+      # MathJax config
