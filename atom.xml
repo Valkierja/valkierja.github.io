@@ -6,7 +6,7 @@
   <link href="https://valkierja.github.io/atom.xml" rel="self"/>
   
   <link href="https://valkierja.github.io/"/>
-  <updated>2023-04-10T00:11:27.947Z</updated>
+  <updated>2023-04-10T00:22:57.996Z</updated>
   <id>https://valkierja.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://valkierja.github.io/tu-xing-xue-bi-ji-4-xia-view-bian-huan/"/>
     <id>https://valkierja.github.io/tu-xing-xue-bi-ji-4-xia-view-bian-huan/</id>
     <published>2023-04-09T11:47:15.000Z</published>
-    <updated>2023-04-10T00:11:27.947Z</updated>
+    <updated>2023-04-10T00:22:57.996Z</updated>
     
-    <content type="html"><![CDATA[<p>承接自上半笔记</p><h3 id="view-transformation">view transformation</h3><p><strong>viewing transformation</strong>包括以下内容</p><p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092156821.png" alt="image-20230409215625787" style="zoom:50%;" /></p><p>也就是相机的变换</p><p>考虑现实生活中的拍照片</p><p>首先需要让被拍摄对象摆好位置(进行model transformation)然后让摄影师找个好位置(view transformation)然后拍照(投影 projection)合起来简称 MVP变换</p><p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304091953234.png" alt="image-20230409195313168" style="zoom:50%;" /></p><h3 id="相机定义">相机定义</h3><p>相机的定义如下</p><figure><imgsrc="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304091955730.png"alt="image-20230409195532703" /><figcaption aria-hidden="true">image-20230409195532703</figcaption></figure><p>位置, 视方向, 向上方向(因为相机可以绕自身中轴线旋转)</p><h3 id="相对运动">相对运动</h3><p>当相机和其他东西一起以相同方式运动时, 得到的图片不会变化</p><p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092000326.png" alt="image-20230409200004274" style="zoom:67%;" /></p><p>也就是说, 坐标系是一个可以相对的概念, 因此为了讨论方便,在讨论视点变换时, 我们认为:</p><p><strong>相机永远处于原点, 相机永远向-z轴看,相机永远以y为向上方向</strong></p><p>原因是: 相机所在的地方我们视为一个平面, 由x和y轴确立</p><p>相机看向的位置视作纵深位置也就是z轴</p><p>但是为了满足右手坐标系, 纵深位置视作-z轴</p><p>这样就可以让z方向的矩阵的数值为正数, -z轴上的 1单位长度向量相当于z轴上的 -1 单位长度向量</p><p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092004987.png" alt="image-20230409200405956" style="zoom:50%;" /></p><p>如何把相机设置为上述状态? 方法如下</p><figure><imgsrc="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092006514.png"alt="image-20230409200618485" /><figcaption aria-hidden="true">image-20230409200618485</figcaption></figure><p>首先位置变换到原点, 然后旋转g和t到-Z和Y</p><p>这样就对齐了具体操作请看下一小节</p><h3 id="相机归位操作">相机归位操作</h3><p>设最终归位所需矩阵为 <span class="math display">\[M = RT\]</span>也就说先做平移变换 然后旋转</p><p>其中旋转矩阵 <span class="math display">\[ R = R_g \timesR_t\]</span></p><p>首先是平移变换</p><p><span class="math display">\[\left[\begin{matrix}1 &amp; 0 &amp; 0 &amp; -x_e\\0 &amp; 1 &amp; 0 &amp; -y_e\\0 &amp; 0 &amp; 1 &amp; -z_e\\0 &amp; 0 &amp; 0 &amp; 1\\\end{matrix}\right]\]</span></p><p>可以把相机放在原点</p><p>旋转矩阵并不好直接求, 因为我们前面学的公式都是从轴到目标地点的旋转,但是我们现在需要的是任意位置旋转到轴</p><p>因此我们可以先求逆矩阵</p><p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092100421.png" alt="image-20230409210031389" style="zoom:50%;" /></p><p>在此之前插入小插曲</p><h4 id="正交矩阵与旋转矩阵">正交矩阵与旋转矩阵</h4><p>正交矩阵判定方法:</p><p>每一列向量的长度等于单位长度, 且各个列向量之间正交(互相垂直),由此易得, <strong>旋转矩阵都是正交矩阵</strong></p><p>因为旋转之前的坐标系三个轴之间是正交的, 旋转之后也必然正交</p><p>另外正交矩阵有一个性质,<strong>正交矩阵的逆矩阵等于正交矩阵的转置矩阵</strong></p><p>因此, 求顺时针旋转, 或者是求旋转的逆旋转操作,都只需要求得原始旋转的逆矩阵, 也就是转置矩阵</p><h4 id="另一种旋转公式">另一种旋转公式</h4><p>为了确定一个物体的当前旋转状态, 我们需要三个量,这样还可以构建一个该物体的本地坐标系</p><p>因此我们可以得出另一种旋转公式</p><p>该公式起始位置为世界坐标, 结束位置为目标位置</p><p>在此期间, 该物体最初的本地坐标与世界坐标重合, 最终状态下,本地坐标不再与世界坐标系重合</p><p><img src="C:/Users/valkie/AppData/Roaming/Typora/typora-user-images/image-20230409212953343.png" alt="image-20230409212953343" style="zoom:50%;" /></p><p>我们只需要写出目标位置的本地坐标系的三个轴</p><p>前面的笔记说过, 为了新建一个坐标系我们可以用叉乘</p><p>所以得出上图的坐标系</p><p>利用上面的公式可以不需要任何<strong>角度</strong>量的介入而完成旋转</p><p>回到最初的相机归位操作</p><p>我们只需要找到当前相机的本地坐标系,就可以轻松找到让他旋转回到世界坐标系的旋转矩阵(求逆,也就是求转置即可)</p><p><strong>这样旋转矩阵R和平移矩阵T都有了,乘起来就可以得到单一的变换矩阵M 方便后续计算</strong></p><p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092140226.png" alt="image-20230409214029206" style="zoom:67%;" /></p><p>得到矩阵M 之后, 世界中所有物件都需要做变换M, 这样就可以进行相对运动,类似于相对静止</p><p>也就是说优先保证相机移到世界坐标系, 然后让其他物件绑定到相机上面</p><p>对所有世界物体做出M变换后就可以开始准备下一阶段了</p><h2 id="投影变换">投影变换</h2>]]></content>
+    <content type="html"><![CDATA[<p>承接自上半笔记</p><h3 id="view-transformation">view transformation</h3><p><strong>viewing transformation</strong>包括以下内容</p><p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092156821.png" alt="image-20230409215625787" style="zoom:50%;" /></p><p>也就是相机的变换</p><p>考虑现实生活中的拍照片</p><p>首先需要让被拍摄对象摆好位置(进行model transformation)然后让摄影师找个好位置(view transformation)然后拍照(投影 projection)合起来简称 MVP变换</p><p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304091953234.png" alt="image-20230409195313168" style="zoom:50%;" /></p><h3 id="相机定义">相机定义</h3><p>相机的定义如下</p><figure><imgsrc="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304091955730.png"alt="image-20230409195532703" /><figcaption aria-hidden="true">image-20230409195532703</figcaption></figure><p>位置, 视方向, 向上方向(因为相机可以绕自身中轴线旋转)</p><h3 id="相对运动">相对运动</h3><p>当相机和其他东西一起以相同方式运动时, 得到的图片不会变化</p><p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092000326.png" alt="image-20230409200004274" style="zoom:67%;" /></p><p>也就是说, 坐标系是一个可以相对的概念, 因此为了讨论方便,在讨论视点变换时, 我们认为:</p><p><strong>相机永远处于原点, 相机永远向-z轴看,相机永远以y为向上方向</strong></p><p>原因是: 相机所在的地方我们视为一个平面, 由x和y轴确立</p><p>相机看向的位置视作纵深位置也就是z轴</p><p>但是为了满足右手坐标系, 纵深位置视作-z轴</p><p>这样就可以让z方向的矩阵的数值为正数, -z轴上的 1单位长度向量相当于z轴上的 -1 单位长度向量</p><p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092004987.png" alt="image-20230409200405956" style="zoom:50%;" /></p><p>如何把相机设置为上述状态? 方法如下</p><figure><imgsrc="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092006514.png"alt="image-20230409200618485" /><figcaption aria-hidden="true">image-20230409200618485</figcaption></figure><p>首先位置变换到原点, 然后旋转g和t到-Z和Y</p><p>这样就对齐了具体操作请看下一小节</p><h3 id="相机归位操作">相机归位操作</h3><p>设最终归位所需矩阵为 <span class="math display">\[M = RT\]</span>也就说先做平移变换 然后旋转</p><p>其中旋转矩阵 <span class="math display">\[ R = R_g \timesR_t\]</span></p><p>首先是平移变换</p><p><span class="math display">\[\left[\begin{matrix}1 &amp; 0 &amp; 0 &amp; -x_e\\0 &amp; 1 &amp; 0 &amp; -y_e\\0 &amp; 0 &amp; 1 &amp; -z_e\\0 &amp; 0 &amp; 0 &amp; 1\\\end{matrix}\right]\]</span></p><p>可以把相机放在原点</p><p>旋转矩阵并不好直接求, 因为我们前面学的公式都是从轴到目标地点的旋转,但是我们现在需要的是任意位置旋转到轴</p><p>因此我们可以先求逆矩阵</p><p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092100421.png" alt="image-20230409210031389" style="zoom:50%;" /></p><p>在此之前插入小插曲</p><h4 id="正交矩阵与旋转矩阵">正交矩阵与旋转矩阵</h4><p>正交矩阵判定方法:</p><p>每一列向量的长度等于单位长度, 且各个列向量之间正交(互相垂直),由此易得, <strong>旋转矩阵都是正交矩阵</strong></p><p>因为旋转之前的坐标系三个轴之间是正交的, 旋转之后也必然正交</p><p>另外正交矩阵有一个性质,<strong>正交矩阵的逆矩阵等于正交矩阵的转置矩阵</strong></p><p>因此, 求顺时针旋转, 或者是求旋转的逆旋转操作,都只需要求得原始旋转的逆矩阵, 也就是转置矩阵</p><h4 id="另一种旋转公式">另一种旋转公式</h4><p>为了确定一个物体的当前旋转状态, 我们需要三个量,这样还可以构建一个该物体的本地坐标系</p><p>因此我们可以得出另一种旋转公式</p><p>该公式起始位置为世界坐标, 结束位置为目标位置</p><p>在此期间, 该物体最初的本地坐标与世界坐标重合, 最终状态下,本地坐标不再与世界坐标系重合</p><p><img src="C:/Users/valkie/AppData/Roaming/Typora/typora-user-images/image-20230409212953343.png" alt="image-20230409212953343" style="zoom:50%;" /></p><p>我们只需要写出目标位置的本地坐标系的三个轴</p><p>前面的笔记说过, 为了新建一个坐标系我们可以用叉乘</p><p>所以得出上图的坐标系</p><p>利用上面的公式可以不需要任何<strong>角度</strong>量的介入而完成旋转</p><p>回到最初的相机归位操作</p><p>我们只需要找到当前相机的本地坐标系,就可以轻松找到让他旋转回到世界坐标系的旋转矩阵(求逆,也就是求转置即可)</p><p><strong>这样旋转矩阵R和平移矩阵T都有了,乘起来就可以得到单一的变换矩阵M 方便后续计算</strong></p><p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304092140226.png" alt="image-20230409214029206" style="zoom:67%;" /></p><p>得到矩阵M 之后, 世界中所有物件都需要做变换M, 这样就可以进行相对运动,类似于相对静止</p><p>也就是说优先保证相机移到世界坐标系, 然后让其他物件绑定到相机上面</p><p>对所有世界物体做出M变换后就可以开始准备下一阶段了</p><h2 id="投影变换">投影变换</h2><p>分为两种投影变换 正交投影(orthographic)和透视投影(perspective)</p><figure><imgsrc="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304100822603.png"alt="image-20230410082203555" /><figcaption aria-hidden="true">image-20230410082203555</figcaption></figure>]]></content>
     
     
       
@@ -316,9 +316,9 @@ src=&quot;https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/20230408</
     <link href="https://valkierja.github.io/hexo-bo-ke-ban-qian-xiao-bi-ji/"/>
     <id>https://valkierja.github.io/hexo-bo-ke-ban-qian-xiao-bi-ji/</id>
     <published>2023-03-17T14:17:27.000Z</published>
-    <updated>2023-03-18T09:29:47.423Z</updated>
+    <updated>2023-04-10T00:20:52.753Z</updated>
     
-    <content type="html"><![CDATA[<p>整体没有遇到太多问题, 记录几个不好搜索到的小技巧https://i007it.com/2022/05/12/Hexo%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BF%87%E6%B8%B2%E6%9F%93/</p><h2 id="tag">tag</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tags:</span><br><span class="line">  - 123</span><br><span class="line">  - 456</span><br></pre></td></tr></table></figure><p>or</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tags: [123, 456]</span><br></pre></td></tr></table></figure><h2 id="categories">categories</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">categories: 123</span><br><span class="line"></span><br><span class="line">categories: [123, 456]</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 123</span><br><span class="line">- 456</span><br></pre></td></tr></table></figure><p>多标签写法，文章被分类到123、456以及123的自分类789这3个分类下面，官方指定写法。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">   - [123]</span><br><span class="line">   - [456]</span><br><span class="line">   - [123, 789]</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>整体没有遇到太多问题, 记录几个不好搜索到的小技巧https://i007it.com/2022/05/12/Hexo%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BF%87%E6%B8%B2%E6%9F%93/</p><h2 id="tag">tag</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tags:</span><br><span class="line">  - 123</span><br><span class="line">  - 456</span><br></pre></td></tr></table></figure><p>or</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tags: [123, 456]</span><br></pre></td></tr></table></figure><h2 id="categories">categories</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">categories: 123</span><br><span class="line"></span><br><span class="line">categories: [123, 456]</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 123</span><br><span class="line">- 456</span><br></pre></td></tr></table></figure><p>多标签写法，文章被分类到123、456以及123的自分类789这3个分类下面，官方指定写法。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">   - [123]</span><br><span class="line">   - [456]</span><br><span class="line">   - [123, 789]</span><br></pre></td></tr></table></figure><p>博客支持latex需要修改渲染器设置, 跟随该文章修改https://zhuanlan.zhihu.com/p/381508379</p>]]></content>
     
     
       
@@ -509,9 +509,9 @@ src=&quot;https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303</su
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="存档" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%98%E6%A1%A3/"/>
     
@@ -725,9 +725,9 @@ Lab&lt;/a&gt;[U</summary>
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="存档" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%98%E6%A1%A3/"/>
     
@@ -760,9 +760,9 @@ Lab&lt;/a&gt;[U</summary>
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="开发" scheme="https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/"/>
     
@@ -936,9 +936,9 @@ myself,if you take this post by accident ple</summary>
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="存档" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%98%E6%A1%A3/"/>
     
@@ -1115,9 +1115,9 @@ id=&quot;konsole无法唤起pwndbg唤起新窗口后无法正确识别shebang&qu
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="开发" scheme="https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/"/>
     
@@ -2315,9 +2315,9 @@ src=&quot;https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/2023031720
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="存档" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%98%E6%A1%A3/"/>
     
@@ -2490,9 +2490,9 @@ src=&quot;https://raw.git</summary>
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="存档" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%98%E6%A1%A3/"/>
     
@@ -2572,9 +2572,9 @@ src=&quot;https://raw.git</summary>
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="编译原理" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     
@@ -2634,9 +2634,9 @@ src=&quot;https://raw.git</summary>
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="存档" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%98%E6%A1%A3/"/>
     
@@ -2665,9 +2665,9 @@ src=&quot;https://raw.git</summary>
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="存档" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%98%E6%A1%A3/"/>
     
@@ -2697,9 +2697,9 @@ src=&quot;https://raw.git</summary>
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="存档" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%98%E6%A1%A3/"/>
     
@@ -2783,9 +2783,9 @@ src=&quot;https://raw.git</summary>
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="存档" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%98%E6%A1%A3/"/>
     
@@ -2871,9 +2871,9 @@ src=&quot;https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202</summa
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="存档" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%98%E6%A1%A3/"/>
     
@@ -2902,9 +2902,9 @@ src=&quot;https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202</summa
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="存档" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%98%E6%A1%A3/"/>
     
@@ -2934,9 +2934,9 @@ src=&quot;https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202</summa
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="开发" scheme="https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/"/>
     
@@ -2999,9 +2999,9 @@ src=&quot;https://raw.gith</summary>
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="开发" scheme="https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/"/>
     
@@ -3209,9 +3209,9 @@ MessageBox，编译之后的静态机器码是什么？装载之后动调时的�
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="开发" scheme="https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/"/>
     
@@ -3438,15 +3438,15 @@ edi,edi相当于在PE中占两字节长度的NOP，消耗的CPU时钟也和NOP�
     
     <category term="信息安全" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
-    
     <category term="笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
     <category term="开发" scheme="https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/"/>
     
-    <category term="逆向" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/%E9%80%86%E5%90%91/"/>
-    
     <category term="存档" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%98%E6%A1%A3/"/>
+    
+    <category term="逆向" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/%E9%80%86%E5%90%91/"/>
     
     <category term="Windows" scheme="https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/Windows/"/>
     
@@ -3674,9 +3674,9 @@ mod，所以需要区分指向同一份dll模块的不同指针拷贝，为了�
     
     
     
-    <category term="杂谈" scheme="https://valkierja.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
     <category term="开发" scheme="https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="杂谈" scheme="https://valkierja.github.io/categories/%E6%9D%82%E8%B0%88/"/>
     
     
   </entry>
@@ -4102,9 +4102,9 @@ mov eax,[ebx+8]则是把内存地址为ebx+8处的数据赋给eax&lt;/p&gt;
     
     
     
-    <category term="杂谈" scheme="https://valkierja.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
     <category term="开发" scheme="https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="杂谈" scheme="https://valkierja.github.io/categories/%E6%9D%82%E8%B0%88/"/>
     
     <category term="语言学" scheme="https://valkierja.github.io/categories/%E6%9D%82%E8%B0%88/%E8%AF%AD%E8%A8%80%E5%AD%A6/"/>
     
@@ -4551,9 +4551,9 @@ let camera be Player&#39;s child ,but in our case the Player moving way</summary
     <category term="短笔记" scheme="https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E7%9F%AD%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="cpp" scheme="https://valkierja.github.io/tags/cpp/"/>
-    
     <category term="悬而未决" scheme="https://valkierja.github.io/tags/%E6%82%AC%E8%80%8C%E6%9C%AA%E5%86%B3/"/>
+    
+    <category term="cpp" scheme="https://valkierja.github.io/tags/cpp/"/>
     
     <category term="需要修改" scheme="https://valkierja.github.io/tags/%E9%9C%80%E8%A6%81%E4%BF%AE%E6%94%B9/"/>
     
@@ -4733,9 +4733,9 @@ API的程序在运行时会向外部dll进行查找，进程也应当包含被�
     
     <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
-    <category term="杂谈" scheme="https://valkierja.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
     <category term="开发" scheme="https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="杂谈" scheme="https://valkierja.github.io/categories/%E6%9D%82%E8%B0%88/"/>
     
     
     <category term="环境配置" scheme="https://valkierja.github.io/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
@@ -4915,9 +4915,9 @@ href=&quot;https://courses.washington.edu/css342/zander/css3</summary>
     
     <category term="二进制" scheme="https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/"/>
     
-    <category term="杂谈" scheme="https://valkierja.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
     <category term="开发" scheme="https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="杂谈" scheme="https://valkierja.github.io/categories/%E6%9D%82%E8%B0%88/"/>
     
     <category term="C++" scheme="https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/C/"/>
     

