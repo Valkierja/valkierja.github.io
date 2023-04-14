@@ -4024,7 +4024,9 @@ n &amp; 0 &amp; 0 &amp; 0\\
   <entry>
     <title>图形学笔记5 光栅化</title>
     <url>/tu-xing-xue-bi-ji-5-guang-zha-hua/</url>
-    <content><![CDATA[<p>s</p>
+    <content><![CDATA[<h3 id="词源">词源</h3>
+<p>光栅化一词起源于德语, 原型是屏幕加上动词后缀(笔者德语没有系统性学过 不知道这样说对不对) 也就是说 光栅化的原本意思是 <code>在屏幕上绘制</code> 这一动作</p>
+<h3 id="section"></h3>
 ]]></content>
       <categories>
         <category>图形学笔记</category>
