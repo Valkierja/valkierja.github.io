@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">66</span>
+            <span class="post-count">488</span>
         </span>
     </span>
 
@@ -122,7 +122,40 @@
        
   <h3 id="词源">词源</h3>
 <p>光栅化一词起源于德语, 原型是屏幕加上动词后缀(笔者德语没有系统性学过 不知道这样说对不对) 也就是说 光栅化的原本意思是 <code>在屏幕上绘制</code> 这一动作</p>
-<h3 id="section"></h3>
+<h3 id="视锥范围的感性划定">视锥范围的感性划定</h3>
+<p>我们在上节课提到了视锥, 那么如何直观的划定视锥的范围</p>
+<p>我们规定看向的第一个面是near , 然后求出来垂直视角 <span class="math inline">\(fovY\)</span> ,再定义一下视角比 <span class="math inline">\(aspect \ ratio\)</span> 根据这两个值就可以求出来水平视角<span class="math inline">\(fovX\)</span></p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304141832803.png" alt="" /><figcaption>image-20230414183252766</figcaption>
+</figure>
+<p>这里我们假设图片中间的灰色虚线经过坐标轴, 也就是说 <span class="math inline">\(l=-r,\)</span> <span class="math inline">\(b=-t\)</span></p>
+<p>得到如下关系 <span class="math display">\[
+\begin{aligned}
+\tan \frac{f o v Y}{2} &amp; =\frac{t}{|n|} \\
+\text { aspect } &amp; =\frac{r}{t}
+\end{aligned}
+\]</span> <img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304141902223.png" alt="image-20230414190228185" /></p>
+<h3 id="定义什么是屏幕可绘制对象">定义什么是屏幕(可绘制对象)</h3>
+<p>我们把屏幕定义成这样(一般的情况下, 屏幕坐标系的原点是屏幕最左上角的地方, 这里为了直观和方便, 定义为最左下角)</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304142140284.png" alt="" /><figcaption>image-20230414214039247</figcaption>
+</figure>
+<p>第一个像素点的<strong>索引(index)</strong>被标记为二元组 <span class="math inline">\((0,0)\)</span> 其中心坐标为 <span class="math inline">\((0.5,0.5)\)</span> 需要加上0.5</p>
+<p>索引数： <span class="math inline">\(from \ (0,0)\ to \ (x-1,y-1)\)</span></p>
+<p>屏幕cover的范围： <span class="math inline">\(from \ (0,0)\ to \ (x,y)\)</span></p>
+<h3 id="把上一小节的视锥映射到屏幕视口变换">把上一小节的视锥映射到屏幕(视口变换)</h3>
+<p>首先<strong>暂时忽略</strong>z坐标, 该值表示深度, 后续会用于竞争待渲染元素对像素的所有权</p>
+<p>只看x和y的话就很直观了, 只需要把正方体的视锥, 拉伸到屏幕的大小</p>
+<p>拉伸函数为: <span class="math display">\[
+M_{\text {viewport }}=\left(\begin{array}{cccc}
+\frac{\text { width }}{2} &amp; 0 &amp; 0 &amp; \frac{\text { width }}{2} \\
+0 &amp; \frac{\text { height }}{2} &amp; 0 &amp; \frac{\text { height }}{2} \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right)
+\]</span></p>
+<p>w列向量用于平移枢轴</p>
+<p>另外两个主对角向量用于缩放scale</p>
  
       <!-- reward -->
       

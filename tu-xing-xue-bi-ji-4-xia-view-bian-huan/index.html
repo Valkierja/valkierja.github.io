@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">2.9k</span>
+            <span class="post-count">3k</span>
         </span>
     </span>
 
@@ -235,6 +235,7 @@
 <p><strong>但是如果是一根正坐标轴上, 离我们远的值应该是更大</strong></p>
 <p>所以有的api采用了左手系来规避这个不符合直觉的地方</p>
 <p>变换矩阵如下, 先做负的平移操作,然后缩放变成<span class="math inline">\([-1,1]^3\)</span> 总大小是2×2</p>
+<p>注意, 这里的压缩不会导致数据丢失(除非超出浮点数表示范围), 因为实数是稠密的, 像素点才是离散的</p>
 <figure>
 <img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304112007952.png" alt="" /><figcaption>image-20230411200707911</figcaption>
 </figure>
