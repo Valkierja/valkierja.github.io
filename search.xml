@@ -3118,32 +3118,6 @@ mov eax,[ebx+8]则是把内存地址为ebx+8处的数据赋给eax</p>
       </categories>
   </entry>
   <entry>
-    <title>匈牙利命名法、前缀表示法、一些乌拉尔语系语言学小知识</title>
-    <url>/xiong-ya-li-ming-ming-fa-qian-zhui-biao-shi-fa-yi-xie-wu-la-er-yu-xi-yu-yan/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>对szBuffer这个参数名有点疑惑sz的含义，顺藤摸瓜找到了很多很有意思的东西</p>
-<h2 id="正文">正文</h2>
-<p>首先是sz是匈牙利语当中“零”的简写</p>
-<p>所以szBuffer是零结尾的缓冲区</p>
-<p>然后顺着维基去学了一点匈牙利语，顺便发现和德语的合字ß有一些千丝万缕的联系，查了一下相关字母发展史</p>
-<p>演化路径有两条</p>
-<p>长S和z <strong>ſ</strong>z</p>
-<p>长S和s <strong>ſ</strong>s</p>
-<p>匈牙利语属于乌拉尔语系而德语属于典型的印欧语系</p>
-<p>但是在这个连字上，演化规律和路径相似</p>
-<p>同时顺便还看见了波兰计数法，由于之前课设甚至考虑过符号运算顺序栈，所以一下子被吸引住了</p>
-<p>放几段维基感受一下</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101090.png" /></p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101051.png" /></p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101859.png" /></p>
-]]></content>
-      <categories>
-        <category>杂谈</category>
-        <category>开发</category>
-        <category>语言学</category>
-      </categories>
-  </entry>
-  <entry>
     <title>动态链接器笔记</title>
     <url>/dong-tai-lian-jie-qi-bi-ji/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
@@ -3197,6 +3171,32 @@ mov eax,[ebx+8]则是把内存地址为ebx+8处的数据赋给eax</p>
       <tags>
         <tag>悬而未决</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>匈牙利命名法、前缀表示法、一些乌拉尔语系语言学小知识</title>
+    <url>/xiong-ya-li-ming-ming-fa-qian-zhui-biao-shi-fa-yi-xie-wu-la-er-yu-xi-yu-yan/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>对szBuffer这个参数名有点疑惑sz的含义，顺藤摸瓜找到了很多很有意思的东西</p>
+<h2 id="正文">正文</h2>
+<p>首先是sz是匈牙利语当中“零”的简写</p>
+<p>所以szBuffer是零结尾的缓冲区</p>
+<p>然后顺着维基去学了一点匈牙利语，顺便发现和德语的合字ß有一些千丝万缕的联系，查了一下相关字母发展史</p>
+<p>演化路径有两条</p>
+<p>长S和z <strong>ſ</strong>z</p>
+<p>长S和s <strong>ſ</strong>s</p>
+<p>匈牙利语属于乌拉尔语系而德语属于典型的印欧语系</p>
+<p>但是在这个连字上，演化规律和路径相似</p>
+<p>同时顺便还看见了波兰计数法，由于之前课设甚至考虑过符号运算顺序栈，所以一下子被吸引住了</p>
+<p>放几段维基感受一下</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101090.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101051.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172101859.png" /></p>
+]]></content>
+      <categories>
+        <category>杂谈</category>
+        <category>开发</category>
+        <category>语言学</category>
+      </categories>
   </entry>
   <entry>
     <title>化简等值式</title>
@@ -4168,18 +4168,6 @@ M_{\text {viewport }}=\left(\begin{array}{cccc}
       </categories>
   </entry>
   <entry>
-    <title>大端序Windows PE文件逆向关键函数</title>
-    <url>/da-duan-xu-windows-pe-wen-jian-ni-xiang-guan-jian-han-shu/</url>
-    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172114249.png" /></p>
-<p>图中的函数为大小端序转换函数</p>
-<p>遇到了一个题目是出题人自己的壳，而且壳解压过程中还把默认小端序的PE文件的一部分堆栈转换成了大端序，操作太骚了</p>
-<p>再往后面是TEA加密的非标准实现，看WP也不懂，姑且放弃了</p>
-]]></content>
-      <categories>
-        <category>黑历史与垃圾</category>
-      </categories>
-  </entry>
-  <entry>
     <title>大端和小端的简单笔记</title>
     <url>/da-duan-he-xiao-duan-de-jian-dan-bi-ji/</url>
     <content><![CDATA[<p>我们写数字,比如100000</p>
@@ -4197,6 +4185,18 @@ M_{\text {viewport }}=\left(\begin{array}{cccc}
       <categories>
         <category>笔记</category>
         <category>存档</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>大端序Windows PE文件逆向关键函数</title>
+    <url>/da-duan-xu-windows-pe-wen-jian-ni-xiang-guan-jian-han-shu/</url>
+    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172114249.png" /></p>
+<p>图中的函数为大小端序转换函数</p>
+<p>遇到了一个题目是出题人自己的壳，而且壳解压过程中还把默认小端序的PE文件的一部分堆栈转换成了大端序，操作太骚了</p>
+<p>再往后面是TEA加密的非标准实现，看WP也不懂，姑且放弃了</p>
+]]></content>
+      <categories>
+        <category>黑历史与垃圾</category>
       </categories>
   </entry>
   <entry>
