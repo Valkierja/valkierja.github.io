@@ -163,3 +163,358 @@ $$
 分为两种投影变换 正交投影(orthographic)和透视投影(perspective)
 
 ![image-20230410082203555](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304100822603.png)
+
+投影变换后还需要进行视口变换
+
+在投影变换过程中, 物体不会等比例拉伸, 会变形, 这点很正常,视口变换会将其还原
+
+
+
+### 正交投影和透视投影分别是什么含义
+
+正交投影意味着光线是平行光, 也就是说摄像头位于无限远处
+
+透视投影就是日常情况, 近大远小, 平行线相交于消失点
+
+![image-20230411192722289](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304111927370.png)
+
+由于正交投影摄像机处于无限远, 对于摄像机而言, 距离他x单位的物体和x+t单位的物体看起来就一样大了(前提是他们的体积确实是一样的), 这样就不存在近大远小了,平行线也就不会相较于消失点
+
+
+
+![image-20230411192750747](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304111927799.png)
+
+
+
+### 正交投影流程
+
+首先完成了摄像机的相机归位操作
+
+![image-20230411193135497](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304111931542.png)
+
+此时我们可以认为有一个幕布, 放在了原点处, 幕布大小是$[-1,1]^3$
+
+也就是说, 把相机这个对象, 抽象成了一块显影底片
+
+这样的话z轴就消失了, 空间中只需要关心xy轴(也就是说有图层和遮罩了, 这也符合我们对相机拍照的认知
+
+
+
+![image-20230411193435278](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304111934326.png)
+
+这里有一个小疑问点
+
+**为什么摄像机看向-z方向, 但是z方向的物体还可以成像**
+
+暂时按下不表, 先看正交投影的具体操作
+
+
+
+首先把物体的"中心"平移到xy平面内,然后缩放
+
+更具体的来说:
+
+设长方体(这个长方体是视锥, 具体解释在下面的小结)为 $ [left,right] \times [bottom,top] \times [far, near]$, 将这个长方体缩放为 $[-1,1]^3$  的标准立方体(这里和投影不完全一样, 先这样做)
+
+![image-20230411193750391](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304111937432.png)
+
+需要注意的是
+
+由于是右手系, 看向-z方向, 所以l<r,  b<t **注意f<n**(正确)
+
+**由于看向-z, 远点的z值会更小**
+
+**但是如果是一根正坐标轴上, 离我们远的值应该是更大** 
+
+所以有的api采用了左手系来规避这个不符合直觉的地方
+
+变换矩阵如下, 先做负的平移操作,然后缩放变成$[-1,1]^3$ 总大小是2×2
+
+![image-20230411200707911](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304112007952.png)
+
+### 上一小节的长方形是什么
+
+这里课程主讲老师没太讲清楚,这个长方体不是空间中的物体本身,而是视锥
+
+也就是说, 这个长方体规定了拍照的区域, 这个区域包括了从背景板到前景的范围, 如果我们把前景(本质上是前景到背景之间的 物体的映射像素)位移, 他对应的实际物体像素就会跟着位移,看下图, 长方体中间的每一根线对应着一个需要被成像的像素, 以及这个像素在前景上被映射的位置
+
+![image-20230411204033734](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304112040758.png)
+
+### 透视投影
+
+![image-20230411205649146](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304112056188.png)
+
+透视投影的视锥是一个四棱台, 底面**压缩**为相同长方形后就可以按照正交投影来了
+
+这里需要定义一下这个压缩过程:
+
+1.  $near$ 面永远不变, 因为这个面意味着胶片位置(正交投影过程时还是会变的, 但是压缩过程不会变)
+2.  $far$ 面的z值仍然保持不变, 也就是说整个四棱台的纵深不变
+3. 上述两个面的中心点 压缩后仍然为中心点
+
+根据上述要求 求解变换矩阵 $M_{persp->ortho}$ 该矩阵将透视投影转换为正交投影
+
+
+
+我们先来看yz视图
+
+![image-20230411210221139](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304112102184.png)
+
+可以看到一个相似三角形
+
+所以挤压之后的y有
+$$
+y' = \frac{n}{z}y
+$$
+
+
+再求挤压之后的x, 同理根据相似三角形
+
+![image-20230411211732446](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304112117480.png)
+
+所以有:
+
+
+$$
+\begin{equation}
+\left\{
+\begin{array}{lr}
+x' = \frac{n}{z}x &  \\
+y' = \frac{n}{z}y &  
+\end{array}
+\right.
+\end{equation}
+$$
+
+
+根据上述内容可以得到 $M_{persp->ortho}$  矩阵的部分元素(把除以z全部约掉, 让w值从1变为z)
+
+
+
+![image-20230412223629294](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304122236366.png)
+
+![image-20230412223823784](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304122238818.png)
+
+如下所示
+$$
+\left[
+\begin{matrix}
+n & 0 & 0 & 0\\
+0 & n & 0 & 0\\
+? & ? & ? & ?\\
+0 & 0 & 1 & 0\\
+\end{matrix}
+\right]
+$$
+
+
+然后我们研究上面的问号都要填写哪些元素
+
+首先观测 $near$ 平面, 发现其变换后, 平面内每个点的z值(也就是纵深距离) 都是不变的
+
+同理 $far$ 平面的纵深值也是不变的, 写出下面两个方程组
+
+![近平面](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304132205727.png)
+
+![原平面中心点0 0 f变换后仍然是0 0 f](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304132207034.png)
+
+
+
+这样就可以首先观察出,从左往右第一个和第二个问号是0
+
+并且需要求解第三个问号和第四个问号, 分别设他们为A和B
+
+得到如下方程
+
+![image-20230413220849874](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304132208911.png)
+
+解得:
+
+![image-20230413220907984](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304132209010.png)
+
+综上, 透视变换转为正交变换的矩阵$M_{persp->ortho}$为
+
+公式
+				
+					
+				
+				
+						
+				
+			
+$$
+\left[
+\begin{matrix}
+n & 0 & 0 & 0\\
+0 & n & 0 & 0\\
+0 & 0 & n+f & -nf\\
+0 & 0 & 1 & 0\\
+\end{matrix}
+\right]
+$$
+
+非常的简洁！
+
+
+
+
+
+
+### 课后习题
+
+请问 $near$ 和 $far$ 平面之间的点的z值如何变化?
+
+由于老师没有给出标准答案, 我这边也有点困惑
+
+过程如下
+
+设点A坐标 $\left( 0,0,n+f/2,1 \right)$ 设 $n=5 , f=3$ (因为f<n)
+
+则A点坐标矩阵为
+$$
+\left[
+\begin{matrix}
+0 \\ 
+0 \\
+4 \\
+1 
+\end{matrix}
+\right]
+$$
+
+
+则变换矩阵为
+$$
+\left[
+\begin{matrix}
+5 & 0 & 0 & 0\\
+0 & 5 & 0 & 0\\
+0 & 0 & 8 & -15\\
+0 & 0 & 1 & 0\\
+\end{matrix}
+\right]
+$$
+相乘得到
+$$
+\left[
+\begin{matrix}
+0 \\ 
+0 \\
+4.25 \\
+1 
+\end{matrix}
+\right]
+$$
+**可以发现变大了**
+
+
+
+再取A点靠近n平面的点B
+$$
+\left[
+\begin{matrix}
+0 \\ 
+0 \\
+3.5 \\
+1 
+\end{matrix}
+\right]
+$$
+相乘得到
+$$
+\left[
+\begin{matrix}
+0 \\ 
+0 \\
+3.71 \\
+1 
+\end{matrix}
+\right]
+$$
+**也是变大的**
+
+
+
+再取点C靠近f平面
+$$
+\left[
+\begin{matrix}
+0 \\ 
+0 \\
+4.5 \\
+1 
+\end{matrix}
+\right]
+$$
+相乘得到
+$$
+\left[
+\begin{matrix}
+0 \\ 
+0 \\
+4.67 \\
+1 
+\end{matrix}
+\right]
+$$
+**还是变大的**
+
+**但是**
+
+如果n和f是**负数**分别是 $n=-3 , f=-5$ (f<n)
+
+得到变换矩阵为
+$$
+\left[
+\begin{matrix}
+-3 & 0 & 0 & 0\\
+0 & -3 & 0 & 0\\
+0 & 0 & -8 & -15\\
+0 & 0 & 1 & 0\\
+\end{matrix}
+\right]
+$$
+点A为
+
+
+$$
+\left[
+\begin{matrix}
+0 \\ 
+0 \\
+-4 \\
+1 
+\end{matrix}
+\right]
+$$
+得到
+$$
+\left[
+\begin{matrix}
+0 \\ 
+0 \\
+-4.25 \\
+1 
+\end{matrix}
+\right]
+$$
+可以发现是变小的,其他几个点结论相同
+
+总的来说是**远离原点方向 推向f平面, 但是变大变小不确定** 得看立方体在哪里, 总的来说绝对值变大
+
+**数据集有限, 而且想不出来严格证明, 可能会有出错的地方**
+
+
+
+图示如下
+
+![image-20230413225631806](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304132256856.png)
+
+![image-20230413225843371](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304132258413.png)
+
+我这里把线段 $I_nI_f$ 想象成一根绳子, 绳子转动之后可以形成一个三角形, 由于三角形斜边大于直角边, 所以长度变长, 坐标的绝对值变大
+
+图二中点 $J$ 变换到点 $I$ 的位置了
+
+这个也可以间接说明实数的稠密性和不可数性, 因为总长度变短了, 但是每个点的z坐标绝对值反而变长了
+
