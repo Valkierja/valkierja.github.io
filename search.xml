@@ -3899,6 +3899,39 @@ n &amp; 0 &amp; 0 &amp; 0\\
 \right]
 \]</span></p>
 <p>非常的简洁！</p>
+<h3 id="其他的透视变换方法">其他的透视变换方法</h3>
+<p>上述方法先转换成正交投影然后再做其他操作</p>
+<p>其实也有一步到位的公式</p>
+<p>首先定义视角(笔记5内容)和视图比率</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304141902223.png" alt="" /><figcaption>image-20230414190228185</figcaption>
+</figure>
+<p>可以写出一个一步到位的变换矩阵(直接从视锥变换到标准正方体) <span class="math display">\[
+M_{\text {frustum }}=\left[\begin{array}{cccc}
+\frac{\cot \frac{f o v}{2}}{\text { Aspect }} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; \cot \frac{f o v}{2} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; -\frac{f+n}{f-n} &amp; -\frac{2 n f}{f-n} \\
+0 &amp; 0 &amp; -1 &amp; 0
+\end{array}\right]
+\]</span> 化简一下就是 <span class="math display">\[
+M_{\text {frustum }}=
+\left[
+\begin{array}{cccc}
+\frac{|n|}{r} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; \frac{|n|}{t} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; -\frac{f+n}{f-n} &amp; -\frac{2 n f}{f-n} \\
+0 &amp; 0 &amp; -1 &amp; 0
+\end{array}
+\right]
+\]</span></p>
+<p>还有一种形式(形式二) <span class="math display">\[
+\left[\begin{array}{cccc}
+\frac{2 n}{r-l} &amp; 0 &amp; \frac{r+l}{r-l} &amp; 0 \\
+0 &amp; \frac{2 n}{t-b} &amp; \frac{t+b}{t-b} &amp; 0 \\
+0 &amp; 0 &amp; -\frac{f+n}{f-n} &amp; -\frac{2 n f}{f-n} \\
+0 &amp; 0 &amp; -1 &amp; 0
+\end{array}\right]
+\]</span> 更常用的是形式一</p>
 <h3 id="课后习题">课后习题</h3>
 <p>请问 <span class="math inline">\(near\)</span> 和 <span class="math inline">\(far\)</span> 平面之间的点的z值如何变化?</p>
 <p>由于老师没有给出标准答案, 我这边也有点困惑</p>
@@ -4118,6 +4151,19 @@ M_{\text {viewport }}=\left(\begin{array}{cccc}
 <p>简答讲述了一下抗锯齿，锯齿英文 jaggies</p>
 <p>信号采样率不够高导致的走样</p>
 <p>解决方法和细节请看下节课</p>
+]]></content>
+      <categories>
+        <category>图形学笔记</category>
+      </categories>
+      <tags>
+        <tag>图形学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图形学笔记6 反走样与深度缓冲</title>
+    <url>/tu-xing-xue-bi-ji-6-fan-zou-yang-yu-shen-du-huan-chong/</url>
+    <content><![CDATA[<p>反走样就是抗锯齿一类的技术</p>
+<h3 id="什么是采样">什么是采样</h3>
 ]]></content>
       <categories>
         <category>图形学笔记</category>
