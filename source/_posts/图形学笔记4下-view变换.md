@@ -357,6 +357,52 @@ $$
 
 非常的简洁！
 
+### 其他的透视变换方法
+
+上述方法先转换成正交投影然后再做其他操作
+
+其实也有一步到位的公式
+
+首先定义视角(笔记5内容)和视图比率
+
+![image-20230414190228185](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304141902223.png)
+
+可以写出一个一步到位的变换矩阵(直接从视锥变换到标准正方体)
+$$
+M_{\text {frustum }}=\left[\begin{array}{cccc}
+\frac{\cot \frac{f o v}{2}}{\text { Aspect }} & 0 & 0 & 0 \\
+0 & \cot \frac{f o v}{2} & 0 & 0 \\
+0 & 0 & -\frac{f+n}{f-n} & -\frac{2 n f}{f-n} \\
+0 & 0 & -1 & 0
+\end{array}\right]
+$$
+化简一下就是
+$$
+M_{\text {frustum }}=
+\left[
+\begin{array}{cccc}
+\frac{|n|}{r} & 0 & 0 & 0 \\
+0 & \frac{|n|}{t} & 0 & 0 \\
+0 & 0 & -\frac{f+n}{f-n} & -\frac{2 n f}{f-n} \\
+0 & 0 & -1 & 0
+\end{array}
+\right]
+$$
+
+
+还有一种形式(形式二)
+$$
+\left[\begin{array}{cccc}
+\frac{2 n}{r-l} & 0 & \frac{r+l}{r-l} & 0 \\
+0 & \frac{2 n}{t-b} & \frac{t+b}{t-b} & 0 \\
+0 & 0 & -\frac{f+n}{f-n} & -\frac{2 n f}{f-n} \\
+0 & 0 & -1 & 0
+\end{array}\right]
+$$
+更常用的是形式一
+
+
+
 
 
 
