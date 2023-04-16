@@ -140,6 +140,22 @@
       </categories>
   </entry>
   <entry>
+    <title>指令集模仿设计笔记 (1) Call(E8)和Call(FF)</title>
+    <url>/calle8-he-callff/</url>
+    <content><![CDATA[<p>E8为near relative CALL,</p>
+<p>FF为absolute CALL</p>
+<p>前者Op/En基于D,操作数在机器码层面为signed Offset</p>
+<p>后者Op/En基于M</p>
+<p>这样就解决了CPU设计过程中两个重要问题:</p>
+<p>1.RELATIVE CALL的方向是如何确定的；答，操作数是有符号数</p>
+<p>2.如下代码是如何编译的；答， near relative CALL 00 00 00 00</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CALL @F; </span><br><span class="line">@@:</span><br><span class="line">mov eax,eax;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>硬件</category>
+      </categories>
+  </entry>
+  <entry>
     <title>二十五小时创造一门自然语言(用于魔幻类游戏)</title>
     <url>/conlang/</url>
     <content><![CDATA[<blockquote>
@@ -344,22 +360,6 @@
       </categories>
   </entry>
   <entry>
-    <title>指令集模仿设计笔记 (1) Call(E8)和Call(FF)</title>
-    <url>/calle8-he-callff/</url>
-    <content><![CDATA[<p>E8为near relative CALL,</p>
-<p>FF为absolute CALL</p>
-<p>前者Op/En基于D,操作数在机器码层面为signed Offset</p>
-<p>后者Op/En基于M</p>
-<p>这样就解决了CPU设计过程中两个重要问题:</p>
-<p>1.RELATIVE CALL的方向是如何确定的；答，操作数是有符号数</p>
-<p>2.如下代码是如何编译的；答， near relative CALL 00 00 00 00</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CALL @F; </span><br><span class="line">@@:</span><br><span class="line">mov eax,eax;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>硬件</category>
-      </categories>
-  </entry>
-  <entry>
     <title>分离声明和实现的关键性好处</title>
     <url>/definition-declaration/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
@@ -407,35 +407,6 @@
       </tags>
   </entry>
   <entry>
-    <title>D触发器的使能端和清零端</title>
-    <url>/d-hong-fa-qi-de-shi-neng-duan-he-qing-ling-duan/</url>
-    <content><![CDATA[<h2 id="同步清零和异步清零">同步清零和异步清零</h2>
-<p>这里的同步异步是相对于CLK而言的</p>
-<p>同步的"同"是与CLK相同有效边沿信号频率</p>
-<p>异步则是一旦有行为信号输入,则立刻产生对应行为,不等待下一次CLK</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050367.png" /></p>
-<h2 id="使能端">使能端</h2>
-<p>对于触发器而言，使能信号在整体逻辑上，相当于和CLK相与；但是实际上不会直接用与门处理，因为这样会减速，CLK信号可能会异步</p>
-<p>与门可以理解为放行或者封锁</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050268.png" /></p>
-<p>上述是好理解，但是错误的做法（尽量不要在CP信号线上增加任何逻辑运算元器件）</p>
-<p>下述是正确做法，利用<strong>选择器</strong>，筛选信号，并把一路作为回馈信号</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172057722.png" /></p>
-<p>但只需要简单画为En引脚就行</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050237.png" /></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>校内</category>
-        <category>计组</category>
-      </categories>
-      <tags>
-        <tag>数电</tag>
-        <tag>硬件</tag>
-        <tag>校内笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Farm(英语)词源简单考据</title>
     <url>/farm-ying-yu-ci-yuan-jian-dan-kao-ju/</url>
     <content><![CDATA[<h1 id="背景">背景</h1>
@@ -463,6 +434,35 @@
         <category>杂谈</category>
         <category>语言学</category>
       </categories>
+  </entry>
+  <entry>
+    <title>D触发器的使能端和清零端</title>
+    <url>/d-hong-fa-qi-de-shi-neng-duan-he-qing-ling-duan/</url>
+    <content><![CDATA[<h2 id="同步清零和异步清零">同步清零和异步清零</h2>
+<p>这里的同步异步是相对于CLK而言的</p>
+<p>同步的"同"是与CLK相同有效边沿信号频率</p>
+<p>异步则是一旦有行为信号输入,则立刻产生对应行为,不等待下一次CLK</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050367.png" /></p>
+<h2 id="使能端">使能端</h2>
+<p>对于触发器而言，使能信号在整体逻辑上，相当于和CLK相与；但是实际上不会直接用与门处理，因为这样会减速，CLK信号可能会异步</p>
+<p>与门可以理解为放行或者封锁</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050268.png" /></p>
+<p>上述是好理解，但是错误的做法（尽量不要在CP信号线上增加任何逻辑运算元器件）</p>
+<p>下述是正确做法，利用<strong>选择器</strong>，筛选信号，并把一路作为回馈信号</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172057722.png" /></p>
+<p>但只需要简单画为En引脚就行</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050237.png" /></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>校内</category>
+        <category>计组</category>
+      </categories>
+      <tags>
+        <tag>数电</tag>
+        <tag>硬件</tag>
+        <tag>校内笔记</tag>
+      </tags>
   </entry>
   <entry>
     <title>原来这就是成人世界吗</title>
@@ -777,30 +777,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux网络程序逆向小笔记 (2)</title>
-    <url>/linux-wang-luo-cheng-xu-ni-xiang-xiao-bi-ji-2/</url>
-    <content><![CDATA[<p>有的时候，一些相似的网络数据包结构体类型IDA会分析错误，在本例中，sockaddr_in被错误分析为 sockaddr ，看得很不方便</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053803.png" /></p>
-<p>修改方法还挺简单的（但是有点难以想象是如何保证的，毕竟是字符串匹配）</p>
-<p>在最上面的声明，找到对应的变量</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053629.png" /></p>
-<p>然后按Y</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053729.png" /></p>
-<p>直接改名字</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054704.png" /></p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054897.png" /></p>
-<p>然后就分析正确了</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054779.png" /></p>
-]]></content>
-      <categories>
-        <category>信息安全</category>
-        <category>二进制</category>
-      </categories>
-      <tags>
-        <tag>网络</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux网络程序逆向小笔记 (1)</title>
     <url>/linux-wang-luo-cheng-xu-ni-xiang-xiao-bi-ji-1/</url>
     <content><![CDATA[<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181100968.png" /></p>
@@ -816,6 +792,30 @@
 <p>另外，考虑到大部分宏定义的前缀相同，实际上可以写一个插件来确定这些枚举（IDA已经有这样的接口了）</p>
 <p>但是笔者没找到相关的插件</p>
 <p>或许可以写一个，但是最近在搞网络固件逆向，没空学IDA插件开发，后续如果做了这个项目再补上笔记</p>
+]]></content>
+      <categories>
+        <category>信息安全</category>
+        <category>二进制</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux网络程序逆向小笔记 (2)</title>
+    <url>/linux-wang-luo-cheng-xu-ni-xiang-xiao-bi-ji-2/</url>
+    <content><![CDATA[<p>有的时候，一些相似的网络数据包结构体类型IDA会分析错误，在本例中，sockaddr_in被错误分析为 sockaddr ，看得很不方便</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053803.png" /></p>
+<p>修改方法还挺简单的（但是有点难以想象是如何保证的，毕竟是字符串匹配）</p>
+<p>在最上面的声明，找到对应的变量</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053629.png" /></p>
+<p>然后按Y</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053729.png" /></p>
+<p>直接改名字</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054704.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054897.png" /></p>
+<p>然后就分析正确了</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054779.png" /></p>
 ]]></content>
       <categories>
         <category>信息安全</category>
@@ -1103,42 +1103,6 @@
       </categories>
   </entry>
   <entry>
-    <title>.Net,Mono,C# 编译流程及一部分编译原理</title>
-    <url>/net-mono-c/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>其实很早之前就奇怪过一个问题:</p>
-<p>类似于JAVA,C#这种跨平台性优良的语言,</p>
-<p>我可以理解他们的同样一份代码,在不同平台的相同内核的虚拟机上表现相同</p>
-<p>但是我无法理解他们能够在这么多不同CPU指令集环境下,维持高效的内核开发进度</p>
-<p>这两天看了一些C#相关的编译原理,理解了其中的大部分问题</p>
-<h2 id="正文">正文</h2>
-<p>首先是梦回JAVA,</p>
-<p>在学习基于虚拟机的语言的时候,大多会遇到一堆偏底层的名词,同时有的名词只会出现在特定语言的导论里面,姑且总结其中一些</p>
-<ul>
-<li>CIL(Common Intermediate Language) 通用中间件语言,可以理解为虚拟机的虚拟机机器码,并非本机环境的实际CPU可读机器码;<strong>通用二字的是因为这项标准是由微软惠普英特尔等巨头起草的</strong></li>
-<li>CLI(Common Language Infrastructure)通用语言架构,包含CIL等组件的整个通用语言<strong>架构</strong></li>
-<li>Native code 原生码本机CPU直接可读的机器码</li>
-<li>Rumtime 运行时 (名词),指的是并非由当前程序开发者直接经手编写的代码/指令,其中包括各种init函数,start函数,和虚拟机环境启动函数以及各种类库</li>
-</ul>
-<p>然后是查找过程中发现的几篇英语文章,感觉很透彻,一看就懂,翻译(机翻)部分引用如下</p>
-<p>机器码：这是最明确的一种。它是使用字节码指令的代码，你的处理器（做实际工作的物理金属片）能够理解并直接执行。所有其他代码必须在你的机器能够执行之前被翻译或转换为机器代码。</p>
-<blockquote>
-<p>原生码：这个术语有时被用于指机器代码（见上文）的地方。然而，它有时也被用来指非托管代码（见下文）。<br />
-<strong>非管理代码和管理代码</strong>：非管理代码指的是用C或C++等编程语言编写的代码，它被直接编译成机器代码。它与托管代码形成对比，后者是用C#、VB.NET、Java或类似的语言编写的，并在虚拟环境（如.NET或JavaVM）中执行，后者有点像在软件中 "模拟 "一个处理器。主要区别在于，托管代码通过使用垃圾收集和保持对对象的引用不透明，为你 "管理 "资源（主要是内存分配）。非托管代码是那种需要你手动分配和取消分配内存的代码，有时会造成内存泄漏（当你忘记取消分配时），有时会造成分段故障（当你过早取消分配时）。无人管理通常也意味着没有对常见的错误进行运行时检查，如空指针解读或数组边界溢出。<br />
-严格来说，大多数动态类型的语言--如Perl、Python、PHP和Ruby--也是可管理代码。然而，它们通常不被这样描述，这表明托管代码实际上是真正大的、严肃的、商业编程环境（.NET和Java）的一个营销术语。<br />
-汇编代码：这个术语通常指的是人们在真正想写字节码时写的那种源代码。汇编器是一个将这种源代码变成真正的字节码的程序。它不是一个编译器，因为它是1对1的转换。然而，这个术语在使用哪种字节码方面是模糊的：它可能是受管理的或未受管理的。如果是非管理的，产生的字节码是机器码。如果它是受管理的，它的结果是虚拟环境（如.NET）在幕后使用的字节码。管理代码（如C#、Java）被编译成这种特殊的字节码语言，在.NET中被称为通用中间语言（CIL），在Java中被称为Java字节码。通常情况下，普通程序员很少需要访问这种代码或直接用这种语言编写，但当人们这样做时，他们通常将其称为汇编代码，因为他们使用汇编器将其变成字节代码。</p>
-</blockquote>
-<blockquote>
-<p>运行时描述的是在你的程序运行时执行的软件/指令，特别是那些你没有明确写的指令，但对于你的代码的正常执行是必要的。<br />
-像C这样的低级语言的runtime非常小（如果有的话）。像Objective-C这样更复杂的语言，允许动态消息传递，有一个更广泛的runtime</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>开发</category>
-        <category>GamePlay</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Nepnep联合战队PWN见习生报告-第二周</title>
     <url>/nepnep-lian-he-zhan-dui-pwn-jian-xi-sheng-bao-gao-di-er-zhou/</url>
     <content><![CDATA[<h1 id="正文">正文</h1>
@@ -1219,6 +1183,42 @@
       <tags>
         <tag>NepNep</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>.Net,Mono,C# 编译流程及一部分编译原理</title>
+    <url>/net-mono-c/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>其实很早之前就奇怪过一个问题:</p>
+<p>类似于JAVA,C#这种跨平台性优良的语言,</p>
+<p>我可以理解他们的同样一份代码,在不同平台的相同内核的虚拟机上表现相同</p>
+<p>但是我无法理解他们能够在这么多不同CPU指令集环境下,维持高效的内核开发进度</p>
+<p>这两天看了一些C#相关的编译原理,理解了其中的大部分问题</p>
+<h2 id="正文">正文</h2>
+<p>首先是梦回JAVA,</p>
+<p>在学习基于虚拟机的语言的时候,大多会遇到一堆偏底层的名词,同时有的名词只会出现在特定语言的导论里面,姑且总结其中一些</p>
+<ul>
+<li>CIL(Common Intermediate Language) 通用中间件语言,可以理解为虚拟机的虚拟机机器码,并非本机环境的实际CPU可读机器码;<strong>通用二字的是因为这项标准是由微软惠普英特尔等巨头起草的</strong></li>
+<li>CLI(Common Language Infrastructure)通用语言架构,包含CIL等组件的整个通用语言<strong>架构</strong></li>
+<li>Native code 原生码本机CPU直接可读的机器码</li>
+<li>Rumtime 运行时 (名词),指的是并非由当前程序开发者直接经手编写的代码/指令,其中包括各种init函数,start函数,和虚拟机环境启动函数以及各种类库</li>
+</ul>
+<p>然后是查找过程中发现的几篇英语文章,感觉很透彻,一看就懂,翻译(机翻)部分引用如下</p>
+<p>机器码：这是最明确的一种。它是使用字节码指令的代码，你的处理器（做实际工作的物理金属片）能够理解并直接执行。所有其他代码必须在你的机器能够执行之前被翻译或转换为机器代码。</p>
+<blockquote>
+<p>原生码：这个术语有时被用于指机器代码（见上文）的地方。然而，它有时也被用来指非托管代码（见下文）。<br />
+<strong>非管理代码和管理代码</strong>：非管理代码指的是用C或C++等编程语言编写的代码，它被直接编译成机器代码。它与托管代码形成对比，后者是用C#、VB.NET、Java或类似的语言编写的，并在虚拟环境（如.NET或JavaVM）中执行，后者有点像在软件中 "模拟 "一个处理器。主要区别在于，托管代码通过使用垃圾收集和保持对对象的引用不透明，为你 "管理 "资源（主要是内存分配）。非托管代码是那种需要你手动分配和取消分配内存的代码，有时会造成内存泄漏（当你忘记取消分配时），有时会造成分段故障（当你过早取消分配时）。无人管理通常也意味着没有对常见的错误进行运行时检查，如空指针解读或数组边界溢出。<br />
+严格来说，大多数动态类型的语言--如Perl、Python、PHP和Ruby--也是可管理代码。然而，它们通常不被这样描述，这表明托管代码实际上是真正大的、严肃的、商业编程环境（.NET和Java）的一个营销术语。<br />
+汇编代码：这个术语通常指的是人们在真正想写字节码时写的那种源代码。汇编器是一个将这种源代码变成真正的字节码的程序。它不是一个编译器，因为它是1对1的转换。然而，这个术语在使用哪种字节码方面是模糊的：它可能是受管理的或未受管理的。如果是非管理的，产生的字节码是机器码。如果它是受管理的，它的结果是虚拟环境（如.NET）在幕后使用的字节码。管理代码（如C#、Java）被编译成这种特殊的字节码语言，在.NET中被称为通用中间语言（CIL），在Java中被称为Java字节码。通常情况下，普通程序员很少需要访问这种代码或直接用这种语言编写，但当人们这样做时，他们通常将其称为汇编代码，因为他们使用汇编器将其变成字节代码。</p>
+</blockquote>
+<blockquote>
+<p>运行时描述的是在你的程序运行时执行的软件/指令，特别是那些你没有明确写的指令，但对于你的代码的正常执行是必要的。<br />
+像C这样的低级语言的runtime非常小（如果有的话）。像Objective-C这样更复杂的语言，允许动态消息传递，有一个更广泛的runtime</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>开发</category>
+        <category>GamePlay</category>
+      </categories>
   </entry>
   <entry>
     <title>维特根斯坦 分析哲学学《论确实性》：“知道”一词的使用范围与缸中之脑的证伪</title>
@@ -1528,43 +1528,6 @@
       </categories>
   </entry>
   <entry>
-    <title>pwnable靶场ak-WP （7）input2</title>
-    <url>/pwnable-ba-chang-ak-wp-7-input2/</url>
-    <content><![CDATA[<p>先补一个pwntool传参的笔记和一个python构造list的好方法</p>
-<h2 id="补充1">补充1</h2>
-<p>pwntool的argv传参有个很神奇的地方</p>
-<p>他甚至能篡改argv[0]的值,没翻源码,实现暂时未知,不过不影响</p>
-<p>创建方法为</p>
-<p><code>connect.process(list : argv,str : path)</code></p>
-<h2 id="补充2">补充2</h2>
-<p>如果有一个很长的list,其中大部分元素的值为垃圾填充,只有小部分为有用值,那么错误做法是append,太傻了</p>
-<p>正确做法是生成一个全为填充值的list,然后抓几个特殊的地方出来</p>
-<h2 id="wp">WP</h2>
-<p>the very vital point that I didn't notice that need be metioned at first</p>
-<p>If you excu an ELF then you will carry identify of the ELF's owner</p>
-<p>the main_check func need a file named"\x0a",so we need create such file,while we don't have permission in the.floder</p>
-<p>so we need goto tmp floder and use utility <code>ln</code> to create soft-link,which only need link dest-floder writing permission</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ln -fs  ~/flag flag</span><br><span class="line">ln -fs  ~/input input</span><br></pre></td></tr></table></figure>
-<p>for now on,every step operates on tmp-link ver file</p>
-<p>and hold on a min ,le't talk about permission of create a hard-link and soft-link file</p>
-<p>if we'd like to create a hard-link ,the sufficient condition is,we have read+write permission on target file,if <code>fs.protected_hardlinks == true</code> and have write &amp; <strong>execu</strong> permission of destdir.if`<code>fs.protected_hardlinks == 0</code> no permission needed on target file,even 000 is okay.</p>
-<p>what surprise me is execu permission,its purpose is preventing a situation that's similar to this quzz--if hack have access to tmp floder,which normally is gloabally permitted,the hack can execu or open wrong file,due to relative path</p>
-<p>for soft-link the requires is lower,only need source-dir have execu and dest-dir have write+execu</p>
-<p>for target file ,its permission is no need to care</p>
-<p>come back to main topic</p>
-<p>after create link we need notice that relative path have a relative vulnerability ,make soft-link to cheat execu with wrong file</p>
-<p>secondly,there is a sock programming needed ,considering webbench project ,this time we try use C to pwn rather than pwntool</p>
-<h2 id="poc">poc</h2>
-<p>（under construction..）</p>
-]]></content>
-      <categories>
-        <category>信息安全</category>
-        <category>笔记</category>
-        <category>存档</category>
-        <category>二进制</category>
-      </categories>
-  </entry>
-  <entry>
     <title>pwnable靶场ak-WP （6）random</title>
     <url>/pwnable-ba-chang-ak-wp-6-random/</url>
     <content><![CDATA[<p>题目原理比较简单，主要是补两个笔记</p>
@@ -1621,6 +1584,43 @@ g表示八字节</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050301.png" /></p>
 <p>需要改一下最大保存行数</p>
 <p>笔者这里直接改成十万行，这下子就够用了233</p>
+]]></content>
+      <categories>
+        <category>信息安全</category>
+        <category>笔记</category>
+        <category>存档</category>
+        <category>二进制</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>pwnable靶场ak-WP （7）input2</title>
+    <url>/pwnable-ba-chang-ak-wp-7-input2/</url>
+    <content><![CDATA[<p>先补一个pwntool传参的笔记和一个python构造list的好方法</p>
+<h2 id="补充1">补充1</h2>
+<p>pwntool的argv传参有个很神奇的地方</p>
+<p>他甚至能篡改argv[0]的值,没翻源码,实现暂时未知,不过不影响</p>
+<p>创建方法为</p>
+<p><code>connect.process(list : argv,str : path)</code></p>
+<h2 id="补充2">补充2</h2>
+<p>如果有一个很长的list,其中大部分元素的值为垃圾填充,只有小部分为有用值,那么错误做法是append,太傻了</p>
+<p>正确做法是生成一个全为填充值的list,然后抓几个特殊的地方出来</p>
+<h2 id="wp">WP</h2>
+<p>the very vital point that I didn't notice that need be metioned at first</p>
+<p>If you excu an ELF then you will carry identify of the ELF's owner</p>
+<p>the main_check func need a file named"\x0a",so we need create such file,while we don't have permission in the.floder</p>
+<p>so we need goto tmp floder and use utility <code>ln</code> to create soft-link,which only need link dest-floder writing permission</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ln -fs  ~/flag flag</span><br><span class="line">ln -fs  ~/input input</span><br></pre></td></tr></table></figure>
+<p>for now on,every step operates on tmp-link ver file</p>
+<p>and hold on a min ,le't talk about permission of create a hard-link and soft-link file</p>
+<p>if we'd like to create a hard-link ,the sufficient condition is,we have read+write permission on target file,if <code>fs.protected_hardlinks == true</code> and have write &amp; <strong>execu</strong> permission of destdir.if`<code>fs.protected_hardlinks == 0</code> no permission needed on target file,even 000 is okay.</p>
+<p>what surprise me is execu permission,its purpose is preventing a situation that's similar to this quzz--if hack have access to tmp floder,which normally is gloabally permitted,the hack can execu or open wrong file,due to relative path</p>
+<p>for soft-link the requires is lower,only need source-dir have execu and dest-dir have write+execu</p>
+<p>for target file ,its permission is no need to care</p>
+<p>come back to main topic</p>
+<p>after create link we need notice that relative path have a relative vulnerability ,make soft-link to cheat execu with wrong file</p>
+<p>secondly,there is a sock programming needed ,considering webbench project ,this time we try use C to pwn rather than pwntool</p>
+<h2 id="poc">poc</h2>
+<p>（under construction..）</p>
 ]]></content>
       <categories>
         <category>信息安全</category>
@@ -2191,26 +2191,6 @@ then declare a vector3 var to store offset</p>
       </tags>
   </entry>
   <entry>
-    <title>Windows的一个疑似Bug</title>
-    <url>/windows-de-yi-ge-yi-si-bug/</url>
-    <content><![CDATA[<p>2023年3月18日更新 解决方法 安装revios 而非标准Windows</p>
-<p>可重复性高,坑死我了,个人主观感受是很确定为bug</p>
-<p>复现操作：</p>
-<p>在安装Windows操作系统时，会有一步骤让你登录账号，可以选择本地账户，也可以登录微软联机账户</p>
-<p>如果先在wifi界面不连接wifi，然后来到登陆页面，然后再返回去链接wifi，然后再来到登陆页面用本地账户登录，然后正常安装，安装完成之后在设置页面登录微软联机账户</p>
-<p>这时候就基本废了</p>
-<p>虽然你显示是管理员，但其实你现在登录的账户并没法直接操作C盘内的任何文件，如果是在文件管理器页面倒还好，可以现场给权限，但是如果是在文本编辑类的程序里面，比如notepad或者VScode，完全不能保存</p>
-<p>上述内容测试平台：DELL G5 5587，所有驱动均为厂商推荐的最新版本</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>存档</category>
-      </categories>
-      <tags>
-        <tag>环境配置</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>WindowsAPI底层开发时遇到的常见类型</title>
     <url>/windowsapi-di-ceng-kai-fa-shi-yu-dao-de-chang-jian-lei-xing/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
@@ -2237,6 +2217,26 @@ then declare a vector3 var to store offset</p>
       </categories>
       <tags>
         <tag>Windows API</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows的一个疑似Bug</title>
+    <url>/windows-de-yi-ge-yi-si-bug/</url>
+    <content><![CDATA[<p>2023年3月18日更新 解决方法 安装revios 而非标准Windows</p>
+<p>可重复性高,坑死我了,个人主观感受是很确定为bug</p>
+<p>复现操作：</p>
+<p>在安装Windows操作系统时，会有一步骤让你登录账号，可以选择本地账户，也可以登录微软联机账户</p>
+<p>如果先在wifi界面不连接wifi，然后来到登陆页面，然后再返回去链接wifi，然后再来到登陆页面用本地账户登录，然后正常安装，安装完成之后在设置页面登录微软联机账户</p>
+<p>这时候就基本废了</p>
+<p>虽然你显示是管理员，但其实你现在登录的账户并没法直接操作C盘内的任何文件，如果是在文件管理器页面倒还好，可以现场给权限，但是如果是在文本编辑类的程序里面，比如notepad或者VScode，完全不能保存</p>
+<p>上述内容测试平台：DELL G5 5587，所有驱动均为厂商推荐的最新版本</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>存档</category>
+      </categories>
+      <tags>
+        <tag>环境配置</tag>
       </tags>
   </entry>
   <entry>
@@ -2964,6 +2964,24 @@ mov eax,[ebx+8]则是把内存地址为ebx+8处的数据赋给eax</p>
       </categories>
   </entry>
   <entry>
+    <title>用汇编编写消息系统 (2.2) 内存的内存断点和硬件断点的区别</title>
+    <url>/yi-xiao-xi-wei-dao-xiang-de-you-xian-zhuang-tai-ji-li-nian-windows-cheng-xu-she-ji-bi-ji/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>根据Windows内存处理机制，任何内存当中的内容都是分页加载的，而在保护模式下，内存页有许多属性，包括可不可读，写，运行等</p>
+<h2 id="正文">正文</h2>
+<p>内存的内存断点是软件层面（操作系统这个大软件和调试软件本身）控制的</p>
+<p>如果是写入断点则设置页属性PAGE_EXECUTE_READ，不可写，一旦写入就会掷错，这也从一定程度上证明了断点属于一种异常</p>
+<p>如果是访问断点就设置PAGE_NOACCESS，禁止访问，然后catch exception</p>
+<p>现在有一个小问题，如果是同页但是非目标地址的内存，也会被断点，这需要调试器层面放行，但是有点想象不出来如何实现这种放行</p>
+<p>硬件断点则是cpu硬件层面的</p>
+<p>在CPU硬件层面提供多个寄存器用于描述目标内存对象，一旦cpu访问或写入该对象则断下断点，<strong>效率比前者高了很多个数量级</strong></p>
+]]></content>
+      <categories>
+        <category>开发</category>
+        <category>Windows</category>
+      </categories>
+  </entry>
+  <entry>
     <title>用汇编编写消息系统 (2.1) 三种常见消息处理机制概念及设计</title>
     <url>/yi-xiao-xi-wei-dao-xiang-de-you-xian-zhuang-tai-ji-li-nian-windows-cheng-xu-she-ji-hui-bian-2/</url>
     <content><![CDATA[<p>上一篇讲了最常见的一种：</p>
@@ -2983,24 +3001,6 @@ mov eax,[ebx+8]则是把内存地址为ebx+8处的数据赋给eax</p>
 <p>假想一种情况：</p>
 <p>某一瞬间检测到消息队列空闲, 进入else空闲任务列表,执行非异步函数foo,由于该函数过于庞大,未等执行完操作系统便结束了当前时间片，更甚在foo执行过程中出现了新消息，而foo非异步，用户程序控制权内陷于其中，直到该函数返回，导致期间返回前窗口迟滞</p>
 <p>所以这种消息队列处理逻辑设计只能说是 ”有时候会更好“</p>
-]]></content>
-      <categories>
-        <category>开发</category>
-        <category>Windows</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>用汇编编写消息系统 (2.2) 内存的内存断点和硬件断点的区别</title>
-    <url>/yi-xiao-xi-wei-dao-xiang-de-you-xian-zhuang-tai-ji-li-nian-windows-cheng-xu-she-ji-bi-ji/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>根据Windows内存处理机制，任何内存当中的内容都是分页加载的，而在保护模式下，内存页有许多属性，包括可不可读，写，运行等</p>
-<h2 id="正文">正文</h2>
-<p>内存的内存断点是软件层面（操作系统这个大软件和调试软件本身）控制的</p>
-<p>如果是写入断点则设置页属性PAGE_EXECUTE_READ，不可写，一旦写入就会掷错，这也从一定程度上证明了断点属于一种异常</p>
-<p>如果是访问断点就设置PAGE_NOACCESS，禁止访问，然后catch exception</p>
-<p>现在有一个小问题，如果是同页但是非目标地址的内存，也会被断点，这需要调试器层面放行，但是有点想象不出来如何实现这种放行</p>
-<p>硬件断点则是cpu硬件层面的</p>
-<p>在CPU硬件层面提供多个寄存器用于描述目标内存对象，一旦cpu访问或写入该对象则断下断点，<strong>效率比前者高了很多个数量级</strong></p>
 ]]></content>
       <categories>
         <category>开发</category>
@@ -3248,17 +3248,6 @@ mov eax,[ebx+8]则是把内存地址为ebx+8处的数据赋给eax</p>
       </categories>
   </entry>
   <entry>
-    <title>参考文献4 MIPS平台下，是否存在多返回值的函数</title>
-    <url>/can-kao-wen-xian-4-duo-fan-hui-zhi-de-han-shu/</url>
-    <content><![CDATA[<p>https://stackoverflow.com/questions/19204430/when-do-we-need-v1-in-mips/24230036#24230036</p>
-<p>https://stackoverflow.com/questions/20131986/why-mips-assembler-has-more-that-one-register-for-return-value</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>存档</category>
-      </categories>
-  </entry>
-  <entry>
     <title>参考文献3 MIPS白皮书 vol.2 chapter.3</title>
     <url>/can-kao-wen-xian-3-mips-bai-pi-shu-vol2/</url>
     <content><![CDATA[<p>https://www.cs.cornell.edu/courses/cs3410/2008fa/MIPS_Vol2.pdf</p>
@@ -3269,6 +3258,17 @@ mov eax,[ebx+8]则是把内存地址为ebx+8处的数据赋给eax</p>
 <p>P166</p>
 <p>P182</p>
 <p>P255</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>存档</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>参考文献4 MIPS平台下，是否存在多返回值的函数</title>
+    <url>/can-kao-wen-xian-4-duo-fan-hui-zhi-de-han-shu/</url>
+    <content><![CDATA[<p>https://stackoverflow.com/questions/19204430/when-do-we-need-v1-in-mips/24230036#24230036</p>
+<p>https://stackoverflow.com/questions/20131986/why-mips-assembler-has-more-that-one-register-for-return-value</p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -3913,7 +3913,7 @@ M_{\text {frustum }}=\left[\begin{array}{cccc}
 0 &amp; 0 &amp; -\frac{f+n}{f-n} &amp; -\frac{2 n f}{f-n} \\
 0 &amp; 0 &amp; -1 &amp; 0
 \end{array}\right]
-\]</span> 化简一下就是 <span class="math display">\[
+\]</span> 化简一下就是(形式一) <span class="math display">\[
 M_{\text {frustum }}=
 \left[
 \begin{array}{cccc}
@@ -4162,6 +4162,109 @@ M_{\text {viewport }}=\left(\begin{array}{cccc}
       </tags>
   </entry>
   <entry>
+    <title>图形学笔记6 反走样</title>
+    <url>/tu-xing-xue-bi-ji-6-fan-zou-yang-yu-shen-du-huan-chong/</url>
+    <content><![CDATA[<p>反走样就是抗锯齿一类的技术</p>
+<h3 id="上节课的问题">上节课的问题</h3>
+<p>将连续信号离散化的过程跟不上连续信号的变化过程(实数是稠密的)</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162156256.png" alt="" /><figcaption>image-20230416215610223</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162155408.png" alt="" /><figcaption>image-20230416215550302</figcaption>
+</figure>
+<h2 id="什么是采样">什么是采样</h2>
+<p>一般来说, 图形学的采样有时间上的, 也有空间上的, 上节课讲的是空间上的</p>
+<p>时间上的采样就是视频</p>
+<p>因为视频不是连续的, 而是离散的每一帧构成的, 所以当采样速度过低时就会产生重影</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162157183.png" alt="" /><figcaption>image-20230416215757129</figcaption>
+</figure>
+<p>这里有一个专业术语 <strong>Artifacts</strong>, <strong>用以概括性描述图形学中所有不按照实际现实情况显示的图形缺陷</strong></p>
+<p>摩尔纹也是一种artifact</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162159052.png" alt="" /><figcaption>image-20230416215936993</figcaption>
+</figure>
+<p>摩尔纹有两种成因</p>
+<ol type="1">
+<li>隔行扫描的显示设备上, 拍摄的某一瞬间, 只有奇数行或者偶数行被扫描出来了, 这导致图像所包含的像素少了一半, 但是图像大小不变, 所以产生了摩尔纹;这是一个成像设备去拍摄另一个成像设备过程中产生的</li>
+<li>成像设备/拍摄设备为了显示/拍摄某些高密度花纹时, 对于显示设备/感光器而言, 这是一种高频信息(所谓高频就是变化率很快, 比如花纹的边界两边快速变化颜色) 当这种高频信号的频率与成像设备原件像素的空间频率相近的时候, 就可能导致某一行像素由于差拍原理(类似于干涉)无法被记录, 从而产生成因一, 像素变少了, 但是图像大小没变化, 这样就会让某些地方很空旷, 形成花纹</li>
+</ol>
+<p>学术一点的说法:</p>
+<p>图形学中的摩尔纹是指在采样图像时，由采样序列与图像中信号的周期性或间隔性相互作用形成的一种视觉伪影。它们通常出现在采样频率接近或等于信号频率的情况下。</p>
+<p>具体来说，摩尔纹的成因与<strong>采样定理</strong>(后面会讲)有关。根据采样定理，为了避免信号重建时出现失真，采样频率应该至少是信号最高频率的两倍(严格大于)。如果采样频率稍微低于两倍信号频率，就会产生一系列频谱镜像，其中一些镜像可能会重叠并与原始信号的谐波部分形成相互干扰。</p>
+<p>从视觉角度来看，这些相互干扰可以在信号中形成周期性条纹或亮度变化，这就是摩尔纹的成因。当信号的周期长度与采样序列的间隔长度非常接近时，摩尔纹会变得尤为明显。</p>
+<p>摩尔纹在数字摄影和计算机图像处理中很常见，对于理解图像采样和信号处理的基本原理非常重要。</p>
+<p>再来一个时间采样artifact, 反向旋转的转盘</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162220745.png" alt="" /><figcaption>image-20230416222001661</figcaption>
+</figure>
+<p>那么这些东西的本质都是什么呢? 其实本质上都是原始数据信号变化率过大, 导致成像设备(采样设备)的采样率跟不上原始信号的变化率造成的</p>
+<h3 id="采样前预处理">采样前预处理</h3>
+<p>采样前做模糊的操作可以一定程度上缓解</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162222815.png" alt="" /><figcaption>image-20230416222232777</figcaption>
+</figure>
+<p>也就是说, 把二元离散信号转换成32位的离散信号</p>
+<p>从布尔值转换为了浮点值, 虽然采样率没有直接变化,但是可以承载的信息更多了</p>
+<p>效果图</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162223723.png" alt="" /><figcaption>处理前</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162224366.png" alt="" /><figcaption>处理后</figcaption>
+</figure>
+<h3 id="采样定理">采样定理</h3>
+<p>信号的变化速率与频率有关:</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162226201.png" alt="" /><figcaption>image-20230416222620149</figcaption>
+</figure>
+<h4 id="频率的分解">频率的分解</h4>
+<p>傅里叶展开可以用来写傅里叶变换<br />
+</p>
+<p>简而言之就是任何信号都可以写作一系列正弦波余弦波之和加上一个常数项</p>
+<p>用于描述原始信号中, 各频率成分的信号的占比</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162229702.png" alt="" /><figcaption>image-20230416222942657</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162230521.png" alt="" /><figcaption>image-20230416223002482</figcaption>
+</figure>
+<p>我们可以把空域(空间)上的信号(图像)转换到频域上面, 形成一张频域图</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162231423.png" alt="" /><figcaption>image-20230416223126379</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162231341.png" alt="" /><figcaption>image-20230416223147275</figcaption>
+</figure>
+<p>频域图的中心意味着低频信号</p>
+<p>频域图的外侧意味着高频信号, 高频信号也就是图像的边界</p>
+<p>频域图的两条明亮的线不是坐标轴, 而是由于计算频域图时, 我们会把原始图像平铺, 这导致原始图像边界处形成了明显的一个竖向或横向的边界, 形成了频域图的两条明亮的线</p>
+<p>采用低通高通和FFT的方法处理图像是比较古早的办法了, 现在一般是机器学习</p>
+<h4 id="采样定理-1">采样定理</h4>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162232340.png" alt="" /><figcaption>image-20230416223233298</figcaption>
+</figure>
+<p>采样率需要严格大于原始频率两倍</p>
+<p>否则就会有两个不同的信号, 采样结果相同, 造成<strong>混叠(Aliasing)</strong>, 是一种失真</p>
+<h4 id="卷积">卷积</h4>
+<p>卷积就是求几加权平均值</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162237605.png" alt="" /><figcaption>image-20230416223755568</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162238603.png" alt="" /><figcaption>image-20230416223810570</figcaption>
+</figure>
+<p>有一个信号矩阵和一个过滤器矩阵</p>
+]]></content>
+      <categories>
+        <category>图形学笔记</category>
+      </categories>
+      <tags>
+        <tag>图形学</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>复位（reset）的作用</title>
     <url>/fu-wei-reset-de-zuo-yong/</url>
     <content><![CDATA[<p>主要是为了同步性安全</p>
@@ -4174,19 +4277,6 @@ M_{\text {viewport }}=\left(\begin{array}{cccc}
         <category>校内</category>
         <category>计组</category>
       </categories>
-  </entry>
-  <entry>
-    <title>图形学笔记6 反走样与深度缓冲</title>
-    <url>/tu-xing-xue-bi-ji-6-fan-zou-yang-yu-shen-du-huan-chong/</url>
-    <content><![CDATA[<p>反走样就是抗锯齿一类的技术</p>
-<h3 id="什么是采样">什么是采样</h3>
-]]></content>
-      <categories>
-        <category>图形学笔记</category>
-      </categories>
-      <tags>
-        <tag>图形学</tag>
-      </tags>
   </entry>
   <entry>
     <title>大学一年以来的一些经历和感想</title>
@@ -5039,21 +5129,6 @@ M_{\text {viewport }}=\left(\begin{array}{cccc}
       </categories>
   </entry>
   <entry>
-    <title>谓词逻辑</title>
-    <url>/wei-ci-luo-ji/</url>
-    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172100880.png" /></p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172100501.png" /></p>
-<p>第二点需要保证B里面没有x</p>
-<p>下面的三四点公式B里面包含x</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172100698.png" /></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>校内</category>
-        <category>离散</category>
-      </categories>
-  </entry>
-  <entry>
     <title>谈抽烟</title>
     <url>/tan-chou-yan/</url>
     <content><![CDATA[<p>就我个人看来，抽烟目的并不是尼古丁带来的巴多酚，更多的是人类基因当中对火的依赖</p>
@@ -5074,6 +5149,21 @@ M_{\text {viewport }}=\left(\begin{array}{cccc}
 ]]></content>
       <categories>
         <category>黑历史与垃圾</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>谓词逻辑</title>
+    <url>/wei-ci-luo-ji/</url>
+    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172100880.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172100501.png" /></p>
+<p>第二点需要保证B里面没有x</p>
+<p>下面的三四点公式B里面包含x</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172100698.png" /></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>校内</category>
+        <category>离散</category>
       </categories>
   </entry>
   <entry>

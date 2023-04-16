@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>图形学笔记6 反走样与深度缓冲 |  祝獻の巴基力</title>
+      <title>图形学笔记6 反走样 |  祝獻の巴基力</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -76,7 +76,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  图形学笔记6 反走样与深度缓冲
+  图形学笔记6 反走样
 </h1>
  
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">18</span>
+            <span class="post-count">1.3k</span>
         </span>
     </span>
 
@@ -105,7 +105,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -121,7 +121,97 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p>反走样就是抗锯齿一类的技术</p>
-<h3 id="什么是采样">什么是采样</h3>
+<h3 id="上节课的问题">上节课的问题</h3>
+<p>将连续信号离散化的过程跟不上连续信号的变化过程(实数是稠密的)</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162156256.png" alt="" /><figcaption>image-20230416215610223</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162155408.png" alt="" /><figcaption>image-20230416215550302</figcaption>
+</figure>
+<h2 id="什么是采样">什么是采样</h2>
+<p>一般来说, 图形学的采样有时间上的, 也有空间上的, 上节课讲的是空间上的</p>
+<p>时间上的采样就是视频</p>
+<p>因为视频不是连续的, 而是离散的每一帧构成的, 所以当采样速度过低时就会产生重影</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162157183.png" alt="" /><figcaption>image-20230416215757129</figcaption>
+</figure>
+<p>这里有一个专业术语 <strong>Artifacts</strong>, <strong>用以概括性描述图形学中所有不按照实际现实情况显示的图形缺陷</strong></p>
+<p>摩尔纹也是一种artifact</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162159052.png" alt="" /><figcaption>image-20230416215936993</figcaption>
+</figure>
+<p>摩尔纹有两种成因</p>
+<ol type="1">
+<li>隔行扫描的显示设备上, 拍摄的某一瞬间, 只有奇数行或者偶数行被扫描出来了, 这导致图像所包含的像素少了一半, 但是图像大小不变, 所以产生了摩尔纹;这是一个成像设备去拍摄另一个成像设备过程中产生的</li>
+<li>成像设备/拍摄设备为了显示/拍摄某些高密度花纹时, 对于显示设备/感光器而言, 这是一种高频信息(所谓高频就是变化率很快, 比如花纹的边界两边快速变化颜色) 当这种高频信号的频率与成像设备原件像素的空间频率相近的时候, 就可能导致某一行像素由于差拍原理(类似于干涉)无法被记录, 从而产生成因一, 像素变少了, 但是图像大小没变化, 这样就会让某些地方很空旷, 形成花纹</li>
+</ol>
+<p>学术一点的说法:</p>
+<p>图形学中的摩尔纹是指在采样图像时，由采样序列与图像中信号的周期性或间隔性相互作用形成的一种视觉伪影。它们通常出现在采样频率接近或等于信号频率的情况下。</p>
+<p>具体来说，摩尔纹的成因与<strong>采样定理</strong>(后面会讲)有关。根据采样定理，为了避免信号重建时出现失真，采样频率应该至少是信号最高频率的两倍(严格大于)。如果采样频率稍微低于两倍信号频率，就会产生一系列频谱镜像，其中一些镜像可能会重叠并与原始信号的谐波部分形成相互干扰。</p>
+<p>从视觉角度来看，这些相互干扰可以在信号中形成周期性条纹或亮度变化，这就是摩尔纹的成因。当信号的周期长度与采样序列的间隔长度非常接近时，摩尔纹会变得尤为明显。</p>
+<p>摩尔纹在数字摄影和计算机图像处理中很常见，对于理解图像采样和信号处理的基本原理非常重要。</p>
+<p>再来一个时间采样artifact, 反向旋转的转盘</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162220745.png" alt="" /><figcaption>image-20230416222001661</figcaption>
+</figure>
+<p>那么这些东西的本质都是什么呢? 其实本质上都是原始数据信号变化率过大, 导致成像设备(采样设备)的采样率跟不上原始信号的变化率造成的</p>
+<h3 id="采样前预处理">采样前预处理</h3>
+<p>采样前做模糊的操作可以一定程度上缓解</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162222815.png" alt="" /><figcaption>image-20230416222232777</figcaption>
+</figure>
+<p>也就是说, 把二元离散信号转换成32位的离散信号</p>
+<p>从布尔值转换为了浮点值, 虽然采样率没有直接变化,但是可以承载的信息更多了</p>
+<p>效果图</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162223723.png" alt="" /><figcaption>处理前</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162224366.png" alt="" /><figcaption>处理后</figcaption>
+</figure>
+<h3 id="采样定理">采样定理</h3>
+<p>信号的变化速率与频率有关:</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162226201.png" alt="" /><figcaption>image-20230416222620149</figcaption>
+</figure>
+<h4 id="频率的分解">频率的分解</h4>
+<p>傅里叶展开可以用来写傅里叶变换<br />
+</p>
+<p>简而言之就是任何信号都可以写作一系列正弦波余弦波之和加上一个常数项</p>
+<p>用于描述原始信号中, 各频率成分的信号的占比</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162229702.png" alt="" /><figcaption>image-20230416222942657</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162230521.png" alt="" /><figcaption>image-20230416223002482</figcaption>
+</figure>
+<p>我们可以把空域(空间)上的信号(图像)转换到频域上面, 形成一张频域图</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162231423.png" alt="" /><figcaption>image-20230416223126379</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162231341.png" alt="" /><figcaption>image-20230416223147275</figcaption>
+</figure>
+<p>频域图的中心意味着低频信号</p>
+<p>频域图的外侧意味着高频信号, 高频信号也就是图像的边界</p>
+<p>频域图的两条明亮的线不是坐标轴, 而是由于计算频域图时, 我们会把原始图像平铺, 这导致原始图像边界处形成了明显的一个竖向或横向的边界, 形成了频域图的两条明亮的线</p>
+<p>采用低通高通和FFT的方法处理图像是比较古早的办法了, 现在一般是机器学习</p>
+<h4 id="采样定理-1">采样定理</h4>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162232340.png" alt="" /><figcaption>image-20230416223233298</figcaption>
+</figure>
+<p>采样率需要严格大于原始频率两倍</p>
+<p>否则就会有两个不同的信号, 采样结果相同, 造成<strong>混叠(Aliasing)</strong>, 是一种失真</p>
+<h4 id="卷积">卷积</h4>
+<p>卷积就是求几加权平均值</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162237605.png" alt="" /><figcaption>image-20230416223755568</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304162238603.png" alt="" /><figcaption>image-20230416223810570</figcaption>
+</figure>
+<p>有一个信号矩阵和一个过滤器矩阵</p>
  
       <!-- reward -->
       
