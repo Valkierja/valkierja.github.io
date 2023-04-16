@@ -376,7 +376,7 @@ M_{\text {frustum }}=\left[\begin{array}{cccc}
 0 & 0 & -1 & 0
 \end{array}\right]
 $$
-化简一下就是
+化简一下就是(形式一)
 $$
 M_{\text {frustum }}=
 \left[
