@@ -150,6 +150,9 @@ since: 2019
 
 # 友情链接
 friends_link:
+  GirlFriend:
+    url: https://blog.fzf404.art/
+    img: https://img.fzf404.art/avatar.webp
   Squirre17:
     url: https://squirre17.github.io/
     img: https://squirre17.github.io/imgs/avatar.jpg
