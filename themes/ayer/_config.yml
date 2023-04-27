@@ -150,13 +150,13 @@ since: 2020
 
 # 友情链接
 friends_link:
-  Ayer主题:
-    url: https://github.com/Shen-Yu/hexo-theme-ayer
-    img: /images/ayer.png
+  Squirre17:
+    url: https://squirre17.github.io/
+    img: https://squirre17.github.io/imgs/avatar.jpg
 
 
 # 评论：1、Valine(推荐)；2、Gitalk；3、Twikoo;
-
+ 
 # 1、Valine[一款快速、简洁且高效的无后端评论系统](https://github.com/xCss/Valine)
 # 启用Valine必须先创建leancloud应用， 获取 id|key 填入即可
 leancloud:
