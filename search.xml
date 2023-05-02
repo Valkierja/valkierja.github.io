@@ -34,21 +34,16 @@
       </tags>
   </entry>
   <entry>
-    <title>(A+B)(A+C)=A+BC如何逆推</title>
-    <url>/abacabc-ru-he-ni-tui/</url>
-    <content><![CDATA[<p>(A+B)(A+C)<br />
-=AA+AB+AC+BC<br />
-=AA+A(B+C)+BC<br />
-=A+A(B+C)+BC<br />
-=A(1+B+C)+BC<br />
-=A+BC</p>
+    <title>C++简明进阶教程0</title>
+    <url>/c-jian-ming-jin-jie-jiao-cheng-0/</url>
+    <content><![CDATA[<p>其他内容请查看 https://ksxmyqj.gitbook.io/cpp-concise-advanced-tutorial-why-were-these-code-safe/</p>
 ]]></content>
       <categories>
-        <category>笔记</category>
-        <category>校内</category>
-        <category>计组</category>
-        <category>离散</category>
+        <category>C++简明进阶教程</category>
       </categories>
+      <tags>
+        <tag>C++简明进阶教程</tag>
+      </tags>
   </entry>
   <entry>
     <title>and esp, 0FFFFFFF0h的作用</title>
@@ -430,8 +425,8 @@
 ]]></content>
       <categories>
         <category>笔记</category>
-        <category>存档</category>
         <category>杂谈</category>
+        <category>存档</category>
         <category>语言学</category>
       </categories>
   </entry>
@@ -804,45 +799,6 @@
       </categories>
   </entry>
   <entry>
-    <title>开发一个简单blog（无CSS实现；包含撰文，评论等多种功能）</title>
-    <url>/my-blog/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>逆向太难了，学成傻逼了，果断转web</p>
-<p>老话说的好，要想学安全，得先学开发，于是笔者思考了一下：</p>
-<p>目前只会简单的js和html，那就开发一个纯后端（PHP+MySQL）的博客实现吧，这样就可以学习PHP和MySQL啦</p>
-<h2 id="阅读本文前置知识">阅读本文前置知识</h2>
-<p>虽说笔者在开发这个项目前毫无后端经验，但是强烈建议读者至少学会PHP基础语法再看本文</p>
-<h2 id="正文">正文</h2>
-<p>本文主要是记录开发过程中遇到的一些问题，而非手把手教学</p>
-<h3 id="环境">环境</h3>
-<p>由于笔者开发机之前配过php和MySQL环境，现在的环境并不干净，尝试了各种解决办法之后依旧连接不上localhost（MySQL），最终使用phpstudy终于卸载干净了，然后依据菜鸟教程上面的方法配好了MySQL8.0环境</p>
-<p>在这一过程中途还产生了连接远程服务器（也就是此博客的服务器）上面的数据库，但是在phpstorm里面连不上，不知道是哪里出了问题。。。（用户名密码正确，端口全放开了，数据库权限也放开了，SSH可以连上，没有挂任何正向代理或反向代理服务）</p>
-<p>而在datagrip里面是可以正常连接的。。。</p>
-<h3 id="开发构想">开发构想</h3>
-<p>实现一个主页，主页当中有欢迎语和菜单栏，菜单栏指向文章编辑器，文章浏览页，个人资料页</p>
-<p>其中，文章编辑器会故意留下安全性问题，便于后续注入测试</p>
-<p>个人资料页提供修改密码功能，并会故意留下安全性问题，便于后续注入测试</p>
-<p>文章浏览页会按照时间顺序显示所有文章的标题，并将标题超链接至对应地址</p>
-<p>文章页包括文章主体内容和一个评论区，评论区内容不会做任何过滤，便于后续测试XSS注入</p>
-<h3 id="开发过程遇到的问题">开发过程遇到的问题</h3>
-<p>根据构想，许多页面的首要任务是连接数据库,然后读取或写入数据</p>
-<p>根据代码复用原则创建文件<code>connectToDB.php</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"># 永远不写重复的代码</span><br><span class="line">$host=&#x27;localhost&#x27;;</span><br><span class="line">$user=&#x27;root&#x27;;</span><br><span class="line">$passwd=&#x27;root&#x27;;</span><br><span class="line">$dbname=&#x27;myblog&#x27;;</span><br><span class="line">$conn=mysqli_connect($host,$user,$passwd);</span><br></pre></td></tr></table></figure>
-<p>然后在需要连接数据库的php页当中</p>
-<p><code>include_once 'connectToDB.php'</code></p>
-<p>然后复用<code>$conn</code>变量</p>
-<p>但是实测发现跨php文件使用变量（即便是全局变量）是被禁止的，改为使用$_GLOBALS数组</p>
-<p>顺便查了一下Session和Global的区别，下面这篇帖子说的非常一针见血，一看就懂</p>
-<p>https://stackoverflow.com/questions/14848145/what-is-the-difference-between-session-variables-global-variables-in-php/14848246</p>
-<h2 id="尾声">尾声</h2>
-<p>这篇文章写道一半的时候重装电脑了,然后忘记备份这个博客的源码了.....</p>
-<p>最终博客是全都开发完成的状态,可惜文章烂尾了</p>
-]]></content>
-      <categories>
-        <category>黑历史与垃圾</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Nepnep联合战队PWN见习生报告-第二周</title>
     <url>/nepnep-lian-he-zhan-dui-pwn-jian-xi-sheng-bao-gao-di-er-zhou/</url>
     <content><![CDATA[<h1 id="正文">正文</h1>
@@ -1139,8 +1095,8 @@
 ]]></content>
       <categories>
         <category>笔记</category>
-        <category>存档</category>
         <category>杂谈</category>
+        <category>存档</category>
         <category>计算机</category>
       </categories>
       <tags>
@@ -1746,8 +1702,8 @@ then declare a vector3 var to store offset</p>
 ]]></content>
       <categories>
         <category>笔记</category>
-        <category>存档</category>
         <category>杂谈</category>
+        <category>存档</category>
         <category>计算机</category>
       </categories>
       <tags>
@@ -2078,8 +2034,8 @@ then declare a vector3 var to store offset</p>
 ]]></content>
       <categories>
         <category>笔记</category>
-        <category>校内</category>
         <category>开发</category>
+        <category>校内</category>
         <category>GamePlay</category>
         <category>离散</category>
       </categories>
@@ -2313,36 +2269,6 @@ then declare a vector3 var to store offset</p>
         <category>笔记</category>
         <category>校内</category>
         <category>数据结构</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>杂记</title>
-    <url>/za-ji-2/</url>
-    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172158991.png" /></p>
-]]></content>
-      <categories>
-        <category>黑历史与垃圾</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>杂记</title>
-    <url>/za-ji/</url>
-    <content><![CDATA[<p>我也不是多喜欢保持纯粹理性 力求过程正确</p>
-<p>我只是喜欢 <strong>喜欢保持纯粹理性</strong> 的感觉</p>
-]]></content>
-      <categories>
-        <category>黑历史与垃圾</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>杂记一些感慨</title>
-    <url>/za-ji-yi-xie-gan-kai/</url>
-    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172200905.png" /></p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172157118.png" /></p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172157254.png" />-</p>
-]]></content>
-      <categories>
-        <category>黑历史与垃圾</category>
       </categories>
   </entry>
   <entry>
@@ -2624,6 +2550,73 @@ return 0;</code></pre>
       <tags>
         <tag>WP</tag>
         <tag>悬而未决</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UE5阶段性学习笔记1</title>
+    <url>/gameplay/ue5-jie-duan-xing-xue-xi-bi-ji-1/</url>
+    <content><![CDATA[<h2 id="meshes-materials-textures之间的区别">Meshes, Materials, textures之间的区别</h2>
+<p>这里有一个描述比较好的资料</p>
+<p>https://forums.unrealengine.com/t/static-meshes-vs-textures-vs-materials/53090</p>
+<blockquote>
+<p>Meshes are the actual geometry, they require a material to define what the surface looks like (color, reflectivity, etc.) Textures are just image files that are used within the material, so you could have an image that you make in Photoshop that you plug into a material that gets applied to a mesh. The Mesh uses something called UVW mapping, which is where the 3D model has a set of coordinates where it is flattened out so that it can use a 2D image as a texture, UVW is simply a way to refer to texturing coordinates (XYZ = UVW). In a 3D program like Blender/Maya/3ds Max they each have their own way of making materials and applying them to a 3D mesh. Usually each program has a very simple type of material that has basic features like color and if you use those basic materials on your 3D model then when you export to UE4 it can import those materials.</p>
+</blockquote>
+<p>总结为: 1. Meshes是空间概念, 是几何形体, 直译是<code>网格</code> 2. material是光学概念, 他决定了<code>网格</code>的样式, 直译是<code>材质</code> 3. texture是material所需要的图像文件, 直译是<code>纹理</code>, 也就是说<code>材质</code>包含了<code>纹理</code>, <code>法线贴图</code>也属于<code>纹理</code>, 各种<code>纹理</code>的有机结合形成了<code>材质</code></p>
+<h2 id="法线贴图的原理">法线贴图的原理</h2>
+<p>这部分内容unity文档写的比UE文档清晰明了(因为配有清晰的示意图)</p>
+<p>链接 https://docs.unity3d.com/cn/2021.1/Manual/StandardShaderMaterialParameterNormalMap.html</p>
+<p>法线贴图被称之为normal map</p>
+<p>首先unity官方解释了另一个概念, 称之为<code>平滑着色</code></p>
+<p>对于一个网格几何体, 其俯视图如下, 在不应用平滑着色时, 其表面法线标注如下</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202305021902627.png" alt="" /><figcaption>image-20230502190237603</figcaption>
+</figure>
+<p>注意三角形边缘的表面法线向量示意箭头</p>
+<p>上述网格几何体的渲染图如下</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202305021903634.png" alt="" /><figcaption>image-20230502190343615</figcaption>
+</figure>
+<p>如果启用了平滑着色功能,</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202305021907491.png" alt="" /><figcaption>4C0579885F450AD1E6BBCF33C396ED58</figcaption>
+</figure>
+<p>边缘处的法线会变成红色向量所示</p>
+<p>绿色线条和蓝色线条分别是unity官方和我自己画的示意线条, 用于示意渲染结果, 下图是渲染结果, 可以看到平滑的渲染结果</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202305021909364.png" alt="" /><figcaption>image-20230502190904345</figcaption>
+</figure>
+<p>需要注意的是, 当沿着掠射角(几乎垂直于法线的观察方向)观察上述物体时, 上述物体的渲染结果依旧是棱角分明的(大多数角度是正常的圆柱体渲染结果), 因为我们并没有实际修改<code>mesh</code> 只是修改了法线, 俯视图中的示意线条展现的印象曲面并不存在, 他是由于法线的渐变形成的观察印象</p>
+<p>如果将上述技术更进一步的修改, 得到法线贴图</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202305021912274.png" alt="" /><figcaption>image-20230502191254253</figcaption>
+</figure>
+<p>法线贴图需要为每个像素点存储两个性质,</p>
+<p>第一个性质是上图中下半部分所展示的橙色的单位向量, 这个单位向量描述了法线的方向</p>
+<p>第二个性质是蓝色-红色格子所示意的每个像素深度(或者说是高度)信息</p>
+<p>这两个信息结合起来就可以描述法线的修正, 因为法线也是一个向量, 描述向量只需要两个标量, 一个是方向一个是长度</p>
+<p>需要注意的是, 法线贴图虽然看起来是蓝色的, 但是他不影响任何颜色, 他只会影响法线, 从而间接影响光照计算</p>
+<p>法线贴图呈现蓝色的原因是 法线贴图采用和普通图片几乎相同的物理存储方式--他采用RGB记录高度和方向数据, RGB分别代表了空间中的xyz数据, 其中Z表示"向外", "(本地坐标系的)向上"</p>
+<p>存储的RGB值(x,y,z)会映射为法线数据(2x-1,2y-1,2z-1)</p>
+<p>(至于为什么这样映射, 这是和值域定义域范围有关的, 不展开)</p>
+<p>所以RGB 值 (0.5, 0.5, 1) 或十六进制的 #8080FF 将得到矢量 (0,0,1) 表示模型表面没有变化, 上述颜色如下所示, 呈现为蓝色</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202305021922630.png" alt="" /><figcaption>#8080FF</figcaption>
+</figure>
+<p>高度贴图和法线贴图的区别</p>
+<p><strong>法线贴图</strong>和<strong>高度贴图</strong>都是凹凸贴图的<em>类型</em></p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202305021942264.png" alt="" /><figcaption>image-20230502194259207</figcaption>
+</figure>
+<p>最后一个问题 法线贴图是从哪来的, 答案是建模师搞得, 他需要建模时导出法线贴图</p>
+<p>(待补充)</p>
+]]></content>
+      <categories>
+        <category>开发</category>
+        <category>GamePlay</category>
+      </categories>
+      <tags>
+        <tag>GamePlay</tag>
+        <tag>UE</tag>
       </tags>
   </entry>
   <entry>
@@ -4045,6 +4038,45 @@ M_{\text {viewport }}=\left(\begin{array}{cccc}
       </tags>
   </entry>
   <entry>
+    <title>开发一个简单blog（无CSS实现；包含撰文，评论等多种功能）</title>
+    <url>/cun-dang/my-blog/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>逆向太难了，学成傻逼了，果断转web</p>
+<p>老话说的好，要想学安全，得先学开发，于是笔者思考了一下：</p>
+<p>目前只会简单的js和html，那就开发一个纯后端（PHP+MySQL）的博客实现吧，这样就可以学习PHP和MySQL啦</p>
+<h2 id="阅读本文前置知识">阅读本文前置知识</h2>
+<p>虽说笔者在开发这个项目前毫无后端经验，但是强烈建议读者至少学会PHP基础语法再看本文</p>
+<h2 id="正文">正文</h2>
+<p>本文主要是记录开发过程中遇到的一些问题，而非手把手教学</p>
+<h3 id="环境">环境</h3>
+<p>由于笔者开发机之前配过php和MySQL环境，现在的环境并不干净，尝试了各种解决办法之后依旧连接不上localhost（MySQL），最终使用phpstudy终于卸载干净了，然后依据菜鸟教程上面的方法配好了MySQL8.0环境</p>
+<p>在这一过程中途还产生了连接远程服务器（也就是此博客的服务器）上面的数据库，但是在phpstorm里面连不上，不知道是哪里出了问题。。。（用户名密码正确，端口全放开了，数据库权限也放开了，SSH可以连上，没有挂任何正向代理或反向代理服务）</p>
+<p>而在datagrip里面是可以正常连接的。。。</p>
+<h3 id="开发构想">开发构想</h3>
+<p>实现一个主页，主页当中有欢迎语和菜单栏，菜单栏指向文章编辑器，文章浏览页，个人资料页</p>
+<p>其中，文章编辑器会故意留下安全性问题，便于后续注入测试</p>
+<p>个人资料页提供修改密码功能，并会故意留下安全性问题，便于后续注入测试</p>
+<p>文章浏览页会按照时间顺序显示所有文章的标题，并将标题超链接至对应地址</p>
+<p>文章页包括文章主体内容和一个评论区，评论区内容不会做任何过滤，便于后续测试XSS注入</p>
+<h3 id="开发过程遇到的问题">开发过程遇到的问题</h3>
+<p>根据构想，许多页面的首要任务是连接数据库,然后读取或写入数据</p>
+<p>根据代码复用原则创建文件<code>connectToDB.php</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"># 永远不写重复的代码</span><br><span class="line">$host=&#x27;localhost&#x27;;</span><br><span class="line">$user=&#x27;root&#x27;;</span><br><span class="line">$passwd=&#x27;root&#x27;;</span><br><span class="line">$dbname=&#x27;myblog&#x27;;</span><br><span class="line">$conn=mysqli_connect($host,$user,$passwd);</span><br></pre></td></tr></table></figure>
+<p>然后在需要连接数据库的php页当中</p>
+<p><code>include_once 'connectToDB.php'</code></p>
+<p>然后复用<code>$conn</code>变量</p>
+<p>但是实测发现跨php文件使用变量（即便是全局变量）是被禁止的，改为使用$_GLOBALS数组</p>
+<p>顺便查了一下Session和Global的区别，下面这篇帖子说的非常一针见血，一看就懂</p>
+<p>https://stackoverflow.com/questions/14848145/what-is-the-difference-between-session-variables-global-variables-in-php/14848246</p>
+<h2 id="尾声">尾声</h2>
+<p>这篇文章写道一半的时候重装电脑了,然后忘记备份这个博客的源码了.....</p>
+<p>最终博客是全都开发完成的状态,可惜文章烂尾了</p>
+]]></content>
+      <categories>
+        <category>黑历史与垃圾</category>
+      </categories>
+  </entry>
+  <entry>
     <title>一些待研究底层原理的宏观现象</title>
     <url>/cun-dang/yi-xie-dai-yan-jiu-di-ceng-yuan-li-de-hong-guan-xian-xiang/</url>
     <content><![CDATA[<ul>
@@ -4151,6 +4183,23 @@ M_{\text {viewport }}=\left(\begin{array}{cccc}
       <categories>
         <category>笔记</category>
         <category>存档</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>(A+B)(A+C)=A+BC如何逆推</title>
+    <url>/xue-xiao-nei-bi-ji/abacabc-ru-he-ni-tui/</url>
+    <content><![CDATA[<p>(A+B)(A+C)<br />
+=AA+AB+AC+BC<br />
+=AA+A(B+C)+BC<br />
+=A+A(B+C)+BC<br />
+=A(1+B+C)+BC<br />
+=A+BC</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>校内</category>
+        <category>计组</category>
+        <category>离散</category>
       </categories>
   </entry>
   <entry>
@@ -4864,6 +4913,36 @@ M_{\text {viewport }}=\left(\begin{array}{cccc}
 <p>或许单身一辈子才是我的最好选择吧。。。</p>
 <p>之前说过的话都太幼稚了.....最近两个月经历的社会毒打真的让我重塑了很多方面的价值观，同时也巩固了我曾经的诸多想法</p>
 <p>恰逢高考季，这篇文章就算是写给后辈们的了</p>
+]]></content>
+      <categories>
+        <category>黑历史与垃圾</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>杂记</title>
+    <url>/za-tan/za-ji-2/</url>
+    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172158991.png" /></p>
+]]></content>
+      <categories>
+        <category>黑历史与垃圾</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>杂记</title>
+    <url>/za-tan/za-ji/</url>
+    <content><![CDATA[<p>我也不是多喜欢保持纯粹理性 力求过程正确</p>
+<p>我只是喜欢 <strong>喜欢保持纯粹理性</strong> 的感觉</p>
+]]></content>
+      <categories>
+        <category>黑历史与垃圾</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>杂记一些感慨</title>
+    <url>/za-tan/za-ji-yi-xie-gan-kai/</url>
+    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172200905.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172157118.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172157254.png" />-</p>
 ]]></content>
       <categories>
         <category>黑历史与垃圾</category>

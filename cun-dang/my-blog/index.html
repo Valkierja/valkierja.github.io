@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>杂记一些感慨 |  祝獻の巴基力</title>
+      <title>开发一个简单blog（无CSS实现；包含撰文，评论等多种功能） |  祝獻の巴基力</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -65,7 +65,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-杂记一些感慨"
+  id="post-存档/my-blog"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -76,7 +76,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  杂记一些感慨
+  开发一个简单blog（无CSS实现；包含撰文，评论等多种功能）
 </h1>
  
 
@@ -84,8 +84,8 @@
     </header>
      
     <div class="article-meta">
-      <a href="/za-ji-yi-xie-gan-kai/" class="article-date">
-  <time datetime="2021-09-11T18:59:58.000Z" itemprop="datePublished">2021-09-12</time>
+      <a href="/cun-dang/my-blog/" class="article-date">
+  <time datetime="2021-07-03T05:04:14.000Z" itemprop="datePublished">2021-07-03</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E9%BB%91%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%9E%83%E5%9C%BE/">黑历史与垃圾</a>
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">748</span>
         </span>
     </span>
 
@@ -105,22 +105,52 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172200905.png" /></p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172157118.png" /></p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172157254.png" />-</p>
+  <h2 id="背景">背景</h2>
+<p>逆向太难了，学成傻逼了，果断转web</p>
+<p>老话说的好，要想学安全，得先学开发，于是笔者思考了一下：</p>
+<p>目前只会简单的js和html，那就开发一个纯后端（PHP+MySQL）的博客实现吧，这样就可以学习PHP和MySQL啦</p>
+<h2 id="阅读本文前置知识">阅读本文前置知识</h2>
+<p>虽说笔者在开发这个项目前毫无后端经验，但是强烈建议读者至少学会PHP基础语法再看本文</p>
+<h2 id="正文">正文</h2>
+<p>本文主要是记录开发过程中遇到的一些问题，而非手把手教学</p>
+<h3 id="环境">环境</h3>
+<p>由于笔者开发机之前配过php和MySQL环境，现在的环境并不干净，尝试了各种解决办法之后依旧连接不上localhost（MySQL），最终使用phpstudy终于卸载干净了，然后依据菜鸟教程上面的方法配好了MySQL8.0环境</p>
+<p>在这一过程中途还产生了连接远程服务器（也就是此博客的服务器）上面的数据库，但是在phpstorm里面连不上，不知道是哪里出了问题。。。（用户名密码正确，端口全放开了，数据库权限也放开了，SSH可以连上，没有挂任何正向代理或反向代理服务）</p>
+<p>而在datagrip里面是可以正常连接的。。。</p>
+<h3 id="开发构想">开发构想</h3>
+<p>实现一个主页，主页当中有欢迎语和菜单栏，菜单栏指向文章编辑器，文章浏览页，个人资料页</p>
+<p>其中，文章编辑器会故意留下安全性问题，便于后续注入测试</p>
+<p>个人资料页提供修改密码功能，并会故意留下安全性问题，便于后续注入测试</p>
+<p>文章浏览页会按照时间顺序显示所有文章的标题，并将标题超链接至对应地址</p>
+<p>文章页包括文章主体内容和一个评论区，评论区内容不会做任何过滤，便于后续测试XSS注入</p>
+<h3 id="开发过程遇到的问题">开发过程遇到的问题</h3>
+<p>根据构想，许多页面的首要任务是连接数据库,然后读取或写入数据</p>
+<p>根据代码复用原则创建文件<code>connectToDB.php</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"># 永远不写重复的代码</span><br><span class="line">$host=&#x27;localhost&#x27;;</span><br><span class="line">$user=&#x27;root&#x27;;</span><br><span class="line">$passwd=&#x27;root&#x27;;</span><br><span class="line">$dbname=&#x27;myblog&#x27;;</span><br><span class="line">$conn=mysqli_connect($host,$user,$passwd);</span><br></pre></td></tr></table></figure>
+<p>然后在需要连接数据库的php页当中</p>
+<p><code>include_once 'connectToDB.php'</code></p>
+<p>然后复用<code>$conn</code>变量</p>
+<p>但是实测发现跨php文件使用变量（即便是全局变量）是被禁止的，改为使用$_GLOBALS数组</p>
+<p>顺便查了一下Session和Global的区别，下面这篇帖子说的非常一针见血，一看就懂</p>
+<p>https://stackoverflow.com/questions/14848145/what-is-the-difference-between-session-variables-global-variables-in-php/14848246</p>
+<h2 id="尾声">尾声</h2>
+<p>这篇文章写道一半的时候重装电脑了,然后忘记备份这个博客的源码了.....</p>
+<p>最终博客是全都开发完成的状态,可惜文章烂尾了</p>
  
       <!-- reward -->
       
@@ -169,7 +199,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://valkierja.github.io/za-ji-yi-xie-gan-kai/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://valkierja.github.io/cun-dang/my-blog/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -180,19 +210,19 @@
    
   <nav class="article-nav">
     
-      <a href="/za-ji/" class="article-nav-link">
+      <a href="/definition-declaration/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            杂记
+            分离声明和实现的关键性好处
           
         </div>
       </a>
     
     
-      <a href="/xue-xiao-nei-bi-ji/men-dian-lu-fu-hao-biao/" class="article-nav-link">
+      <a href="/three-kind-of-const/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">门电路符号表</div>
+        <div class="article-nav-title">三种const</div>
       </a>
     
   </nav>
