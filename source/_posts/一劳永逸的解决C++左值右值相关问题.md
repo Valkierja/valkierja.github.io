@@ -1,7 +1,7 @@
 ---
-title: {{ title }}
-date: {{ date }}
+title: C++左值和右值:一文解决
 poc: true
+date: 2023-05-02 16:34:53
 categories: 
 - [C++简明进阶教程]
 tags: [C++简明进阶教程]
