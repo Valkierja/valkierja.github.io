@@ -16,6 +16,14 @@ tags: [C++简明进阶教程]
 1. 左值右值实际上还需要更加清晰的定义生命周期这一概念
 因此:
 
+(这里需要写明xvalue不允许延长生命周期, 但是prvalue可以)
+
+https://time.geekbang.org/column/article/169268
+
+![image-20230501153305353](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202305011533431.png)
+
+
+
 
 
 首先![image-20230428184043911](https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304281840977.png)
@@ -29,7 +37,7 @@ int &&r = std::move(a);
 int *p = &r;  // OK
 ```
 
-因为右值引用对象`r`是一个r左值lvalue
+因为右值引用对象`r`是一个r左值lvalue, 他所引用绑定的内容才是右值
 
 
 
@@ -43,7 +51,7 @@ int *p = &r;  // OK
 
 当然, 这只是查阅资料的时候发现的一个约定俗成的东西, 不代表任何规范
 
-(std::move的结果是一个xvalue, 可以绑定到右值引用但不能绑定到左值引用, 但是分类图上 一般把xvalue视作rvalue和glvaue的交集)
+(std::move的结果是一个xvalue, 可以绑定到右值引用但不能绑定到左值引用, 但是分类图上 一般把xvalue视作rvalue和glvaue的交集, 这一交集的描述似乎暗示了xvalue可以绑定到左值引用和右值引用,但是显示中xvalue只能绑定到右值引用和const左值引用上)
 
 ```cpp
     int temp = 1;
