@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-cn">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta name="description" content="计算机软件二进制安全网络安全固件安全信息安全开发渗透测试护网C++cppIoTUnityUnrealGameplay" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>图形学笔记5 光栅化 |  祝獻の巴基力</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ6HK8QB76"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VJ6HK8QB76');
+</script>
+
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="祝獻の巴基力" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-图形学笔记/图形学笔记5-光栅化"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  图形学笔记5 光栅化
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/tu-xing-xue-bi-ji/tu-xing-xue-bi-ji-5-guang-zha-hua/" class="article-date">
+  <time datetime="2023-04-14T07:33:48.000Z" itemprop="datePublished">2023-04-14</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6%E7%AC%94%E8%AE%B0/">图形学笔记</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">4 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h3 id="词源">词源</h3>
+<p>光栅化一词起源于德语, 原型是屏幕加上动词后缀(笔者德语没有系统性学过 不知道这样说对不对) 也就是说 光栅化的原本意思是 <code>在屏幕上绘制</code> 这一动作</p>
+<h3 id="视锥范围的感性划定">视锥范围的感性划定</h3>
+<p>我们在上节课提到了视锥, 那么如何直观的划定视锥的范围</p>
+<p>我们规定看向的第一个面是near , 然后求出来垂直视角 <span class="math inline">\(fovY\)</span> ,再定义一下视角比 <span class="math inline">\(aspect \ ratio\)</span> 根据这两个值就可以求出来水平视角<span class="math inline">\(fovX\)</span></p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304141832803.png" alt="" /><figcaption>image-20230414183252766</figcaption>
+</figure>
+<p>这里我们假设图片中间的灰色虚线经过坐标轴, 也就是说 <span class="math inline">\(l=-r,\)</span> <span class="math inline">\(b=-t\)</span></p>
+<p>得到如下关系 <span class="math display">\[
+\begin{aligned}
+\tan \frac{f o v Y}{2} &amp; =\frac{t}{|n|} \\
+\text { aspect } &amp; =\frac{r}{t}
+\end{aligned}
+\]</span> <img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304141902223.png" alt="image-20230414190228185" /></p>
+<h3 id="定义什么是屏幕可绘制对象">定义什么是屏幕(可绘制对象)</h3>
+<p>我们把屏幕定义成这样(一般的情况下, 屏幕坐标系的原点是屏幕最左上角的地方, 这里为了直观和方便, 定义为最左下角)</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304142140284.png" alt="" /><figcaption>image-20230414214039247</figcaption>
+</figure>
+<p>第一个像素点的<strong>索引(index)</strong>被标记为二元组 <span class="math inline">\((0,0)\)</span> 其中心坐标为 <span class="math inline">\((0.5,0.5)\)</span> 需要加上0.5</p>
+<p>索引数： <span class="math inline">\(from \ (0,0)\ to \ (x-1,y-1)\)</span></p>
+<p>屏幕cover的范围： <span class="math inline">\(from \ (0,0)\ to \ (x,y)\)</span></p>
+<h3 id="把上一小节的视锥映射到屏幕视口变换">把上一小节的视锥映射到屏幕(视口变换)</h3>
+<p>首先<strong>暂时忽略</strong>z坐标, 该值表示深度, 后续会用于竞争待渲染元素对像素的所有权</p>
+<p>只看x和y的话就很直观了, 只需要把正方体的视锥, 拉伸到屏幕的大小</p>
+<p>拉伸函数为: <span class="math display">\[
+M_{\text {viewport }}=\left(\begin{array}{cccc}
+\frac{\text { width }}{2} &amp; 0 &amp; 0 &amp; \frac{\text { width }}{2} \\
+0 &amp; \frac{\text { height }}{2} &amp; 0 &amp; \frac{\text { height }}{2} \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right)
+\]</span></p>
+<p>w列向量用于平移枢轴</p>
+<p>另外两个主对角向量用于缩放scale</p>
+<p>乘完上面的矩阵后就基本接近最终结果了, 接下来一步是把<strong>浮点数的描述图元, 映射到屏幕这个离散的承载体上面</strong> 转换成片元, 片元还携带着法线等信息, 需要进一步转换成像素点</p>
+<h3 id="介绍了一些显示设备">介绍了一些显示设备</h3>
+<p>略过</p>
+<p>主要有绘图机和CRT和示波器等</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304142211303.png" alt="image-20230414221132252" style="zoom: 67%;" /></p>
+<h3 id="为什么选用三角形作为基本平面">为什么选用三角形作为基本平面</h3>
+<ol type="1">
+<li>三角形是最少点可以组成平面的图形</li>
+<li>三角形一定是平的, 三个点确定一个平面, 四个点不一定</li>
+<li>其他图形都可以拆成三角形</li>
+<li>三角形的内外定义很清晰, 不用考虑有洞的情况, 或者凹多边形什么的</li>
+<li>渐变效果好做, 定义距离三个点的距离比多个点简单</li>
+</ol>
+<h3 id="光栅化过程">光栅化过程</h3>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304142217781.png" alt="" /><figcaption>image-20230414221747734</figcaption>
+</figure>
+<p>经过前面的MVP和视口变换, 现在已经拿到了在二维平面(平面大小等于屏幕)上的点的坐标(是浮点数的连续坐标, 不是离散的) 我们现在需要映射到一个个单位中(片元) 接下来才能把片元映射成像素点</p>
+<p>接下来需要判断各个像素中心点与三角形的内外关系, <strong>这里需要用到之前的判定方法, 同号在内, 异号在外</strong></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304142244503.png" alt="image-20230414224437462" style="zoom:50%;" /></p>
+<p>不考虑抗锯齿的话, 如果覆盖了中心点, 就可以认为覆盖面积超过一半, 应当显示在屏幕上对应像素位置, 如果没超过一半, 则完全不显示(现实中会用抖动算法部分的进行显示)</p>
+<p>然后进行采样(采样 sample 定义: 把连续的数据离散化的操作)</p>
+<p>定义函数如下</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304142224341.png" alt="" /><figcaption>image-20230414222442313</figcaption>
+</figure>
+<p>输入是一个连续的浮点三角形t和待采样的位置(屏幕像素) 执行过程:</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304142227005.png" alt="" /><figcaption>image-20230414222753982</figcaption>
+</figure>
+<p>输出是一个离散的布尔信号, 结果如下</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304142226580.png" alt="" /><figcaption>image-20230414222633547</figcaption>
+</figure>
+<p>我们可以优化一下, <strong>上述算法需要测试屏幕上所有像素, 我们只需要测试外接的盒体内的像素就行了</strong></p>
+<h3 id="其他光栅化优化算法">其他光栅化优化算法</h3>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304142245705.png" alt="" /><figcaption>image-20230414224551666</figcaption>
+</figure>
+<p>由于屏幕等显示设备一般是一行行的</p>
+<p>所以我们也别费尽心思找碰撞盒了， 直接找每行最左边的像素， for循环往右边循环，等找到了某个像素判断在外面的时候， break到下一行的for循环</p>
+<p>但是这种优化方法作用有限，有效性较大的场景是一个旋转的狭长钝角三角形， 他的碰撞盒包括的内容很多 但是自身的实际体积（面积）很小</p>
+<h3 id="介绍了一些其他显示像素排布">介绍了一些其他显示像素排布</h3>
+<p>也就是常说的钻石排布和周冬雨排布， 此时的像素不是一行行的， 而是斜对角的， 或者是更加花里胡哨的形式</p>
+<p>附上一段弹幕</p>
+<p>光线叠加会更加强烈明亮，但是色彩叠加会变暗，所以有聪明的画家发明了点彩法，用很小的紧密的点间隔画上黄色和蓝色，实现高亮饱满的绿色</p>
+<p>也就是说， 颜料是减色的，屏幕显示是增色的</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304142249175.png" alt="" /><figcaption>image-20230414224932083</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304142249248.png" alt="" /><figcaption>image-20230414224955186</figcaption>
+</figure>
+<h3 id="抗锯齿">抗锯齿</h3>
+<p>简答讲述了一下抗锯齿，锯齿英文 jaggies</p>
+<p>信号采样率不够高导致的走样</p>
+<p>解决方法和细节请看下节课</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://valkierja.github.io/tu-xing-xue-bi-ji/tu-xing-xue-bi-ji-5-guang-zha-hua/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/" rel="tag">图形学</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/tu-xing-xue-bi-ji/tu-xing-xue-bi-ji-6-fan-zou-yang-yu-shen-du-huan-chong/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            图形学笔记6 反走样
+          
+        </div>
+      </a>
+    
+    
+      <a href="/tu-xing-xue-bi-ji/tu-xing-xue-bi-ji-4-xia-view-bian-huan/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">图形学笔记4下 view变换</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2019-2023
+        <i class="ri-heart-fill heart_icon"></i> kier Val
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="祝獻の巴基力"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=1394343240&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>
