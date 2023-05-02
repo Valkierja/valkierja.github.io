@@ -140,6 +140,22 @@
       </categories>
   </entry>
   <entry>
+    <title>指令集模仿设计笔记 (1) Call(E8)和Call(FF)</title>
+    <url>/calle8-he-callff/</url>
+    <content><![CDATA[<p>E8为near relative CALL,</p>
+<p>FF为absolute CALL</p>
+<p>前者Op/En基于D,操作数在机器码层面为signed Offset</p>
+<p>后者Op/En基于M</p>
+<p>这样就解决了CPU设计过程中两个重要问题:</p>
+<p>1.RELATIVE CALL的方向是如何确定的；答，操作数是有符号数</p>
+<p>2.如下代码是如何编译的；答， near relative CALL 00 00 00 00</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CALL @F; </span><br><span class="line">@@:</span><br><span class="line">mov eax,eax;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>硬件</category>
+      </categories>
+  </entry>
+  <entry>
     <title>二十五小时创造一门自然语言(用于魔幻类游戏)</title>
     <url>/conlang/</url>
     <content><![CDATA[<blockquote>
@@ -344,22 +360,6 @@
       </categories>
   </entry>
   <entry>
-    <title>指令集模仿设计笔记 (1) Call(E8)和Call(FF)</title>
-    <url>/calle8-he-callff/</url>
-    <content><![CDATA[<p>E8为near relative CALL,</p>
-<p>FF为absolute CALL</p>
-<p>前者Op/En基于D,操作数在机器码层面为signed Offset</p>
-<p>后者Op/En基于M</p>
-<p>这样就解决了CPU设计过程中两个重要问题:</p>
-<p>1.RELATIVE CALL的方向是如何确定的；答，操作数是有符号数</p>
-<p>2.如下代码是如何编译的；答， near relative CALL 00 00 00 00</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CALL @F; </span><br><span class="line">@@:</span><br><span class="line">mov eax,eax;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>硬件</category>
-      </categories>
-  </entry>
-  <entry>
     <title>分离声明和实现的关键性好处</title>
     <url>/definition-declaration/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
@@ -557,6 +557,28 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo博客搬迁小笔记</title>
+    <url>/hexo-bo-ke-ban-qian-xiao-bi-ji/</url>
+    <content><![CDATA[<p>整体没有遇到太多问题, 记录几个不好搜索到的小技巧 https://i007it.com/2022/05/12/Hexo%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BF%87%E6%B8%B2%E6%9F%93/</p>
+<h2 id="tag">tag</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tags:</span><br><span class="line">  - 123</span><br><span class="line">  - 456</span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tags: [123, 456]</span><br></pre></td></tr></table></figure>
+<h2 id="categories">categories</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">categories: 123</span><br><span class="line"></span><br><span class="line">categories: [123, 456]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- 123</span><br><span class="line">- 456</span><br></pre></td></tr></table></figure>
+<p>多标签写法，文章被分类到123、456以及123的自分类789这3个分类下面，官方指定写法。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line">   - [123]</span><br><span class="line">   - [456]</span><br><span class="line">   - [123, 789]</span><br></pre></td></tr></table></figure>
+<p>hexo博客支持latex需要修改渲染器设置, 跟随该文章修改 https://zhuanlan.zhihu.com/p/381508379</p>
+<p>但是不知道为什么, 有一篇空文章被新渲染器报错了, 我博客里面空文章不少的, 唯独那篇报错了, 观察了以下没发现特别之处, 唯一特别的是他是草稿文章, 另外他的标题是中文</p>
+<p>记得添加apt install到GitHub action 示例如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">steps:</span><br><span class="line">  - name: Install pandoc</span><br><span class="line">    run: sudo apt-get update &amp;&amp; sudo apt-get install -y pandoc</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>悬而未决</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HP Chromebook 13 G1 安装配置 KALI 2021 双系统</title>
     <url>/hp-chromebook-13-g1-kali-2021/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
@@ -591,28 +613,6 @@
       </categories>
       <tags>
         <tag>环境配置</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo博客搬迁小笔记</title>
-    <url>/hexo-bo-ke-ban-qian-xiao-bi-ji/</url>
-    <content><![CDATA[<p>整体没有遇到太多问题, 记录几个不好搜索到的小技巧 https://i007it.com/2022/05/12/Hexo%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BF%87%E6%B8%B2%E6%9F%93/</p>
-<h2 id="tag">tag</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tags:</span><br><span class="line">  - 123</span><br><span class="line">  - 456</span><br></pre></td></tr></table></figure>
-<p>or</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tags: [123, 456]</span><br></pre></td></tr></table></figure>
-<h2 id="categories">categories</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">categories: 123</span><br><span class="line"></span><br><span class="line">categories: [123, 456]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- 123</span><br><span class="line">- 456</span><br></pre></td></tr></table></figure>
-<p>多标签写法，文章被分类到123、456以及123的自分类789这3个分类下面，官方指定写法。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line">   - [123]</span><br><span class="line">   - [456]</span><br><span class="line">   - [123, 789]</span><br></pre></td></tr></table></figure>
-<p>hexo博客支持latex需要修改渲染器设置, 跟随该文章修改 https://zhuanlan.zhihu.com/p/381508379</p>
-<p>但是不知道为什么, 有一篇空文章被新渲染器报错了, 我博客里面空文章不少的, 唯独那篇报错了, 观察了以下没发现特别之处, 唯一特别的是他是草稿文章, 另外他的标题是中文</p>
-<p>记得添加apt install到GitHub action 示例如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">steps:</span><br><span class="line">  - name: Install pandoc</span><br><span class="line">    run: sudo apt-get update &amp;&amp; sudo apt-get install -y pandoc</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>悬而未决</tag>
       </tags>
   </entry>
   <entry>
@@ -777,30 +777,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux网络程序逆向小笔记 (2)</title>
-    <url>/linux-wang-luo-cheng-xu-ni-xiang-xiao-bi-ji-2/</url>
-    <content><![CDATA[<p>有的时候，一些相似的网络数据包结构体类型IDA会分析错误，在本例中，sockaddr_in被错误分析为 sockaddr ，看得很不方便</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053803.png" /></p>
-<p>修改方法还挺简单的（但是有点难以想象是如何保证的，毕竟是字符串匹配）</p>
-<p>在最上面的声明，找到对应的变量</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053629.png" /></p>
-<p>然后按Y</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053729.png" /></p>
-<p>直接改名字</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054704.png" /></p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054897.png" /></p>
-<p>然后就分析正确了</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054779.png" /></p>
-]]></content>
-      <categories>
-        <category>信息安全</category>
-        <category>二进制</category>
-      </categories>
-      <tags>
-        <tag>网络</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux网络程序逆向小笔记 (1)</title>
     <url>/linux-wang-luo-cheng-xu-ni-xiang-xiao-bi-ji-1/</url>
     <content><![CDATA[<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181100968.png" /></p>
@@ -816,6 +792,30 @@
 <p>另外，考虑到大部分宏定义的前缀相同，实际上可以写一个插件来确定这些枚举（IDA已经有这样的接口了）</p>
 <p>但是笔者没找到相关的插件</p>
 <p>或许可以写一个，但是最近在搞网络固件逆向，没空学IDA插件开发，后续如果做了这个项目再补上笔记</p>
+]]></content>
+      <categories>
+        <category>信息安全</category>
+        <category>二进制</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux网络程序逆向小笔记 (2)</title>
+    <url>/linux-wang-luo-cheng-xu-ni-xiang-xiao-bi-ji-2/</url>
+    <content><![CDATA[<p>有的时候，一些相似的网络数据包结构体类型IDA会分析错误，在本例中，sockaddr_in被错误分析为 sockaddr ，看得很不方便</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053803.png" /></p>
+<p>修改方法还挺简单的（但是有点难以想象是如何保证的，毕竟是字符串匹配）</p>
+<p>在最上面的声明，找到对应的变量</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053629.png" /></p>
+<p>然后按Y</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181053729.png" /></p>
+<p>直接改名字</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054704.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054897.png" /></p>
+<p>然后就分析正确了</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181054779.png" /></p>
 ]]></content>
       <categories>
         <category>信息安全</category>
@@ -974,6 +974,42 @@
       </categories>
   </entry>
   <entry>
+    <title>mov edi,edi的意义</title>
+    <url>/mov-ediedi-de-yi-yi/</url>
+    <content><![CDATA[<p>所有WindowsAPI第一句都是mov edi,edi</p>
+<p>有点好奇,查了一下原因,写篇笔记</p>
+<p>本质上来讲，mov edi,edi相当于在PE中占两字节长度的NOP，消耗的CPU时钟也和NOP相同（在某些常见架构下）</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172057596.png" /></p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056031.png" /></p>
+<p>即使不相同也相近，基本不影响整体效率</p>
+<p>提到效率，可能有人已经反应过来了</p>
+<p>这个确实是一个在正常状态下完全没意义的指令，只会消耗CPU时钟，他唯一的意义是帮助开发者热更新和打补丁</p>
+<p>这基本解决了我对如何实现汇编级热更新和汇编级补丁的所有疑问</p>
+<p>参考文章如下</p>
+<p>https://devblogs.microsoft.com/oldnewthing/20110921-00/?p=9583</p>
+<p>选取几个要点翻译一下</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172057788.png" /></p>
+<p>我们在调用系统api的时候，并不是一进去就jmp的，而是先mov edi</p>
+<p>这样的话，如果需要热更新这个api就只需要先在全局层面修改dll文件，宏观表现就是hook掉</p>
+<p>至于如何修改，这里涉及到机器码长度</p>
+<p>long jmp和mov edi,edi的机器码长度是相同的，这样就不用在热更新时修改PE头了，实际上热更新时也不可能修改PE头的节区地址，这会影响到整个文件</p>
+<p>Windows系统DLL都有这一行，不过主流编译环境基本都可以让你自己的dll库加上这个指令，只需要在设置里面开启即可</p>
+<p>文章还解释了一下为什么不直接用hook来热更新，说不能确定的任一调用者执行点什么的，没看懂，个人感觉从技术上应该可以做到，不过笔者也没做过hook，先按下不表，姑且认为是这样的，估计做过hook实验就明白了</p>
+]]></content>
+      <categories>
+        <category>信息安全</category>
+        <category>笔记</category>
+        <category>存档</category>
+        <category>开发</category>
+        <category>二进制</category>
+        <category>逆向</category>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Windows API</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Move Player</title>
     <url>/move-player/</url>
     <content><![CDATA[<h2 id="install-input-system">install input system</h2>
@@ -1026,42 +1062,6 @@
         <category>开发</category>
         <category>GamePlay</category>
       </categories>
-  </entry>
-  <entry>
-    <title>mov edi,edi的意义</title>
-    <url>/mov-ediedi-de-yi-yi/</url>
-    <content><![CDATA[<p>所有WindowsAPI第一句都是mov edi,edi</p>
-<p>有点好奇,查了一下原因,写篇笔记</p>
-<p>本质上来讲，mov edi,edi相当于在PE中占两字节长度的NOP，消耗的CPU时钟也和NOP相同（在某些常见架构下）</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172057596.png" /></p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181056031.png" /></p>
-<p>即使不相同也相近，基本不影响整体效率</p>
-<p>提到效率，可能有人已经反应过来了</p>
-<p>这个确实是一个在正常状态下完全没意义的指令，只会消耗CPU时钟，他唯一的意义是帮助开发者热更新和打补丁</p>
-<p>这基本解决了我对如何实现汇编级热更新和汇编级补丁的所有疑问</p>
-<p>参考文章如下</p>
-<p>https://devblogs.microsoft.com/oldnewthing/20110921-00/?p=9583</p>
-<p>选取几个要点翻译一下</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303172057788.png" /></p>
-<p>我们在调用系统api的时候，并不是一进去就jmp的，而是先mov edi</p>
-<p>这样的话，如果需要热更新这个api就只需要先在全局层面修改dll文件，宏观表现就是hook掉</p>
-<p>至于如何修改，这里涉及到机器码长度</p>
-<p>long jmp和mov edi,edi的机器码长度是相同的，这样就不用在热更新时修改PE头了，实际上热更新时也不可能修改PE头的节区地址，这会影响到整个文件</p>
-<p>Windows系统DLL都有这一行，不过主流编译环境基本都可以让你自己的dll库加上这个指令，只需要在设置里面开启即可</p>
-<p>文章还解释了一下为什么不直接用hook来热更新，说不能确定的任一调用者执行点什么的，没看懂，个人感觉从技术上应该可以做到，不过笔者也没做过hook，先按下不表，姑且认为是这样的，估计做过hook实验就明白了</p>
-]]></content>
-      <categories>
-        <category>信息安全</category>
-        <category>笔记</category>
-        <category>存档</category>
-        <category>开发</category>
-        <category>二进制</category>
-        <category>逆向</category>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>Windows API</tag>
-      </tags>
   </entry>
   <entry>
     <title>开发一个简单blog（无CSS实现；包含撰文，评论等多种功能）</title>
@@ -1528,43 +1528,6 @@
       </categories>
   </entry>
   <entry>
-    <title>pwnable靶场ak-WP （7）input2</title>
-    <url>/pwnable-ba-chang-ak-wp-7-input2/</url>
-    <content><![CDATA[<p>先补一个pwntool传参的笔记和一个python构造list的好方法</p>
-<h2 id="补充1">补充1</h2>
-<p>pwntool的argv传参有个很神奇的地方</p>
-<p>他甚至能篡改argv[0]的值,没翻源码,实现暂时未知,不过不影响</p>
-<p>创建方法为</p>
-<p><code>connect.process(list : argv,str : path)</code></p>
-<h2 id="补充2">补充2</h2>
-<p>如果有一个很长的list,其中大部分元素的值为垃圾填充,只有小部分为有用值,那么错误做法是append,太傻了</p>
-<p>正确做法是生成一个全为填充值的list,然后抓几个特殊的地方出来</p>
-<h2 id="wp">WP</h2>
-<p>the very vital point that I didn't notice that need be metioned at first</p>
-<p>If you excu an ELF then you will carry identify of the ELF's owner</p>
-<p>the main_check func need a file named"\x0a",so we need create such file,while we don't have permission in the.floder</p>
-<p>so we need goto tmp floder and use utility <code>ln</code> to create soft-link,which only need link dest-floder writing permission</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ln -fs  ~/flag flag</span><br><span class="line">ln -fs  ~/input input</span><br></pre></td></tr></table></figure>
-<p>for now on,every step operates on tmp-link ver file</p>
-<p>and hold on a min ,le't talk about permission of create a hard-link and soft-link file</p>
-<p>if we'd like to create a hard-link ,the sufficient condition is,we have read+write permission on target file,if <code>fs.protected_hardlinks == true</code> and have write &amp; <strong>execu</strong> permission of destdir.if`<code>fs.protected_hardlinks == 0</code> no permission needed on target file,even 000 is okay.</p>
-<p>what surprise me is execu permission,its purpose is preventing a situation that's similar to this quzz--if hack have access to tmp floder,which normally is gloabally permitted,the hack can execu or open wrong file,due to relative path</p>
-<p>for soft-link the requires is lower,only need source-dir have execu and dest-dir have write+execu</p>
-<p>for target file ,its permission is no need to care</p>
-<p>come back to main topic</p>
-<p>after create link we need notice that relative path have a relative vulnerability ,make soft-link to cheat execu with wrong file</p>
-<p>secondly,there is a sock programming needed ,considering webbench project ,this time we try use C to pwn rather than pwntool</p>
-<h2 id="poc">poc</h2>
-<p>（under construction..）</p>
-]]></content>
-      <categories>
-        <category>信息安全</category>
-        <category>笔记</category>
-        <category>存档</category>
-        <category>二进制</category>
-      </categories>
-  </entry>
-  <entry>
     <title>pwnable靶场ak-WP （6）random</title>
     <url>/pwnable-ba-chang-ak-wp-6-random/</url>
     <content><![CDATA[<p>题目原理比较简单，主要是补两个笔记</p>
@@ -1621,6 +1584,43 @@ g表示八字节</p>
 <p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050301.png" /></p>
 <p>需要改一下最大保存行数</p>
 <p>笔者这里直接改成十万行，这下子就够用了233</p>
+]]></content>
+      <categories>
+        <category>信息安全</category>
+        <category>笔记</category>
+        <category>存档</category>
+        <category>二进制</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>pwnable靶场ak-WP （7）input2</title>
+    <url>/pwnable-ba-chang-ak-wp-7-input2/</url>
+    <content><![CDATA[<p>先补一个pwntool传参的笔记和一个python构造list的好方法</p>
+<h2 id="补充1">补充1</h2>
+<p>pwntool的argv传参有个很神奇的地方</p>
+<p>他甚至能篡改argv[0]的值,没翻源码,实现暂时未知,不过不影响</p>
+<p>创建方法为</p>
+<p><code>connect.process(list : argv,str : path)</code></p>
+<h2 id="补充2">补充2</h2>
+<p>如果有一个很长的list,其中大部分元素的值为垃圾填充,只有小部分为有用值,那么错误做法是append,太傻了</p>
+<p>正确做法是生成一个全为填充值的list,然后抓几个特殊的地方出来</p>
+<h2 id="wp">WP</h2>
+<p>the very vital point that I didn't notice that need be metioned at first</p>
+<p>If you excu an ELF then you will carry identify of the ELF's owner</p>
+<p>the main_check func need a file named"\x0a",so we need create such file,while we don't have permission in the.floder</p>
+<p>so we need goto tmp floder and use utility <code>ln</code> to create soft-link,which only need link dest-floder writing permission</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ln -fs  ~/flag flag</span><br><span class="line">ln -fs  ~/input input</span><br></pre></td></tr></table></figure>
+<p>for now on,every step operates on tmp-link ver file</p>
+<p>and hold on a min ,le't talk about permission of create a hard-link and soft-link file</p>
+<p>if we'd like to create a hard-link ,the sufficient condition is,we have read+write permission on target file,if <code>fs.protected_hardlinks == true</code> and have write &amp; <strong>execu</strong> permission of destdir.if`<code>fs.protected_hardlinks == 0</code> no permission needed on target file,even 000 is okay.</p>
+<p>what surprise me is execu permission,its purpose is preventing a situation that's similar to this quzz--if hack have access to tmp floder,which normally is gloabally permitted,the hack can execu or open wrong file,due to relative path</p>
+<p>for soft-link the requires is lower,only need source-dir have execu and dest-dir have write+execu</p>
+<p>for target file ,its permission is no need to care</p>
+<p>come back to main topic</p>
+<p>after create link we need notice that relative path have a relative vulnerability ,make soft-link to cheat execu with wrong file</p>
+<p>secondly,there is a sock programming needed ,considering webbench project ,this time we try use C to pwn rather than pwntool</p>
+<h2 id="poc">poc</h2>
+<p>（under construction..）</p>
 ]]></content>
       <categories>
         <category>信息安全</category>
@@ -1745,20 +1745,6 @@ g表示八字节</p>
       </tags>
   </entry>
   <entry>
-    <title>readelf的一些用法</title>
-    <url>/readelf-de-yi-xie-yong-fa/</url>
-    <content><![CDATA[<p>-h 帮助列表</p>
-<p>-s 打印.symtab和dynsym 外部和内部符号表</p>
-<p>-S 打印sections</p>
-<p>-ctf 这个选项还没玩明白,貌似挺牛逼,用到了再说</p>
-<p>-a 打印所有</p>
-<p>其他的用的比较少了</p>
-]]></content>
-      <categories>
-        <category>黑历史与垃圾</category>
-      </categories>
-  </entry>
-  <entry>
     <title>python-exe逆向流程</title>
     <url>/python-exe-ni-xiang-liu-cheng/</url>
     <content><![CDATA[<p>主要记一个笔记</p>
@@ -1773,6 +1759,20 @@ g表示八字节</p>
         <tag>python</tag>
         <tag>python字节码</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>readelf的一些用法</title>
+    <url>/readelf-de-yi-xie-yong-fa/</url>
+    <content><![CDATA[<p>-h 帮助列表</p>
+<p>-s 打印.symtab和dynsym 外部和内部符号表</p>
+<p>-S 打印sections</p>
+<p>-ctf 这个选项还没玩明白,貌似挺牛逼,用到了再说</p>
+<p>-a 打印所有</p>
+<p>其他的用的比较少了</p>
+]]></content>
+      <categories>
+        <category>黑历史与垃圾</category>
+      </categories>
   </entry>
   <entry>
     <title>Redmi 9 国行版线刷MIUI12.5欧版</title>
@@ -2125,22 +2125,6 @@ then declare a vector3 var to store offset</p>
       </tags>
   </entry>
   <entry>
-    <title>why ebp is empty while gcc compiled with -ggdb  arg(without optimization)</title>
-    <url>/why-ebp-is-empty-while-gcc-compiled-with-ggdb-argwithout-optimization/</url>
-    <content><![CDATA[<p>The answer basically is "why IT'S called calling-convention rather than requirement"</p>
-<p>for _cdecl ,it suggest fn set-up its env and tear-up by itself</p>
-<p>so a fn is actually can run without save ebp,since it's a special fn</p>
-<p>while there is still a safty reason that to prevant from shellcode 'leave' get control of stack frame of _libc_start_main fn</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>存档</category>
-      </categories>
-      <tags>
-        <tag>调用约定</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>weighted q-Union算法及网状通路建立</title>
     <url>/weighted-q-union-suan-fa-ji-wang-zhuang-tong-lu-jian-li/</url>
     <content><![CDATA[<p>假设我们用树解决这个问题</p>
@@ -2162,6 +2146,22 @@ then declare a vector3 var to store offset</p>
         <category>校内</category>
         <category>数据结构</category>
       </categories>
+  </entry>
+  <entry>
+    <title>why ebp is empty while gcc compiled with -ggdb  arg(without optimization)</title>
+    <url>/why-ebp-is-empty-while-gcc-compiled-with-ggdb-argwithout-optimization/</url>
+    <content><![CDATA[<p>The answer basically is "why IT'S called calling-convention rather than requirement"</p>
+<p>for _cdecl ,it suggest fn set-up its env and tear-up by itself</p>
+<p>so a fn is actually can run without save ebp,since it's a special fn</p>
+<p>while there is still a safty reason that to prevant from shellcode 'leave' get control of stack frame of _libc_start_main fn</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>存档</category>
+      </categories>
+      <tags>
+        <tag>调用约定</tag>
+      </tags>
   </entry>
   <entry>
     <title>Windows PyCharm远程解释Linux PWNtools配置过程</title>
@@ -2657,18 +2657,6 @@ then declare a vector3 var to store offset</p>
       </categories>
   </entry>
   <entry>
-    <title>《让子弹飞》影评</title>
-    <url>/rang-zi-dan-fei-ying-ping/</url>
-    <content><![CDATA[<p>能让人有过度解读欲望的艺术作品才能算是完满的艺术作品，才有资格被称作是艺术，这是我至始至终对艺术一词的看法</p>
-<p>但这不意味着艺术作品应当脱离创作者的主观意愿被过度解读</p>
-<p>《让子弹飞》便是一个典型</p>
-]]></content>
-      <categories>
-        <category>杂谈</category>
-        <category>点评</category>
-      </categories>
-  </entry>
-  <entry>
     <title>《编译、链接与装载》笔记 （1） 现代操作系统任务调度</title>
     <url>/bian-yi-lian-jie-yu-zhuang-zai-de-di-ceng-ji-zhi-du-shu-bi-ji-1/</url>
     <content><![CDATA[<h2 id="背景">背景</h2>
@@ -2707,6 +2695,18 @@ then declare a vector3 var to store offset</p>
       </categories>
   </entry>
   <entry>
+    <title>《让子弹飞》影评</title>
+    <url>/rang-zi-dan-fei-ying-ping/</url>
+    <content><![CDATA[<p>能让人有过度解读欲望的艺术作品才能算是完满的艺术作品，才有资格被称作是艺术，这是我至始至终对艺术一词的看法</p>
+<p>但这不意味着艺术作品应当脱离创作者的主观意愿被过度解读</p>
+<p>《让子弹飞》便是一个典型</p>
+]]></content>
+      <categories>
+        <category>杂谈</category>
+        <category>点评</category>
+      </categories>
+  </entry>
+  <entry>
     <title>一些待研究底层原理的宏观现象</title>
     <url>/yi-xie-dai-yan-jiu-di-ceng-yuan-li-de-hong-guan-xian-xiang/</url>
     <content><![CDATA[<ul>
@@ -2736,6 +2736,82 @@ then declare a vector3 var to store offset</p>
         <category>校内</category>
         <category>计组</category>
       </categories>
+  </entry>
+  <entry>
+    <title>[object Object]</title>
+    <url>/yi-lao-yong-yi-de-jie-jue-c-zuo-zhi-you-zhi-xiang-guan-wen-ti/</url>
+    <content><![CDATA[<p>(本节仍然处于草稿)</p>
+<ol type="1">
+<li>左值右值实际上还需要更加清晰的定义生命周期这一概念 因此:</li>
+</ol>
+<p>(这里需要写明xvalue不允许延长生命周期, 但是prvalue可以)</p>
+<p>https://time.geekbang.org/column/article/169268</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202305011533431.png" alt="" /><figcaption>image-20230501153305353</figcaption>
+</figure>
+<p>首先<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304281840977.png" alt="image-20230428184043911" /></p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304281927332.png" alt="" /><figcaption>image-20230428192707304</figcaption>
+</figure>
+<p>需要注意的是, xvalue和prvalue是不可以取地址的, 但是右值引用对象可以取地址</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> &amp;&amp;r = std::<span class="built_in">move</span>(a);</span><br><span class="line"><span class="type">int</span> *p = &amp;r;  <span class="comment">// OK</span></span><br></pre></td></tr></table></figure>
+<p>因为右值引用对象<code>r</code>是一个r左值lvalue, 他所引用绑定的内容才是右值</p>
+<p>需要注意一点, 我们说左值的时候, 一般只包括了"纯左值", 而不包括xvalue</p>
+<p>但是我们说右值的时候, 往往是不仅仅指的是纯右值, 而是还包括了xvalue</p>
+<p>当然, 这只是查阅资料的时候发现的一个约定俗成的东西, 不代表任何规范</p>
+<p>(std::move的结果是一个xvalue, 可以绑定到右值引用但不能绑定到左值引用, 但是分类图上 一般把xvalue视作rvalue和glvaue的交集, 这一交集的描述似乎暗示了xvalue可以绑定到左值引用和右值引用,但是显示中xvalue只能绑定到右值引用和const左值引用上)</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> temp = <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span>&amp; a = temp;</span><br><span class="line"><span class="type">int</span>&amp; b = std::<span class="built_in">move</span>(temp);<span class="comment">//error</span></span><br><span class="line"><span class="type">int</span>&amp;&amp; c = std::<span class="built_in">move</span>(temp);</span><br><span class="line"><span class="type">int</span>&amp;&amp; d = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304282001939.png" alt="" /><figcaption>image-20230428200128915</figcaption>
+</figure>
+<p>这里继续拓展: 我们在网上的一些资料可以看到一种说法, 那就是xvalue has identity</p>
+<p>以下是一些资料的例子</p>
+<p>https://stackoverflow.com/questions/3601602/what-are-rvalues-lvalues-xvalues-glvalues-and-prvalues/38169963#38169963</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304282013145.png" alt="" /><figcaption>image-20230428201350079</figcaption>
+</figure>
+<p>https://learn.microsoft.com/en-us/windows/uwp/cpp-and-winrt-apis/cpp-value-categories</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202304282027910.png" alt="image-20230428202755863" />我这边的现阶段的建议是忘掉这点</p>
+<p>因为对这点的持续追问会最终会追溯到为什么下面的代码是错误的</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">int</span> *b = &amp;std::<span class="built_in">move</span>(a); <span class="comment">// ERROR</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是对上述代码的追问最终会指向:</p>
+<p>From [expr.unary.op]: https://stackoverflow.com/questions/50783525/what-does-it-mean-xvalue-has-identity</p>
+<blockquote>
+<p>The result of the unary <code>&amp;</code> operator is a pointer to its operand. The operand shall be an lvalue [...]</p>
+</blockquote>
+<p>语言硬性规定了这样的行为</p>
+<p>所以我建议忘记identity这点</p>
+<p>edit: 你可以把identity理解为脱离生成他的地方后, 仍然可以被二次使用的一种性质, 而不要像大多数资料那样, 理解成地址, 因为实际上xvalue不允许取地址操作</p>
+<p>一个有意思的示例https://www.tutorialspoint.com/cplusplus/returning_values_by_reference.htm</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ctime&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">double</span> vals[] = &#123; <span class="number">10.1</span>, <span class="number">12.6</span>, <span class="number">33.1</span>, <span class="number">24.1</span>, <span class="number">50.0</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span>&amp; <span class="title">setValues</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> vals[i];   <span class="comment">// return a reference to the ith element</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span>&amp;&amp; <span class="title">getValues</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> std::<span class="built_in">move</span>(vals[i]);   <span class="comment">//</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">auto</span>&amp;&amp; a = <span class="built_in">getValues</span>(<span class="number">1</span>);</span><br><span class="line">    std::cout &lt;&lt; a &lt;&lt; std::endl;</span><br><span class="line">    <span class="built_in">setValues</span>(<span class="number">1</span>) = <span class="number">20.23</span>; <span class="comment">// change 2nd element</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个可以在Eigen矩阵库里面见到类似的操作</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">Eigen::MatrixXf result = Eigen::MatrixXf::<span class="built_in">Zero</span>(<span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line">result.<span class="built_in">topLeftCorner</span>(<span class="number">3</span>, <span class="number">3</span>) = mat3x3;</span><br></pre></td></tr></table></figure>
+<p>关于函数的返回值, 需要注意的是</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span>   <span class="title">prvalue</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span>&amp;  <span class="title">lvalue</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span>&amp;&amp; <span class="title">xvalue</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+<p>正是因为如此, 上面的例子才得以实现</p>
+<p>这里有一个小问题暂时笔者没有解决</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="comment">// std::move</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">shape</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="keyword">virtual</span> ~<span class="built_in">shape</span>() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">circle</span> : <span class="keyword">public</span> shape &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">circle</span>() &#123; <span class="built_in">puts</span>(<span class="string">&quot;circle()&quot;</span>); &#125;</span><br><span class="line">  ~<span class="built_in">circle</span>() &#123; <span class="built_in">puts</span>(<span class="string">&quot;~circle()&quot;</span>); &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">triangle</span> : <span class="keyword">public</span> shape &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">triangle</span>() &#123; <span class="built_in">puts</span>(<span class="string">&quot;triangle()&quot;</span>); &#125;</span><br><span class="line">  ~<span class="built_in">triangle</span>() &#123; <span class="built_in">puts</span>(<span class="string">&quot;~triangle()&quot;</span>); &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">result</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">result</span>() &#123; <span class="built_in">puts</span>(<span class="string">&quot;result()&quot;</span>); &#125;</span><br><span class="line">  ~<span class="built_in">result</span>() &#123; <span class="built_in">puts</span>(<span class="string">&quot;~result()&quot;</span>); &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">result</span></span><br><span class="line"><span class="function"><span class="title">process_shape</span><span class="params">(<span class="type">const</span> shape&amp; shape1,</span></span></span><br><span class="line"><span class="params"><span class="function">              <span class="type">const</span> shape&amp; shape2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;process_shape()&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">result</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;main()&quot;</span>);</span><br><span class="line">  <span class="built_in">process_shape</span>(<span class="built_in">circle</span>(), <span class="built_in">triangle</span>());<span class="comment">//good   </span></span><br><span class="line">  result&amp;&amp; r = <span class="built_in">process_shape</span>(<span class="built_in">circle</span>(), <span class="built_in">triangle</span>());<span class="comment">//good</span></span><br><span class="line">  <span class="type">const</span> result&amp; r = <span class="built_in">process_shape</span>(<span class="built_in">circle</span>(), <span class="built_in">triangle</span>());<span class="comment">//good</span></span><br><span class="line">  result&amp; r = <span class="built_in">process_shape</span>(<span class="built_in">circle</span>(), <span class="built_in">triangle</span>());<span class="comment">//cannot be compiled</span></span><br><span class="line">  result&amp;&amp; r = std::<span class="built_in">move</span>(<span class="built_in">process_shape</span>( <span class="built_in">circle</span>(), <span class="built_in">triangle</span>()));<span class="comment">// can be compiled, but wrong; out of lifetime</span></span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;something else&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述问题的参考资料:https://herbsutter.com/2008/01/01/gotw-88-a-candidate-for-the-most-important-const/</p>
+<p>https://time.geekbang.org/column/article/169268</p>
+<p>effective C++ 中文版p94</p>
+<p>需要注意的是, 标准库里面的移动构造函数都会把原始对象的指针设置成nullptr, 因为移动的含义就是所有权转交, 那么原先的所有者(房客)持有的地址信息(房屋钥匙)就应当被销毁</p>
+<p>例子如下</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">string a=<span class="string">&quot;sdfasdfasdf&quot;</span>;</span><br><span class="line"><span class="function">string <span class="title">b</span><span class="params">(std::move(a))</span></span>;</span><br><span class="line"><span class="comment">//此时a的值为&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+<p>最后一个问题, 为什么 <code>const result&amp;</code> 可以被绑定到右值上, 同时<code>result&amp;&amp;</code>也可以绑定右值?</p>
+<p>因为这是C++03历史弥留问题, 关于这一部分参考资料</p>
+<p>https://www.quora.com/In-C++-why-are-const-reference-types-allowed-to-bind-to-rvalues</p>
+<p>https://herbsutter.com/2008/01/01/gotw-88-a-candidate-for-the-most-important-const/</p>
+<p>https://changkun.de/modern-cpp/zh-cn/03-runtime/#3-3-%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8</p>
+<p>那么为什么C++11之后不逐渐弃用左值常量引用的历史特殊性呢?</p>
+<p>答案是为了区分拷贝构造函数和移动构造函数</p>
+<p>请看这里https://www.zhihu.com/question/437590377/answer/2972237413</p>
+]]></content>
+      <categories>
+        <category>C++简明进阶教程</category>
+      </categories>
+      <tags>
+        <tag>C++简明进阶教程</tag>
+      </tags>
   </entry>
   <entry>
     <title>为什么hyper-V和VM conflict</title>
@@ -3329,31 +3405,6 @@ mov eax,[ebx+8]则是把内存地址为ebx+8处的数据赋给eax</p>
       </categories>
   </entry>
   <entry>
-    <title>可悲</title>
-    <url>/ke-bei/</url>
-    <content><![CDATA[<p>人真正可悲的不是没有金钱，没有能力，或者没有权利</p>
-<p>因为这些到最后都还有死路一条</p>
-<p>人真正可悲的是没有童年，没有青春</p>
-<p>这甚至连死亡都无法弥补</p>
-<p>很多事情看破之后，另一些事情就明白许多了</p>
-<p>真的很庆幸，在高中的时候遇到了一个真正有资格被称作是人民教师的班主任</p>
-<p>但可悲的是, 也就只遇到过这么一个真正想要育人的好老师</p>
-<p>回想起来给他写的那些肺腑之言也确实是作词、玩音乐的一个开端</p>
-<p>音乐也罢，它对我的历史任务已经完成了</p>
-<p><strong>让人成为一个人，而非一头动物的方法，我认为只有涉猎纯粹的，不功利的艺术</strong></p>
-<p>一种亲身的经历的氛围，而非任何形式的手艺，也绝非单纯的教育</p>
-<p>经历过，融入过，淡然，离场，然后变得更像是一个人了</p>
-<p>做事可以为了有用，但不能只为了有用</p>
-<p>活着其实就是为了看看没看过的东西, 对自己感兴趣的东西感兴趣</p>
-<p>能有真正的热爱居然是我唯一的后盾，完全断裂的社会性关系，没有港口的叶子</p>
-<p>也就只能靠自己漂了</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181048207.jpeg" /></p>
-]]></content>
-      <categories>
-        <category>黑历史与垃圾</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Windows API (3) GetModuleHandle 逆向</title>
     <url>/ju-bing-xiang-jie-bi-ji-3-windows-xi-tong-api-getmodulehandle-ni-xiang-bi-ji/</url>
     <content><![CDATA[<p>示例代码如下(C++),有一些无效的内容,比如string什么的,无视即可</p>
@@ -3384,6 +3435,31 @@ mov eax,[ebx+8]则是把内存地址为ebx+8处的数据赋给eax</p>
         <category>开发</category>
         <category>二进制</category>
         <category>Windows</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>可悲</title>
+    <url>/ke-bei/</url>
+    <content><![CDATA[<p>人真正可悲的不是没有金钱，没有能力，或者没有权利</p>
+<p>因为这些到最后都还有死路一条</p>
+<p>人真正可悲的是没有童年，没有青春</p>
+<p>这甚至连死亡都无法弥补</p>
+<p>很多事情看破之后，另一些事情就明白许多了</p>
+<p>真的很庆幸，在高中的时候遇到了一个真正有资格被称作是人民教师的班主任</p>
+<p>但可悲的是, 也就只遇到过这么一个真正想要育人的好老师</p>
+<p>回想起来给他写的那些肺腑之言也确实是作词、玩音乐的一个开端</p>
+<p>音乐也罢，它对我的历史任务已经完成了</p>
+<p><strong>让人成为一个人，而非一头动物的方法，我认为只有涉猎纯粹的，不功利的艺术</strong></p>
+<p>一种亲身的经历的氛围，而非任何形式的手艺，也绝非单纯的教育</p>
+<p>经历过，融入过，淡然，离场，然后变得更像是一个人了</p>
+<p>做事可以为了有用，但不能只为了有用</p>
+<p>活着其实就是为了看看没看过的东西, 对自己感兴趣的东西感兴趣</p>
+<p>能有真正的热爱居然是我唯一的后盾，完全断裂的社会性关系，没有港口的叶子</p>
+<p>也就只能靠自己漂了</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181048207.jpeg" /></p>
+]]></content>
+      <categories>
+        <category>黑历史与垃圾</category>
       </categories>
   </entry>
   <entry>
@@ -4557,24 +4633,6 @@ M_{\text {viewport }}=\left(\begin{array}{cccc}
       </categories>
   </entry>
   <entry>
-    <title>如何理解某些位运算</title>
-    <url>/ru-he-li-jie-mou-xie-wei-yun-suan/</url>
-    <content><![CDATA[<p>与门可以认为是三极管（实际上就是）</p>
-<p>输出端是三极管阴极</p>
-<p>Vin1是三极管阳极</p>
-<p>Vin2是三极管栅极</p>
-<p>栅极加个反相器控制放行，True时放行，不拦截，false拦截阳极</p>
-<p>异或和同或可以合并记忆</p>
-<p>异或是相异放行，同或是相同放行</p>
-<p>或可以理解为“或者这样,或者那样”</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>校内</category>
-        <category>计组</category>
-      </categories>
-  </entry>
-  <entry>
     <title>如何数数</title>
     <url>/ru-he-shu-shu/</url>
     <content><![CDATA[<p>刚发现我其实不会数数，虚心钻研，写个小笔记</p>
@@ -4591,6 +4649,24 @@ M_{\text {viewport }}=\left(\begin{array}{cccc}
 ]]></content>
       <categories>
         <category>黑历史与垃圾</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>如何理解某些位运算</title>
+    <url>/ru-he-li-jie-mou-xie-wei-yun-suan/</url>
+    <content><![CDATA[<p>与门可以认为是三极管（实际上就是）</p>
+<p>输出端是三极管阴极</p>
+<p>Vin1是三极管阳极</p>
+<p>Vin2是三极管栅极</p>
+<p>栅极加个反相器控制放行，True时放行，不拦截，false拦截阳极</p>
+<p>异或和同或可以合并记忆</p>
+<p>异或是相异放行，同或是相同放行</p>
+<p>或可以理解为“或者这样,或者那样”</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>校内</category>
+        <category>计组</category>
       </categories>
   </entry>
   <entry>
@@ -4810,18 +4886,6 @@ M_{\text {viewport }}=\left(\begin{array}{cccc}
       </categories>
   </entry>
   <entry>
-    <title>指针和引用的区别(2) 工程化例子</title>
-    <url>/zhi-zhen-he-yin-yong-de-qu-bie-2-gong-cheng-hua-li-zi/</url>
-    <content><![CDATA[
-]]></content>
-      <categories>
-        <category>C++简明进阶教程</category>
-      </categories>
-      <tags>
-        <tag>C++简明进阶教程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>指针和引用的区别(1) 表象区别</title>
     <url>/zhi-zhen-he-yin-yong-de-qu-bie-1-biao-xiang-qu-bie/</url>
     <content><![CDATA[<p>指针和引用有许多相似之处, 说白了, 引用就是一种尝试, 尝试让指针包装起来, 对外表现就像一个value</p>
@@ -4836,6 +4900,18 @@ M_{\text {viewport }}=\left(\begin{array}{cccc}
 <p>也就是说, 首先需要声明引用类型 并且声明时就必须初始化, 初始化意味着要把引用绑定到一个变量上面, 一旦绑定完成, 任何对引用的操作, 都不会修改绑定, 而是修改subobject 也就是引用之下的那个实体</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">string <span class="title">s1</span><span class="params">(<span class="string">&quot;A&quot;</span>)</span></span>;</span><br><span class="line">	<span class="function">string <span class="title">s2</span><span class="params">(<span class="string">&quot;b&quot;</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">	string&amp; S = s1;</span><br><span class="line"></span><br><span class="line">	S = s2;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; s1 &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; s2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">///输出:</span></span><br><span class="line"><span class="comment">//b b</span></span><br></pre></td></tr></table></figure>
 <p>也就是说, 一旦声明完成, 引用包装就会构造完毕, 其本身不再可达, 其符号变成了完美的subobject 之alias</p>
+]]></content>
+      <categories>
+        <category>C++简明进阶教程</category>
+      </categories>
+      <tags>
+        <tag>C++简明进阶教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>指针和引用的区别(2) 工程化例子</title>
+    <url>/zhi-zhen-he-yin-yong-de-qu-bie-2-gong-cheng-hua-li-zi/</url>
+    <content><![CDATA[
 ]]></content>
       <categories>
         <category>C++简明进阶教程</category>
@@ -5782,6 +5858,15 @@ return 0;</code></pre>
 ]]></content>
       <categories>
         <category>杂谈</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>test_subdir</title>
+    <url>/test/bian-yi-lian-jie-yu-zhuang-zai-bi-ji-4cpu-luan-xu-zhi-xing-de-yi-xie-xi-jie/</url>
+    <content><![CDATA[<p>test_subdir</p>
+]]></content>
+      <categories>
+        <category>硬件</category>
       </categories>
   </entry>
 </search>
