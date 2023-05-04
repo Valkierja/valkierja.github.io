@@ -2524,35 +2524,6 @@ return 0;</code></pre>
       </categories>
   </entry>
   <entry>
-    <title>pwn1_sctf_2016 WP</title>
-    <url>/ctf-wp/pwn1-sctf-2016-wp/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>IDA分析错了+一些暂时悬而未决的疑点,故作记录</p>
-<h2 id="正文">正文</h2>
-<p>核心利用点在replace</p>
-<p>这里我不赘述了,毕竟是老题,而且是简单题,wp思路可以看看其他师傅</p>
-<p>这里主要是讲两点</p>
-<p>一个是,貌似文件里面的所有STL函数的第一个参数都是这个</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050064.png" /></p>
-<p>然后进去函数后函数会自动覆盖掉arg[0],再把所有参数下移4个偏移</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050278.png" /></p>
-<p>再退出函数时,会把arg[0]再次设为这个值</p>
-<p>这里这两点让我很在意</p>
-<p>但是没有找到合适的说法,编译原理学的比较菜</p>
-<p>暂且悬置</p>
-]]></content>
-      <categories>
-        <category>信息安全</category>
-        <category>笔记</category>
-        <category>存档</category>
-        <category>二进制</category>
-      </categories>
-      <tags>
-        <tag>WP</tag>
-        <tag>悬而未决</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>UE5阶段性学习笔记1</title>
     <url>/gameplay/ue5-jie-duan-xing-xue-xi-bi-ji-1/</url>
     <content><![CDATA[<h2 id="meshes-materials-textures之间的区别">Meshes, Materials, textures之间的区别</h2>
@@ -2633,6 +2604,35 @@ return 0;</code></pre>
         <category>笔记</category>
         <category>存档</category>
       </categories>
+  </entry>
+  <entry>
+    <title>pwn1_sctf_2016 WP</title>
+    <url>/ctf-wp/pwn1-sctf-2016-wp/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>IDA分析错了+一些暂时悬而未决的疑点,故作记录</p>
+<h2 id="正文">正文</h2>
+<p>核心利用点在replace</p>
+<p>这里我不赘述了,毕竟是老题,而且是简单题,wp思路可以看看其他师傅</p>
+<p>这里主要是讲两点</p>
+<p>一个是,貌似文件里面的所有STL函数的第一个参数都是这个</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050064.png" /></p>
+<p>然后进去函数后函数会自动覆盖掉arg[0],再把所有参数下移4个偏移</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050278.png" /></p>
+<p>再退出函数时,会把arg[0]再次设为这个值</p>
+<p>这里这两点让我很在意</p>
+<p>但是没有找到合适的说法,编译原理学的比较菜</p>
+<p>暂且悬置</p>
+]]></content>
+      <categories>
+        <category>信息安全</category>
+        <category>笔记</category>
+        <category>存档</category>
+        <category>二进制</category>
+      </categories>
+      <tags>
+        <tag>WP</tag>
+        <tag>悬而未决</tag>
+      </tags>
   </entry>
   <entry>
     <title>MMU笔记（3） 对堆I/O过程的多线程优化思路</title>
