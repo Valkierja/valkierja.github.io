@@ -2524,6 +2524,56 @@ return 0;</code></pre>
       </categories>
   </entry>
   <entry>
+    <title>pwn1_sctf_2016 WP</title>
+    <url>/ctf-wp/pwn1-sctf-2016-wp/</url>
+    <content><![CDATA[<h2 id="背景">背景</h2>
+<p>IDA分析错了+一些暂时悬而未决的疑点,故作记录</p>
+<h2 id="正文">正文</h2>
+<p>核心利用点在replace</p>
+<p>这里我不赘述了,毕竟是老题,而且是简单题,wp思路可以看看其他师傅</p>
+<p>这里主要是讲两点</p>
+<p>一个是,貌似文件里面的所有STL函数的第一个参数都是这个</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050064.png" /></p>
+<p>然后进去函数后函数会自动覆盖掉arg[0],再把所有参数下移4个偏移</p>
+<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050278.png" /></p>
+<p>再退出函数时,会把arg[0]再次设为这个值</p>
+<p>这里这两点让我很在意</p>
+<p>但是没有找到合适的说法,编译原理学的比较菜</p>
+<p>暂且悬置</p>
+]]></content>
+      <categories>
+        <category>信息安全</category>
+        <category>笔记</category>
+        <category>存档</category>
+        <category>二进制</category>
+      </categories>
+      <tags>
+        <tag>WP</tag>
+        <tag>悬而未决</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>偏特化模板函数杂谈</title>
+    <url>/effective-c/pian-te-hua-mo-ban-han-shu-za-tan/</url>
+    <content><![CDATA[<p>​ 注意到一个点: 偏特化模板类和全特化模板类, 以及全特化模板函数, 在C++11下都是合法的, 但是偏特化模板函数在C++11下是不合法的(据称, 某些编译器会错误的将偏特化模板函数接受为合法代码), 下图为笔者在vs2022下 C++14中测试结果</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202306172232774.png" alt="" /><figcaption>image-20230617223246327</figcaption>
+</figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> std::cout;</span><br><span class="line"><span class="keyword">using</span> std::cin;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&lt;T, <span class="type">int</span>&gt; &#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&lt;<span class="type">int</span>,<span class="type">char</span>&gt; &#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2&gt;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(T1 a, T2 b)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="type">void</span> <span class="built_in">foo</span>&lt; T, <span class="type">int</span> &gt;(<span class="type">int</span> a, <span class="type">int</span> b) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;&gt;</span><br><span class="line"><span class="type">void</span> foo &lt; <span class="type">int</span>, <span class="type">int</span> &gt;(<span class="type">int</span> a, <span class="type">int</span> b)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>有些版本的vs可以在静态分析时报错，我目前机子上的只能在编译时报错，而在我另一台机子上测试时，编译静态检查会报错， 报错信息是不允许使用偏特化模板函数</p>
+<p>具体原因如下</p>
+<p>https://stackoverflow.com/questions/40652694/why-does-the-c-standard-not-allow-function-template-partial-specialization</p>
+<p>http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_closed.html#229</p>
+<p>简单来说就是, 类是不允许重载的, 而函数允许重载, 这意味着偏特化和重载需要同时作用于函数参数类型推导, 这样会导致编译器相关代码变动较大, 而且会变得很笨重, 因此C++11时没有添加这个feature, 往后也没有添加 直到现在</p>
+]]></content>
+      <categories>
+        <category>C++简明进阶教程</category>
+      </categories>
+      <tags>
+        <tag>C++简明进阶教程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UE5阶段性学习笔记1</title>
     <url>/gameplay/ue5-jie-duan-xing-xue-xi-bi-ji-1/</url>
     <content><![CDATA[<h2 id="meshes-materials-textures之间的区别">Meshes, Materials, textures之间的区别</h2>
@@ -2604,35 +2654,6 @@ return 0;</code></pre>
         <category>笔记</category>
         <category>存档</category>
       </categories>
-  </entry>
-  <entry>
-    <title>pwn1_sctf_2016 WP</title>
-    <url>/ctf-wp/pwn1-sctf-2016-wp/</url>
-    <content><![CDATA[<h2 id="背景">背景</h2>
-<p>IDA分析错了+一些暂时悬而未决的疑点,故作记录</p>
-<h2 id="正文">正文</h2>
-<p>核心利用点在replace</p>
-<p>这里我不赘述了,毕竟是老题,而且是简单题,wp思路可以看看其他师傅</p>
-<p>这里主要是讲两点</p>
-<p>一个是,貌似文件里面的所有STL函数的第一个参数都是这个</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050064.png" /></p>
-<p>然后进去函数后函数会自动覆盖掉arg[0],再把所有参数下移4个偏移</p>
-<p><img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202303181050278.png" /></p>
-<p>再退出函数时,会把arg[0]再次设为这个值</p>
-<p>这里这两点让我很在意</p>
-<p>但是没有找到合适的说法,编译原理学的比较菜</p>
-<p>暂且悬置</p>
-]]></content>
-      <categories>
-        <category>信息安全</category>
-        <category>笔记</category>
-        <category>存档</category>
-        <category>二进制</category>
-      </categories>
-      <tags>
-        <tag>WP</tag>
-        <tag>悬而未决</tag>
-      </tags>
   </entry>
   <entry>
     <title>MMU笔记（3） 对堆I/O过程的多线程优化思路</title>

@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title> 祝獻の巴基力</title>
+      <title>偏特化模板函数杂谈 |  祝獻の巴基力</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -63,516 +63,155 @@
     
       
     <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Effective C++/偏特化模板函数杂谈"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  偏特化模板函数杂谈
+</h1>
+ 
+
       
-<section class="cover">
-  <div class="cover-frame">
-    <div class="bg-box">
-      <img src="/images/cover1.jpg" alt="image frame" />
+    </header>
+     
+    <div class="article-meta">
+      <a href="/effective-c/pian-te-hua-mo-ban-han-shu-za-tan/" class="article-date">
+  <time datetime="2023-06-17T13:57:39.000Z" itemprop="datePublished">2023-06-17</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C-%E7%AE%80%E6%98%8E%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B/">C++简明进阶教程</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">400</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">1 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="cover-inner text-center text-white">
-      <h1><a href="/">祝獻の巴基力</a></h1>
-      <div id="subtitle-box">
-        
-        <span id="subtitle"></span>
-        
+      
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>​ 注意到一个点: 偏特化模板类和全特化模板类, 以及全特化模板函数, 在C++11下都是合法的, 但是偏特化模板函数在C++11下是不合法的(据称, 某些编译器会错误的将偏特化模板函数接受为合法代码), 下图为笔者在vs2022下 C++14中测试结果</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202306172232774.png" alt="" /><figcaption>image-20230617223246327</figcaption>
+</figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> std::cout;</span><br><span class="line"><span class="keyword">using</span> std::cin;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&lt;T, <span class="type">int</span>&gt; &#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&lt;<span class="type">int</span>,<span class="type">char</span>&gt; &#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2&gt;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(T1 a, T2 b)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="type">void</span> <span class="built_in">foo</span>&lt; T, <span class="type">int</span> &gt;(<span class="type">int</span> a, <span class="type">int</span> b) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;&gt;</span><br><span class="line"><span class="type">void</span> foo &lt; <span class="type">int</span>, <span class="type">int</span> &gt;(<span class="type">int</span> a, <span class="type">int</span> b)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>有些版本的vs可以在静态分析时报错，我目前机子上的只能在编译时报错，而在我另一台机子上测试时，编译静态检查会报错， 报错信息是不允许使用偏特化模板函数</p>
+<p>具体原因如下</p>
+<p>https://stackoverflow.com/questions/40652694/why-does-the-c-standard-not-allow-function-template-partial-specialization</p>
+<p>http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_closed.html#229</p>
+<p>简单来说就是, 类是不允许重载的, 而函数允许重载, 这意味着偏特化和重载需要同时作用于函数参数类型推导, 这样会导致编译器相关代码变动较大, 而且会变得很笨重, 因此C++11时没有添加这个feature, 往后也没有添加 直到现在</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
       </div>
-      <div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="cover-learn-more">
-    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
-  </div>
-</section>
-
-
-
-<script src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js"></script>
-
-
-<!-- Subtitle -->
-
-  <script>
-    try {
-      var typed = new Typed("#subtitle", {
-        strings: ['pbjsjdxwkhqwlfdwlrqphwkrg', 'CDB25B41A49C148C7F41', 'C1CE448C7BB387115107'],
-        startDelay: 1,
-        typeSpeed: 200,
-        loop: true,
-        backSpeed: 100,
-        showCursor: false
-      });
-    } catch (err) {
-      console.log(err)
-    }
-  </script>
-  
-<div id="main">
-  <section class="outer">
-  
-  
-  <article class="articles">
-    
-    
-    
-    
-    <article
-  id="post-过程和函数（对象）"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/guo-cheng-he-han-shu-dui-xiang/"
-    >过程和函数（对象）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/guo-cheng-he-han-shu-dui-xiang/" class="article-date">
-  <time datetime="2021-08-19T20:22:43.000Z" itemprop="datePublished">2021-08-20</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%BB%91%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%9E%83%E5%9C%BE/">黑历史与垃圾</a>
-  </div>
-   
-    </div>
-       
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-什么是lambda函数？为什么需要lambda函数？lambda函数的本质是"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/shi-me-shi-lambda-han-shu-wei-shi-me-xu-yao-lambda-han-shu-lambda-han-shu-de-ben-zhi-shi/"
-    >什么是lambda函数？为什么需要lambda函数？lambda函数的本质是什么？如何正确应用lambda函数？</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/shi-me-shi-lambda-han-shu-wei-shi-me-xu-yao-lambda-han-shu-lambda-han-shu-de-ben-zhi-shi/" class="article-date">
-  <time datetime="2021-08-19T20:14:47.000Z" itemprop="datePublished">2021-08-20</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a> / <a class="article-category-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
-  </div>
-   
-    </div>
-       
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-逆向小研究/回调函数"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/ni-xiang-xiao-yan-jiu/hui-diao-han-shu/"
-    >回调函数和匿名回调法</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/ni-xiang-xiao-yan-jiu/hui-diao-han-shu/" class="article-date">
-  <time datetime="2021-08-19T18:53:29.000Z" itemprop="datePublished">2021-08-20</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">信息安全</a> / <a class="article-category-link" href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/">二进制</a> / <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a> / <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91/GamePlay/">GamePlay</a>
-  </div>
-   
-    </div>
-       
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/" rel="tag">回调函数</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-Windows消息开发/以消息为导向的有限状态机理念windows程序设计（汇编"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/windows-xiao-xi-kai-fa/yi-xiao-xi-wei-dao-xiang-de-you-xian-zhuang-tai-ji-li-nian-windows-cheng-xu-she-ji-hui-bian/"
-    >用汇编编写消息系统 (1) 一些基本知识点、向操作系统注册一个窗口</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/windows-xiao-xi-kai-fa/yi-xiao-xi-wei-dao-xiang-de-you-xian-zhuang-tai-ji-li-nian-windows-cheng-xu-she-ji-hui-bian/" class="article-date">
-  <time datetime="2021-08-19T17:33:41.000Z" itemprop="datePublished">2021-08-20</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a> / <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91/Windows/">Windows</a>
-  </div>
-   
-    </div>
-       
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-逆向小研究/如何数数"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/ni-xiang-xiao-yan-jiu/ru-he-shu-shu/"
-    >如何数数</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/ni-xiang-xiao-yan-jiu/ru-he-shu-shu/" class="article-date">
-  <time datetime="2021-08-18T19:22:47.000Z" itemprop="datePublished">2021-08-19</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%BB%91%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%9E%83%E5%9C%BE/">黑历史与垃圾</a>
-  </div>
-   
-    </div>
-       
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-点评/《凪明》影评"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/dian-ping/ci-ming-ying-ping/"
-    >《凪明》影评</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/dian-ping/ci-ming-ying-ping/" class="article-date">
-  <time datetime="2021-08-17T21:53:12.000Z" itemprop="datePublished">2021-08-18</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ACG/">ACG</a> / <a class="article-category-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a> / <a class="article-category-link" href="/categories/%E6%9D%82%E8%B0%88/%E7%82%B9%E8%AF%84/">点评</a>
-  </div>
-   
-    </div>
-       
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-点评/《让子弹飞》影评"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/dian-ping/rang-zi-dan-fei-ying-ping/"
-    >《让子弹飞》影评</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/dian-ping/rang-zi-dan-fei-ying-ping/" class="article-date">
-  <time datetime="2021-08-17T21:42:04.000Z" itemprop="datePublished">2021-08-18</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a> / <a class="article-category-link" href="/categories/%E6%9D%82%E8%B0%88/%E7%82%B9%E8%AF%84/">点评</a>
-  </div>
-   
-    </div>
-       
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-点评/《只有我不存在的城市》影评"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/dian-ping/zhi-you-wo-bu-cun-zai-de-cheng-shi-ying-ping/"
-    >《只有我不存在的城市》影评</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/dian-ping/zhi-you-wo-bu-cun-zai-de-cheng-shi-ying-ping/" class="article-date">
-  <time datetime="2021-08-16T20:40:16.000Z" itemprop="datePublished">2021-08-17</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ACG/">ACG</a> / <a class="article-category-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a> / <a class="article-category-link" href="/categories/%E6%9D%82%E8%B0%88/%E7%82%B9%E8%AF%84/">点评</a>
-  </div>
-   
-    </div>
-       
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-z3py库解逆向工程-ctf"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/z3py-ku-jie-ni-xiang-gong-cheng-ctf/"
-    >Z3py库解逆向工程题目</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/z3py-ku-jie-ni-xiang-gong-cheng-ctf/" class="article-date">
-  <time datetime="2021-08-16T18:03:51.000Z" itemprop="datePublished">2021-08-17</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">信息安全</a> / <a class="article-category-link" href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/">二进制</a> / <a class="article-category-link" href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/%E9%80%86%E5%90%91/">逆向</a>
-  </div>
-   
-    </div>
-       
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Z3py/" rel="tag">Z3py</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-强制类型转换和ieee-754-规范"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/qiang-zhi-lei-xing-zhuan-huan-he-ieee-754-gui-fan/"
-    >强制类型转换的缺省细节和IEEE 754 规范</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/qiang-zhi-lei-xing-zhuan-huan-he-ieee-754-gui-fan/" class="article-date">
-  <time datetime="2021-08-14T13:58:03.000Z" itemprop="datePublished">2021-08-14</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">信息安全</a> / <a class="article-category-link" href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/">二进制</a> / <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91/">开发</a>
-  </div>
-   
-    </div>
-       
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-  </article>
-  
-
-  
-  <nav class="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/13/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/15/">下一页</a>
-  </nav>
-  
-</section>
 </div>
 
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://valkierja.github.io/effective-c/pian-te-hua-mo-ban-han-shu-za-tan/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-%E7%AE%80%E6%98%8E%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B/" rel="tag">C++简明进阶教程</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/gameplay/ue5-jie-duan-xing-xue-xi-bi-ji-1/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">UE5阶段性学习笔记1</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
       <footer class="footer">
   <div class="outer">
     <ul>
@@ -700,6 +339,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
