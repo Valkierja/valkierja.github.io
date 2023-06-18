@@ -2,24 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://valkierja.github.io/ai-qi-yi-hook-ku-de-yi-xiao-duan-yuan-ma-fen-xi/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/you-yin-yong-chuan-can-yu-zhi-zhen-chuan-can-diao-shi-yin-chu-de-guan-yu-leaaddinc-zai-liu-shui-xian/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://valkierja.github.io/bu-yi-ge-da-xiao-duan-xu-zhan-zeng-chang-die-dai-fang-xiang-de-di-ceng-shu-ju-chu/</loc>
     
     <lastmod>2023-06-18</lastmod>
@@ -362,6 +344,177 @@
   </url>
   
   <url>
+    <loc>https://valkierja.github.io/pwntools-zhong-symbols-plt-got-zhe-san-ge-shu-zu-de-qu-bie/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/redmi-9-guo-xing-ban-shua-miui12-5-ou-ban-jiao-cheng-xian-shua/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/sometricks/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/third-person-view-developing/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/three-kind-of-const/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/verilog-de-shu-ju-lei-xing-zhong-xy-de-han-yi/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/weighted-q-union-suan-fa-ji-wang-zhuang-tong-lu-jian-li/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/why-ebp-is-empty-while-gcc-compiled-with-ggdb-argwithout-optimization/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/windows-pycharm-yuan-cheng-jie-shi-linux-pwntools-pei-zhi-guo-cheng/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/windowsapi-di-ceng-kai-fa-shi-yu-dao-de-chang-jian-lei-xing/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/windows-de-yi-ge-yi-si-bug/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/x64dbg-api-breakpoint/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/x64dbg-patch/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/yield-return/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/z3py-ku-jie-ni-xiang-gong-cheng-ctf/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/jia-yong-lu-you-qi-0day-wa-jue-1/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/yi-lao-yong-yi-de-jie-jue-c-zuo-zhi-you-zhi-xiang-guan-wen-ti/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/wei-shi-me-hyper-v-he-vm-conflict/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/wei-shi-me-ke-zhi-xing-wen-jian-yao-fen-duan/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://valkierja.github.io/shi-me-shi-lambda-han-shu-wei-shi-me-xu-yao-lambda-han-shu-lambda-han-shu-de-ben-zhi-shi/</loc>
     
     <lastmod>2023-06-18</lastmod>
@@ -543,6 +696,105 @@
   
   <url>
     <loc>https://valkierja.github.io/zheng-que-li-jie-ji-cheng-he-duo-tai/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ai-qi-yi-hook-ku-de-yi-xiao-duan-yuan-ma-fen-xi/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/you-yin-yong-chuan-can-yu-zhi-zhen-chuan-can-diao-shi-yin-chu-de-guan-yu-leaaddinc-zai-liu-shui-xian/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-0-qian-qi-zhun-bei/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-1-fd-li-yong/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-3-bof-li-yong/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-4-ke-ni-xiang-flag/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-5-passcode/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-6-random/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-7-input2/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-2-col-md5-peng-zhuang/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ren-gong-zhi-neng/stable-diffusion-bu-shu-cai-keng/</loc>
     
     <lastmod>2023-06-18</lastmod>
     
@@ -1253,177 +1505,6 @@
   </url>
   
   <url>
-    <loc>https://valkierja.github.io/pwntools-zhong-symbols-plt-got-zhe-san-ge-shu-zu-de-qu-bie/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/redmi-9-guo-xing-ban-shua-miui12-5-ou-ban-jiao-cheng-xian-shua/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/sometricks/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/third-person-view-developing/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/three-kind-of-const/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/verilog-de-shu-ju-lei-xing-zhong-xy-de-han-yi/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/weighted-q-union-suan-fa-ji-wang-zhuang-tong-lu-jian-li/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/why-ebp-is-empty-while-gcc-compiled-with-ggdb-argwithout-optimization/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/windows-pycharm-yuan-cheng-jie-shi-linux-pwntools-pei-zhi-guo-cheng/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/windowsapi-di-ceng-kai-fa-shi-yu-dao-de-chang-jian-lei-xing/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/windows-de-yi-ge-yi-si-bug/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/x64dbg-api-breakpoint/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/x64dbg-patch/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/yield-return/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/z3py-ku-jie-ni-xiang-gong-cheng-ctf/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/jia-yong-lu-you-qi-0day-wa-jue-1/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/yi-lao-yong-yi-de-jie-jue-c-zuo-zhi-you-zhi-xiang-guan-wen-ti/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/wei-shi-me-hyper-v-he-vm-conflict/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/wei-shi-me-ke-zhi-xing-wen-jian-yao-fen-duan/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://valkierja.github.io/ctf-wp/pwn1-sctf-2016-wp/</loc>
     
     <lastmod>2023-06-18</lastmod>
@@ -1542,87 +1623,6 @@
   
   <url>
     <loc>https://valkierja.github.io/windows-xiao-xi-kai-fa/yi-xiao-xi-wei-dao-xiang-de-you-xian-zhuang-tai-ji-li-nian-windows-cheng-xu-she-ji-hui-bian/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-0-qian-qi-zhun-bei/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-1-fd-li-yong/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-3-bof-li-yong/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-4-ke-ni-xiang-flag/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-5-passcode/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-6-random/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-7-input2/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-2-col-md5-peng-zhuang/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ren-gong-zhi-neng/stable-diffusion-bu-shu-cai-keng/</loc>
     
     <lastmod>2023-06-18</lastmod>
     
