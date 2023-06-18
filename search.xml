@@ -2574,6 +2574,50 @@ return 0;</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>写一个不会抛出异常的swap函数</title>
+    <url>/effective-c/xie-yi-ge-bu-hui-pao-chu-yi-chang-de-swap-han-shu/</url>
+    <content><![CDATA[<p>首先是典型的std::swap实现</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> std&#123;</span><br><span class="line">    <span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function">    <span class="type">void</span> <span class="title">swap</span><span class="params">(T&amp; _Left, T&amp; _Right)</span></span>&#123;</span><br><span class="line">	 T _Tmp = _STD <span class="built_in">move</span>(_Left);</span><br><span class="line">    _Left    = _STD <span class="built_in">move</span>(_Right);</span><br><span class="line">    _Right   = _STD <span class="built_in">move</span>(_Tmp);           </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如果我们的类是<code>pImpl</code>实现方式(如下所示) 则可能会出一些问题</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">WidgetImpl</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	vector&lt;T&gt; publicContainer;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	vector&lt;T&gt; privateContainer;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Widget</span> &#123;</span><br><span class="line"><span class="comment">//public:</span></span><br><span class="line"><span class="comment">//	WidgetImpl&lt;T&gt;* publicContainer;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	WidgetImpl&lt;T&gt;* pImpl;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>对于<code>Widget</code>对象, 我们<code>swap</code>只需要把内部的指针<code>swap</code>即可</p>
+<p>因此,原始的实现不够完善, 所以我们需要自己特化一个swap</p>
+<p>首先可以想到的是, 将swap在std空间中全特化, std空间中不允许添加新的函数, 但是允许全特化模板</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> std&#123;</span><br><span class="line">    <span class="keyword">template</span>&lt;&gt;<span class="comment">//意味着全特化</span></span><br><span class="line">    <span class="type">void</span> <span class="built_in">swap</span>&lt;Widget&gt;(Widget&amp; a,Widget&amp; b)&#123;</span><br><span class="line">        <span class="built_in">swap</span>(a.pImpl,b.pImpl); <span class="comment">//无法通过编译, 因为尝试访问类内private对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因此可以想到的改进是声明为友元函数, 但是为了与stl实现相一致, 这里我们采用非友元的实现, 如下所示</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//template&lt;typename T&gt; //修改为一般类 而非模板类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Widget</span> &#123;</span><br><span class="line"><span class="comment">//public:</span></span><br><span class="line"><span class="comment">//	WidgetImpl&lt;T&gt;* publicContainer;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(Widget&amp; _Right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">using</span> std::swap;</span><br><span class="line">        <span class="built_in">swap</span>(pImpl, _Right.pImpl);       </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="comment">//WidgetImpl&lt;T&gt;* pImpl;</span></span><br><span class="line">    WidgetImpl&lt;<span class="type">int</span>&gt;* pImpl;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> std&#123;</span><br><span class="line">    <span class="keyword">template</span>&lt;&gt;<span class="comment">//意味着全特化</span></span><br><span class="line">    <span class="type">void</span> <span class="built_in">swap</span>&lt;Widget&gt;(Widget&amp; a,Widget&amp; b)&#123;</span><br><span class="line">        a.<span class="built_in">swap</span>(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>到此为止， 我们已经完成了对<strong>一般类</strong>的swap函数编写，但是还有一个比较复杂的问题等待着我们，那就是为<strong>模板类</strong>编写swap</p>
+<p>首先来看最直观的第一想法是否可以正确实现</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">WidgetImpl</span> &#123;  <span class="comment">//...</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Widget</span> &#123;  <span class="comment">//...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> std&#123;</span><br><span class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line">    <span class="type">void</span> swap&lt;Widget&lt;T&gt;&gt;(Widget&lt;T&gt;&amp;, Widget&lt;T&gt;&amp;)&#123;<span class="comment">//函数模板不允许偏特化</span></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述内容不合法, 不允许偏特化函数模板</p>
+<p>详情请参考</p>
+]]></content>
+      <categories>
+        <category>C++简明进阶教程</category>
+      </categories>
+      <tags>
+        <tag>C++简明进阶教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>模板编写之,一般化 偏特化 全特化</title>
+    <url>/effective-c/mo-ban-bian-xie-zhi-yi-ban-hua-pian-te-hua-quan-te-hua/</url>
+    <content><![CDATA[<p>对于模板编写而言, 这个问题可能会让新手迷糊, 下面我来帮各位总结一下</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//一般化的模板</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="comment">//声明一个类型T</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line">	T a;<span class="comment">//使用先前声明的类型</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//错误的一般化的模板 示例1</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> vector&lt;T&gt;&gt; <span class="comment">//报错：找不到T的定义</span></span><br><span class="line"><span class="comment">//原因 typename后面需要接收一个不完全的类型, 不能接收一个偏特化(半完全)的类型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line">	T a;<span class="comment">//使用先前声明的类型</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//错误的一般化的模板 示例2</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> vector&lt;<span class="type">int</span>&gt;&gt; <span class="comment">//报错：非类型模板参数不能为类类型</span></span><br><span class="line"><span class="comment">//原因 typename后面需要接收一个不完全的类型, 不能接收一个完全的类型</span></span><br><span class="line"><span class="comment">//接收完成后, 相当于为下文的代码声明了一个类型T</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line">	T a;<span class="comment">//使用先前声明的类型</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//偏特化的模板</span></span><br><span class="line"><span class="comment">//偏特化不能用于模板函数,只能用于模板类</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="comment">//声明一个类型T</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&lt;vector&lt;T&gt;&gt; &#123;<span class="comment">//当实际接收的类型满足一定的样式时, 会调用这个偏特化类的构造函数</span></span><br><span class="line"><span class="comment">//这个样式不能是完全补足的</span></span><br><span class="line">	T a;<span class="comment">//使用先前声明的类型</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//错误的偏特化的模板 示例1</span></span><br><span class="line"><span class="comment">//偏特化不能用于模板函数,只能用于模板类</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="comment">//声明一个类型T</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&lt;vector&lt;<span class="type">int</span>&gt;&gt; &#123;<span class="comment">//完全补足了类型</span></span><br><span class="line"><span class="comment">//报错: 部分专用化(也就是偏特化)无效, 该类型已完全专用化(也就是全特化)</span></span><br><span class="line">	T a;<span class="comment">//使用先前声明的类型</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//全特化的模板</span></span><br><span class="line"><span class="keyword">template</span>&lt;&gt; <span class="comment">//既然是全特化, 不需要声明任何不完全的类型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&lt;vector&lt;<span class="type">int</span>&gt;&gt; &#123;<span class="comment">//实际接收的类型需要写成一个完全类型, 不能写不完全类型</span></span><br><span class="line">	T a;<span class="comment">//使用先前声明的类型</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//错误全特化的模板 示例1</span></span><br><span class="line"><span class="keyword">template</span>&lt;&gt; <span class="comment">//既然是全特化, 不需要声明任何不完全的类型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&lt;vector&lt;T&gt;&gt; &#123;<span class="comment">//实际接收的类型需要写成一个完全类型, 不能写不完全类型</span></span><br><span class="line"><span class="comment">// 前面没有用typename T声明过T, 而T也不是一个完全类型的话, 那么就会报错, 找不到T的定义</span></span><br><span class="line">	T a;<span class="comment">//使用先前声明的类型</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//错误全特化的模板 示例2</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="comment">//既然是全特化, 不需要声明任何不完全的类型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&lt;vector&lt;T&gt;&gt; &#123;<span class="comment">//实际接收的类型需要写成一个完全类型, 不能写不完全类型</span></span><br><span class="line"><span class="comment">//因此这个是偏特化 而不是全特化</span></span><br><span class="line">	T a;<span class="comment">//使用先前声明的类型</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>简单来说就是, 一般化和偏特化都有不完全类型的存在 因此在第一行需要用typename声明一些需要用到的不完全类型<code>template&lt;typename T&gt;</code></p>
+<p>然后在第二行决定是否需要写明部分专用化的不完全类型<code>&lt;vector&lt;T&gt;&gt;</code></p>
+<p>一般化模板不需要写明(放空 <code></code>), 函数模板不允许写明(非法), 偏特化模板必须写明<code>&lt;vector&lt;T&gt;&gt;</code>, 而且不允许写死为完全类型<code>&lt;vector&lt;int&gt;&gt;</code></p>
+<p>如果是全特化, 就不存在不完全类型, 那么第一行就什么都不需要声明<code>template&lt;&gt;</code> , 第二行需要写死接收的完全类型<code>&lt;vector&lt;int&gt;&gt;</code></p>
+<p>另外就是, 全特化和偏特化都是基于一般化模板的, 如果没有声明一般化模板, 是不能声明后两者的, 后两者和一般化的关系是后者把一些内容填充到前者, 然后通过参数类型查找, 找到最适合的特化类型</p>
+]]></content>
+      <categories>
+        <category>C++简明进阶教程</category>
+      </categories>
+      <tags>
+        <tag>C++简明进阶教程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UE5阶段性学习笔记1</title>
     <url>/gameplay/ue5-jie-duan-xing-xue-xi-bi-ji-1/</url>
     <content><![CDATA[<h2 id="meshes-materials-textures之间的区别">Meshes, Materials, textures之间的区别</h2>
@@ -5730,30 +5774,6 @@ M_{\text {viewport }}=\left(\begin{array}{cccc}
       </categories>
   </entry>
   <entry>
-    <title>如何使可以正常运行的PE文件后缀直接改为zip后同时还能正常解压</title>
-    <url>/ni-xiang-xiao-yan-jiu/er-jin-zhi-za-wen-5-ru-he-shi-ke-yi-zheng-chang-yun-xing-de-pe-wen-jian-hou-zhui-zhi-jie/</url>
-    <content><![CDATA[<p>很早之前奇怪过的一个问题</p>
-<p>在52上面下载盗版游戏的时候有时候就会遇到一些炫技的师傅整出这种骚操作</p>
-<p>下载下来一个特别大的exe打开之后读条半天,读条结束之后弹框,校验完成,请把后缀直接改成zip解压即可游玩</p>
-<p>第一次看见的时候一愣一愣的(一时半会儿找不到示例程序,各位想象一下就行)</p>
-<p>其实这个和PE文件有关</p>
-<p>PE文件的Overlay段可以塞下任何数据而不会影响主体内容的运行,一般的操作就是往里面塞数据包什么的</p>
-<p>我们还可以看一下zip的一个特点</p>
-<p>zip文件的构建是基于相对偏移的,而非绝对虚拟内存地址</p>
-<p>换句话来说就是文件头可以不位于文件的头部</p>
-<p>但我还是很奇怪这个东西该怎么开发比较好,</p>
-<p>数据包文件和主体解包程序两个文件拼接在一起</p>
-<p>虽然说直接使用C语言的write就行,但是还是感觉应该会有更oop的方式才对,不过目前没找到</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>存档</category>
-      </categories>
-      <tags>
-        <tag>悬而未决</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>lea、内存对齐、小端的一些注意点</title>
     <url>/ni-xiang-xiao-yan-jiu/er-jin-zhi-za-ji-lea-nei-cun-dui-qi-xiao-duan-de-yi-ge-zhu-yi-dian/</url>
     <content><![CDATA[<p>lea eax,[ebx+8]就是将ebx+8这个值直接赋给eax，而不是把ebx+8处的内存地址里的数据赋给eax。<br />
@@ -5808,6 +5828,30 @@ mov eax,[ebx+8]则是把内存地址为ebx+8处的数据赋给eax</p>
       </categories>
       <tags>
         <tag>需要修改</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何使可以正常运行的PE文件后缀直接改为zip后同时还能正常解压</title>
+    <url>/ni-xiang-xiao-yan-jiu/er-jin-zhi-za-wen-5-ru-he-shi-ke-yi-zheng-chang-yun-xing-de-pe-wen-jian-hou-zhui-zhi-jie/</url>
+    <content><![CDATA[<p>很早之前奇怪过的一个问题</p>
+<p>在52上面下载盗版游戏的时候有时候就会遇到一些炫技的师傅整出这种骚操作</p>
+<p>下载下来一个特别大的exe打开之后读条半天,读条结束之后弹框,校验完成,请把后缀直接改成zip解压即可游玩</p>
+<p>第一次看见的时候一愣一愣的(一时半会儿找不到示例程序,各位想象一下就行)</p>
+<p>其实这个和PE文件有关</p>
+<p>PE文件的Overlay段可以塞下任何数据而不会影响主体内容的运行,一般的操作就是往里面塞数据包什么的</p>
+<p>我们还可以看一下zip的一个特点</p>
+<p>zip文件的构建是基于相对偏移的,而非绝对虚拟内存地址</p>
+<p>换句话来说就是文件头可以不位于文件的头部</p>
+<p>但我还是很奇怪这个东西该怎么开发比较好,</p>
+<p>数据包文件和主体解包程序两个文件拼接在一起</p>
+<p>虽然说直接使用C语言的write就行,但是还是感觉应该会有更oop的方式才对,不过目前没找到</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>存档</category>
+      </categories>
+      <tags>
+        <tag>悬而未决</tag>
       </tags>
   </entry>
   <entry>
