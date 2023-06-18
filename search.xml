@@ -2588,9 +2588,49 @@ return 0;</code></pre>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//template&lt;typename T&gt; //修改为一般类 而非模板类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Widget</span> &#123;</span><br><span class="line"><span class="comment">//public:</span></span><br><span class="line"><span class="comment">//	WidgetImpl&lt;T&gt;* publicContainer;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(Widget&amp; _Right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">using</span> std::swap;</span><br><span class="line">        <span class="built_in">swap</span>(pImpl, _Right.pImpl);       </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="comment">//WidgetImpl&lt;T&gt;* pImpl;</span></span><br><span class="line">    WidgetImpl&lt;<span class="type">int</span>&gt;* pImpl;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> std&#123;</span><br><span class="line">    <span class="keyword">template</span>&lt;&gt;<span class="comment">//意味着全特化</span></span><br><span class="line">    <span class="type">void</span> <span class="built_in">swap</span>&lt;Widget&gt;(Widget&amp; a,Widget&amp; b)&#123;</span><br><span class="line">        a.<span class="built_in">swap</span>(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>到此为止， 我们已经完成了对<strong>一般类</strong>的swap函数编写，但是还有一个比较复杂的问题等待着我们，那就是为<strong>模板类</strong>编写swap</p>
 <p>首先来看最直观的第一想法是否可以正确实现</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">WidgetImpl</span> &#123;  <span class="comment">//...</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Widget</span> &#123;  <span class="comment">//...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> std&#123;</span><br><span class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line">    <span class="type">void</span> swap&lt;Widget&lt;T&gt;&gt;(Widget&lt;T&gt;&amp;, Widget&lt;T&gt;&amp;)&#123;<span class="comment">//函数模板不允许偏特化</span></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">WidgetImpl</span> &#123;  <span class="comment">//...</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Widget</span> &#123;  <span class="comment">//...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> std&#123;</span><br><span class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line">    <span class="type">void</span> swap&lt;Widget&lt;T&gt;&gt;(Widget&lt;T&gt;&amp;, Widget&lt;T&gt;&amp;)&#123;<span class="comment">//函数模板不允许偏特化 编译不通过</span></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上述内容不合法, 不允许偏特化函数模板</p>
-<p>详情请参考</p>
+<p>详情请参考https://valkierja.github.io/effective-c/pian-te-hua-mo-ban-han-shu-za-tan/ 等站内文章</p>
+<p>当你打算偏特化模板函数时, 一个惯用做法是重载一般化版本的模板函数</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">WidgetImpl</span> &#123;  <span class="comment">//...</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Widget</span> &#123;  <span class="comment">//...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> std&#123;</span><br><span class="line">    <span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function">    <span class="type">void</span> <span class="title">swap</span><span class="params">(Widget&lt;T&gt;&amp;, Widget&lt;T&gt;&amp;)</span></span>&#123;<span class="comment">//swap后面没有不完全类型和尖括号, 因此这个是一般化模板函数的重载版本,而不是偏特化</span></span><br><span class="line">    <span class="comment">//原始签名:</span></span><br><span class="line">    <span class="comment">// template&lt;typename T&gt;</span></span><br><span class="line">    <span class="comment">//void swap(T&amp;, T&amp;)</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一般来说, 上述做法是完全正确的, 但是有一点问题, 那就是: 向std空间中添加函数 或者重载函数之类的操作理论上是不被允许的</p>
+<p>但是这个只是一个规范性的东西, 所以在大多数情况下, 上述代码不仅可以正常过编译, 还可以正常使用</p>
+<p>但是为了完全贴合C++规范 我们需要改造一下上面的代码</p>
+<p>改造的方法就是声明一个自己的命名空间,然后在这个空间中 重载一般化的模板函数</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> WidgetStuff&#123;</span><br><span class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line">	<span class="keyword">class</span> <span class="title class_">WidgetImpl</span> &#123;  <span class="comment">//...</span></span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Widget</span> &#123;  <span class="comment">//...</span></span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function">    <span class="type">void</span> <span class="title">swap</span><span class="params">(Widget&lt;T&gt;&amp; a, Widget&lt;T&gt;&amp; b)</span></span>&#123;</span><br><span class="line">        a.<span class="built_in">swap</span>(b) <span class="comment">//提供public成员函数 以操作private对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>到这里为止, 我们已经写出了符合C++规范的swap函数(针对模板类对象)</p>
+<p>但是还有一些小问题</p>
+<ol type="1">
+<li>为什么放到命名空间<code>WidgetStuff</code>下, 编译器就可以找到这个重载版本的swap?</li>
+<li>我们前面讨论的全特化<code>std::swap</code>函数是否不再必要?(因为上述重载的方法可以同时应对模板类和一般类)</li>
+</ol>
+<p>首先是第一个问题, 这是由于koemig 查找规则决定的https://zh.cppreference.com/w/cpp/language/adl</p>
+<blockquote>
+<p>Argument-dependent lookup (ADL) 是 C++ 中的一个重要机制，其规则如下：</p>
+<ol type="1">
+<li>在命名空间中查找：如果使用了未限定的函数名（即没有指定命名空间），则编译器会在包含该函数的命名空间及其直接可见的命名空间中查找。</li>
+<li>参数类型匹配：如果函数名存在于多个命名空间中，则编译器会对每个命名空间中的所有函数进行参数类型匹配，并选择与调用中提供的参数最佳匹配的函数。</li>
+<li>模板参数匹配：如果有多个函数具有完全相同的名称和参数类型，则编译器会选择模板参数最匹配的函数。如果无法确定，则会发生编译错误。</li>
+</ol>
+<p>需要注意的是，ADL 仅在函数模板实例化时起作用，而不是在定义时。此外，在某些情况下，ADL 可能会导致意外的行为或编译错误，因此需要谨慎使用。</p>
+</blockquote>
+<p>也就是说, 对于实参类型所在的命名空间的同名函数, 如果可能的话, 会被优先使用</p>
+<p>其次是第二个问题, 这个问题源于现实中许多不清楚命名空间到底是什么的C++程序员的一个常见的"错误", 或者说是, 不那么优秀的实现代码</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">std::<span class="built_in">swap</span>(a,b);</span><br></pre></td></tr></table></figure>
+<p>对的没错, 那就是无论什么时候都直接写死需要调用的函数所在的命名空间, 而不是先暴露特定命名空间中的函数接口,而后直接调用:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> std::swap;</span><br><span class="line"><span class="built_in">swap</span>(a,b)</span><br></pre></td></tr></table></figure>
+<p>下面的这个写法才能让编译器找到<code>WidgetStuff</code>命名空间中的重载版本swap</p>
+<p>但是介于第一种写法在现实中太过于普遍, 因此为了防止客户误用,我们还是需要全特化<code>std::swap</code></p>
+<p>但是需要注意的是, 全特化<code>std::swap</code>的做法只能当你实现一个一般类时使用, 而不能用于实现模板类时使用</p>
+<p>总结:</p>
+<ol type="1">
+<li>在类内提供一个public函数, 用于操作private成员</li>
+<li>为class或者是class template所在命名空间提供一个一般化模板函数swap的重载版, 其实现是调用上述public函数</li>
+<li>如果你在编写的是class需要额外做本步骤, 如果是template则不需要；在命名空间std中, 全特化swap函数, 其实现是调用上述public函数</li>
+<li>在任何地方为这个类调用swap函数时, 先用using暴露std空间中的版本, 再直接调用swap, 不要加限定符 <code>swap(a,b)</code></li>
+</ol>
+<p>但是我们还没有讲异常这部分!</p>
+<p>(未完待续)</p>
 ]]></content>
       <categories>
         <category>C++简明进阶教程</category>
@@ -2609,6 +2649,14 @@ return 0;</code></pre>
 <p>一般化模板不需要写明(放空 <code></code>), 函数模板不允许写明(非法), 偏特化模板必须写明<code>&lt;vector&lt;T&gt;&gt;</code>, 而且不允许写死为完全类型<code>&lt;vector&lt;int&gt;&gt;</code></p>
 <p>如果是全特化, 就不存在不完全类型, 那么第一行就什么都不需要声明<code>template&lt;&gt;</code> , 第二行需要写死接收的完全类型<code>&lt;vector&lt;int&gt;&gt;</code></p>
 <p>另外就是, 全特化和偏特化都是基于一般化模板的, 如果没有声明一般化模板, 是不能声明后两者的, 后两者和一般化的关系是后者把一些内容填充到前者, 然后通过参数类型查找, 找到最适合的特化类型</p>
+<p>也就是说, 声明一个偏特化或者全特化的模板时, 如果特化的部分与一般化的对应部分对照不上,则会报错</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//一般化版本</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="comment">//只声明了一个不完全类型</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(T&amp;,T&amp;)</span></span>&#123;<span class="comment">//接收的类型需要和参数类型一致</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;&gt;</span><br><span class="line"><span class="type">void</span> <span class="built_in">swap</span>&lt;<span class="type">int</span>&gt;(<span class="type">char</span>&amp;,<span class="type">char</span>&amp;)&#123;<span class="comment">//接收的类型需要和参数类型一致</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;&gt;</span><br><span class="line"><span class="type">void</span> <span class="built_in">swap</span>&lt;<span class="type">int</span>,<span class="type">int</span>&gt;(<span class="type">int</span>&amp; a,<span class="type">int</span>&amp; b)&#123;</span><br><span class="line"><span class="comment">//只声明了一个不完全类型, 但这里要求尖括号内需要接收两个完全类型</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202306181552201.png" alt="" /><figcaption>image-20230618155233036</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202306181552375.png" alt="" /><figcaption>image-20230618155258347</figcaption>
+</figure>
 ]]></content>
       <categories>
         <category>C++简明进阶教程</category>
@@ -5774,6 +5822,30 @@ M_{\text {viewport }}=\left(\begin{array}{cccc}
       </categories>
   </entry>
   <entry>
+    <title>如何使可以正常运行的PE文件后缀直接改为zip后同时还能正常解压</title>
+    <url>/ni-xiang-xiao-yan-jiu/er-jin-zhi-za-wen-5-ru-he-shi-ke-yi-zheng-chang-yun-xing-de-pe-wen-jian-hou-zhui-zhi-jie/</url>
+    <content><![CDATA[<p>很早之前奇怪过的一个问题</p>
+<p>在52上面下载盗版游戏的时候有时候就会遇到一些炫技的师傅整出这种骚操作</p>
+<p>下载下来一个特别大的exe打开之后读条半天,读条结束之后弹框,校验完成,请把后缀直接改成zip解压即可游玩</p>
+<p>第一次看见的时候一愣一愣的(一时半会儿找不到示例程序,各位想象一下就行)</p>
+<p>其实这个和PE文件有关</p>
+<p>PE文件的Overlay段可以塞下任何数据而不会影响主体内容的运行,一般的操作就是往里面塞数据包什么的</p>
+<p>我们还可以看一下zip的一个特点</p>
+<p>zip文件的构建是基于相对偏移的,而非绝对虚拟内存地址</p>
+<p>换句话来说就是文件头可以不位于文件的头部</p>
+<p>但我还是很奇怪这个东西该怎么开发比较好,</p>
+<p>数据包文件和主体解包程序两个文件拼接在一起</p>
+<p>虽然说直接使用C语言的write就行,但是还是感觉应该会有更oop的方式才对,不过目前没找到</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>存档</category>
+      </categories>
+      <tags>
+        <tag>悬而未决</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>lea、内存对齐、小端的一些注意点</title>
     <url>/ni-xiang-xiao-yan-jiu/er-jin-zhi-za-ji-lea-nei-cun-dui-qi-xiao-duan-de-yi-ge-zhu-yi-dian/</url>
     <content><![CDATA[<p>lea eax,[ebx+8]就是将ebx+8这个值直接赋给eax，而不是把ebx+8处的内存地址里的数据赋给eax。<br />
@@ -5828,30 +5900,6 @@ mov eax,[ebx+8]则是把内存地址为ebx+8处的数据赋给eax</p>
       </categories>
       <tags>
         <tag>需要修改</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何使可以正常运行的PE文件后缀直接改为zip后同时还能正常解压</title>
-    <url>/ni-xiang-xiao-yan-jiu/er-jin-zhi-za-wen-5-ru-he-shi-ke-yi-zheng-chang-yun-xing-de-pe-wen-jian-hou-zhui-zhi-jie/</url>
-    <content><![CDATA[<p>很早之前奇怪过的一个问题</p>
-<p>在52上面下载盗版游戏的时候有时候就会遇到一些炫技的师傅整出这种骚操作</p>
-<p>下载下来一个特别大的exe打开之后读条半天,读条结束之后弹框,校验完成,请把后缀直接改成zip解压即可游玩</p>
-<p>第一次看见的时候一愣一愣的(一时半会儿找不到示例程序,各位想象一下就行)</p>
-<p>其实这个和PE文件有关</p>
-<p>PE文件的Overlay段可以塞下任何数据而不会影响主体内容的运行,一般的操作就是往里面塞数据包什么的</p>
-<p>我们还可以看一下zip的一个特点</p>
-<p>zip文件的构建是基于相对偏移的,而非绝对虚拟内存地址</p>
-<p>换句话来说就是文件头可以不位于文件的头部</p>
-<p>但我还是很奇怪这个东西该怎么开发比较好,</p>
-<p>数据包文件和主体解包程序两个文件拼接在一起</p>
-<p>虽然说直接使用C语言的write就行,但是还是感觉应该会有更oop的方式才对,不过目前没找到</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>存档</category>
-      </categories>
-      <tags>
-        <tag>悬而未决</tag>
       </tags>
   </entry>
   <entry>

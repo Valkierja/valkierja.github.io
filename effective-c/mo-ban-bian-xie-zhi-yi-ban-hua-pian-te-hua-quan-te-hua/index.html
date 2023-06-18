@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">990</span>
+            <span class="post-count">1.2k</span>
         </span>
     </span>
 
@@ -105,7 +105,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -125,6 +125,14 @@
 <p>一般化模板不需要写明(放空 <code></code>), 函数模板不允许写明(非法), 偏特化模板必须写明<code>&lt;vector&lt;T&gt;&gt;</code>, 而且不允许写死为完全类型<code>&lt;vector&lt;int&gt;&gt;</code></p>
 <p>如果是全特化, 就不存在不完全类型, 那么第一行就什么都不需要声明<code>template&lt;&gt;</code> , 第二行需要写死接收的完全类型<code>&lt;vector&lt;int&gt;&gt;</code></p>
 <p>另外就是, 全特化和偏特化都是基于一般化模板的, 如果没有声明一般化模板, 是不能声明后两者的, 后两者和一般化的关系是后者把一些内容填充到前者, 然后通过参数类型查找, 找到最适合的特化类型</p>
+<p>也就是说, 声明一个偏特化或者全特化的模板时, 如果特化的部分与一般化的对应部分对照不上,则会报错</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一般化版本</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="comment">//只声明了一个不完全类型</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(T&amp;,T&amp;)</span></span>&#123;<span class="comment">//接收的类型需要和参数类型一致</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;&gt;</span><br><span class="line"><span class="type">void</span> <span class="built_in">swap</span>&lt;<span class="type">int</span>&gt;(<span class="type">char</span>&amp;,<span class="type">char</span>&amp;)&#123;<span class="comment">//接收的类型需要和参数类型一致</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;&gt;</span><br><span class="line"><span class="type">void</span> <span class="built_in">swap</span>&lt;<span class="type">int</span>,<span class="type">int</span>&gt;(<span class="type">int</span>&amp; a,<span class="type">int</span>&amp; b)&#123;</span><br><span class="line"><span class="comment">//只声明了一个不完全类型, 但这里要求尖括号内需要接收两个完全类型</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202306181552201.png" alt="" /><figcaption>image-20230618155233036</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202306181552375.png" alt="" /><figcaption>image-20230618155258347</figcaption>
+</figure>
  
       <!-- reward -->
       
