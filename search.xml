@@ -2718,6 +2718,13 @@ return 0;</code></pre>
 </figure>
 <p>高度贴图和法线贴图的区别</p>
 <p><strong>法线贴图</strong>和<strong>高度贴图</strong>都是凹凸贴图的<em>类型</em></p>
+<p>法线贴图更好, 因为法线贴图可以在描述相同视觉高度的同时, 比高度贴图额外描述光线<strong>角度</strong>信息, 这一性质用于柔滑边缘光照, 对于金属材质而言, 这一操作尤其可以增加真实性</p>
+<p>左图采用了高度贴图, 右图采用了法线贴图 注意看枪支屁股处的环状金属结构边缘的反光, 以及强制握把、弹匣边缘的反光, 这种边缘柔化需要提供角度信息(这样才可以直接控制光照角度) 这样也可以在完全直角的(现代建模软件的直线边缘都是细粒度为0的 原文是in CG, everything has an infinitely sharp edge since each line has zero thickness.) 边缘上 展现出斜角效果(https://cgcookie.com/posts/top-5-blender-modeling-tools-to-make-anything)</p>
+<p>为什么需要提供角度信息? 因为我们把无限锐利的 大小为1像素的边缘, 编程了一个(假设)三像素大小的斜边从而展现斜角效果, 那么这个多出来的两个像素,如果采用高度贴图, 这会导致产生漫反射光线, 并不能控制反射方向, 但是法线贴图就可以指定反射方向了, 我们虽然要柔滑边缘产生斜角效果,但是斜角处我们还是希望形成一个相对锐利的斜角, 必须控制光线方向才可以做到这点</p>
+<p>(图源https://cgcookie.com/posts/normal-vs-displacement-mapping-why-games-use-normals )</p>
+<figure>
+<img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202305022003272.png" alt="" /><figcaption>image-20230502200238456</figcaption>
+</figure>
 <figure>
 <img src="https://raw.githubusercontent.com/Valkierja/ALLPIC/main/img/202305021942264.png" alt="" /><figcaption>image-20230502194259207</figcaption>
 </figure>
