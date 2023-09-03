@@ -2,405 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://valkierja.github.io/bu-yi-ge-da-xiao-duan-xu-zhan-zeng-chang-die-dai-fang-xiang-de-di-ceng-shu-ju-chu/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/zhuan-ai-qi-yi-de-hook-jiao-cheng/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/guo-cheng-he-han-shu-dui-xiang/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/bian-yi-lian-jie-zhuang-zai/bian-yi-lian-jie-yu-zhuang-zai-de-di-ceng-ji-zhi-du-shu-bi-ji-1/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/linux-jin-cheng-quan-xian-hua-fen/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/linux-wang-luo-cheng-xu-ni-xiang-xiao-bi-ji-1/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/linux-wang-luo-cheng-xu-ni-xiang-xiao-bi-ji-2/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/main-he-main-jie-qu/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/mov-ediedi-de-yi-yi/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/pwndbg-de-bi-ji-hui-zong-geng-xin-zhong/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/pwntool-yuan-cheng-huan-jing-keng-dian-bi-ji/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/python-exe-ni-xiang-liu-cheng/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/readelf-de-yi-xie-yong-fa/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/webbench-yuan-ma-fen-xi-yu-cheng-xu-gai-jin-ji-socks-wang-luo-xie-yi-bi-ji-1-cheng-xu/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/webbench-yuan-ma-fen-xi-yu-cheng-xu-gai-jin-ji-socks-wang-luo-xie-yi-bi-ji-2-shi-me/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/webbench-yuan-ma-fen-xi-yu-cheng-xu-gai-jin-ji-socks-wang-luo-xie-yi-bi-ji-3-main-wen-jian/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/er-jin-zhi-za-wen-3-80386-yu-8086-nei-cun-xun-zhi-ji-zhi-de-qu-bie-ji-mmu-fang-wen-fen-quan/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/er-jin-zhi-za-wen-4-windows-quan-xian-bao-hu-ji-zhi-yu-quan-xian-men-ji-zhi/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/er-jin-zhi-za-wen-5-ru-he-shi-ke-yi-zheng-chang-yun-xing-de-pe-wen-jian-hou-zhui-zhi-jie/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/er-jin-zhi-za-ji-lea-nei-cun-dui-qi-xiao-duan-de-yi-ge-zhu-yi-dian/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/ju-bing-lei-jia-zu-xiang-jie-bi-ji/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/ju-bing-xiang-jie-bi-ji-2/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/ju-bing-xiang-jie-bi-ji-3-windows-xi-tong-api-getmodulehandle-ni-xiang-bi-ji/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/hui-diao-han-shu/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/ru-he-shu-shu/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/ru-he-li-jie-mou-xie-wei-yun-suan/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/ru-he-li-jie-mo-yun-suan-yi-ji-ji-shu-qi-mu-de/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/tiao-zhuan-biao-ni-xiang-bi-ji/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/about/index.html</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/categories/index.html</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/friends/index.html</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/tags/index.html</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/fu-wei-reset-de-zuo-yong/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/da-duan-he-xiao-duan-de-jian-dan-bi-ji/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/da-duan-xu-windows-pe-wen-jian-ni-xiang-guan-jian-han-shu/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ru-he-cong-ling-kai-shi-zhi-zuo-you-xi-pei-le/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/ru-he-zai-ji-suan-ji-di-ceng-jiang-yi-bu-fen-fu-dian-shu-yun-suan-zhuan-huan-wei-deng/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/shi-xian-tu-de-guo-cheng-zhong-yi-xie-xiao-bi-ji/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/jia-yong-lu-you-qi-0day-wa-jue-bi-ji-2/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/guang-yi-shu-ju-lei-xing-ru-ni-ming-han-shu-shi-ti-de-yi-xie-xiang-fa-bi-ji/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/qiang-zhi-lei-xing-zhuan-huan-he-ieee-754-gui-fan/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xiang-xie-dian-dong-xi-dan-shi-bu-zhi-dao-cong-he-jiang-qi/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/zhi-zhen-he-yin-yong-de-qu-bie-1-biao-xiang-qu-bie/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/zhi-zhen-he-yin-yong-de-qu-bie-2-gong-cheng-hua-li-zi/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://valkierja.github.io/pai-xu-suan-fa-bi-ji/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -409,7 +13,7 @@
   <url>
     <loc>https://valkierja.github.io/zheng-que-li-jie-ji-cheng-he-duo-tai/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -418,7 +22,7 @@
   <url>
     <loc>https://valkierja.github.io/ai-qi-yi-hook-ku-de-yi-xiao-duan-yuan-ma-fen-xi/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -427,241 +31,43 @@
   <url>
     <loc>https://valkierja.github.io/you-yin-yong-chuan-can-yu-zhi-zhen-chuan-can-diao-shi-yin-chu-de-guan-yu-leaaddinc-zai-liu-shui-xian/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://valkierja.github.io/cun-dang/my-blog/</loc>
+    <loc>https://valkierja.github.io/bu-yi-ge-da-xiao-duan-xu-zhan-zeng-chang-die-dai-fang-xiang-de-di-ceng-shu-ju-chu/</loc>
     
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/cun-dang/yi-xie-dai-yan-jiu-di-ceng-yuan-li-de-hong-guan-xian-xiang/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://valkierja.github.io/cun-dang/can-kao-wen-xian-1/</loc>
+    <loc>https://valkierja.github.io/zhuan-ai-qi-yi-de-hook-jiao-cheng/</loc>
     
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/cun-dang/can-kao-wen-xian-2-gcc-chang-yong-can-shu/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://valkierja.github.io/cun-dang/can-kao-wen-xian-3-mips-bai-pi-shu-vol2/</loc>
+    <loc>https://valkierja.github.io/guo-cheng-he-han-shu-dui-xiang/</loc>
     
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/cun-dang/can-kao-wen-xian-4-duo-fan-hui-zhi-de-han-shu/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://valkierja.github.io/cun-dang/you-mei-you-ke-neng-tong-shi-dian-dao-liang-ge-an-niu/</loc>
+    <loc>https://valkierja.github.io/za-tan/2077-dong-man-guan-gan-yi-ji-yi-xie-ren-sheng-gan-wu/</loc>
     
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/cun-dang/zhuan-zai-yi-duan-hua/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/abacabc-ru-he-ni-tui/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/d-hong-fa-qi-de-shi-neng-duan-he-qing-ling-duan/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/sr-suo-cun-qi/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/yi-xie-dian-lu-yuan-jian-bi-ji/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/shi-me-shi-ma-er-ke-fu-lian/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/ji-ge-guan-xi/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/hua-jian-deng-zhi-shi/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/ji-cun-qi-he-hong-fa-qi/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/tui-li-de-xiang-guan-gong-shi/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/shi-xu-dian-lu-de-shi-jian-can-shu/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/xi-qu-shi-he-he-qu-shi/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/chi-san-shu-xue-lian-jie-ci-bi-ji/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/yi-wei-de-di-ceng-ying-jian/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/lian-jie-ci-wan-bei-ji/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/wei-ci-luo-ji/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/luo-ji-dai-shu-ji-ben-gui-ze/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/luo-ji-fu-hao-biao/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/men-dian-lu-fu-hao-biao/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -670,7 +76,7 @@
   <url>
     <loc>https://valkierja.github.io/za-tan/fool/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -679,7 +85,7 @@
   <url>
     <loc>https://valkierja.github.io/za-tan/ke-bei/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -688,7 +94,7 @@
   <url>
     <loc>https://valkierja.github.io/za-tan/da-xue-yi-nian-yi-lai-de-yi-xie-jing-li-he-gan-xiang/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -697,7 +103,7 @@
   <url>
     <loc>https://valkierja.github.io/za-tan/za-ji-2/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -706,7 +112,7 @@
   <url>
     <loc>https://valkierja.github.io/za-tan/za-ji/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -715,7 +121,7 @@
   <url>
     <loc>https://valkierja.github.io/za-tan/za-ji-yi-xie-gan-kai/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -724,7 +130,7 @@
   <url>
     <loc>https://valkierja.github.io/za-tan/po-da-fang/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -733,7 +139,7 @@
   <url>
     <loc>https://valkierja.github.io/za-tan/tan-chou-yan/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -742,7 +148,7 @@
   <url>
     <loc>https://valkierja.github.io/dian-ping/narcissu-1-2-zhong-zhang-dian-ping/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -751,7 +157,7 @@
   <url>
     <loc>https://valkierja.github.io/dian-ping/ci-ming-ying-ping/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -760,7 +166,7 @@
   <url>
     <loc>https://valkierja.github.io/dian-ping/zhi-you-wo-bu-cun-zai-de-cheng-shi-ying-ping/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -769,7 +175,7 @@
   <url>
     <loc>https://valkierja.github.io/dian-ping/ha-li-bo-te-er-zhou-mu-dian-ping/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -778,7 +184,7 @@
   <url>
     <loc>https://valkierja.github.io/dian-ping/li-hong-zhang-chuan-yi-xie-gan-wu/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -787,7 +193,7 @@
   <url>
     <loc>https://valkierja.github.io/dian-ping/bo-si-yu-ke-ying-ping/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -796,7 +202,7 @@
   <url>
     <loc>https://valkierja.github.io/dian-ping/zhen-shi-zhi-lei-ying-ping/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -805,7 +211,7 @@
   <url>
     <loc>https://valkierja.github.io/dian-ping/rang-zi-dan-fei-ying-ping/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -814,7 +220,7 @@
   <url>
     <loc>https://valkierja.github.io/dian-ping/fan-ju-22-7-dian-ping/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -823,7 +229,7 @@
   <url>
     <loc>https://valkierja.github.io/dian-ping/yin-le-ascent-dian-ping/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -832,7 +238,7 @@
   <url>
     <loc>https://valkierja.github.io/bian-yi-lian-jie-zhuang-zai/pe-loader/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -841,7 +247,7 @@
   <url>
     <loc>https://valkierja.github.io/bian-yi-lian-jie-zhuang-zai/pe-loader-ru-he-pan-duan-pe-wen-jian-que-shi-shi-yi-ge-pe-wen-jian/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -850,7 +256,7 @@
   <url>
     <loc>https://valkierja.github.io/bian-yi-lian-jie-zhuang-zai/pe-loader-zhuang-zai-shi-zuo-de-bu-fen-gong-zuo-dao-ru-biao-dao-chu-biao/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -859,7 +265,7 @@
   <url>
     <loc>https://valkierja.github.io/bian-yi-lian-jie-zhuang-zai/bian-yi-lian-jie-yu-zhuang-zai-bi-ji-2-suo-hu-chi-liang-yuan-zi-cao-zuo/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -868,7 +274,7 @@
   <url>
     <loc>https://valkierja.github.io/bian-yi-lian-jie-zhuang-zai/bian-yi-lian-jie-yu-zhuang-zai-bi-ji-3reentrant-yield-return-di-ceng-ji-zhi/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -877,88 +283,268 @@
   <url>
     <loc>https://valkierja.github.io/bian-yi-lian-jie-zhuang-zai/bian-yi-lian-jie-yu-zhuang-zai-bi-ji-4cpu-luan-xu-zhi-xing-de-yi-xie-xi-jie/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://valkierja.github.io/indirectly-call-with-plt-and-got/</loc>
+    <loc>https://valkierja.github.io/bian-yi-lian-jie-zhuang-zai/bian-yi-lian-jie-yu-zhuang-zai-de-di-ceng-ji-zhi-du-shu-bi-ji-1/</loc>
     
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/kubuntu-zsh-white-line/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://valkierja.github.io/ld-linux-x86-64-linux-virus/</loc>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/linux-jin-cheng-quan-xian-hua-fen/</loc>
     
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/leetcode-offer-62-c/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://valkierja.github.io/linus-de-su-shan-lian-biao-jie-dian-dai-ma/</loc>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/linux-wang-luo-cheng-xu-ni-xiang-xiao-bi-ji-1/</loc>
     
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/manjaro-kde-pei-zhi-pwn-huan-jing-yu-dao-de-wen-ti/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://valkierja.github.io/move-player/</loc>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/linux-wang-luo-cheng-xu-ni-xiang-xiao-bi-ji-2/</loc>
     
-    <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/nepnep-lian-he-zhan-dui-pwn-jian-xi-sheng-bao-gao-di-er-zhou/</loc>
-    
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://valkierja.github.io/net-mono-c/</loc>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/main-he-main-jie-qu/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/mov-ediedi-de-yi-yi/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/pwndbg-de-bi-ji-hui-zong-geng-xin-zhong/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/pwntool-yuan-cheng-huan-jing-keng-dian-bi-ji/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/python-exe-ni-xiang-liu-cheng/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/readelf-de-yi-xie-yong-fa/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/webbench-yuan-ma-fen-xi-yu-cheng-xu-gai-jin-ji-socks-wang-luo-xie-yi-bi-ji-1-cheng-xu/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/webbench-yuan-ma-fen-xi-yu-cheng-xu-gai-jin-ji-socks-wang-luo-xie-yi-bi-ji-2-shi-me/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/webbench-yuan-ma-fen-xi-yu-cheng-xu-gai-jin-ji-socks-wang-luo-xie-yi-bi-ji-3-main-wen-jian/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/er-jin-zhi-za-wen-3-80386-yu-8086-nei-cun-xun-zhi-ji-zhi-de-qu-bie-ji-mmu-fang-wen-fen-quan/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/er-jin-zhi-za-wen-4-windows-quan-xian-bao-hu-ji-zhi-yu-quan-xian-men-ji-zhi/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/er-jin-zhi-za-wen-5-ru-he-shi-ke-yi-zheng-chang-yun-xing-de-pe-wen-jian-hou-zhui-zhi-jie/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/er-jin-zhi-za-ji-lea-nei-cun-dui-qi-xiao-duan-de-yi-ge-zhu-yi-dian/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/ju-bing-lei-jia-zu-xiang-jie-bi-ji/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/ju-bing-xiang-jie-bi-ji-2/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/ju-bing-xiang-jie-bi-ji-3-windows-xi-tong-api-getmodulehandle-ni-xiang-bi-ji/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/hui-diao-han-shu/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/ru-he-shu-shu/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/ru-he-li-jie-mou-xie-wei-yun-suan/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/ru-he-li-jie-mo-yun-suan-yi-ji-ji-shu-qi-mu-de/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ni-xiang-xiao-yan-jiu/tiao-zhuan-biao-ni-xiang-bi-ji/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/about/index.html</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/categories/index.html</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/friends/index.html</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/tags/index.html</loc>
+    
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -967,7 +553,7 @@
   <url>
     <loc>https://valkierja.github.io/on-certainty/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -976,7 +562,7 @@
   <url>
     <loc>https://valkierja.github.io/overrid-eoverload-extern-virtual/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -985,7 +571,7 @@
   <url>
     <loc>https://valkierja.github.io/pwntools-zhong-symbols-plt-got-zhe-san-ge-shu-zu-de-qu-bie/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -994,7 +580,7 @@
   <url>
     <loc>https://valkierja.github.io/redmi-9-guo-xing-ban-shua-miui12-5-ou-ban-jiao-cheng-xian-shua/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1003,7 +589,7 @@
   <url>
     <loc>https://valkierja.github.io/sometricks/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1012,7 +598,7 @@
   <url>
     <loc>https://valkierja.github.io/third-person-view-developing/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1021,7 +607,7 @@
   <url>
     <loc>https://valkierja.github.io/three-kind-of-const/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1030,7 +616,7 @@
   <url>
     <loc>https://valkierja.github.io/verilog-de-shu-ju-lei-xing-zhong-xy-de-han-yi/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1039,7 +625,7 @@
   <url>
     <loc>https://valkierja.github.io/weighted-q-union-suan-fa-ji-wang-zhuang-tong-lu-jian-li/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1048,7 +634,7 @@
   <url>
     <loc>https://valkierja.github.io/why-ebp-is-empty-while-gcc-compiled-with-ggdb-argwithout-optimization/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1057,7 +643,7 @@
   <url>
     <loc>https://valkierja.github.io/windows-pycharm-yuan-cheng-jie-shi-linux-pwntools-pei-zhi-guo-cheng/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1066,7 +652,7 @@
   <url>
     <loc>https://valkierja.github.io/windowsapi-di-ceng-kai-fa-shi-yu-dao-de-chang-jian-lei-xing/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1075,7 +661,7 @@
   <url>
     <loc>https://valkierja.github.io/windows-de-yi-ge-yi-si-bug/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1084,7 +670,7 @@
   <url>
     <loc>https://valkierja.github.io/x64dbg-api-breakpoint/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1093,7 +679,7 @@
   <url>
     <loc>https://valkierja.github.io/x64dbg-patch/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1102,7 +688,7 @@
   <url>
     <loc>https://valkierja.github.io/yield-return/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1111,7 +697,7 @@
   <url>
     <loc>https://valkierja.github.io/z3py-ku-jie-ni-xiang-gong-cheng-ctf/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1120,7 +706,7 @@
   <url>
     <loc>https://valkierja.github.io/jia-yong-lu-you-qi-0day-wa-jue-1/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1129,7 +715,7 @@
   <url>
     <loc>https://valkierja.github.io/yi-lao-yong-yi-de-jie-jue-c-zuo-zhi-you-zhi-xiang-guan-wen-ti/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1138,7 +724,7 @@
   <url>
     <loc>https://valkierja.github.io/wei-shi-me-hyper-v-he-vm-conflict/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1147,7 +733,7 @@
   <url>
     <loc>https://valkierja.github.io/wei-shi-me-ke-zhi-xing-wen-jian-yao-fen-duan/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1156,7 +742,7 @@
   <url>
     <loc>https://valkierja.github.io/shi-me-shi-lambda-han-shu-wei-shi-me-xu-yao-lambda-han-shu-lambda-han-shu-de-ben-zhi-shi/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1165,7 +751,7 @@
   <url>
     <loc>https://valkierja.github.io/guan-yu-dell-g5-15pro-5587-shang-shi-yong-de-intel-wireless-ac-9560-160mhz-wu-xian-wang-qia-yi-si-dian-ci-gan-rao/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1174,7 +760,7 @@
   <url>
     <loc>https://valkierja.github.io/guan-yu-priority-encoder-xin-pian-de-jian-dan-xiao-fen-xi/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1183,7 +769,7 @@
   <url>
     <loc>https://valkierja.github.io/guan-yu-sp-analysis-failed-wei-shi-me-zhi-xu-yao-jian-cha-xiu-gai-chu-kou-retn-yu-jia-chu/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1192,7 +778,7 @@
   <url>
     <loc>https://valkierja.github.io/dong-tai-lian-jie-qi-bi-ji/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1201,7 +787,7 @@
   <url>
     <loc>https://valkierja.github.io/xiong-ya-li-ming-ming-fa-qian-zhui-biao-shi-fa-yi-xie-wu-la-er-yu-xi-yu-yan/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1210,7 +796,115 @@
   <url>
     <loc>https://valkierja.github.io/can-shu-chuan-di-he-yi-chang-chuan-di-de-yi-tong-zhi-chu/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/fu-wei-reset-de-zuo-yong/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/da-duan-he-xiao-duan-de-jian-dan-bi-ji/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/da-duan-xu-windows-pe-wen-jian-ni-xiang-guan-jian-han-shu/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ru-he-cong-ling-kai-shi-zhi-zuo-you-xi-pei-le/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ru-he-zai-ji-suan-ji-di-ceng-jiang-yi-bu-fen-fu-dian-shu-yun-suan-zhuan-huan-wei-deng/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/shi-xian-tu-de-guo-cheng-zhong-yi-xie-xiao-bi-ji/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/jia-yong-lu-you-qi-0day-wa-jue-bi-ji-2/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/guang-yi-shu-ju-lei-xing-ru-ni-ming-han-shu-shi-ti-de-yi-xie-xiang-fa-bi-ji/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/qiang-zhi-lei-xing-zhuan-huan-he-ieee-754-gui-fan/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xiang-xie-dian-dong-xi-dan-shi-bu-zhi-dao-cong-he-jiang-qi/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/zhi-zhen-he-yin-yong-de-qu-bie-1-biao-xiang-qu-bie/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/zhi-zhen-he-yin-yong-de-qu-bie-2-gong-cheng-hua-li-zi/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1219,7 +913,7 @@
   <url>
     <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-0-qian-qi-zhun-bei/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1228,7 +922,7 @@
   <url>
     <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-1-fd-li-yong/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1237,7 +931,7 @@
   <url>
     <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-3-bof-li-yong/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1246,7 +940,7 @@
   <url>
     <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-4-ke-ni-xiang-flag/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1255,7 +949,7 @@
   <url>
     <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-5-passcode/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1264,7 +958,7 @@
   <url>
     <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-6-random/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1273,7 +967,7 @@
   <url>
     <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-7-input2/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1282,7 +976,7 @@
   <url>
     <loc>https://valkierja.github.io/pwnable-ba-chang/pwnable-ba-chang-ak-wp-2-col-md5-peng-zhuang/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1291,7 +985,7 @@
   <url>
     <loc>https://valkierja.github.io/ren-gong-zhi-neng/stable-diffusion-bu-shu-cai-keng/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1300,7 +994,7 @@
   <url>
     <loc>https://valkierja.github.io/tu-xing-xue-bi-ji/tu-xing-xue-bi-ji-1/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1309,7 +1003,7 @@
   <url>
     <loc>https://valkierja.github.io/tu-xing-xue-bi-ji/tu-xing-xue-bi-ji-2/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1318,7 +1012,7 @@
   <url>
     <loc>https://valkierja.github.io/tu-xing-xue-bi-ji/tu-xing-xue-bi-ji-3/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1327,7 +1021,7 @@
   <url>
     <loc>https://valkierja.github.io/tu-xing-xue-bi-ji/tu-xing-xue-bi-ji-4-san-wei-kong-jian-de-bian-huan/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1336,7 +1030,7 @@
   <url>
     <loc>https://valkierja.github.io/tu-xing-xue-bi-ji/tu-xing-xue-bi-ji-4-xia-view-bian-huan/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1345,7 +1039,7 @@
   <url>
     <loc>https://valkierja.github.io/tu-xing-xue-bi-ji/tu-xing-xue-bi-ji-5-guang-zha-hua/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1354,7 +1048,7 @@
   <url>
     <loc>https://valkierja.github.io/tu-xing-xue-bi-ji/tu-xing-xue-bi-ji-6-fan-zou-yang-yu-shen-du-huan-chong/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1363,7 +1057,241 @@
   <url>
     <loc>https://valkierja.github.io/tu-xing-xue-bi-ji/tu-xing-xue-bi-ji-7-xuan-ran-shen-du-huan-chong/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/cun-dang/my-blog/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/cun-dang/yi-xie-dai-yan-jiu-di-ceng-yuan-li-de-hong-guan-xian-xiang/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/cun-dang/can-kao-wen-xian-1/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/cun-dang/can-kao-wen-xian-2-gcc-chang-yong-can-shu/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/cun-dang/can-kao-wen-xian-3-mips-bai-pi-shu-vol2/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/cun-dang/can-kao-wen-xian-4-duo-fan-hui-zhi-de-han-shu/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/cun-dang/you-mei-you-ke-neng-tong-shi-dian-dao-liang-ge-an-niu/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/cun-dang/zhuan-zai-yi-duan-hua/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/abacabc-ru-he-ni-tui/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/d-hong-fa-qi-de-shi-neng-duan-he-qing-ling-duan/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/sr-suo-cun-qi/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/yi-xie-dian-lu-yuan-jian-bi-ji/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/shi-me-shi-ma-er-ke-fu-lian/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/ji-ge-guan-xi/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/hua-jian-deng-zhi-shi/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/ji-cun-qi-he-hong-fa-qi/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/tui-li-de-xiang-guan-gong-shi/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/shi-xu-dian-lu-de-shi-jian-can-shu/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/xi-qu-shi-he-he-qu-shi/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/chi-san-shu-xue-lian-jie-ci-bi-ji/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/yi-wei-de-di-ceng-ying-jian/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/lian-jie-ci-wan-bei-ji/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/wei-ci-luo-ji/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/luo-ji-dai-shu-ji-ben-gui-ze/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/luo-ji-fu-hao-biao/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/xue-xiao-nei-bi-ji/men-dian-lu-fu-hao-biao/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1372,7 +1300,7 @@
   <url>
     <loc>https://valkierja.github.io/2018-hctf-warmup/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1381,7 +1309,7 @@
   <url>
     <loc>https://valkierja.github.io/c-jian-ming-jin-jie-jiao-cheng-0/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1390,7 +1318,7 @@
   <url>
     <loc>https://valkierja.github.io/and-esp-0fffffff0h-de-zuo-yong/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1399,7 +1327,7 @@
   <url>
     <loc>https://valkierja.github.io/arch-manjaro-kde-wu-fa-chuang-jian-shu-ru-shu-chu-hou-duan-wei-zhi-de-xie-yi-tg/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1408,7 +1336,7 @@
   <url>
     <loc>https://valkierja.github.io/binary-article-break-points/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1417,7 +1345,7 @@
   <url>
     <loc>https://valkierja.github.io/binary-articles-break-points-and-finite-state-machine/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1426,7 +1354,7 @@
   <url>
     <loc>https://valkierja.github.io/calle8-he-callff/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1435,7 +1363,7 @@
   <url>
     <loc>https://valkierja.github.io/conlang/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1444,7 +1372,7 @@
   <url>
     <loc>https://valkierja.github.io/definition-declaration/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1453,7 +1381,7 @@
   <url>
     <loc>https://valkierja.github.io/dell-g5-bios-wu-fa-yin-dao-grub-jie-jue-ban-fa/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1462,7 +1390,7 @@
   <url>
     <loc>https://valkierja.github.io/farm-ying-yu-ci-yuan-jian-dan-kao-ju/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1471,7 +1399,7 @@
   <url>
     <loc>https://valkierja.github.io/from-start-to-main/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1480,7 +1408,7 @@
   <url>
     <loc>https://valkierja.github.io/function-pass-by-value-vs-pass-by-reference/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1489,7 +1417,7 @@
   <url>
     <loc>https://valkierja.github.io/hexo-bo-ke-ban-qian-xiao-bi-ji/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1498,7 +1426,88 @@
   <url>
     <loc>https://valkierja.github.io/hp-chromebook-13-g1-kali-2021/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/indirectly-call-with-plt-and-got/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/kubuntu-zsh-white-line/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/ld-linux-x86-64-linux-virus/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/leetcode-offer-62-c/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/linus-de-su-shan-lian-biao-jie-dian-dai-ma/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/manjaro-kde-pei-zhi-pwn-huan-jing-yu-dao-de-wen-ti/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/move-player/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/nepnep-lian-he-zhan-dui-pwn-jian-xi-sheng-bao-gao-di-er-zhou/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/net-mono-c/</loc>
+    
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1507,7 +1516,7 @@
   <url>
     <loc>https://valkierja.github.io/ctf-wp/pwn1-sctf-2016-wp/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1516,7 +1525,7 @@
   <url>
     <loc>https://valkierja.github.io/effective-c/pian-te-hua-mo-ban-han-shu-za-tan/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1525,7 +1534,7 @@
   <url>
     <loc>https://valkierja.github.io/effective-c/xie-yi-ge-bu-hui-pao-chu-yi-chang-de-swap-han-shu/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1534,7 +1543,7 @@
   <url>
     <loc>https://valkierja.github.io/effective-c/mo-ban-bian-xie-zhi-yi-ban-hua-pian-te-hua-quan-te-hua/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1543,7 +1552,7 @@
   <url>
     <loc>https://valkierja.github.io/gameplay/ue5-jie-duan-xing-xue-xi-bi-ji-1/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1552,7 +1561,7 @@
   <url>
     <loc>https://valkierja.github.io/mmu-bi-ji/mmu-bi-ji-2-gong-xiang-nei-cun-ying-she-ji-zhi/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1561,7 +1570,7 @@
   <url>
     <loc>https://valkierja.github.io/mmu-bi-ji/mmu-bi-ji-3-dui-dui-i-o-guo-cheng-de-duo-xian-cheng-you-hua-si-lu/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1570,7 +1579,7 @@
   <url>
     <loc>https://valkierja.github.io/mmu-bi-ji/mmu-bi-ji-4-nei-cun-ye-ying-she-yu-nei-cun-gong-xiang-ji-zhi/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1579,7 +1588,7 @@
   <url>
     <loc>https://valkierja.github.io/mmu-bi-ji/mmu-bi-ji-5-yao-ba-xian-xing-di-zhi-wu-li-di-zhi-ci-pan-kong-jian/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1588,7 +1597,7 @@
   <url>
     <loc>https://valkierja.github.io/ue5/ue-kai-fa-tps-bu-fen-han-shu-diao-yong-liu-cheng-bi-ji/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1597,7 +1606,7 @@
   <url>
     <loc>https://valkierja.github.io/windows-xiao-xi-kai-fa/yi-xiao-xi-wei-dao-xiang-de-you-xian-zhuang-tai-ji-li-nian-windows-cheng-xu-she-ji-bi-ji-2/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1606,7 +1615,7 @@
   <url>
     <loc>https://valkierja.github.io/windows-xiao-xi-kai-fa/yi-xiao-xi-wei-dao-xiang-de-you-xian-zhuang-tai-ji-li-nian-windows-cheng-xu-she-ji-bi-ji-3/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1615,7 +1624,7 @@
   <url>
     <loc>https://valkierja.github.io/windows-xiao-xi-kai-fa/yi-xiao-xi-wei-dao-xiang-de-you-xian-zhuang-tai-ji-li-nian-windows-cheng-xu-she-ji-bi-ji/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1624,7 +1633,7 @@
   <url>
     <loc>https://valkierja.github.io/windows-xiao-xi-kai-fa/yi-xiao-xi-wei-dao-xiang-de-you-xian-zhuang-tai-ji-li-nian-windows-cheng-xu-she-ji-hui-bian-2/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1633,7 +1642,7 @@
   <url>
     <loc>https://valkierja.github.io/windows-xiao-xi-kai-fa/yi-xiao-xi-wei-dao-xiang-de-you-xian-zhuang-tai-ji-li-nian-windows-cheng-xu-she-ji-hui-bian/</loc>
     
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1642,7 +1651,7 @@
 
   <url>
     <loc>https://valkierja.github.io/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1650,399 +1659,399 @@
   
   <url>
     <loc>https://valkierja.github.io/tags/WP/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/C-%E7%AE%80%E6%98%8E%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/cpp/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E6%82%AC%E8%80%8C%E6%9C%AA%E5%86%B3/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E7%97%85%E6%AF%92/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E6%8C%96%E7%9F%BF/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/NepNep/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/pwntools/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E5%88%B7%E6%9C%BA/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E5%AE%89%E5%8D%93/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E9%9C%80%E8%A6%81%E4%BF%AE%E6%94%B9/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E8%B0%83%E7%94%A8%E7%BA%A6%E5%AE%9A/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/Windows-API/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E8%B0%83%E8%AF%95/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/Z3py/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/0day/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/DELL/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E6%9C%AA%E5%88%86%E7%B1%BB/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E5%9B%BA%E4%BB%B6/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E6%8C%87%E9%92%88/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/Hook/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/GamePlay/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/UE/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/C/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/UnrealEngine/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/AI%E7%BB%98%E7%94%BB/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E6%95%B0%E7%94%B5/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E7%A1%AC%E4%BB%B6/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E6%A0%A1%E5%86%85%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E7%94%B5%E5%BD%B1/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E7%82%B9%E8%AF%84/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E6%9C%89%E5%89%A7%E9%80%8F/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E6%97%A0%E5%89%A7%E9%80%8F/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/ACG/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E7%95%AA%E5%89%A7/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E8%A3%85%E8%BD%BD/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E7%BC%96%E8%AF%91/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E8%BF%9B%E7%A8%8B/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/PE/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E6%9D%83%E9%99%90/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/Linux%E5%86%85%E6%A0%B8/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/pwndbg/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/python/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/python%E5%AD%97%E8%8A%82%E7%A0%81/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/tags/%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -2051,224 +2060,224 @@
   
   <url>
     <loc>https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/C-%E7%AE%80%E6%98%8E%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/Web/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E9%BB%91%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%9E%83%E5%9C%BE/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E7%A1%AC%E4%BB%B6/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E6%9D%82%E8%B0%88/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E5%AD%98%E6%A1%A3/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E6%A0%A1%E5%86%85/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E6%9D%82%E8%B0%88/%E8%AF%AD%E8%A8%80%E5%AD%A6/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/GamePlay/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E6%9D%82%E8%B0%88/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/C/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/%E9%80%86%E5%90%91/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/0day/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E6%A0%A1%E5%86%85/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E7%A1%AC%E4%BB%B6/%E8%8A%AF%E7%89%87/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/PWN/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E6%A0%A1%E5%86%85/%E8%AE%A1%E7%BB%84/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/Windows/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E7%9F%AD%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/Linux/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E7%AC%94%E8%AE%B0/%E6%A0%A1%E5%86%85/%E7%A6%BB%E6%95%A3/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/%E4%BA%8C%E8%BF%9B%E5%88%B6/%E5%9B%BA%E4%BB%B6/</loc>
-    <lastmod>2023-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://valkierja.github.io/categories/%E6%9D%82%E8%B0%88/%E7%82%B9%E8%AF%84/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/ACG/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://valkierja.github.io/categories/%E6%9D%82%E8%B0%88/%E7%82%B9%E8%AF%84/</loc>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://valkierja.github.io/categories/%E5%BC%80%E5%8F%91/%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2023-07-12</lastmod>
+    <lastmod>2023-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
